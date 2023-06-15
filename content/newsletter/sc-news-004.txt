@@ -259,16 +259,16 @@ Here are some interesting news items in the broader sphere of system crafting:
 
   -> https://kchousos.github.io/posts/sicp-in-emacs/
 
-* A new auth-source backend for 1password
+* A new auth-source backend for 1Password
 
   The `password-store` program is probably the best Free Software solution for
   managing your passwords and other sensitive information, but what if you need
-  to use a proprietary solution like 1password for work or because you need to
+  to use a proprietary solution like 1Password for work or because you need to
   share passwords with family?
 
-  Traditionally it hasn't been possible to use 1password entries from within
+  Traditionally it hasn't been possible to use 1Password entries from within
   Emacs, but now you can!  The new `auth-source-1password` uses the official
-  1password command-line tool `op` to pull your passwords into Emacs for
+  1Password command-line tool `op` to pull your passwords into Emacs for
   authentication with the `auth-source`
 
   -> https://github.com/dlobraico/auth-source-1password
