@@ -1,0 +1,50 @@
+#+title: Crafting Streamlined Guix Configurations
+#+subtitle: System Crafters Live - June 16, 2023
+#+date: [2023-06-16 Fri]
+#+video: u6WCnzKkKts
+
+* Updates
+
+** Subscribe to the Newsletter!
+
+  https://systemcrafters.net/newsletter/
+
+  Issue #004 just went out yesterday!
+
+  https://systemcrafters.net/newsletter/sc-news-004.html
+
+- Support my work!
+
+  https://systemcrafters.net/how-to-help/#support-my-work
+
+** Speaking at LibrePlanet 2024
+
+I was invited to give a keynote talk at the FSF's LibrePlanet 2024 conference!  The talk will be about building community around Free Software projects and creating a healthy ecosystem of contributors.
+
+Here's the link for this year's LibrePlanet: https://libreplanet.org/2023/
+
+I'll keep you posted for when registration opens.  I'd love to have a System Crafters meetup in Boston next spring!
+
+* Call for Community Projects
+
+One thing I've been thinking about for a while is how to activate our community to collaborate on building new and useful things.  Emacs packages, Guix packages or configurations, Lisp-authored tools, really anything that would be useful to a system crafter!
+
+To that end, I've created a new channel on Matrix and IRC for community members to discuss projects that they would like to collaborate on:
+
+- *Matrix:* #systemcrafters-hacking:matrix.org
+- *IRC:* #systemcrafters-hacking
+
+A few of us are there already discussing a couple of projects that you might be interested to join:
+
+  - Fade is prototyping a new type of decentralized forum protocol based on NNTP
+    and IPFS, written in Common Lisp:
+
+    https://codeberg.org/fade/callisto
+
+  - David is doing early work on simplifying Guix configurations in Crafted Guix:
+
+    https://codeberg.org/SystemCrafters/crafted-guix
+
+If you have your own idea for a project, please feel free to come discuss it with us!  These projects don't have to be under the "System Crafters" banner, but if you'd like to make it an official SC project, we can discuss giving you a repo under the System Crafters org on Codeberg.
+
+* Simplifying Guix Configurations
