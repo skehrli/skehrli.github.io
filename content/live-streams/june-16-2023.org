@@ -24,7 +24,7 @@ I'll keep you posted for when registration opens.  I'd love to have a System Cra
 ** Support my work!
 
   https://systemcrafters.net/how-to-help/#support-my-work
-
+  
 * Call for Community Projects
 
 One thing I've been thinking about for a while is how to activate our community to collaborate on building new and useful things.  Emacs packages, Guix packages or configurations, Lisp-authored tools, really anything that would be useful to a system crafter!
@@ -32,7 +32,7 @@ One thing I've been thinking about for a while is how to activate our community 
 To that end, I've created a new channel on Matrix and IRC for community members to discuss projects that they would like to collaborate on:
 
 - *Matrix:* #systemcrafters-hacking:matrix.org
-- *IRC:* #systemcrafters-hacking
+- *IRC:* #systemcrafters-hacking on irc.libera.chat
 
 A few of us are there already discussing a few projects that you might be interested to join:
 
@@ -46,7 +46,6 @@ A few of us are there already discussing a few projects that you might be intere
     https://codeberg.org/SystemCrafters/crafted-guix
 
   - Bionicbabelfish asked for help in finishing this patch to add a Guix service to manage Docker containers as Shepherd services:
-
     https://codeberg.org/SystemCrafters/crafted-guix/src/commit/3bd0f448e1940b3fad9957c3314c1439842ebed0/projects/docker-container-service-type.org
     https://codeberg.org/SystemCrafters/crafted-guix/pulls/5
     https://issues.guix.gnu.org/58123
@@ -99,5 +98,13 @@ Docs: https://guix.gnu.org/manual/devel/en/guix.html#Using-virt_002dviewer-with-
   (define vm-config
     (crafted-config (add-system-services
                      (service spice-vdagent-service-type))))
+
+#+end_src
+
+Trying out the home configuration:
+
+#+begin_src sh
+
+  guix home -L ~/Projects/Code/crafted-guix/modules container examples/sway-desktop.scm 
 
 #+end_src
