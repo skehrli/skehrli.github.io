@@ -21,6 +21,10 @@ For now, my plan is to prototype this new installer specifically for Crafted Gui
 
 To quickly learn how to use GTK 3 to prototype the UI, we'll be using the [[https://wiki.gnome.org/Apps/Glade][Glade]] UI designer tool to inspect its output.
 
+I've created a PR for this work on Codeberg, feel free to check it out and leave comments!
+
+https://codeberg.org/SystemCrafters/crafted-guix/pulls/14
+
 ** Goals
 
 We probably won't get to all these, but it'd be nice to show that it is possible!
@@ -29,3 +33,9 @@ We probably won't get to all these, but it'd be nice to show that it is possible
 - Minimally sketch out the first few pages of the installation flow
 - Produce a basic Crafted Guix configuration from whatever the user configured
 - Produce a minimal installer image which launches this installation UI in a Sway session
+
+** Resources
+
+- https://docs.gtk.org/gtk3/class.Assistant.html
+- https://github.com/RainMark/gtk3-tutorial/blob/master/_examples/assistant.c
+- https://spk121.github.io/guile-gi/GObject-Signals.html
