@@ -1,0 +1,23 @@
+#+title: Crafter Q&A: Emacs, Guix, and more!
+#+subtitle: System Crafters Live - July 14, 2023
+#+date: [2023-07-14 Fri]
+#+video: SxoxLFavv1w
+
+* Updates
+
+- Submit your *EmacsConf 2023* proposals!
+
+  https://emacsconf.org/2023/cfp/
+
+* Crafter Q&A!
+
+Today I'll be answering your burning questions about topics relevant to our community:
+
+- Emacs
+- Emacs Lisp
+- Guix
+- Guile Scheme
+- Linux in general
+- ... and more!
+
+** Questions
