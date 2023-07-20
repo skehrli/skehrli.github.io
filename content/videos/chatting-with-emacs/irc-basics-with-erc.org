@@ -181,6 +181,6 @@ In future videos I'll show some modules you can enable to improve your experienc
 
 System Crafters community member [[https://github.com/shombando][Shom]] wrote up some helpful tips on the wiki that you might find useful!
 
-https://wiki.systemcrafters.cc/community/chat-with-us/
+[[https://systemcrafters.net/community/#chat-with-us][Chat with us]]
 
 Also, if you're a long-time IRC user, feel free to leave a note in the comments with some of your favorite IRC tips!

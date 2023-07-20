@@ -328,7 +328,7 @@ I'm planning to make more videos to show you how to use Guix as your daily drive
 - Sharing a base system configuration between multiple machines
 - How to manage user-level packages and profiles
 
-In the meantime, you can learn more helpful things from the [[https://guix.gnu.org/manual/en/guix.html][GNU Guix Manual]] and also in the [[https://wiki.systemcrafters.cc/community/chat-with-us/][System Crafters Discord or IRC chat]] where you can ask questions share tips!
+In the meantime, you can learn more helpful things from the [[https://guix.gnu.org/manual/en/guix.html][GNU Guix Manual]] and also in the [[https://systemcrafters.net/community/#chat-with-us][System Crafters Matrix or IRC chat]] where you can ask questions share tips!
 
-I also recommend checking out the [[https://wiki.systemcrafters.cc/guix][Guix section]] of the [[https://wiki.systemcrafters.cc/][System Crafters Wiki]] to find more tips about how to use the system.  Please feel free to [[https://wiki.systemcrafters.cc/community/getting-involved/][contribute]] if you learn anything useful!
+I also recommend checking out the [[https://wiki.systemcrafters.cc/guix][Guix section]] of the [[https://wiki.systemcrafters.cc/][System Crafters Wiki]] to find more tips about how to use the system.  Please feel free to [[https://systemcrafters.net/community/][contribute]] if you learn anything useful!
 
