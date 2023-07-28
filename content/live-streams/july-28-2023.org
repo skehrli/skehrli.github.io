@@ -1,0 +1,44 @@
+#+title: Terminal Velocity: Eshell, vterm, and Eat
+#+subtitle: System Crafters Live - July 28, 2023
+#+date: [2023-07-28 Fri]
+#+video: HG7pVCa0DVY
+
+* Updates
+
+- Judy (jvdydev) has joined Crafted Emacs as a co-maintainer!
+
+  https://jeffbowman.writeas.com/crafted-emacs-update-for-july-and-new-teammate
+
+- Denote 2.0 has been released!
+
+  https://protesilaos.com/codelog/2023-07-21-denote-2-0-0/
+
+- Submit your *EmacsConf 2023* proposals!
+
+  https://emacsconf.org/2023/cfp/
+
+* Comparing Emacs Terminals and Shells
+
+If you're an Emacs fan and haven't been using it as your terminal of choice, you've been missing out!
+
+In this stream, we'll take a look at three different options you should consider for a terminal (or terminal-like) experience in Emacs:
+
+- [[https://www.gnu.org/software/emacs/manual/html_mono/eshell.html][Eshell]]
+- [[https://github.com/akermu/emacs-libvterm][vterm]]
+- [[https://codeberg.org/akib/emacs-eat][Eat]]
+
+We will experiment with these three options to see which one gives the best results based on the following factors:
+
+- Speed
+- Terminal emulation quality
+- Efficiency/ease of use
+
+We'll quickly try to come up with a decent configuration with each of them and then experiment to see what kind of results we get!
+
+** Eshell
+
+** vterm
+
+** Eat
+
+** Eshell + Eat - The best of both worlds?
