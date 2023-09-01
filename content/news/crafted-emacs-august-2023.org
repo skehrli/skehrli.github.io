@@ -1,5 +1,5 @@
 #+title: Crafted Emacs Update and New Teammate!
-#+date: [2023-07-20 Thu]
+#+date: [2023-09-01 Thu]
 #+author: Jeff Bowman
 #+kind: news
 

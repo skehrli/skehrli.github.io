@@ -1,4 +1,4 @@
-pipeline:
+steps:
   build-web:
     image: silex/emacs:ci
     when:
