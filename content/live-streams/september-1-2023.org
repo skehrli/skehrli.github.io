@@ -1,0 +1,27 @@
+#+title: How to Develop New Guile Libraries
+#+subtitle: System Crafters Live - September 1, 2023
+#+date: [2023-09-01 Fri]
+#+video: o-keXs2Uh7w
+
+* Updates
+
+- Crafted Emacs has a new co-maintainer and RC1 coming soon!
+
+  Welcome to new co-maintainer Stefan Thesing!  Stefan has been helping out a *lot* on Crafted Emacs documentation lately, so we're excited to have him on board.
+
+  Check out Jeff Bowman's post with more news here:
+
+  https://write.as/jeffbowman/crafted-emacs-update-for-august-and-another-new-teammate
+
+* Creating a new Guile Scheme library
+
+Today we're going to experiment with using Guile Hall and Guix to create a new Guile Scheme library from scratch!  Guile Hall is a tool that can create a complete Guile project even with its own Guix packaging configuration.
+
+- https://gitlab.com/a-sassmannshausen/guile-hall
+- https://rednosehacker.com/hall-a-project-manager-for-the-guile-programming-language
+
+** Our Project
+
+To test out the development workflow with these tools, we'll write a simple URL route handling library like you might see in a minimal web programming framework (think Express.js, Flask, etc).
+
+The goal will be to produce a simple library with basic tests and then consume it from a Guile Scheme script inside of a =guix shell= which has our Guile library installed!
