@@ -1,5 +1,5 @@
 #+title: Crafted Emacs Update
-#+date: [2023-09-14 Thu]
+#+date: [2023-09-22 Thu]
 #+author: Jeff Bowman
 #+kind: news
 
