@@ -1,0 +1,36 @@
+#+title: The Value of Community
+#+subtitle: System Crafters Live - September 22, 2023
+#+date: [2023-09-22 Fri]
+#+video: 71GIs8RcrJM
+
+* Updates
+
+- Submit proposals for LibrePlanet 2024 until October 25!
+
+  The theme is "Cultivating Community" but there are other categories of talks they are looking for.
+
+  https://libreplanet.org/2024/
+
+- Check out the Crafted Emacs September Update!
+
+  https://write.as/jeffbowman/crafted-emacs-update-for-september
+
+* Let's Talk Community
+
+Today I'd like to talk at a high level about community: reasons for joining them, what value they provide to their members, and how they might evolve from a simple hangout to a group of people with a positive mission.
+
+Since this is the System Crafters community I'm looking particularly at what our community means for us, but also at the broader communities we're a part of: free software, Emacs, Guix, Lisp/Scheme, Linux, etc.
+
+I don't have all the answers here!  I am also looking for your ideas and experience about how communities should operate and what they can accomplish.
+
+** Why join a community?
+
+** Why stay in a community long term?
+
+** What value does a community provide for us?
+
+** How does a community give its members a feeling of shared ownership?
+
+** What do we want to accomplish together?
+
+** Examples of great communities?
