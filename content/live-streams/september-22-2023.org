@@ -11,6 +11,10 @@
 
   https://libreplanet.org/2024/
 
+- The EmacsConf 2023 talks are posted!
+
+  https://emacsconf.org/2023/talks/
+
 - Check out the Crafted Emacs September Update!
 
   https://write.as/jeffbowman/crafted-emacs-update-for-september
