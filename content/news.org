@@ -1,5 +1,6 @@
 #+TITLE: System Crafters News
 
+- [[file:crafted-emacs-september-2023.org][Crafted Emacs update]] - Jeff Bowman · September 14 2023
 - [[file:crafted-emacs-august-2023.org][Crafted Emacs update and Another New Teammate!]] - Jeff Bowman · August 29 2023
 - [[file:crafted-emacs-july-2023.org][Crafted Emacs Update and New Teammate!]] - Jeff Bowman · July 20, 2023
 - [[file:crafted-emacs-v2-beta.org][Crafted Emacs v2 Beta Announcement]] - Jeff Bowman · June 08, 2023
