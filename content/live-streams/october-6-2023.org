@@ -1,0 +1,25 @@
+#+title: Exploring Denote 2.0 for Emacs
+#+subtitle: System Crafters Live - October 6, 2023
+#+date: [2023-10-06 Fri]
+#+video: cLsByub89VY
+
+* Updates
+
+- Submit proposals for LibrePlanet 2024 until October 25!
+
+  The theme is "Cultivating Community" but there are other categories of talks they are looking for.
+
+  https://libreplanet.org/2024/
+
+- The EmacsConf 2023 talks are posted!
+
+  https://emacsconf.org/2023/talks/
+
+* Let's check out Denote 2.0!
+
+Denote 2.0 by Protesilaos Stavrou was released on July 21 of this year but I haven't had a chance to examine the changelog until now.  Let's take a look together!
+
+- https://protesilaos.com/emacs/denote-changelog
+- https://elpa.gnu.org/packages/denote.html
+
+We'll try out as many of the new features as we have time for to see how they might be useful for our note taking workflows.
