@@ -1,5 +1,5 @@
 #+title: Crafted Emacs V2 Release Announcement
-#+date: [2023-10-17 Tue]
+#+date: [2023-10-20 Fri]
 #+author: Jeff Bowman
 #+kind: news
 
