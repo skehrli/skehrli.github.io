@@ -1,4 +1,4 @@
-#+title: Crafted Emacs V2 pre-release Announcement
+#+title: Crafted Emacs V2 Release Announcement
 #+date: [2023-10-17 Tue]
 #+author: Jeff Bowman
 #+kind: news
