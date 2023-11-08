@@ -1,5 +1,13 @@
 #+title: System Crafters Live!
 
+We stream (almost) every Friday at 6PM Athens time on [[https://youtube.com/@SystemCrafters/live][YouTube]] and [[https://twitch.tv/SystemCrafters][Twitch]].
+
+You can watch live using =mpv= with =yt-dlp= installed: =mpv https://twitch.tv/SystemCrafters=
+
+Live chat is conducted primarily over IRC, [[#live-chat][click here]] to chat right on this page!
+
+* Watch Live!
+
 #+BEGIN_EXPORT html
 
 <div class="video" style="border:0; width:100%;">
@@ -13,8 +21,6 @@
 <br/>
 
 #+END_EXPORT
-
-You can also watch live using =mpv= with =yt-dlp= installed: =mpv https://twitch.tv/SystemCrafters=
 
 * Live Chat
 
