@@ -6,7 +6,7 @@
 <!-- <iframe src="https://youtube.com/embed/live_stream?channel=UCAiiOTio8Yu69c3XnR7nQBQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 <!-- </div> -->
   <iframe
-      src="https://player.twitch.tv/?systemcrafters&parent=systemcrafters.net"
+      src="https://player.twitch.tv/?channel=systemcrafters&parent=systemcrafters.net"
       allowfullscreen>
   </iframe>
 </div>
