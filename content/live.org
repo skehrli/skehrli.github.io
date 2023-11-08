@@ -17,6 +17,6 @@ Join our live chat via IRC in the room =#systemcrafters-live= on =irc.libera.cha
 
 #+BEGIN_EXPORT html
 
-<iframe src="https://kiwiirc.com/client/irc.libera.chat/?nick=crafter|?&theme=cli#systemcrafters-live" style="border:0; width:100%; height:450px;"></iframe>
+<iframe src="https://kiwiirc.com/nextclient/?settings=fb9e7e199a11db8dac703189290f3438" style="width:100%;height:450px;border:0;display:block"></iframe>
 
 #+END_EXPORT
