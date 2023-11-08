@@ -14,7 +14,7 @@
 
 #+END_EXPORT
 
-You can also watch live using =mpv= with =yt-dlp= installed: =mpv https://youtube.com/@SystemCrafters/live=
+You can also watch live using =mpv= with =yt-dlp= installed: =mpv https://twitch.tv/SystemCrafters=
 
 * Live Chat
 
