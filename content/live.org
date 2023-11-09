@@ -4,7 +4,7 @@ We stream (almost) every Friday at 6PM Athens time on [[https://youtube.com/@Sys
 
 You can watch live using =mpv= with =yt-dlp= installed: =mpv https://twitch.tv/SystemCrafters=
 
-Live chat is conducted primarily over IRC, [[#live-chat][click here]] to chat right on this page!
+Live chat is conducted primarily over IRC, check out the embedded client below!
 
 * Watch Live!
 
