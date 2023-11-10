@@ -7,6 +7,11 @@
 
 - Another experiment!  The primary live chat is now on IRC: =#systemcrafters-live= on =irc.libera-chat=!
 
+  Check out the new Live page: https://systemcrafters.net/live
+
+- The new IRC bridge and chat overlay is powered by Guile Scheme!
+  https://codeberg.org/SystemCrafters/live-crafter/src/branch/master/chat.scm
+
 - Still working on the Matrix to IRC bridge problem.  Today's stream is one side-effect of my investigations!
 
 * Making Guix Hosting Easier
@@ -25,5 +30,87 @@ Let's try to host a few things inside of a Guix container (or containers?)
 - XMPP server with Prosody
 - IRC bouncer with ZNC?
 - SSH server?
+
+
+** The final config
+
+#+begin_src scheme
+
+  (use-modules (gnu)
+               (guix gexp))
+
+  (use-package-modules bash messaging)
+  (use-service-modules messaging networking ssh web)
+
+  (operating-system
+    (host-name "crafter-host")
+    (timezone "Etc/UTC")
+    (locale "en_US.utf8")
+
+    (bootloader (bootloader-configuration
+                 (bootloader grub-bootloader)
+                 (targets '("does-not-matter"))))
+
+    (file-systems %base-file-systems)
+
+    ;; No firmware for containers.
+    (firmware '())
+
+    (users
+     (list (user-account
+            (name "crafter")
+            (group "users")
+            (password (crypt "InitialPassword!" "crafter")))))
+
+    ;; We don't need any packages inside the container.
+    (packages (list coreutils bash prosody))
+
+    ;; Basic services
+    (services (list (service dhcp-client-service-type)
+
+                    ;; Copy our web server files into the container
+                    (service special-files-service-type
+                             `(("/srv/http/systemcrafters.net" ,(local-file "website"
+                                                                            "site-files"
+                                                                            #:recursive? #t))))
+
+                    (service nginx-service-type
+                             (nginx-configuration
+                              (server-blocks
+                               (list (nginx-server-configuration
+                                      (listen '("*:8000"))
+                                      (server-name '("systemcrafters.net"))
+                                      (root "/srv/http/systemcrafters.net"))))))
+
+                    (service openssh-service-type
+                             (openssh-configuration
+                              (port-number 2222)
+                              (permit-root-login #t)))
+
+                    (service syslog-service-type)
+
+                    (service prosody-service-type
+                             (prosody-configuration
+                              (modules-enabled (cons* "groups" "mam" %default-modules-enabled))
+                              (int-components
+                               (list
+                                (int-component-configuration
+                                 (hostname "muc.localhost")
+                                 (plugin "muc")
+                                 (mod-muc (mod-muc-configuration)))))
+                              (virtualhosts
+                               (list
+                                (virtualhost-configuration
+                                 (domain "localhost")))))))))
+
+#+end_src
+
+I was running it with the following command:
+
+#+begin_src sh
+
+  sudo $(guix system container --network container-config.scm)
+
+#+end_src
 
 * Guix Containers vs Docker Compose
