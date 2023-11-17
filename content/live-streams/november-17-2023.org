@@ -18,6 +18,7 @@ Here's what we'll try to do:
 - Package up the binary distribution of Forgejo for Guix
 - Run it locally to ensure it works, generate a basic config
 - Create a local Guix container configuration to host Forgejo behind nginx
+- Host the container in a cloud VM with a domain name and SSL certificate
 - Try setting up Laminar for CI
 
 Reference:
@@ -26,189 +27,216 @@ Reference:
 - https://forgejo.org/docs/latest/admin/config-cheat-sheet/
 - https://laminar.ohwg.net/docs.html
 
-** Initial Container Config
+** Forgejo Package and Container Config
 
 #+begin_src scheme
+  (use-modules (gnu)
+               (guix gexp)
+               (guix packages)
+               (guix download)
+               (guix build utils)
+               (guix build-system gnu)
+               (guix build-system copy)
+               (nonguix build-system binary)
+               ((guix licenses) #:prefix license:))
 
-(use-modules (gnu)
-             (guix gexp)
-             (guix packages)
-             (guix download)
-             (guix build utils)
-             (guix build-system gnu)
-             (guix build-system copy)
-             (nonguix build-system binary)
-             ((guix licenses) #:prefix license:))
+  (use-package-modules version-control gcc bash certs admin linux)
+  (use-service-modules certbot shepherd configuration networking ssh web)
 
-(use-package-modules gcc bash certs messaging admin)
-(use-service-modules certbot shepherd configuration messaging networking ssh web)
+  (define forgejo
+    (let ((version "1.20.5-0"))
+      (package
+       (name "forgejo")
+       (version version)
+       (source
+        (origin
+         (method url-fetch)
+         (uri (string-append "https://codeberg.org/forgejo/forgejo/releases/download/v" version "/forgejo-" version "-linux-amd64"))
+         (file-name "forgejo")
+         (sha256
+          (base32 "0jj13qwq67acbqsina3gqi5fr2lsm80jxjmm26i1ixxhf0r0w641"))))
+       (build-system binary-build-system)
+       (arguments
+        `(#:phases (modify-phases %standard-phases
+                                  (add-after 'unpack 'chmod-to-allow-patchelf
+                                             (lambda _
+                                               (chmod "forgejo" #o755))))
+          #:install-plan `(("forgejo" "bin/"))))
+       (propagated-inputs (list git git-lfs))
+       (home-page "https://forgejo.org")
+       (synopsis "A self-hosted lightweight software forge.")
+       (description "Forgejo is a self-hosted lightweight software forge.")
+       (license license:expat))))
 
-(define conduit
-  (package
-    (name "conduit")
-    (version "0.6.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri "https://gitlab.com/famedly/conduit/-/jobs/artifacts/master/raw/build-output/linux_amd64/conduit?job=docker:master")
-       (file-name "conduit")
-       (sha256
-        (base32 "13cryq7i5g4vw31p14yf3n5b8j0s6rmra0gyzahms8p98cm5w27b"))))
-    (build-system binary-build-system)
-    (arguments
-     `(#:phases (modify-phases %standard-phases
-                   (add-after 'unpack 'chmod-to-allow-patchelf
-                     (lambda _
-                       (chmod "conduit" #o755))))
-       #:validate-runpath? #f
-       #:patchelf-plan `(("conduit" ("gcc" "gcc:lib")))
-       #:install-plan `(("conduit" "bin/"))))
-    (inputs `(("gcc:lib" ,gcc "lib")))
-    (home-page "https://conduit.rs")
-    (synopsis "A Matrix homeserver written in Rust")
-    (description
-     ".")
-    (license license:asl2.0)))
+  (define-configuration/no-serialization forgejo-configuration
+    (forgejo
+     (file-like forgejo)
+     "The forgejo package.")
 
-(define-configuration/no-serialization conduit-configuration
-  (conduit
-   (file-like conduit)
-   "The conduit package.")
+    (domain
+     (string "foo")
+     "The domain name of the server.")
 
-  (server-name
-   (string "foo")
-   "The domain name of the server."))
+    (user
+     (string "git")
+     "The name of the user under which Forgejo will be executed.")
 
-(define (conduit-configuration->file config)
-  (mixed-text-file "conduit.toml" "
-[global]
-server_name = \"" (conduit-configuration-server-name config) "\"
-trusted_servers = [\"matrix.org\"]
+    (group
+     (string "git")
+     "The name of the group under which Forgejo will be executed."))
 
-address = \"127.0.0.1\" # This makes sure Conduit can only be reached using the reverse proxy
-port = 6167
+  (define (forgejo-configuration->file config)
+    (mixed-text-file "forgejo.ini" "
+  APP_NAME = Crafter Tools
+  RUN_USER = " (forgejo-configuration-user config) "
+  WORK_PATH = /srv/forgejo
+  RUN_MODE = prod
 
-database_path = \"/srv/conduit\"
-database_backend = \"rocksdb\"
+  [database]
+  DB_TYPE = sqlite3
+  HOST = 127.0.0.1:3306
+  NAME = forgejo
+  USER = forgejo
+  PASSWD =
+  SCHEMA =
+  SSL_MODE = disable
+  PATH = /srv/forgejo/data/forgejo.db
+  LOG_SQL = false
 
-max_request_size = 20_000_000
+  [repository]
+  ROOT = /srv/forgejo/data/forgejo-repositories
 
-allow_registration = true
-allow_federation = true
-allow_check_for_updates = true
-enable_lightning_bolt = false
-"))
+  [server]
+  SSH_DOMAIN = " (forgejo-configuration-domain config) "
+  DOMAIN = localhost
+  HTTP_PORT = 3000
+  ROOT_URL = https://" (forgejo-configuration-domain config) ":3000/
+  APP_DATA_PATH = /srv/forgejo/data
+  DISABLE_SSH = false
+  SSH_PORT = 22
+  LFS_START_SERVER = true
+  LFS_JWT_SECRET = 1_yZPWVD-sFZmGSvMjt9_eMqjiHm1V5_oWEhmw8i3IM
+  OFFLINE_MODE = false
 
-(define (conduit-shepherd-service config)
-  "Return a <shepherd-service> for Conduit with CONFIG."
-  (let* ((conduit (conduit-configuration-conduit config))
-         (conduit-bin (file-append conduit "/bin/conduit"))
-         (conduit-cfg (conduit-configuration->file config)))
-    (list (shepherd-service
-           (documentation "Run the Conduit Matrix homeserver")
-           (requirement '(networking user-processes))
-           (provision '(conduit))
-           (start #~(make-forkexec-constructor
-                         (list #$conduit-bin)
-                         #:environment-variables
-                         (list (string-append "CONDUIT_CONFIG=" #$conduit-cfg))))
-           (stop  #~(make-kill-destructor))))))
+  [lfs]
+  PATH = /srv/forgejo/data/lfs
 
-(define %conduit-accounts
-  (list (user-group (name "conduit") (system? #t))
-        (user-account
-         (name "conduit")
-         (group "conduit")
-         (system? #t)
-         (comment "Conduit daemon user")
-         (home-directory "/var/empty")
-         (shell (file-append shadow "/sbin/nologin")))))
+  [mailer]
+  ENABLED = false
 
-(define %conduit-activation
-  #~(begin
-      ;; Create the directory used to store the RocksDB database.
-      (use-modules (guix build utils))
-      (mkdir-p "/srv/conduit")
-      (let ((user (getpwnam "conduit")))
-        (chown "/srv/conduit"
-               (passwd:uid user)
-               (passwd:gid user)))))
+  [service]
+  REGISTER_EMAIL_CONFIRM = false
+  ENABLE_NOTIFY_MAIL = false
+  DISABLE_REGISTRATION = false
+  ALLOW_ONLY_EXTERNAL_REGISTRATION = false
+  ENABLE_CAPTCHA = false
+  REQUIRE_SIGNIN_VIEW = false
+  DEFAULT_KEEP_EMAIL_PRIVATE = true
+  DEFAULT_ALLOW_CREATE_ORGANIZATION = true
+  DEFAULT_ENABLE_TIMETRACKING = true
+  NO_REPLY_ADDRESS = noreply.localhost
 
-(define conduit-service-type
-  (service-type (name 'conduit)
-                (extensions
-                 (list (service-extension shepherd-root-service-type
-                                          conduit-shepherd-service)
-                       (service-extension account-service-type
-                                          (const %conduit-accounts))
-                       (service-extension activation-service-type
-                                          (const %conduit-activation))))
-                (default-value (conduit-configuration))
-                (description
-                 "Run Conduit, a Matrix homeserver written in Rust.")))
+  [openid]
+  ENABLE_OPENID_SIGNIN = true
+  ENABLE_OPENID_SIGNUP = true
 
-(define (cert-path host file)
-  (format #f "/etc/letsencrypt/live/~a/~a.pem" host (symbol->string file)))
+  [cron.update_checker]
+  ENABLED = false
 
-(operating-system
-  (host-name "crafter-forge")
-  (timezone "Etc/UTC")
-  (locale "en_US.utf8")
+  [session]
+  PROVIDER = file
 
-  (bootloader (bootloader-configuration
-               (bootloader grub-bootloader)
-               (targets '("unused"))))
+  [log]
+  MODE = console
+  LEVEL = info
+  ROOT_PATH = /srv/forgejo/log
 
-  (firmware '())
-  (file-systems %base-file-systems)
+  [repository.pull-request]
+  DEFAULT_MERGE_STYLE = merge
 
-  ;; Minimal packages for remote debugging
-  (packages (list coreutils bash))
+  [repository.signing]
+  DEFAULT_TRUST_MODEL = committer
 
-  ;; Basic services
-  (services (list (service dhcp-client-service-type)
+  [security]
+  INSTALL_LOCK = true
+  INTERNAL_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3MDAyNDAwMTh9.3MFnsZWtz-Qu1I5mC1TWIXyhdGN6pDJsYE1iSugEhdM
+  PASSWORD_HASH_ALGO = pbkdf2_hi
 
-                  (service certbot-service-type
-                           (certbot-configuration
-                            (email "david@systemcrafters.net")
-                            (webroot "/srv/http/certbot")
-                            (certificates
-                             (list
-                              (certificate-configuration
-                               (domains '("crafter.tools"))
-                               (deploy-hook
-                                (program-file
-                                 "nginx-deploy-hook"
-                                 #~(let ((pid (call-with-input-file "/var/run/nginx/pid" read)))
-                                     (kill pid SIGHUP)))))))))
+  [oauth2]
+  JWT_SECRET = DrvU6DPu8tIRVmeDfpmwLakm5m_IY13Cv00uMWaBo34
+  "))
 
-                  (service nginx-service-type
-                           (nginx-configuration
-                            (server-blocks
-                             (list (nginx-server-configuration
-                                    (listen '("443 ssl http2"
-                                              "[::]:443 ssl http2"
-                                              "8448 ssl http2"
-                                              "[::]:8448 ssl http2"))
-                                    (server-name '("crafter.tools"))
-                                    (root "/srv/http/crafter.tools")
-                                    (ssl-certificate (cert-path "crafter.tools" 'fullchain))
-                                    (ssl-certificate-key (cert-path "crafter.tools" 'privkey))
-                                    (raw-content '("client_max_body_size 20M;"))
-                                    (locations
-                                     (list (nginx-location-configuration
-                                            (uri "/_matrix/")
-                                            ;; NOTE: This must be the same as the Conduit port!
-                                            (body '("proxy_pass http://127.0.0.1:6167$request_uri;"
-                                                    "proxy_set_header Host $http_host;"
-                                                    "proxy_buffering off;"
-                                                    "proxy_read_timeout 5m;"))))))))))
+  (define (forgejo-shepherd-service config)
+    "Return a <shepherd-service> for Forgejo with config."
+    (let* ((forgejo (forgejo-configuration-forgejo config))
+           (forgejo-bin (file-append forgejo "/bin/forgejo"))
+           (forgejo-cfg (forgejo-configuration->file config)))
+      (list (shepherd-service
+             (documentation "Run the Forgejo Git forge")
+             (requirement '(networking user-processes))
+             (provision '(forgejo))
+             (start #~(make-forkexec-constructor
+                           (list #$forgejo-bin "--config" #$forgejo-cfg)
+                           #:user #$(forgejo-configuration-user config)
+                           #:group #$(forgejo-configuration-group config)))
+             (stop  #~(make-kill-destructor))))))
 
-                  (service conduit-service-type
-                           (conduit-configuration
-                            (server-name "crafter.tools"))))))
+  (define %forgejo-accounts
+    (list (user-group (name "git")
+                      (system? #t))
+          (user-account
+           (name "git")
+           (group "git")
+           (system? #t)
+           (comment "Forgejo User")
+           (home-directory "/home/git"))))
 
+  (define %forgejo-activation
+    #~(begin
+        (use-modules (guix build utils))
+        (mkdir-p "/srv/forgejo")
+        (let ((user (getpwnam "git")))
+          (chown "/srv/forgejo"
+                 (passwd:uid user)
+                 (passwd:gid user)))))
 
+  (define forgejo-service-type
+    (service-type (name 'forgejo)
+                  (extensions
+                   (list (service-extension shepherd-root-service-type
+                                            forgejo-shepherd-service)
+                         (service-extension account-service-type
+                                            (const %forgejo-accounts))
+                         (service-extension activation-service-type
+                                            (const %forgejo-activation))))
+                  (default-value (forgejo-configuration))
+                  (description
+                   "Run Forgejo.")))
+
+  (operating-system
+    (host-name "crafter-forge")
+    (timezone "Etc/UTC")
+    (locale "en_US.utf8")
+
+    (bootloader (bootloader-configuration
+                 (bootloader grub-bootloader)
+                 (targets '("unused"))))
+
+    (firmware '())
+    (file-systems %base-file-systems)
+
+    ;; minimal packages for remote debugging
+    (packages (list coreutils bash iproute procps forgejo))
+
+    ;; basic services
+    (services (list (service dhcp-client-service-type)
+
+                    (service syslog-service-type
+                             (syslog-configuration))
+
+                    (service forgejo-service-type
+                             (forgejo-configuration
+                              (domain "crafter.tools"))))))
 #+end_src
 
 *** run.sh
