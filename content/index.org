@@ -1,8 +1,8 @@
 #+title: Welcome!
 
-I'm Sascha Kehrli, a computer science undergraduate student at ETH Zurich, currently on exchange at University of Washington.
+I'm Sascha Kehrli, a computer science undergraduate student at ETH Zurich, currently on exchange at the University of Washington.
 
-You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] is my Github and [[https://sascha-kehrli-cv.tiiny.site][this]] is my CV.
+You can reach me at skehrli[at]cs[.]washington[.]edu. [[https://github.com/skehrli][This]] is my Github and [[https://sascha-kehrli-cv.tiiny.site][this]] is my CV.
 
 
 # * Stay Up to Date!
