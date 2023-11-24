@@ -122,7 +122,7 @@
                       (div (@ (class "site-title"))
                            (img (@ (class "logo")
                                    (src ,(concat dw/site-url ""))
-                                   (alt "System Crafters")))
+                                   (alt "Sascha Kehrli")))
                            ))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
@@ -224,8 +224,9 @@
                                 ,content))
                       ;; ,(dw/embed-list-form)
                       )
-                 ,@(unless exclude-footer
-                     (dw/site-footer)))))))
+                 ;; ,@(unless exclude-footer
+                 ;;     (dw/site-footer))
+                 )))))
 
 (defun dw/org-html-template (contents info)
   (dw/generate-page (org-export-data (plist-get info :title) info)
