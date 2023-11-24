@@ -120,9 +120,9 @@
   (list `(header (@ (class "site-header"))
                  (div (@ (class "container"))
                       (div (@ (class "site-title"))
-                           ;; (img (@ (class "logo")
-                           ;;         (src ,(concat dw/site-url "/img/sc_logo.png"))
-                           ;;         (alt "System Crafters")))
+                           (img (@ (class "logo")
+                                   (src ,(concat dw/site-url "/img/sc_logo.png"))
+                                   (alt "System Crafters")))
                            ))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
@@ -208,7 +208,7 @@
                     ;; Empty string to cause a closing </script> tag
                     "")
             ,(when head-extra head-extra)
-            (title ,(concat title " - System Crafters")))
+            (title ,(concat title "")))
            (body ,@(unless exclude-header
                      (dw/site-header))
                  (div (@ (class "container"))
@@ -222,7 +222,8 @@
                            ,(when pre-content pre-content)
                            (div (@ (id "content"))
                                 ,content))
-                      ,(dw/embed-list-form))
+                      ;; ,(dw/embed-list-form)
+                      )
                  ,@(unless exclude-footer
                      (dw/site-footer)))))))
 
