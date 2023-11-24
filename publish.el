@@ -445,11 +445,18 @@ holding contextual information."
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("skehrli:cv"
+            '("skehrli:CV"
               :base-directory "./content/cv"
               :base-extension "org"
               :publishing-directory "./public/cv"
               :publishing-function org-html-publish-to-html
+              :auto-sitemap t
+              :sitemap-filename "../cv.org"
+              :sitemap-title "CV"
+              :sitemap-format-entry dw/format-news-entry
+              :sitemap-style list
+              ;; :sitemap-function dw/news-sitemap
+              :sitemap-sort-files anti-chronologically
               :with-title nil
               :with-timestamps nil)
             '("skehrli:assets"
