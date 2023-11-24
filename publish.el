@@ -120,9 +120,10 @@
   (list `(header (@ (class "site-header"))
                  (div (@ (class "container"))
                       (div (@ (class "site-title"))
-                           (img (@ (class "logo")
-                                   (src ,(concat dw/site-url "/img/sc_logo.png"))
-                                   (alt "System Crafters")))))
+                           ;; (img (@ (class "logo")
+                           ;;         (src ,(concat dw/site-url "/img/sc_logo.png"))
+                           ;;         (alt "System Crafters")))
+                           ))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
@@ -435,21 +436,21 @@ holding contextual information."
       webfeeder-date-function #'dw/rss-extract-date)
 
 (setq org-publish-project-alist
-      (list '("systemcrafters:main"
+      (list '("skehrli:main"
               :base-directory "./content"
               :base-extension "org"
               :publishing-directory "./public"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:cv"
+            '("skehrli:cv"
               :base-directory "./content/cv"
               :base-extension "org"
               :publishing-directory "./public/cv"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:assets"
+            '("skehrli:assets"
               :base-directory "./assets"
               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
               :publishing-directory "./public"
@@ -468,7 +469,7 @@ holding contextual information."
             ;;   :sitemap-sort-files anti-chronologically
             ;;   :with-title nil
             ;;   :with-timestamps nil)
-            '("systemcrafters:Projects"
+            '("skehrli:Projects"
               :base-directory "./content/projects"
               :base-extension "org"
               :publishing-directory "./public/projects"
