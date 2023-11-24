@@ -1,7 +1,0 @@
-#+title: Index
-
-* How to do this
-** just do
-
-* What about that?
-+ retry for publishing
