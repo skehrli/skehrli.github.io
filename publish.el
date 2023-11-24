@@ -74,11 +74,11 @@
 (defun dw/embed-video (video-id)
   (format yt-iframe-format video-id))
 
-(setq user-full-name "David Wilson")
-(setq user-mail-address "david@systemcrafters.net")
+(setq user-full-name "Sascha Kehrli")
+(setq user-mail-address "skehrli@ethz.ch")
 
 (defvar dw/site-url (if (string-equal (getenv "CI") "true")
-                        "https://systemcrafters.net"
+                        "https://skehrli.github.io"
                       "http://localhost:8080")
   "The URL for the site being generated.")
 
@@ -127,30 +127,30 @@
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
-                                (a (@ (class "nav-link") (href "/news/")) "News") " "
-                                (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
-                                (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
+                                (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
+                                ;; (a (@ (class "nav-link") (href "/news/")) "News") " "
+                                ;; (a (@ (class "nav-link") (href "/community/")) "Community") " "
+                                ;; (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
+                                (a (@ (class "nav-link") (href "/cv/")) "CV")))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
-                           (div (@ (class "column"))
-                                (p (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
-                                   " · "
-                                   (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
-                                   " · "
-                                   (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
-                                   " · "
-                                   (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                                (p "© 2021-2023 System Crafters LLC"))
-                           (div (@ (class "column align-right"))
-                                (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
-                                      (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
-                                              (style "width: 120px")
-                                              (alt "Contribute on Codeberg")))))))))))
+                           (div (@ (class "column")))))))
+                                ;; (p (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
+                                ;;    " · "
+                                ;;    (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
+                                ;;    " · "
+                                ;;    (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
+                                ;;    " · "
+                                ;;    (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
+                                ;; (p "© 2021-2023 System Crafters LLC"))
+                           ;; (div (@ (class "column align-right"))
+                           ;;      (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
+                           ;;            (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
+                           ;;                    (style "width: 120px")
+                           ;;                    (alt "Contribute on Codeberg")))))))))))
 
 (defun get-article-output-path (org-file pub-dir)
   (let ((article-dir (concat pub-dir
