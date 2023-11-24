@@ -1,6 +1,6 @@
-<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Automating Tasks with Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Automating Tasks with Emacs Lisp</h1><p class="site-post-meta">July 29, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/6zvE2vZEPzs" allowfullscreen></iframe></div><div id="content">
-<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-orgfb68b6b">
+<!-- Generated from 1605ee0 on 2023-11-24 @ 06:28 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Sascha Kehrli"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Automating Tasks with Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Automating Tasks with Emacs Lisp</h1><p class="site-post-meta">July 29, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/6zvE2vZEPzs" allowfullscreen></iframe></div><div id="content">
+<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-org3bd5f09">
 <ul class="org-ul">
 <li>Jeff Bowman wrote an article about the rename from Rational Emacs to Crafted Emacs: <a href="https://jeffbowman.writeas.com/from-rational-to-crafted-emacs">https://jeffbowman.writeas.com/from-rational-to-crafted-emacs</a></li>
 
@@ -8,7 +8,7 @@
 </ul>
 </div>
 
-<h2><a id="automating-tasks-with-emacs-lisp" class="anchor" href="#automating-tasks-with-emacs-lisp">¶</a>Automating Tasks with Emacs Lisp</h2><div class="outline-text-2" id="text-orge24a700">
+<h2><a id="automating-tasks-with-emacs-lisp" class="anchor" href="#automating-tasks-with-emacs-lisp">¶</a>Automating Tasks with Emacs Lisp</h2><div class="outline-text-2" id="text-orgd44c862">
 <p>
 Today we&rsquo;re going to write a lot of Emacs Lisp code to automate a particular monotonous task: editing my YouTube video descriptions!
 </p>
@@ -41,7 +41,7 @@ We probably won&rsquo;t get through all of this today!  I do have a starting poi
 </p>
 </div>
 
-<h3><a id="reference" class="anchor" href="#reference">¶</a>Reference</h3><div class="outline-text-3" id="text-org249736d">
+<h3><a id="reference" class="anchor" href="#reference">¶</a>Reference</h3><div class="outline-text-3" id="text-org6fb2e8b">
 <ul class="org-ul">
 <li><a href="https://developers.google.com/youtube/v3/getting-started">https://developers.google.com/youtube/v3/getting-started</a></li>
 <li><a href="https://developers.google.com/youtube/v3/guides/implementation/videos">https://developers.google.com/youtube/v3/guides/implementation/videos</a></li>
@@ -50,7 +50,7 @@ We probably won&rsquo;t get through all of this today!  I do have a starting poi
 </ul>
 </div>
 
-<h2><a id="the-final-code" class="anchor" href="#the-final-code">¶</a>The final code</h2><div class="outline-text-2" id="text-orgc67ebf6">
+<h2><a id="the-final-code" class="anchor" href="#the-final-code">¶</a>The final code</h2><div class="outline-text-2" id="text-org330bb0f">
 <pre><span class="org-comment-delimiter">;; </span><span class="org-comment">-*- lexical-binding: t; -*-</span>
 
 (<span class="org-keyword">require</span> '<span class="org-constant">simple-httpd</span>)

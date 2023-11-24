@@ -1,11 +1,11 @@
-<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Adding Helpful UI Improvements - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Adding Helpful UI Improvements</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
+<!-- Generated from 1605ee0 on 2023-11-24 @ 06:28 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Sascha Kehrli"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Adding Helpful UI Improvements - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Adding Helpful UI Improvements</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
 <li><a href="https://youtu.be/IspAZtNTslY">Watch the video</a> on YouTube!</li>
 <li>Check out the <a href="https://github.com/daviwil/emacs-from-scratch/tree/43c0401355c7971cb4491690ee4b8449505a5d58">final code</a> on GitHub</li>
 <li>Episode 2 of the <a href="../index">Emacs From Scratch</a> series</li>
 </ul>
 
-<h2><a id="general-improvements" class="anchor" href="#general-improvements">¶</a>General Improvements</h2><h3><a id="line-numbers" class="anchor" href="#line-numbers">¶</a>Line Numbers</h3><div class="outline-text-3" id="text-org24696cb">
+<h2><a id="general-improvements" class="anchor" href="#general-improvements">¶</a>General Improvements</h2><h3><a id="line-numbers" class="anchor" href="#line-numbers">¶</a>Line Numbers</h3><div class="outline-text-3" id="text-org23c3da5">
 <pre>(column-number-mode)
 (global-display-line-numbers-mode t)
 
@@ -16,12 +16,12 @@
   (add-hook mode (<span class="org-keyword">lambda</span> () (display-line-numbers-mode 0))))</pre>
 </div>
 
-<h3><a id="rainbow-delimiters" class="anchor" href="#rainbow-delimiters">¶</a>Rainbow Delimiters</h3><div class="outline-text-3" id="text-org4f33434">
+<h3><a id="rainbow-delimiters" class="anchor" href="#rainbow-delimiters">¶</a>Rainbow Delimiters</h3><div class="outline-text-3" id="text-org9a2c39d">
 <pre>(<span class="org-keyword">use-package</span> <span class="org-constant">rainbow-delimiters</span>
   <span class="org-builtin">:hook</span> (prog-mode . rainbow-delimiters-mode))</pre>
 </div>
 
-<h2><a id="packages" class="anchor" href="#packages">¶</a>Packages</h2><h3><a id="which-key" class="anchor" href="#which-key">¶</a>which-key</h3><div class="outline-text-3" id="text-orgc9a3fa0">
+<h2><a id="packages" class="anchor" href="#packages">¶</a>Packages</h2><h3><a id="which-key" class="anchor" href="#which-key">¶</a>which-key</h3><div class="outline-text-3" id="text-org721ee8f">
 <p>
 <a href="https://github.com/justbur/emacs-which-key">which-key package</a> on GitHub
 </p>
@@ -33,7 +33,7 @@
   (<span class="org-keyword">setq</span> which-key-idle-delay 0.3))</pre>
 </div>
 
-<h3><a id="ivy-rich" class="anchor" href="#ivy-rich">¶</a>ivy-rich</h3><div class="outline-text-3" id="text-org2d2e545">
+<h3><a id="ivy-rich" class="anchor" href="#ivy-rich">¶</a>ivy-rich</h3><div class="outline-text-3" id="text-org7864e98">
 <p>
 <a href="https://github.com/Yevgnen/ivy-rich">ivy-rich package</a> on GitHub
 </p>
@@ -60,13 +60,13 @@
                              (not (derived-mode-p 'exwm-mode)))))))))</pre>
 </div>
 
-<h3><a id="helpful" class="anchor" href="#helpful">¶</a>helpful</h3><div class="outline-text-3" id="text-org6a651d0">
+<h3><a id="helpful" class="anchor" href="#helpful">¶</a>helpful</h3><div class="outline-text-3" id="text-org7ca2244">
 <p>
 <a href="https://github.com/Wilfred/helpful">helpful package</a> on GitHub
 </p>
 </div>
 
-<h3><a id="doom-themes" class="anchor" href="#doom-themes">¶</a>doom-themes</h3><div class="outline-text-3" id="text-org354c039">
+<h3><a id="doom-themes" class="anchor" href="#doom-themes">¶</a>doom-themes</h3><div class="outline-text-3" id="text-orgaddff96">
 <p>
 <a href="https://github.com/hlissner/emacs-doom-themes">doom-themes package</a> on GitHub
 </p>

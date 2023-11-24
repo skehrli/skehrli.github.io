@@ -1,6 +1,6 @@
-<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Crafting a Configuration Site Generator in Emacs - Part 1 - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Crafting a Configuration Site Generator in Emacs - Part 1</h1><p class="site-post-meta">October 28, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/zMzkorlfqLA" allowfullscreen></iframe></div><div id="content">
-<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-org506a872">
+<!-- Generated from 1605ee0 on 2023-11-24 @ 06:27 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Sascha Kehrli"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Crafting a Configuration Site Generator in Emacs - Part 1 - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Crafting a Configuration Site Generator in Emacs - Part 1</h1><p class="site-post-meta">October 28, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/zMzkorlfqLA" allowfullscreen></iframe></div><div id="content">
+<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-orga5a2bef">
 <ul class="org-ul">
 <li>Jeff Bowman will be speaking at the EmacsATX meetup <b>Next Wednesday, Nov 2</b> about Crafted Emacs and his work on the <code>crafted-mastering-emacs</code> module! <a href="https://www.meetup.com/emacsatx/events/sstqrsydcpbdb/">https://www.meetup.com/emacsatx/events/sstqrsydcpbdb/</a></li>
 
@@ -16,7 +16,7 @@ Keep an eye on the <b>Flux Harmonic</b> <a href="https://youtube.com/FluxHarmoni
 </ul>
 </div>
 
-<h2><a id="crafting-a-configuration-site-generator-in-emacs" class="anchor" href="#crafting-a-configuration-site-generator-in-emacs">¶</a>Crafting a Configuration Site Generator in Emacs</h2><div class="outline-text-2" id="text-orge341248">
+<h2><a id="crafting-a-configuration-site-generator-in-emacs" class="anchor" href="#crafting-a-configuration-site-generator-in-emacs">¶</a>Crafting a Configuration Site Generator in Emacs</h2><div class="outline-text-2" id="text-orgd3bcfdf">
 <p>
 I&rsquo;ve been saying for a long time that I want to simplify my configuration and eliminate the literate-style Org files that generate my entire configuration.  However, I still want to produce a really nice site from my config files which documents them!
 </p>
@@ -34,7 +34,7 @@ Check out <b>Hawk</b>, a package that has inspired me to try to come up with my 
 </p>
 </div>
 
-<h3><a id="why" class="anchor" href="#why">¶</a>Why?</h3><div class="outline-text-3" id="text-org7cf15cb">
+<h3><a id="why" class="anchor" href="#why">¶</a>Why?</h3><div class="outline-text-3" id="text-org2f87922">
 <ul class="org-ul">
 <li><p>
 <b>Why drop Org-based config?</b>
@@ -54,7 +54,7 @@ It&rsquo;s a good idea, but I&rsquo;d like to have more control over how everyth
 </ul>
 </div>
 
-<h3><a id="desired-features" class="anchor" href="#desired-features">¶</a>Desired Features</h3><div class="outline-text-3" id="text-orgc505607">
+<h3><a id="desired-features" class="anchor" href="#desired-features">¶</a>Desired Features</h3><div class="outline-text-3" id="text-orgc301798">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> Use the same syntax highlighting as I do in my configuration (or at least a specific Emacs theme)</li>
 <li>Linkable line numbers</li>
@@ -66,7 +66,7 @@ It&rsquo;s a good idea, but I&rsquo;d like to have more control over how everyth
 </ul>
 </div>
 
-<h3><a id="the-plan" class="anchor" href="#the-plan">¶</a>The Plan</h3><div class="outline-text-3" id="text-org4a4afdd">
+<h3><a id="the-plan" class="anchor" href="#the-plan">¶</a>The Plan</h3><div class="outline-text-3" id="text-org54ccb14">
 <p>
 Here&rsquo;s the rough idea:
 </p>
@@ -79,7 +79,7 @@ Here&rsquo;s the rough idea:
 </ul>
 </div>
 
-<h3><a id="the-name" class="anchor" href="#the-name">¶</a>The Name</h3><div class="outline-text-3" id="text-orgd634508">
+<h3><a id="the-name" class="anchor" href="#the-name">¶</a>The Name</h3><div class="outline-text-3" id="text-orgc70e399">
 <p>
 Help me come up with something!
 </p>

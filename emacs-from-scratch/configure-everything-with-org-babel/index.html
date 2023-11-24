@@ -1,11 +1,11 @@
-<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Configure Everything with Org Babel - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Configure Everything with Org Babel</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
+<!-- Generated from 1605ee0 on 2023-11-24 @ 06:28 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Sascha Kehrli"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Configure Everything with Org Babel - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Configure Everything with Org Babel</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
 <li><a href="https://youtu.be/kkqVTDbfYp4">Watch the video</a> on YouTube!</li>
 <li>Check out the <a href="https://github.com/daviwil/emacs-from-scratch/tree/9388cf6ecd9b44c430867a5c3dad5f050fdc0ee1">final code</a> on GitHub</li>
 <li>Episode 7 of the <a href="../">Emacs From Scratch</a> series</li>
 </ul>
 
-<h2><a id="org-babel" class="anchor" href="#org-babel">¶</a>Org Babel</h2><div class="outline-text-2" id="text-orgba9de61">
+<h2><a id="org-babel" class="anchor" href="#org-babel">¶</a>Org Babel</h2><div class="outline-text-2" id="text-orgefa9485">
 <p>
 Execution: <code>C-c C-c</code> (output, value results)
 </p>
@@ -30,7 +30,7 @@ Execution: <code>C-c C-c</code> (output, value results)
 (<span class="org-keyword">setq</span> org-confirm-babel-evaluate nil)</pre>
 </div>
 
-<h2><a id="structure-templates" class="anchor" href="#structure-templates">¶</a>Structure Templates</h2><div class="outline-text-2" id="text-org0405f64">
+<h2><a id="structure-templates" class="anchor" href="#structure-templates">¶</a>Structure Templates</h2><div class="outline-text-2" id="text-org9d8f34b">
 <pre><span class="org-comment-delimiter">;; </span><span class="org-comment">This is needed as of Org 9.2</span>
 (<span class="org-keyword">require</span> '<span class="org-constant">org-tempo</span>)
 
@@ -39,18 +39,18 @@ Execution: <code>C-c C-c</code> (output, value results)
 (add-to-list 'org-structure-template-alist '(<span class="org-string">"py"</span> . <span class="org-string">"src python"</span>))</pre>
 </div>
 
-<h2><a id="setting-up-the-config" class="anchor" href="#setting-up-the-config">¶</a>Setting Up the Config</h2><div class="outline-text-2" id="text-org8120afb">
+<h2><a id="setting-up-the-config" class="anchor" href="#setting-up-the-config">¶</a>Setting Up the Config</h2><div class="outline-text-2" id="text-org97dc8dc">
 <p>
 Apply the same configuration to every block:
 </p>
 </div>
 
-<h2><a id="tangling-output" class="anchor" href="#tangling-output">¶</a>Tangling Output</h2><div class="outline-text-2" id="text-orgad28707">
+<h2><a id="tangling-output" class="anchor" href="#tangling-output">¶</a>Tangling Output</h2><div class="outline-text-2" id="text-orged06c76">
 <pre>(org-babel-tangle)
 (org-babel-tangle-file <span class="org-string">"~/Projects/Code/emacs-from-scratch/Emacs.org"</span>)</pre>
 </div>
 
-<h2><a id="configuring-other-apps" class="anchor" href="#configuring-other-apps">¶</a>Configuring Other Apps</h2><div class="outline-text-2" id="text-org8138212">
+<h2><a id="configuring-other-apps" class="anchor" href="#configuring-other-apps">¶</a>Configuring Other Apps</h2><div class="outline-text-2" id="text-orgd659c7e">
 <pre>(<span class="org-keyword">push</span> '(<span class="org-string">"conf-unix"</span> . conf-unix) org-src-lang-modes)</pre>
 
 <pre><span class="org-variable-name">value</span>=42</pre>
@@ -60,7 +60,7 @@ To create output directories automatically, add <code>:mkdirp yes</code>
 </p>
 </div>
 
-<h2><a id="noweb-blocks" class="anchor" href="#noweb-blocks">¶</a>Noweb Blocks</h2><div class="outline-text-2" id="text-org81cae44">
+<h2><a id="noweb-blocks" class="anchor" href="#noweb-blocks">¶</a>Noweb Blocks</h2><div class="outline-text-2" id="text-org17e8dcd">
 <p>
 Enables you to pass variables into a source block!
 </p>
@@ -74,7 +74,7 @@ Add <code>:noweb yes</code>!
 <pre><span class="org-variable-name">value</span>=&lt;&lt;the-value&gt;&gt;</pre>
 </div>
 
-<h2><a id="tips" class="anchor" href="#tips">¶</a>Tips</h2><div class="outline-text-2" id="text-org1557da5">
+<h2><a id="tips" class="anchor" href="#tips">¶</a>Tips</h2><div class="outline-text-2" id="text-org1888406">
 <ul class="org-ul">
 <li>Automatically tangle on save</li>
 <li>Should I also commit tangle output?</li>

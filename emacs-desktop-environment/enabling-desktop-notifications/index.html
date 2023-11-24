@@ -1,9 +1,9 @@
-<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title> - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from 1605ee0 on 2023-11-24 @ 06:28 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Sascha Kehrli"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title> - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content"><p>
 #+titl the final code <a href="https://github.com/daviwil/emacs-from-scratch/blob/b927109521b4b8a7e701709dabbdd9c1ea2fc27c/Desktop.org#desktop-notifications-with-dunst">here</a>.
 </p>
 
-<h2><a id="the-final-piece" class="anchor" href="#the-final-piece">¶</a>The final piece</h2><div class="outline-text-2" id="text-orgb894a9c">
+<h2><a id="the-final-piece" class="anchor" href="#the-final-piece">¶</a>The final piece</h2><div class="outline-text-2" id="text-org32440c7">
 <p>
 Desktop notifications are pretty common in applications, it&rsquo;s good to support them in our desktop environment.
 </p>
@@ -21,7 +21,7 @@ We&rsquo;ll use a program called Dunst to accomplish this.
 </p>
 </div>
 
-<h2><a id="dunst" class="anchor" href="#dunst">¶</a>Dunst</h2><div class="outline-text-2" id="text-orgb5db111">
+<h2><a id="dunst" class="anchor" href="#dunst">¶</a>Dunst</h2><div class="outline-text-2" id="text-org8ad0f5d">
 <ul class="org-ul">
 <li>Minimal</li>
 <li>Easy to customize</li>
@@ -44,7 +44,7 @@ It&rsquo;s pretty commonly available in other Linux distributions as well!
 </p>
 </div>
 
-<h2><a id="launching-dunst" class="anchor" href="#launching-dunst">¶</a>Launching Dunst</h2><div class="outline-text-2" id="text-org901d4df">
+<h2><a id="launching-dunst" class="anchor" href="#launching-dunst">¶</a>Launching Dunst</h2><div class="outline-text-2" id="text-org605f570">
 <p>
 It&rsquo;s just as simple as running <code>dunst</code>!  We can run it and see its output with <code>async-shell-command</code> (<code>M-&amp;</code>)
 </p>
@@ -68,7 +68,7 @@ We can add it to our <code>efs/exwm-init-hook</code> function:
 <pre>(efs/run-in-background <span class="org-string">"dunst"</span>)</pre>
 </div>
 
-<h2><a id="customizing-dunst" class="anchor" href="#customizing-dunst">¶</a>Customizing Dunst</h2><div class="outline-text-2" id="text-org170d794">
+<h2><a id="customizing-dunst" class="anchor" href="#customizing-dunst">¶</a>Customizing Dunst</h2><div class="outline-text-2" id="text-orgdf13415">
 <p>
 Much of this is boilerplate, you can read more about how to configure Dunst here:
 </p>
@@ -309,7 +309,7 @@ Some things you&rsquo;ll want to consider setting:
 </ul>
 </div>
 
-<h2><a id="control-dunst-with-dunstctl" class="anchor" href="#control-dunst-with-dunstctl">¶</a>Control Dunst with dunstctl</h2><div class="outline-text-2" id="text-org681cd38">
+<h2><a id="control-dunst-with-dunstctl" class="anchor" href="#control-dunst-with-dunstctl">¶</a>Control Dunst with dunstctl</h2><div class="outline-text-2" id="text-org379aa4a">
 <p>
 Starting with Dunst 1.5.0 there is a new command line tool called <code>dunstctl</code> which enables you to set up key bindings in your desktop environment (Emacs!) which launch <code>dunstctl</code> to control the running Dunst instance:
 </p>
@@ -336,7 +336,7 @@ Commands:
 (exwm-input-set-key (kbd <span class="org-string">"s-N"</span>) (<span class="org-keyword">lambda</span> () (<span class="org-keyword">interactive</span>) (efs/dunstctl <span class="org-string">"close-all"</span>)))</pre>
 </div>
 
-<h2><a id="enabling-and-disabling-notifications" class="anchor" href="#enabling-and-disabling-notifications">¶</a>Enabling and disabling notifications</h2><div class="outline-text-2" id="text-org368daa6">
+<h2><a id="enabling-and-disabling-notifications" class="anchor" href="#enabling-and-disabling-notifications">¶</a>Enabling and disabling notifications</h2><div class="outline-text-2" id="text-org958c0dc">
 <p>
 You can use either of the following commands to disable desktop notifications temporarily:
 </p>
@@ -376,13 +376,13 @@ It can be useful to create an interactive function to enable/disable notificatio
   (start-process-shell-command <span class="org-string">"notify-send"</span> nil <span class="org-string">"notify-send \"This is from Emacs!\""</span>)</pre>
 </div>
 
-<h2><a id="sending-notifications-from-emacs" class="anchor" href="#sending-notifications-from-emacs">¶</a>Sending notifications from Emacs</h2><div class="outline-text-2" id="text-org83a7fd3">
+<h2><a id="sending-notifications-from-emacs" class="anchor" href="#sending-notifications-from-emacs">¶</a>Sending notifications from Emacs</h2><div class="outline-text-2" id="text-orgbbe560d">
 <p>
 Now that we can display notifications, we can use them in our Emacs configuration too:
 </p>
 </div>
 
-<h3><a id="built-in-functions" class="anchor" href="#built-in-functions">¶</a>Built-in functions</h3><div class="outline-text-3" id="text-org69503bc">
+<h3><a id="built-in-functions" class="anchor" href="#built-in-functions">¶</a>Built-in functions</h3><div class="outline-text-3" id="text-orgfcccb71">
 <p>
 Emacs has a built-in function for this:
 </p>
@@ -395,7 +395,7 @@ Manual: <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Deskt
 </p>
 </div>
 
-<h3><a id="alertel" class="anchor" href="#alertel">¶</a>alert.el</h3><div class="outline-text-3" id="text-org57caa4c">
+<h3><a id="alertel" class="anchor" href="#alertel">¶</a>alert.el</h3><div class="outline-text-3" id="text-orgdbb754f">
 <p>
 An alternative is alert.el: <a href="https://github.com/jwiegley/alert">https://github.com/jwiegley/alert</a>
 </p>
