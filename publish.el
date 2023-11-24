@@ -455,19 +455,19 @@ holding contextual information."
               :publishing-directory "./public"
               :recursive t
               :publishing-function org-publish-attachment)
-            '("systemcrafters:live-streams"
-              :base-directory "./content/live-streams"
-              :base-extension "org"
-              :publishing-directory "./public/live-streams"
-              :publishing-function org-html-publish-to-html
-              :auto-sitemap t
-              :sitemap-filename "../live-streams.org"
-              :sitemap-title "Live Streams"
-              :sitemap-format-entry dw/format-live-stream-entry
-              :sitemap-style list
-              :sitemap-sort-files anti-chronologically
-              :with-title nil
-              :with-timestamps nil)
+            ;; '("systemcrafters:live-streams"
+            ;;   :base-directory "./content/live-streams"
+            ;;   :base-extension "org"
+            ;;   :publishing-directory "./public/live-streams"
+            ;;   :publishing-function org-html-publish-to-html
+            ;;   :auto-sitemap t
+            ;;   :sitemap-filename "../live-streams.org"
+            ;;   :sitemap-title "Live Streams"
+            ;;   :sitemap-format-entry dw/format-live-stream-entry
+            ;;   :sitemap-style list
+            ;;   :sitemap-sort-files anti-chronologically
+            ;;   :with-title nil
+            ;;   :with-timestamps nil)
             '("systemcrafters:Projects"
               :base-directory "./content/projects"
               :base-extension "org"
@@ -482,19 +482,20 @@ holding contextual information."
               :sitemap-sort-files anti-chronologically
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:newsletter"
-              :base-directory "./content/newsletter"
-              :base-extension "txt"
-              :publishing-directory "./public/newsletter"
-              :publishing-function dw/publish-newsletter-page)
-            '("systemcrafters:videos"
-              :base-directory "./content/videos"
-              :base-extension "org"
-              :recursive t
-              :publishing-directory "./public"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)))
+            ;; '("systemcrafters:newsletter"
+            ;;   :base-directory "./content/newsletter"
+            ;;   :base-extension "txt"
+            ;;   :publishing-directory "./public/newsletter"
+            ;;   :publishing-function dw/publish-newsletter-page)
+            ;; '("systemcrafters:videos"
+            ;;   :base-directory "./content/videos"
+            ;;   :base-extension "org"
+            ;;   :recursive t
+            ;;   :publishing-directory "./public"
+            ;;   :publishing-function org-html-publish-to-html
+            ;;   :with-title nil
+            ;;   :with-timestamps nil)
+            ))
 
 ;; TODO: Generate a _redirects file instead once Codeberg Pages releases a new version
 (defun dw/generate-redirects (redirects)
