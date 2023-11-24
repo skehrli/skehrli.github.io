@@ -137,7 +137,7 @@
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
-                           (div (@ (class "column")))))))
+                           (div (@ (class "column"))))))))
                                 ;; (p (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
                                 ;;    " · "
                                 ;;    (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
