@@ -83,7 +83,7 @@
   "The URL for the site being generated.")
 
 (defun dw/embed-list-form ()
-  `(div (@ (class "list-form center"))))
+  `(div (@ (class "list-form center")))
         ;; (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
         ;; (form (@ (method "POST")
         ;;          (action "https://www.simplelists.com/subscribe.php"))
