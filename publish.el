@@ -189,7 +189,7 @@
     `(html (@ (lang "en"))
            (head
             (meta (@ (charset "utf-8")))
-            (meta (@ (author "System Crafters - David Wilson")))
+            (meta (@ (author "Sascha Kehrli")))
             (meta (@ (name "viewport")
                      (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
             (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
@@ -442,10 +442,10 @@ holding contextual information."
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:faq"
-              :base-directory "./content/faq"
+            '("systemcrafters:cv"
+              :base-directory "./content/cv"
               :base-extension "org"
-              :publishing-directory "./public/faq"
+              :publishing-directory "./public/cv"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
@@ -468,14 +468,14 @@ holding contextual information."
               :sitemap-sort-files anti-chronologically
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:news"
-              :base-directory "./content/news"
+            '("systemcrafters:Projects"
+              :base-directory "./content/projects"
               :base-extension "org"
-              :publishing-directory "./public/news"
+              :publishing-directory "./public/projects"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
-              :sitemap-filename "../news.org"
-              :sitemap-title "System Crafters News"
+              :sitemap-filename "../projects.org"
+              :sitemap-title "Projects"
               :sitemap-format-entry dw/format-news-entry
               :sitemap-style list
               ;; :sitemap-function dw/news-sitemap
