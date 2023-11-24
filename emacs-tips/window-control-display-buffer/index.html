@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Hey Emacs, Don&rsquo;t Move My Windows! - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Hey Emacs, Don&rsquo;t Move My Windows!</h1><p class="site-post-meta"></p><div id="content">
-<h2><a id="pop-up-windows-are-annoying" class="anchor" href="#pop-up-windows-are-annoying">¶</a>Pop up windows are annoying.</h2><div class="outline-text-2" id="text-orgc0d7b4f">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Hey Emacs, Don&rsquo;t Move My Windows! - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Hey Emacs, Don&rsquo;t Move My Windows!</h1><p class="site-post-meta"></p><div id="content">
+<h2><a id="pop-up-windows-are-annoying" class="anchor" href="#pop-up-windows-are-annoying">¶</a>Pop up windows are annoying.</h2><div class="outline-text-2" id="text-orgb57fe9b">
 <p>
 For many &ldquo;transient&rdquo; buffers, Emacs splits your current window to display the buffer!
 </p>
@@ -18,7 +18,7 @@ Now let&rsquo;s talk about how to prevent Emacs from changing your artisan windo
 </p>
 </div>
 
-<h2><a id="how-codedisplay-buffercode-works" class="anchor" href="#how-codedisplay-buffercode-works">¶</a>How <code>display-buffer</code> works</h2><div class="outline-text-2" id="text-orgc0aa261">
+<h2><a id="how-codedisplay-buffercode-works" class="anchor" href="#how-codedisplay-buffercode-works">¶</a>How <code>display-buffer</code> works</h2><div class="outline-text-2" id="text-org1cf7714">
 <p>
 When a new buffer is created for display, Emacs uses the <code>display-buffer</code> function to figure out where this buffer should be placed on screen.
 </p>
@@ -51,7 +51,7 @@ We can invoke this behavior by evaluating this Emacs Lisp:
 </p>
 </div>
 
-<h2><a id="what-is-an-action-function" class="anchor" href="#what-is-an-action-function">¶</a>What is an action function?</h2><div class="outline-text-2" id="text-org356f404">
+<h2><a id="what-is-an-action-function" class="anchor" href="#what-is-an-action-function">¶</a>What is an action function?</h2><div class="outline-text-2" id="text-orgf6e76ac">
 <p>
 Before we take a look at the default placement actions, let&rsquo;s talk about what an action function actually does.
 </p>
@@ -60,7 +60,7 @@ Before we take a look at the default placement actions, let&rsquo;s talk about w
 Here&rsquo;s the &ldquo;signature&rdquo; of an action function:
 </p>
 
-<pre class="example" id="orgfd31fcd">
+<pre class="example" id="org7b1ac35">
 
 (display-buffer-same-window BUFFER ALIST)
 
@@ -86,7 +86,7 @@ Here are some alist keys you might want to know about:
 </p>
 </div>
 
-<h3><a id="inhibit-same-window" class="anchor" href="#inhibit-same-window">¶</a>inhibit-same-window</h3><div class="outline-text-3" id="text-org74d319e">
+<h3><a id="inhibit-same-window" class="anchor" href="#inhibit-same-window">¶</a>inhibit-same-window</h3><div class="outline-text-3" id="text-org24b6502">
 <p>
 Configures whether the currently focused window can (or cannot) be used for displaying the buffer:
 </p>
@@ -96,7 +96,7 @@ Configures whether the currently focused window can (or cannot) be used for disp
 </ul>
 </div>
 
-<h3><a id="reusable-frames" class="anchor" href="#reusable-frames">¶</a>reusable-frames</h3><div class="outline-text-3" id="text-org334d705">
+<h3><a id="reusable-frames" class="anchor" href="#reusable-frames">¶</a>reusable-frames</h3><div class="outline-text-3" id="text-org832c687">
 <p>
 Configures whether the buffer shows up on the current frame or other open frames.
 </p>
@@ -110,13 +110,13 @@ Configures whether the buffer shows up on the current frame or other open frames
 </ul>
 </div>
 
-<h3><a id="inhibit-switch-frame" class="anchor" href="#inhibit-switch-frame">¶</a>inhibit-switch-frame</h3><div class="outline-text-3" id="text-orge7aa402">
+<h3><a id="inhibit-switch-frame" class="anchor" href="#inhibit-switch-frame">¶</a>inhibit-switch-frame</h3><div class="outline-text-3" id="text-orgc4cd4e3">
 <p>
 Prevents a non-current frame from being &ldquo;raised&rdquo; if the window is placed there if the value is <code>t</code>.
 </p>
 </div>
 
-<h3><a id="mode" class="anchor" href="#mode">¶</a>mode</h3><div class="outline-text-3" id="text-org682cfed">
+<h3><a id="mode" class="anchor" href="#mode">¶</a>mode</h3><div class="outline-text-3" id="text-org79ac2c3">
 <p>
 Restricts window selection to those displaying buffers of a certain major mode.  You can pass either a symbol of a major mode or a list of symbols representing major modes:
 </p>
@@ -124,7 +124,7 @@ Restricts window selection to those displaying buffers of a certain major mode. 
 <pre>'((mode . (org-mode helpful-mode help-mode)))</pre>
 </div>
 
-<h3><a id="window-width-and-window-height" class="anchor" href="#window-width-and-window-height">¶</a>window-width and window-height</h3><div class="outline-text-3" id="text-orgb96176e">
+<h3><a id="window-width-and-window-height" class="anchor" href="#window-width-and-window-height">¶</a>window-width and window-height</h3><div class="outline-text-3" id="text-org54aaed9">
 <p>
 Controls whether the window width or window height might be changed when displaying the buffer and how much it will be changed:
 </p>
@@ -137,7 +137,7 @@ Controls whether the window width or window height might be changed when display
 </ul>
 </div>
 
-<h3><a id="there-are-other-possibilities" class="anchor" href="#there-are-other-possibilities">¶</a>There are other possibilities!</h3><div class="outline-text-3" id="text-org70dbaaf">
+<h3><a id="there-are-other-possibilities" class="anchor" href="#there-are-other-possibilities">¶</a>There are other possibilities!</h3><div class="outline-text-3" id="text-org97945b1">
 <p>
 <a href="https://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Buffer-Display-Action-Alists">Emacs Lisp Manual: Buffer Display Action Alists</a>
 </p>
@@ -147,7 +147,7 @@ Keep in mind that not every display action function uses all of these settings! 
 </p>
 </div>
 
-<h2><a id="examining-the-default-placement-actions" class="anchor" href="#examining-the-default-placement-actions">¶</a>Examining the default placement actions</h2><div class="outline-text-2" id="text-org44b30b7">
+<h2><a id="examining-the-default-placement-actions" class="anchor" href="#examining-the-default-placement-actions">¶</a>Examining the default placement actions</h2><div class="outline-text-2" id="text-org576df83">
 <p>
 Here is the default value of <code>display-buffer-fallback-action</code> (on Emacs 27.1):
 </p>
@@ -172,7 +172,7 @@ Let&rsquo;s examine what each of these actions do:
 </p>
 </div>
 
-<h3><a id="display-bufferx2013maybe-same-window-display-buffer-same-window" class="anchor" href="#display-bufferx2013maybe-same-window-display-buffer-same-window">¶</a>display-buffer&#x2013;maybe-same-window (display-buffer-same-window)</h3><div class="outline-text-3" id="text-orgc30f3ea">
+<h3><a id="display-bufferx2013maybe-same-window-display-buffer-same-window" class="anchor" href="#display-bufferx2013maybe-same-window-display-buffer-same-window">¶</a>display-buffer&#x2013;maybe-same-window (display-buffer-same-window)</h3><div class="outline-text-3" id="text-org126465d">
 <p>
 This function uses the function <code>same-window-p</code> to decide whether <code>display-buffer-same-window</code> should be used for placing the window.  <code>same-window-p</code> looks at <code>same-window-buffer-names</code> or <code>same-window-regexps</code>, configured by the user, to see if the buffer name matches anything in either of those variables.
 </p>
@@ -189,7 +189,7 @@ If <code>same-window-p</code> returns <code>t</code> for the buffer, <code>displ
                 '(display-buffer--maybe-same-window . ()))</pre>
 </div>
 
-<h3><a id="display-buffer-reuse-window" class="anchor" href="#display-buffer-reuse-window">¶</a>display-buffer-reuse-window</h3><div class="outline-text-3" id="text-org12735b1">
+<h3><a id="display-buffer-reuse-window" class="anchor" href="#display-buffer-reuse-window">¶</a>display-buffer-reuse-window</h3><div class="outline-text-3" id="text-org757b411">
 <p>
 This function places the buffer the current window if it&rsquo;s already displaying that buffer or picks another available window in the same frame otherwise.
 </p>
@@ -204,7 +204,7 @@ This function places the buffer the current window if it&rsquo;s already display
                 '(display-buffer-reuse-window . ((inhibit-same-window . t))))</pre>
 </div>
 
-<h3><a id="display-bufferx2013maybe-pop-up-frame-or-window" class="anchor" href="#display-bufferx2013maybe-pop-up-frame-or-window">¶</a>display-buffer&#x2013;maybe-pop-up-frame-or-window</h3><div class="outline-text-3" id="text-org22affad">
+<h3><a id="display-bufferx2013maybe-pop-up-frame-or-window" class="anchor" href="#display-bufferx2013maybe-pop-up-frame-or-window">¶</a>display-buffer&#x2013;maybe-pop-up-frame-or-window</h3><div class="outline-text-3" id="text-org692784a">
 <p>
 Creates a popup frame or window depending on whether <code>pop-up-frames</code> or <code>pop-up-windows</code> is non-nil, respectively.  The default is for <code>pop-up-windows</code> to be <code>t</code>.  This causes many windows to pop up in a separate window!
 </p>
@@ -218,7 +218,7 @@ Creates a popup frame or window depending on whether <code>pop-up-frames</code> 
                 '(display-buffer--maybe-pop-up-frame-or-window . ()))</pre>
 </div>
 
-<h3><a id="display-buffer-in-previous-window" class="anchor" href="#display-buffer-in-previous-window">¶</a>display-buffer-in-previous-window</h3><div class="outline-text-3" id="text-org6e7293e">
+<h3><a id="display-buffer-in-previous-window" class="anchor" href="#display-buffer-in-previous-window">¶</a>display-buffer-in-previous-window</h3><div class="outline-text-3" id="text-org87146aa">
 <p>
 Places the buffer in a previously-used window for that buffer:
 </p>
@@ -236,13 +236,13 @@ Places the buffer in a previously-used window for that buffer:
                 '(display-buffer-in-previous-window . ((inhibit-same-window . t))))</pre>
 </div>
 
-<h3><a id="display-buffer-use-some-window" class="anchor" href="#display-buffer-use-some-window">¶</a>display-buffer-use-some-window</h3><div class="outline-text-3" id="text-org4eba985">
+<h3><a id="display-buffer-use-some-window" class="anchor" href="#display-buffer-use-some-window">¶</a>display-buffer-use-some-window</h3><div class="outline-text-3" id="text-org65a5557">
 <p>
 Find any usable window to place the buffer.  Uses a heuristic to determine the best window to pick, like whether the window was most recently used.  Skips any &ldquo;dedicated&rdquo; windows.
 </p>
 </div>
 
-<h3><a id="display-buffer-pop-up-frame" class="anchor" href="#display-buffer-pop-up-frame">¶</a>display-buffer-pop-up-frame</h3><div class="outline-text-3" id="text-org99797ab">
+<h3><a id="display-buffer-pop-up-frame" class="anchor" href="#display-buffer-pop-up-frame">¶</a>display-buffer-pop-up-frame</h3><div class="outline-text-3" id="text-org8ad09d4">
 <p>
 Displays the buffer in a new frame by calling the function stored in <code>pop-up-frame-function</code>  (<code>make-frame</code> by default).
 </p>
@@ -255,13 +255,13 @@ If no other option is possible (which seems pretty unlikely), Emacs will pop up 
 </p>
 </div>
 
-<h2><a id="other-placement-actions" class="anchor" href="#other-placement-actions">¶</a>Other placement actions</h2><div class="outline-text-2" id="text-org0345ba0">
+<h2><a id="other-placement-actions" class="anchor" href="#other-placement-actions">¶</a>Other placement actions</h2><div class="outline-text-2" id="text-org091b857">
 <p>
 Aside from those used by default in Emacs, there are even more built-in display action functions that you can use in your own configuration:
 </p>
 </div>
 
-<h3><a id="display-buffer-reuse-mode-window" class="anchor" href="#display-buffer-reuse-mode-window">¶</a>display-buffer-reuse-mode-window</h3><div class="outline-text-3" id="text-org4624950">
+<h3><a id="display-buffer-reuse-mode-window" class="anchor" href="#display-buffer-reuse-mode-window">¶</a>display-buffer-reuse-mode-window</h3><div class="outline-text-3" id="text-org79a6f1e">
 <p>
 Reuse a window that&rsquo;s already showing a buffer of the same major mode as the new buffer.  With the <code>mode</code> alist entry, you can restrict the set of major modes that apply for this.
 </p>
@@ -271,7 +271,7 @@ Reuse a window that&rsquo;s already showing a buffer of the same major mode as t
                 '(display-buffer-reuse-mode-window . ((mode . (helpful-mode)))))</pre>
 </div>
 
-<h3><a id="display-buffer-in-side-window" class="anchor" href="#display-buffer-in-side-window">¶</a>display-buffer-in-side-window</h3><div class="outline-text-3" id="text-orgf5f0bb6">
+<h3><a id="display-buffer-in-side-window" class="anchor" href="#display-buffer-in-side-window">¶</a>display-buffer-in-side-window</h3><div class="outline-text-3" id="text-org50cf39a">
 <p>
 Displays the buffer in a &ldquo;side window&rdquo; of the current frame.  This one is particularly useful with custom buffer rules which we&rsquo;ll discuss later.
 </p>
@@ -296,7 +296,7 @@ Displays the buffer in a &ldquo;side window&rdquo; of the current frame.  This o
                                                    (window-height . 5))))</pre>
 </div>
 
-<h3><a id="display-buffer-at-bottom" class="anchor" href="#display-buffer-at-bottom">¶</a>display-buffer-at-bottom</h3><div class="outline-text-3" id="text-orgf8ba9d2">
+<h3><a id="display-buffer-at-bottom" class="anchor" href="#display-buffer-at-bottom">¶</a>display-buffer-at-bottom</h3><div class="outline-text-3" id="text-orgae8d9cc">
 <p>
 Displays the buffer in the bottom-most window of the current frame, either reusing one that is there (if it has the same buffer) or creating one if there is no existing horizontal split.
 </p>
@@ -308,7 +308,7 @@ Displays the buffer in the bottom-most window of the current frame, either reusi
                 '(display-buffer-at-bottom . ()))</pre>
 </div>
 
-<h3><a id="display-buffer-no-window" class="anchor" href="#display-buffer-no-window">¶</a>display-buffer-no-window</h3><div class="outline-text-3" id="text-org39ee5ca">
+<h3><a id="display-buffer-no-window" class="anchor" href="#display-buffer-no-window">¶</a>display-buffer-no-window</h3><div class="outline-text-3" id="text-orgdae54c9">
 <p>
 Never display the buffer in a window.  This requires that the <code>allow-no-window</code> option to be set to <code>t</code>!
 </p>
@@ -317,7 +317,7 @@ Never display the buffer in a window.  This requires that the <code>allow-no-win
                 '(display-buffer-no-window . ((allow-no-window . t))))</pre>
 </div>
 
-<h3><a id="and-even-more" class="anchor" href="#and-even-more">¶</a>And even more!</h3><div class="outline-text-3" id="text-org51bf653">
+<h3><a id="and-even-more" class="anchor" href="#and-even-more">¶</a>And even more!</h3><div class="outline-text-3" id="text-orgb46bbb4">
 <p>
 Check out the wide variety of pre-defined display action functions in the Emacs Lisp manual.
 </p>
@@ -327,7 +327,7 @@ Check out the wide variety of pre-defined display action functions in the Emacs 
 </p>
 </div>
 
-<h2><a id="overriding-the-default-placement-actions" class="anchor" href="#overriding-the-default-placement-actions">¶</a>Overriding the default placement actions</h2><div class="outline-text-2" id="text-org1c4f5bc">
+<h2><a id="overriding-the-default-placement-actions" class="anchor" href="#overriding-the-default-placement-actions">¶</a>Overriding the default placement actions</h2><div class="outline-text-2" id="text-org6a8d3e9">
 <p>
 Instead of changing the <code>display-buffer-fallback-action</code> variable directly, you can change the user-customizable variable <code>display-buffer-base-action</code>.
 </p>
@@ -349,7 +349,7 @@ Instead of changing the <code>display-buffer-fallback-action</code> variable dir
     . ((mode . (org-mode helpful-mode help-mode)))))</pre>
 </div>
 
-<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-orgce217e7">
+<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-org4c8a267">
 <p>
 In the next video we&rsquo;ll go even deeper and learn how to customize buffer placement using custom logic per buffer!
 </p>
@@ -358,4 +358,4 @@ In the next video we&rsquo;ll go even deeper and learn how to customize buffer p
 We will learn how to customize <code>display-buffer-alist</code> for this purpose and we&rsquo;ll also look at how we can write our own custom display action function for even further control!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

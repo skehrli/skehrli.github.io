@@ -1,11 +1,11 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Key Bindings and Evil - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Key Bindings and Evil</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Key Bindings and Evil - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Key Bindings and Evil</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
 <li><a href="https://youtu.be/xaZMwNELaJY">Watch the video</a> on YouTube!</li>
 <li>Check out the <a href="https://github.com/daviwil/emacs-from-scratch/tree/29e542c79632853d85124019e47506cc0571cd05">final code</a> on GitHub</li>
 <li>Episode 3 of the <a href="../">Emacs From Scratch</a> series</li>
 </ul>
 
-<h2><a id="notes-from-previous-streams" class="anchor" href="#notes-from-previous-streams">¶</a>Notes from previous streams</h2><div class="outline-text-2" id="text-orgd01bc5c">
+<h2><a id="notes-from-previous-streams" class="anchor" href="#notes-from-previous-streams">¶</a>Notes from previous streams</h2><div class="outline-text-2" id="text-orgfcec64a">
 <p>
 We need to update the <code>load-theme</code> call to avoid a prompt at startup, <code>(load-theme 'doom-dracula t)</code>
 </p>
@@ -15,13 +15,13 @@ Thanks to Kyle Sexton and Nathan Chen for pointing out that all-the-icons is nee
 </p>
 </div>
 
-<h2><a id="basic-key-bindings" class="anchor" href="#basic-key-bindings">¶</a>Basic Key Bindings</h2><div class="outline-text-2" id="text-orgadb3650">
+<h2><a id="basic-key-bindings" class="anchor" href="#basic-key-bindings">¶</a>Basic Key Bindings</h2><div class="outline-text-2" id="text-org94c79ee">
 <p>
 <code>define-key</code> and <code>global-set-key</code>
 </p>
 </div>
 
-<h2><a id="bindings-with-generalel" class="anchor" href="#bindings-with-generalel">¶</a>Bindings with general.el</h2><div class="outline-text-2" id="text-org819d554">
+<h2><a id="bindings-with-generalel" class="anchor" href="#bindings-with-generalel">¶</a>Bindings with general.el</h2><div class="outline-text-2" id="text-orgb256dd2">
 <p>
 <a href="https://github.com/noctuid/general.el#general-examples">general.el examples</a>
 </p>
@@ -40,7 +40,7 @@ Thanks to Kyle Sexton and Nathan Chen for pointing out that all-the-icons is nee
   <span class="org-string">"tt"</span> '(counsel-load-theme <span class="org-builtin">:which-key</span> <span class="org-string">"choose theme"</span>))</pre>
 </div>
 
-<h2><a id="becoming-evil" class="anchor" href="#becoming-evil">¶</a>Becoming Evil</h2><div class="outline-text-2" id="text-org67b08ff">
+<h2><a id="becoming-evil" class="anchor" href="#becoming-evil">¶</a>Becoming Evil</h2><div class="outline-text-2" id="text-org81cb959">
 <p>
 <a href="https://github.com/emacs-evil/evil">evil-mode</a> on GitHub
 <a href="https://github.com/emacs-evil/evil-collection">evil-collection</a> on GitHub
@@ -107,7 +107,7 @@ If we want to be hardcore&#x2026;
   (evil-global-set-key 'motion (kbd <span class="org-string">"&lt;up&gt;"</span>) 'rune/dont-arrow-me-bro)</pre>
 </div>
 
-<h2><a id="hydra" class="anchor" href="#hydra">¶</a>Hydra</h2><div class="outline-text-2" id="text-org7c05078">
+<h2><a id="hydra" class="anchor" href="#hydra">¶</a>Hydra</h2><div class="outline-text-2" id="text-org4314ea7">
 <p>
 <a href="https://github.com/abo-abo/hydra">Hydra</a> on GitHub
 </p>
@@ -123,4 +123,4 @@ If we want to be hardcore&#x2026;
 (rune/leader-keys
   <span class="org-string">"ts"</span> '(hydra-text-scale/body <span class="org-builtin">:which-key</span> <span class="org-string">"scale text"</span>))</pre>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

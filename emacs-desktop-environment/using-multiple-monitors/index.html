@@ -1,5 +1,5 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using Multiple Monitors in EXWM - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using Multiple Monitors in EXWM</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using Multiple Monitors in EXWM - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using Multiple Monitors in EXWM</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/eF5NfVN411Q" allowfullscreen></iframe></div>
 </p>
 
@@ -7,7 +7,7 @@
 Check out the final code <a href="https://github.com/daviwil/emacs-from-scratch/blob/5ebd390119a48cac6258843c7d5e570f4591fdd4/Desktop.org#exwm-configuration">here</a>.
 </p>
 
-<h2><a id="how-multiple-monitors-work-in-exwm" class="anchor" href="#how-multiple-monitors-work-in-exwm">¶</a>How multiple monitors work in EXWM</h2><div class="outline-text-2" id="text-org8f404ca">
+<h2><a id="how-multiple-monitors-work-in-exwm" class="anchor" href="#how-multiple-monitors-work-in-exwm">¶</a>How multiple monitors work in EXWM</h2><div class="outline-text-2" id="text-orgde294fa">
 <ul class="org-ul">
 <li>EXWM can use multiple displays via the <code>exwm-randr</code> module</li>
 <li>It doesn&rsquo;t configure the displays for you, though!</li>
@@ -16,20 +16,20 @@ Check out the final code <a href="https://github.com/daviwil/emacs-from-scratch/
 </ul>
 </div>
 
-<h2><a id="differences-from-other-wms" class="anchor" href="#differences-from-other-wms">¶</a>Differences from other WMs</h2><div class="outline-text-2" id="text-orgfa5f946">
+<h2><a id="differences-from-other-wms" class="anchor" href="#differences-from-other-wms">¶</a>Differences from other WMs</h2><div class="outline-text-2" id="text-orgfc69914">
 <ul class="org-ul">
 <li>Workspaces do not span multiple screens</li>
 <li>Switching to a workspace moves your focus to the display it is assigned to</li>
 </ul>
 </div>
 
-<h2><a id="enabling-another-display" class="anchor" href="#enabling-another-display">¶</a>Enabling another display</h2><div class="outline-text-2" id="text-orgffa37a3">
+<h2><a id="enabling-another-display" class="anchor" href="#enabling-another-display">¶</a>Enabling another display</h2><div class="outline-text-2" id="text-orgaf3a63a">
 <p>
 Use <code>arandr</code>, save configuration, use it to update <code>xrandr</code> call in Desktop.org.
 </p>
 </div>
 
-<h2><a id="workspace-monitor-assignment" class="anchor" href="#workspace-monitor-assignment">¶</a>Workspace monitor assignment</h2><div class="outline-text-2" id="text-org0a31032">
+<h2><a id="workspace-monitor-assignment" class="anchor" href="#workspace-monitor-assignment">¶</a>Workspace monitor assignment</h2><div class="outline-text-2" id="text-orgd68d5d5">
 <p>
 Tell EXWM which workspaces should be on other displays:
 </p>
@@ -41,7 +41,7 @@ Tell EXWM which workspaces should be on other displays:
 </p>
 </div>
 
-<h2><a id="mouse-warping" class="anchor" href="#mouse-warping">¶</a>Mouse warping</h2><div class="outline-text-2" id="text-orgd31a113">
+<h2><a id="mouse-warping" class="anchor" href="#mouse-warping">¶</a>Mouse warping</h2><div class="outline-text-2" id="text-org544637e">
 <p>
 Doesn&rsquo;t work on VM, but does work on actual system config
 </p>
@@ -49,7 +49,7 @@ Doesn&rsquo;t work on VM, but does work on actual system config
 <pre>(<span class="org-keyword">setq</span> exwm-workspace-warp-cursor t)</pre>
 </div>
 
-<h2><a id="focus-follows-mouse" class="anchor" href="#focus-follows-mouse">¶</a>Focus follows mouse</h2><div class="outline-text-2" id="text-org728a54f">
+<h2><a id="focus-follows-mouse" class="anchor" href="#focus-follows-mouse">¶</a>Focus follows mouse</h2><div class="outline-text-2" id="text-org97f2596">
 <p>
 <b>NOTE:</b> These need to be configure before <code>exwm-enable</code>!
 </p>
@@ -58,7 +58,7 @@ Doesn&rsquo;t work on VM, but does work on actual system config
       focus-follows-mouse t)</pre>
 </div>
 
-<h2><a id="docking-and-undocking" class="anchor" href="#docking-and-undocking">¶</a>Docking and undocking</h2><div class="outline-text-2" id="text-org18966e6">
+<h2><a id="docking-and-undocking" class="anchor" href="#docking-and-undocking">¶</a>Docking and undocking</h2><div class="outline-text-2" id="text-org833615d">
 <p>
 What happens when you disconnect your display?
 </p>
@@ -112,7 +112,7 @@ An example from my config: <a href="https://github.com/daviwil/dotfiles/blob/mas
 </p>
 </div>
 
-<h2><a id="per-machine-configuration" class="anchor" href="#per-machine-configuration">¶</a>Per-machine configuration</h2><div class="outline-text-2" id="text-org7558e91">
+<h2><a id="per-machine-configuration" class="anchor" href="#per-machine-configuration">¶</a>Per-machine configuration</h2><div class="outline-text-2" id="text-orgd7c42e0">
 <p>
 Save <code>autorandr</code> profiles for each machine (e.g. <code>machine1-docked</code>, <code>machine1-mobile</code>, etc)
 </p>
@@ -127,4 +127,4 @@ Save <code>autorandr</code> profiles for each machine (e.g. <code>machine1-docke
 <b>NOTE:</b> If you dock your laptop in more than one place with different screen configurations, you can use <code>autorandr --current</code> to determine the current configuration and set the <code>exwm-randr-workspace-monitor-plist</code> based on that instead!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

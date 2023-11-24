@@ -1,11 +1,11 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Learn to Love the Terminal Modes - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Learn to Love the Terminal Modes</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Learn to Love the Terminal Modes - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Learn to Love the Terminal Modes</h1><p class="site-post-meta"></p><div id="content"><ul class="org-ul">
 <li><a href="https://youtu.be/wa_wZIuT9Vw">Watch the video</a> on YouTube!</li>
 <li>Check out the <a href="https://github.com/daviwil/emacs-from-scratch/tree/bbfbc77b3afab0c14149e07d0ab08d275d4ba575">final code</a> on GitHub</li>
 <li>Episode 9 of the <a href="../">Emacs From Scratch</a> series</li>
 </ul>
 
-<h2><a id="term-mode" class="anchor" href="#term-mode">¶</a>term-mode</h2><div class="outline-text-2" id="text-org7217de8">
+<h2><a id="term-mode" class="anchor" href="#term-mode">¶</a>term-mode</h2><div class="outline-text-2" id="text-orgdf5cecd">
 <pre>(<span class="org-keyword">use-package</span> <span class="org-constant">term</span>
   <span class="org-builtin">:config</span>
   (<span class="org-keyword">setq</span> explicit-shell-file-name <span class="org-string">"bash"</span>)
@@ -25,7 +25,7 @@ NOTE: term-mode doesn&rsquo;t work on Windows: &ldquo;Spawning child process: in
 </p>
 </div>
 
-<h3><a id="for-better-color-support" class="anchor" href="#for-better-color-support">¶</a>For better color support</h3><div class="outline-text-3" id="text-org0d45375">
+<h3><a id="for-better-color-support" class="anchor" href="#for-better-color-support">¶</a>For better color support</h3><div class="outline-text-3" id="text-org0c525e8">
 <p>
 Make sure the <code>tic</code> program is available on your machine (could be part of <code>ncurses</code> package).
 </p>
@@ -36,7 +36,7 @@ Make sure the <code>tic</code> program is available on your machine (could be pa
 <pre><span class="org-builtin">echo</span> <span class="org-string">"Hello System Crafters!"</span> | cowsay | lolcat -h 0.7</pre>
 </div>
 
-<h3><a id="ansi-term" class="anchor" href="#ansi-term">¶</a>ansi-term</h3><div class="outline-text-3" id="text-orgc557363">
+<h3><a id="ansi-term" class="anchor" href="#ansi-term">¶</a>ansi-term</h3><div class="outline-text-3" id="text-org2ec00a2">
 <p>
 <code>ansi-term</code> is a specialization of <code>term-mode.</code>
 </p>
@@ -54,7 +54,7 @@ Same caveats for Windows still apply.
 </p>
 </div>
 
-<h2><a id="vterm-emacs-libvterm" class="anchor" href="#vterm-emacs-libvterm">¶</a>vterm (emacs-libvterm)</h2><div class="outline-text-2" id="text-orga079b24">
+<h2><a id="vterm-emacs-libvterm" class="anchor" href="#vterm-emacs-libvterm">¶</a>vterm (emacs-libvterm)</h2><div class="outline-text-2" id="text-orga60079a">
 <p>
 <a href="https://github.com/akermu/emacs-libvterm/">vterm</a> on GitHub
 </p>
@@ -88,7 +88,7 @@ Differences to <code>term</code>:
 </p>
 </div>
 
-<h2><a id="shell-mode" class="anchor" href="#shell-mode">¶</a>shell-mode</h2><div class="outline-text-2" id="text-org5bd4df4">
+<h2><a id="shell-mode" class="anchor" href="#shell-mode">¶</a>shell-mode</h2><div class="outline-text-2" id="text-org6f3ac24">
 <p>
 Runs a shell program on your computer in a more controlled buffer.  Does not operate as a terminal emulator.
 </p>
@@ -133,7 +133,7 @@ In Windows if you like PowerShell you can use this config:
 (<span class="org-keyword">setq</span> explicit-powershell.exe-args '())</pre>
 </div>
 
-<h2><a id="eshell" class="anchor" href="#eshell">¶</a>Eshell</h2><div class="outline-text-2" id="text-org8bb0b3a">
+<h2><a id="eshell" class="anchor" href="#eshell">¶</a>Eshell</h2><div class="outline-text-2" id="text-org0f85dae">
 <pre>(<span class="org-keyword">defun</span> <span class="org-function-name">efs/configure-eshell</span> ()
   <span class="org-comment-delimiter">;; </span><span class="org-comment">Save command history when commands are entered</span>
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
@@ -206,7 +206,7 @@ Interesting articles:
 </ul>
 </div>
 
-<h2><a id="recommendations" class="anchor" href="#recommendations">¶</a>Recommendations</h2><div class="outline-text-2" id="text-org29742ad">
+<h2><a id="recommendations" class="anchor" href="#recommendations">¶</a>Recommendations</h2><div class="outline-text-2" id="text-org954c3e6">
 <ul class="org-ul">
 <li>Use <code>term</code> or <code>ansi-term</code> if you&rsquo;re on Linux / macOS and don&rsquo;t care as much about output speed</li>
 <li>Use <code>vterm</code> if you&rsquo;re on Linux / macOS and want faster output and better terminal emulation</li>
@@ -214,4 +214,4 @@ Interesting articles:
 <li>Use <code>eshell</code> on any OS if you want a consistent shell experience everywhere with Lisp superpowers full Emacs integration</li>
 </ul>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

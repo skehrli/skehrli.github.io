@@ -1,5 +1,5 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Python Development Configuration - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Python Development Configuration</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Python Development Configuration - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Python Development Configuration</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/jPXIP46BnNA" allowfullscreen></iframe></div>
 </p>
 
@@ -7,7 +7,7 @@
 Check out the final code <a href="https://github.com/daviwil/emacs-from-scratch/blob/dd9320769f3041ac1edca139496f14abe147d010/Emacs.org#python">here</a>.
 </p>
 
-<h2><a id="what-wersquoll-cover" class="anchor" href="#what-wersquoll-cover">¶</a>What we&rsquo;ll cover:</h2><div class="outline-text-2" id="text-org2f75200">
+<h2><a id="what-wersquoll-cover" class="anchor" href="#what-wersquoll-cover">¶</a>What we&rsquo;ll cover:</h2><div class="outline-text-2" id="text-org43eb22d">
 <ul class="org-ul">
 <li>python-mode</li>
 <li>lsp-mode</li>
@@ -17,17 +17,17 @@ Check out the final code <a href="https://github.com/daviwil/emacs-from-scratch/
 </ul>
 </div>
 
-<h2><a id="our-example-project" class="anchor" href="#our-example-project">¶</a>Our example project</h2><div class="outline-text-2" id="text-org52a9b5d">
+<h2><a id="our-example-project" class="anchor" href="#our-example-project">¶</a>Our example project</h2><div class="outline-text-2" id="text-orgefdbeec">
 <p>
 <a href="https://github.com/mikf/gallery-dl">https://github.com/mikf/gallery-dl</a>
 </p>
 </div>
 
-<h3><a id="installing-requirements" class="anchor" href="#installing-requirements">¶</a>Installing requirements</h3><div class="outline-text-3" id="text-orgcb72a36">
+<h3><a id="installing-requirements" class="anchor" href="#installing-requirements">¶</a>Installing requirements</h3><div class="outline-text-3" id="text-orgbd6726a">
 <pre>pip install -r requirements.txt</pre>
 </div>
 
-<h2><a id="using-codepython-modecode" class="anchor" href="#using-codepython-modecode">¶</a>Using <code>python-mode</code></h2><div class="outline-text-2" id="text-orgf970b47">
+<h2><a id="using-codepython-modecode" class="anchor" href="#using-codepython-modecode">¶</a>Using <code>python-mode</code></h2><div class="outline-text-2" id="text-org69529c0">
 <pre>(<span class="org-keyword">use-package</span> <span class="org-constant">python-mode</span>
   <span class="org-builtin">:ensure</span> nil
   <span class="org-builtin">:custom</span>
@@ -44,7 +44,7 @@ Commands:
 </ul>
 </div>
 
-<h2><a id="setting-up-lsp-mode" class="anchor" href="#setting-up-lsp-mode">¶</a>Setting up lsp-mode</h2><h3><a id="installing-codepylscode" class="anchor" href="#installing-codepylscode">¶</a>Installing <code>pyls</code></h3><div class="outline-text-3" id="text-org580e031">
+<h2><a id="setting-up-lsp-mode" class="anchor" href="#setting-up-lsp-mode">¶</a>Setting up lsp-mode</h2><h3><a id="installing-codepylscode" class="anchor" href="#installing-codepylscode">¶</a>Installing <code>pyls</code></h3><div class="outline-text-3" id="text-org13fd5d1">
 <p>
 <a href="https://emacs-lsp.github.io/lsp-mode/page/languages/">https://emacs-lsp.github.io/lsp-mode/page/languages/</a>
 </p>
@@ -56,7 +56,7 @@ Ensure that it&rsquo;s on the <code>PATH</code>!  If not, you may need to add <c
 </p>
 </div>
 
-<h3><a id="activating-lsp-mode" class="anchor" href="#activating-lsp-mode">¶</a>Activating lsp-mode</h3><div class="outline-text-3" id="text-org1ba2f28">
+<h3><a id="activating-lsp-mode" class="anchor" href="#activating-lsp-mode">¶</a>Activating lsp-mode</h3><div class="outline-text-3" id="text-org0159a9a">
 <p>
 We are starting with the <code>lsp-mode</code> configuration from &ldquo;Build Your Own IDE with lsp-mode&rdquo;, check that out for more details on lsp-mode!
 </p>
@@ -64,7 +64,7 @@ We are starting with the <code>lsp-mode</code> configuration from &ldquo;Build Y
 <pre><span class="org-builtin">:hook</span> (python-mode . lsp-deferred))</pre>
 </div>
 
-<h3><a id="completion-error" class="anchor" href="#completion-error">¶</a>Completion error!</h3><div class="outline-text-3" id="text-org45c6d21">
+<h3><a id="completion-error" class="anchor" href="#completion-error">¶</a>Completion error!</h3><div class="outline-text-3" id="text-org24ab762">
 <p>
 If you see an error complaining about <code>company-capf</code>, this may be a bug with lsp-mode.
 </p>
@@ -83,7 +83,7 @@ As a workaround, run <code>package-reinstall</code> to reinstall <code>lsp-mode<
 <h3><a id="code-formatting---codelsp-format-buffercode" class="anchor" href="#code-formatting---codelsp-format-buffercode">¶</a>Code formatting - <code>lsp-format-buffer</code></h3>
 <h3><a id="symbol-tree---codelsp-treemacs-symbolscode" class="anchor" href="#symbol-tree---codelsp-treemacs-symbolscode">¶</a>Symbol tree - <code>lsp-treemacs-symbols</code></h3>
 
-<h2><a id="running-unit-tests" class="anchor" href="#running-unit-tests">¶</a>Running unit tests</h2><div class="outline-text-2" id="text-org6379e11">
+<h2><a id="running-unit-tests" class="anchor" href="#running-unit-tests">¶</a>Running unit tests</h2><div class="outline-text-2" id="text-orgb78990b">
 <p>
 Using pytest:
 </p>
@@ -109,7 +109,7 @@ Induce a failure!
 </p>
 </div>
 
-<h2><a id="debugging" class="anchor" href="#debugging">¶</a>Debugging</h2><div class="outline-text-2" id="text-org880a18c">
+<h2><a id="debugging" class="anchor" href="#debugging">¶</a>Debugging</h2><div class="outline-text-2" id="text-org0c9b2f0">
 <p>
 I recommend watching &ldquo;Emacs IDE - How to Debug Your Code with dap-mode&rdquo; to learn more about the features!
 </p>
@@ -154,7 +154,7 @@ However, this still doesn&rsquo;t work correctly from within a file in the proje
 </p>
 </div>
 
-<h2><a id="virtual-environments" class="anchor" href="#virtual-environments">¶</a>Virtual Environments</h2><div class="outline-text-2" id="text-org70cc6f6">
+<h2><a id="virtual-environments" class="anchor" href="#virtual-environments">¶</a>Virtual Environments</h2><div class="outline-text-2" id="text-orga5025b2">
 <p>
 This part is only necessary if you use <code>virtualenv</code> in your Python development workflow!
 </p>
@@ -174,4 +174,4 @@ Use <code>pyvenv</code> for setting up the right <code>virtualenv</code> in Emac
 Run <code>pyvenv-activate</code> and select the <code>env</code> folder, now <code>lsp-mode</code> and <code>dap-mode</code> will use it!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

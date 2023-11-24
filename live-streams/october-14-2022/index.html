@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Running Pre-Built Linux Software on Guix - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Running Pre-Built Linux Software on Guix</h1><p class="site-post-meta">October 14, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/CFlOzdx2FDc" allowfullscreen></iframe></div><div id="content">
-<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-org50df6ed">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Running Pre-Built Linux Software on Guix - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Running Pre-Built Linux Software on Guix</h1><p class="site-post-meta">October 14, 2022</p><div class="video">  <iframe src="https://www.youtube.com/embed/CFlOzdx2FDc" allowfullscreen></iframe></div><div id="content">
+<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-org885397a">
 <ul class="org-ul">
 <li>Had a blast working on the game for Ludum Dare 51!  If you missed it, check out the <a href="https://www.youtube.com/watch?v=FTMff2X8kWo&amp;list=PLwranTcItp8tPWNY6L4cjGrWe4Q5dWYqh">YouTube playlist</a> of streams.</li>
 
@@ -11,7 +11,7 @@
 <li>Support the channel!  <b>Buy Mastering Emacs</b> with this link <a href="https://www.masteringemacs.org/r/systemcrafters">https://www.masteringemacs.org/r/systemcrafters</a></li>
 </ul>
 </div>
-<h2><a id="running-pre-built-linux-software-on-guix" class="anchor" href="#running-pre-built-linux-software-on-guix">¶</a>Running Pre-Built Linux Software on Guix</h2><div class="outline-text-2" id="text-orgf8e9c02">
+<h2><a id="running-pre-built-linux-software-on-guix" class="anchor" href="#running-pre-built-linux-software-on-guix">¶</a>Running Pre-Built Linux Software on Guix</h2><div class="outline-text-2" id="text-orga8f118d">
 <p>
 Today we&rsquo;re going to try and get a pre-built program running in Guix!  I decided to try this because a new Guix feature just got mentioned on Twitter today:
 </p>
@@ -40,7 +40,7 @@ If Discord doesn&rsquo;t work, we&rsquo;ll figure out another app to try!
 </p>
 </div>
 
-<h3><a id="notes" class="anchor" href="#notes">¶</a>Notes</h3><div class="outline-text-3" id="text-org9c11de9">
+<h3><a id="notes" class="anchor" href="#notes">¶</a>Notes</h3><div class="outline-text-3" id="text-org9495c36">
 <p>
 Things we needed to do:
 </p>
@@ -56,7 +56,7 @@ Things we needed to do:
 </p>
 </div>
 
-<h3><a id="the-manifest-file" class="anchor" href="#the-manifest-file">¶</a>The manifest file</h3><div class="outline-text-3" id="text-org5954d87">
+<h3><a id="the-manifest-file" class="anchor" href="#the-manifest-file">¶</a>The manifest file</h3><div class="outline-text-3" id="text-orgacd2942">
 <p>
 Here&rsquo;s the manifest file we were building to launch Discord:
 </p>
@@ -92,4 +92,4 @@ And here&rsquo;s the command we used to execute it:
 
 <pre>guix shell --container --emulate-fhs --network --preserve=<span class="org-string">'^DISPLAY$'</span> -m guix.scm</pre>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

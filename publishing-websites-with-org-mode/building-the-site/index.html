@@ -1,9 +1,9 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Build Your Website with Org Mode - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Build Your Website with Org Mode</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Build Your Website with Org Mode - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Build Your Website with Org Mode</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/AfkrzFodoNw" allowfullscreen></iframe></div>
 </p>
 
-<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-org31dbac8">
+<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-orgc934776">
 <p>
 One of Org Mode&rsquo;s most useful features is its publishing system which allows you to turn Org files into many other formats.
 </p>
@@ -17,7 +17,7 @@ If you find this guide helpful, please consider supporting System Crafters via t
 </div>
 </div>
 
-<h2><a id="getting-started" class="anchor" href="#getting-started">¶</a>Getting started</h2><div class="outline-text-2" id="text-org0523791">
+<h2><a id="getting-started" class="anchor" href="#getting-started">¶</a>Getting started</h2><div class="outline-text-2" id="text-orgdea790f">
 <p>
 To get started, we&rsquo;ll need a place to put all of the code we&rsquo;ll use to generate the site along with the <code>.org</code> files that will provide the site&rsquo;s content.
 </p>
@@ -35,7 +35,7 @@ Most of what we&rsquo;ll do in this episode only requires Emacs version 24.5 or 
 </p>
 </div>
 
-<h2><a id="creating-the-build-script" class="anchor" href="#creating-the-build-script">¶</a>Creating the build script</h2><div class="outline-text-2" id="text-org79907e9">
+<h2><a id="creating-the-build-script" class="anchor" href="#creating-the-build-script">¶</a>Creating the build script</h2><div class="outline-text-2" id="text-org3aead41">
 <p>
 Now we&rsquo;re going to create a script in Emacs Lisp that will generate the HTML files for your Org documents by running a single shell command.
 </p>
@@ -69,7 +69,7 @@ The <code>-Q</code> parameter prevents Emacs from loading your own Emacs configu
 </p>
 </div>
 
-<h2><a id="setting-up-the-publish-project" class="anchor" href="#setting-up-the-publish-project">¶</a>Setting up the publish project</h2><div class="outline-text-2" id="text-org556be15">
+<h2><a id="setting-up-the-publish-project" class="anchor" href="#setting-up-the-publish-project">¶</a>Setting up the publish project</h2><div class="outline-text-2" id="text-org8443769">
 <p>
 Now that we have our basic script ready, we can set up a Org publishing configuration for our website.
 </p>
@@ -114,7 +114,7 @@ We can now generate the output of our site by running <code>build.sh</code>!  Ch
 </p>
 </div>
 
-<h2><a id="previewing-the-generated-site" class="anchor" href="#previewing-the-generated-site">¶</a>Previewing the generated site</h2><div class="outline-text-2" id="text-orgc63315e">
+<h2><a id="previewing-the-generated-site" class="anchor" href="#previewing-the-generated-site">¶</a>Previewing the generated site</h2><div class="outline-text-2" id="text-org6aea1c1">
 <p>
 Let&rsquo;s take a look at the basic site we just generated.  There&rsquo;s a great Emacs package called <a href="https://github.com/skeeto/emacs-web-server">simple-httpd</a> which can host your files as a website on your local machine so that you can pull it up in your browser.
 </p>
@@ -139,7 +139,7 @@ Any time you regenerate the site files, you can just reload the page to see the 
 </p>
 </div>
 
-<h2><a id="improving-the-html-output" class="anchor" href="#improving-the-html-output">¶</a>Improving the HTML output</h2><div class="outline-text-2" id="text-orga6d9760">
+<h2><a id="improving-the-html-output" class="anchor" href="#improving-the-html-output">¶</a>Improving the HTML output</h2><div class="outline-text-2" id="text-org33573d8">
 <p>
 There are a few things about the page we just looked at that I&rsquo;d like to change to make the output look a bit cleaner:
 </p>
@@ -176,7 +176,7 @@ We&rsquo;ll need to set a different variable to get rid of the validate link at 
 <pre>(<span class="org-keyword">setq</span> org-html-validation-link nil)</pre>
 </div>
 
-<h3><a id="other-project-settings-you-might-want-to-customize" class="anchor" href="#other-project-settings-you-might-want-to-customize">¶</a>Other project settings you might want to customize</h3><div class="outline-text-3" id="text-org8eb35d1">
+<h3><a id="other-project-settings-you-might-want-to-customize" class="anchor" href="#other-project-settings-you-might-want-to-customize">¶</a>Other project settings you might want to customize</h3><div class="outline-text-3" id="text-org382ad08">
 <p>
 Here&rsquo;s a list of some more project settings you might want to customize, pulled directly from the <code>org-publish-project-alist</code> documentation:
 </p>
@@ -383,7 +383,7 @@ Here&rsquo;s a list of some more project settings you might want to customize, p
 </table>
 </div>
 
-<h2><a id="improving-the-page-styling" class="anchor" href="#improving-the-page-styling">¶</a>Improving the page styling</h2><div class="outline-text-2" id="text-org6a581a9">
+<h2><a id="improving-the-page-styling" class="anchor" href="#improving-the-page-styling">¶</a>Improving the page styling</h2><div class="outline-text-2" id="text-orgbb35824">
 <p>
 At this point have a decent basic output for our website, but what if we want to make it look a little bit nicer?
 </p>
@@ -407,7 +407,7 @@ Let&rsquo;s regenerate the site and take a look!
 </p>
 </div>
 
-<h2><a id="generating-pages-with-code-blocks" class="anchor" href="#generating-pages-with-code-blocks">¶</a>Generating pages with code blocks</h2><div class="outline-text-2" id="text-org6f0e9dc">
+<h2><a id="generating-pages-with-code-blocks" class="anchor" href="#generating-pages-with-code-blocks">¶</a>Generating pages with code blocks</h2><div class="outline-text-2" id="text-orgd0437bd">
 <p>
 So far we&rsquo;ve been looking at a very simple example page that doesn&rsquo;t really have much on it.  What happens when we try to generate a more elaborate Org file containing code blocks?
 </p>
@@ -454,7 +454,7 @@ In a future video I&rsquo;ll show you how to convert your Emacs color theme to a
 </p>
 </div>
 
-<h2><a id="linking-between-pages" class="anchor" href="#linking-between-pages">¶</a>Linking between pages</h2><div class="outline-text-2" id="text-org65c4544">
+<h2><a id="linking-between-pages" class="anchor" href="#linking-between-pages">¶</a>Linking between pages</h2><div class="outline-text-2" id="text-org3ed094d">
 <p>
 One last thing I want to show you is how you can create links between pages on your site.  Let&rsquo;s open up <code>index.org</code> and create a link to the <code>Emacs.org</code> file.
 </p>
@@ -474,7 +474,7 @@ It will also complain when a linked file can&rsquo;t be found!
 <pre>Debugger entered--Lisp error: (user-error <span class="org-string">"Unable to resolve link: \"Emacs2.org\""</span>)</pre>
 </div>
 
-<h2><a id="the-final-build-script" class="anchor" href="#the-final-build-script">¶</a>The final build script</h2><div class="outline-text-2" id="text-orgd797ddd">
+<h2><a id="the-final-build-script" class="anchor" href="#the-final-build-script">¶</a>The final build script</h2><div class="outline-text-2" id="text-orgb3e0bff">
 <p>
 I&rsquo;ve committed all of the code you see in this video to the following GitHub repository:
 </p>
@@ -534,4 +534,4 @@ Here is the final form of our <code>build-site.el</code> script:
 
 (message <span class="org-string">"Build complete!"</span>)</pre>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

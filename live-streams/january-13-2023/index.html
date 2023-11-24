@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Building a Custom Guix Distribution - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Building a Custom Guix Distribution</h1><p class="site-post-meta">January 13, 2023</p><div class="video">  <iframe src="https://www.youtube.com/embed/yiPC4GotNXA" allowfullscreen></iframe></div><div id="content">
-<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-orgd544371">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Building a Custom Guix Distribution - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Building a Custom Guix Distribution</h1><p class="site-post-meta">January 13, 2023</p><div class="video">  <iframe src="https://www.youtube.com/embed/yiPC4GotNXA" allowfullscreen></iframe></div><div id="content">
+<h2><a id="updates" class="anchor" href="#updates">¶</a>Updates</h2><div class="outline-text-2" id="text-orgc53df34">
 <ul class="org-ul">
 <li>Big changes coming to Crafted Emacs soon, check out Jeff Bowman&rsquo;s blog post:</li>
 </ul>
@@ -37,7 +37,7 @@ More ways to support: <a href="https://systemcrafters.net/support-the-channel/">
 </ul>
 </div>
 
-<h2><a id="building-a-custom-guix-distribution" class="anchor" href="#building-a-custom-guix-distribution">¶</a>Building a Custom Guix Distribution</h2><div class="outline-text-2" id="text-org18e453a">
+<h2><a id="building-a-custom-guix-distribution" class="anchor" href="#building-a-custom-guix-distribution">¶</a>Building a Custom Guix Distribution</h2><div class="outline-text-2" id="text-org6d47a0c">
 <p>
 Today we&rsquo;re going to experiment with how one might build a custom Guix distribution that comes pre-configured with a specific desktop environment and software configuration (i.e. heavily Emacs-driven).
 </p>
@@ -51,7 +51,7 @@ We might also take a peek at the RDE source code to get some ideas!
 </p>
 </div>
 
-<h3><a id="goals" class="anchor" href="#goals">¶</a>Goals</h3><div class="outline-text-3" id="text-org33c3045">
+<h3><a id="goals" class="anchor" href="#goals">¶</a>Goals</h3><div class="outline-text-3" id="text-orgacd386e">
 <p>
 (We definitely won&rsquo;t achieve all of these today)
 </p>
@@ -66,7 +66,7 @@ We might also take a peek at the RDE source code to get some ideas!
 </ul>
 </div>
 
-<h3><a id="the-final-config" class="anchor" href="#the-final-config">¶</a>The final config</h3><div class="outline-text-3" id="text-org504cf13">
+<h3><a id="the-final-config" class="anchor" href="#the-final-config">¶</a>The final config</h3><div class="outline-text-3" id="text-org0d17803">
 <p>
 Unfortunately the stream crashed and we didn&rsquo;t get to finish this!
 </p>
@@ -282,4 +282,4 @@ Thanks a lot to Andrew Tropin for pointing me to the <code>guix-home-service-typ
   <span class="org-comment-delimiter">;; </span><span class="org-comment">Allow resolution of '.local' host names with mDNS.</span>
   (name-service-switch %mdns-host-lookup-nss))</pre>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

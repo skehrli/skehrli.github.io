@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Everyday Package Management with GNU Guix - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Everyday Package Management with GNU Guix</h1><p class="site-post-meta"></p><div class="video">  <iframe src="https://www.youtube.com/embed/Xy0YgnXFt1M" allowfullscreen></iframe></div><div id="content">
-<h2><a id="what-will-we-learn" class="anchor" href="#what-will-we-learn">¶</a>What will we learn?</h2><div class="outline-text-2" id="text-org45c456e">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Everyday Package Management with GNU Guix - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Everyday Package Management with GNU Guix</h1><p class="site-post-meta"></p><div class="video">  <iframe src="https://www.youtube.com/embed/Xy0YgnXFt1M" allowfullscreen></iframe></div><div id="content">
+<h2><a id="what-will-we-learn" class="anchor" href="#what-will-we-learn">¶</a>What will we learn?</h2><div class="outline-text-2" id="text-org7af4f18">
 <p>
 In the last video I showed how you can install GNU Guix as an alternative package manager on your existing Linux distribution but I didn&rsquo;t go into much detail about how you can use it.
 </p>
@@ -18,7 +18,7 @@ If you find this guide helpful, please consider supporting System Crafters via t
 </div>
 </div>
 
-<h2><a id="searching-for-packages" class="anchor" href="#searching-for-packages">¶</a>Searching for Packages</h2><div class="outline-text-2" id="text-org5f0a013">
+<h2><a id="searching-for-packages" class="anchor" href="#searching-for-packages">¶</a>Searching for Packages</h2><div class="outline-text-2" id="text-orgcd894c5">
 <p>
 When you start using Guix, you&rsquo;ll probably want to figure out what packages are available to install.  Guix provides a search command that can be useful for this purpose:
 </p>
@@ -47,7 +47,7 @@ guix search ^sqlite$</pre>
 </p>
 </div>
 
-<h2><a id="installing-packages" class="anchor" href="#installing-packages">¶</a>Installing Packages</h2><div class="outline-text-2" id="text-orgbfbbd8a">
+<h2><a id="installing-packages" class="anchor" href="#installing-packages">¶</a>Installing Packages</h2><div class="outline-text-2" id="text-org261af0e">
 <p>
 When you&rsquo;ve found a package that you&rsquo;d like to install, you can use the <code>guix install</code> command.  This command will install the specified package (or list of packages) into your default user profile.
 </p>
@@ -80,7 +80,7 @@ Typically the output named <code>out</code> is the default output.  In the case 
 </p>
 </div>
 
-<h2><a id="upgrading-packages" class="anchor" href="#upgrading-packages">¶</a>Upgrading Packages</h2><div class="outline-text-2" id="text-org5f5d92d">
+<h2><a id="upgrading-packages" class="anchor" href="#upgrading-packages">¶</a>Upgrading Packages</h2><div class="outline-text-2" id="text-orga553b01">
 <p>
 After you&rsquo;ve installed a few packages, you will probably want to upgrade them to a newer version at some point.  Before you can upgrade, you&rsquo;ll have to sync the latest package definitions from the main Guix repository and any other package sources you might be using.  You can use the following command to do this:
 </p>
@@ -126,7 +126,7 @@ You can also upgrade individual packages by passing the package name to <code>gu
 </p>
 </div>
 
-<h2><a id="listing-installed-packages" class="anchor" href="#listing-installed-packages">¶</a>Listing Installed Packages</h2><div class="outline-text-2" id="text-org4c9011e">
+<h2><a id="listing-installed-packages" class="anchor" href="#listing-installed-packages">¶</a>Listing Installed Packages</h2><div class="outline-text-2" id="text-org07e9e48">
 <p>
 To see a list of all the packages you&rsquo;ve installed you can run this command:
 </p>
@@ -143,7 +143,7 @@ clojure 1.10.0  out     /gnu/store/s8x9r7qgy5d0mapw9xsgf9xr3jz794zr-clojure-1.10
 sqlite  3.32.3  out     /gnu/store/g9gf1ndxryjc15mrjiy41w162lx8j6cv-sqlite-3.32.3</pre>
 </div>
 
-<h2><a id="removing-packages" class="anchor" href="#removing-packages">¶</a>Removing Packages</h2><div class="outline-text-2" id="text-org0981fad">
+<h2><a id="removing-packages" class="anchor" href="#removing-packages">¶</a>Removing Packages</h2><div class="outline-text-2" id="text-orgda32e9f">
 <p>
 You can remove any package you&rsquo;ve already installed using the following command:
 </p>
@@ -165,7 +165,7 @@ You&rsquo;re probably thinking &ldquo;well I don&rsquo;t want a bunch of unused 
 </p>
 </div>
 
-<h2><a id="rolling-back" class="anchor" href="#rolling-back">¶</a>Rolling Back</h2><div class="outline-text-2" id="text-org84197ca">
+<h2><a id="rolling-back" class="anchor" href="#rolling-back">¶</a>Rolling Back</h2><div class="outline-text-2" id="text-org4a78e98">
 <p>
 One of the great features of Guix is the ability to roll back to a previous configuration if something that you do breaks your system.  The package manager can even do this for the packages that you&rsquo;ve installed!
 </p>
@@ -211,7 +211,7 @@ Keep in mind that you may need to run a terminal instance with a new login shell
 </p>
 </div>
 
-<h2><a id="avoiding-package-compilation" class="anchor" href="#avoiding-package-compilation">¶</a>Avoiding Package Compilation</h2><div class="outline-text-2" id="text-org82a6409">
+<h2><a id="avoiding-package-compilation" class="anchor" href="#avoiding-package-compilation">¶</a>Avoiding Package Compilation</h2><div class="outline-text-2" id="text-orgbae8d68">
 <p>
 If Guix has been configured to download &ldquo;substitutes&rdquo; (usually it is) then the package you install may contained precompiled binaries that come from Guix&rsquo;s build servers.  However, sometimes the build servers won&rsquo;t have a build for your package yet, especially if it is a big one like <code>ungoogled-chromium</code> or <code>firefox</code>.
 </p>
@@ -242,7 +242,7 @@ If it says <code>0.0% substitutes available (0 out of 1)</code> then you might w
 </p>
 </div>
 
-<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-orge744596">
+<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-org872bd04">
 <p>
 In the next video, I&rsquo;m going to show you how you can use Guix &ldquo;channels&rdquo; to install packages that aren&rsquo;t a part of the main Guix package repository so that you can get software and drivers that aren&rsquo;t allowed there.
 </p>
@@ -255,4 +255,4 @@ I&rsquo;ll also show you how to use the channel configuration to lock your insta
 To those of you waiting for the video on a full Guix system install, we&rsquo;ll get to that right after the next video :)
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

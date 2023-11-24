@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Exploring the Org Roam DB API - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Exploring the Org Roam DB API</h1><p class="site-post-meta">September  3, 2021</p><div class="video">  <iframe src="https://www.youtube.com/embed/fWmZoaTvA8k" allowfullscreen></iframe></div><div id="content">
-<h2><a id="system-crafters-store-update" class="anchor" href="#system-crafters-store-update">¶</a>System Crafters Store Update</h2><div class="outline-text-2" id="text-org14d5d04">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Exploring the Org Roam DB API - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Exploring the Org Roam DB API</h1><p class="site-post-meta">September  3, 2021</p><div class="video">  <iframe src="https://www.youtube.com/embed/fWmZoaTvA8k" allowfullscreen></iframe></div><div id="content">
+<h2><a id="system-crafters-store-update" class="anchor" href="#system-crafters-store-update">¶</a>System Crafters Store Update</h2><div class="outline-text-2" id="text-org8397b0c">
 <ul class="org-ul">
 <li>The first orders from the new System Crafters Store should be arriving in the next few days!</li>
 <li>I want to see what you got!  Post in #general on the System Crafters Discord or tag @SystemCrafters on Twitter</li>
@@ -13,7 +13,7 @@
 </p>
 </div>
 
-<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org711ef27">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org6e5f290">
 <ul class="org-ul">
 <li>The first EXWM hacking stream went great!</li>
 <li>New video next week</li>
@@ -22,7 +22,7 @@
 </ul>
 </div>
 
-<h2><a id="exploring-the-org-roam-db-api" class="anchor" href="#exploring-the-org-roam-db-api">¶</a>Exploring the Org Roam DB API</h2><div class="outline-text-2" id="text-orgcc2f9bd">
+<h2><a id="exploring-the-org-roam-db-api" class="anchor" href="#exploring-the-org-roam-db-api">¶</a>Exploring the Org Roam DB API</h2><div class="outline-text-2" id="text-orgbe9f127">
 <p>
 Today we&rsquo;ll take a look at the <code>org-roam-db-query</code> function which allows us to gather information about our notes and their connections to other notes.
 </p>
@@ -34,7 +34,7 @@ This API actually queries a local SQLite database!  We may have to look at the d
 <pre>(<span class="org-keyword">require</span> '<span class="org-constant">org-roam-node</span>)</pre>
 </div>
 
-<h2><a id="checking-out-the-db-schema" class="anchor" href="#checking-out-the-db-schema">¶</a>Checking out the DB schema</h2><div class="outline-text-2" id="text-org80d1d0e">
+<h2><a id="checking-out-the-db-schema" class="anchor" href="#checking-out-the-db-schema">¶</a>Checking out the DB schema</h2><div class="outline-text-2" id="text-org9d68bb4">
 <p>
 Take a look at <code>org-roam-db.el</code>, find the comment labelled &ldquo;Schemata&rdquo; (line 144).
 </p>
@@ -44,7 +44,7 @@ There are functions for accessing columns like <code>org-roam-node-tags</code>.
 </p>
 </div>
 
-<h2><a id="querying-for-nodes" class="anchor" href="#querying-for-nodes">¶</a>Querying for nodes</h2><div class="outline-text-2" id="text-org1154504">
+<h2><a id="querying-for-nodes" class="anchor" href="#querying-for-nodes">¶</a>Querying for nodes</h2><div class="outline-text-2" id="text-org5c39da3">
 <p>
 There are a few useful ways to do this:
 </p>
@@ -64,7 +64,7 @@ There are other useful functions in <code>org-roam-db.el</code> that we might lo
 </p>
 </div>
 
-<h2><a id="show-a-completion-list-of-nodes-with-specific-tag" class="anchor" href="#show-a-completion-list-of-nodes-with-specific-tag">¶</a>Show a completion list of nodes with specific tag</h2><div class="outline-text-2" id="text-org2914a24">
+<h2><a id="show-a-completion-list-of-nodes-with-specific-tag" class="anchor" href="#show-a-completion-list-of-nodes-with-specific-tag">¶</a>Show a completion list of nodes with specific tag</h2><div class="outline-text-2" id="text-org188074e">
 <pre>(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-roam-select-language</span> ()
   (<span class="org-keyword">interactive</span>)
   (org-roam-node-read
@@ -77,7 +77,7 @@ There are other useful functions in <code>org-roam-db.el</code> that we might lo
    t))</pre>
 </div>
 
-<h2><a id="build-an-agenda-from-tagged-nodes" class="anchor" href="#build-an-agenda-from-tagged-nodes">¶</a>Build an agenda from tagged nodes</h2><div class="outline-text-2" id="text-org0c57dc0">
+<h2><a id="build-an-agenda-from-tagged-nodes" class="anchor" href="#build-an-agenda-from-tagged-nodes">¶</a>Build an agenda from tagged nodes</h2><div class="outline-text-2" id="text-org709bc12">
 <pre>(<span class="org-keyword">require</span> '<span class="org-constant">seq</span>)
 
 (<span class="org-keyword">defun</span> <span class="org-function-name">my/org-roam-get-project-notes</span> ()
@@ -93,7 +93,7 @@ There are other useful functions in <code>org-roam-db.el</code> that we might lo
 (<span class="org-keyword">setq</span> org-agenda-files (my/org-roam-get-project-notes))</pre>
 </div>
 
-<h2><a id="build-an-agenda-from-projects-linked-to-a-node" class="anchor" href="#build-an-agenda-from-projects-linked-to-a-node">¶</a>Build an agenda from projects linked to a node</h2><div class="outline-text-2" id="text-orgff84c2c">
+<h2><a id="build-an-agenda-from-projects-linked-to-a-node" class="anchor" href="#build-an-agenda-from-projects-linked-to-a-node">¶</a>Build an agenda from projects linked to a node</h2><div class="outline-text-2" id="text-org9aa5a11">
 <p>
 EmacSQL readme: <a href="https://github.com/skeeto/emacsql">https://github.com/skeeto/emacsql</a>
 </p>
@@ -116,7 +116,7 @@ EmacSQL readme: <a href="https://github.com/skeeto/emacsql">https://github.com/s
     (org-agenda)))</pre>
 </div>
 
-<h2><a id="adding-information-to-the-node-completion-list" class="anchor" href="#adding-information-to-the-node-completion-list">¶</a>Adding information to the node completion list</h2><div class="outline-text-2" id="text-org5479b74">
+<h2><a id="adding-information-to-the-node-completion-list" class="anchor" href="#adding-information-to-the-node-completion-list">¶</a>Adding information to the node completion list</h2><div class="outline-text-2" id="text-org91f1e36">
 <p>
 Showing node TODO state:
 </p>
@@ -129,4 +129,4 @@ Showing node deadline:
 
 <pre>(<span class="org-keyword">setq</span> org-roam-node-display-template <span class="org-string">"${title:*} Deadline: ${deadline:10} ${tags:20}"</span>)</pre>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

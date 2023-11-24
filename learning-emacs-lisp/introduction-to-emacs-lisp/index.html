@@ -1,9 +1,9 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Introduction to Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Introduction to Emacs Lisp</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Introduction to Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Introduction to Emacs Lisp</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/RQK_DaaX34Q" allowfullscreen></iframe></div>
 </p>
 
-<h2><a id="what-will-we-cover" class="anchor" href="#what-will-we-cover">¶</a>What will we cover?</h2><div class="outline-text-2" id="text-orgdc9806f">
+<h2><a id="what-will-we-cover" class="anchor" href="#what-will-we-cover">¶</a>What will we cover?</h2><div class="outline-text-2" id="text-org91abdf2">
 <p>
 This is meant to be a practical series!
 </p>
@@ -27,7 +27,7 @@ If you find this guide helpful, please consider supporting System Crafters via t
 </div>
 </div>
 
-<h2><a id="who-is-this-series-for" class="anchor" href="#who-is-this-series-for">¶</a>Who is this series for?</h2><div class="outline-text-2" id="text-orgaaefa4d">
+<h2><a id="who-is-this-series-for" class="anchor" href="#who-is-this-series-for">¶</a>Who is this series for?</h2><div class="outline-text-2" id="text-org3727478">
 <ul class="org-ul">
 <li>Not only for programmers!</li>
 <li>Everyone should get to enjoy hacking Emacs</li>
@@ -38,7 +38,7 @@ If you know Lisp well, don&rsquo;t worry if I skip concepts!
 </p>
 </div>
 
-<h2><a id="what-is-lisp" class="anchor" href="#what-is-lisp">¶</a>What is Lisp?</h2><div class="outline-text-2" id="text-org2ad62ed">
+<h2><a id="what-is-lisp" class="anchor" href="#what-is-lisp">¶</a>What is Lisp?</h2><div class="outline-text-2" id="text-org74b5bd9">
 <ul class="org-ul">
 <li>That weird language with Lots of Irritating Superfluous Parentheses</li>
 <li>A language and environment based on the idea of interactivity</li>
@@ -47,7 +47,7 @@ If you know Lisp well, don&rsquo;t worry if I skip concepts!
 </ul>
 </div>
 
-<h2><a id="emacs-lisp" class="anchor" href="#emacs-lisp">¶</a>Emacs Lisp</h2><div class="outline-text-2" id="text-orgd983a73">
+<h2><a id="emacs-lisp" class="anchor" href="#emacs-lisp">¶</a>Emacs Lisp</h2><div class="outline-text-2" id="text-org0ec3f78">
 <ul class="org-ul">
 <li>A dialect of Lisp for configuring and extending Emacs</li>
 <li>Much of Emacs&rsquo; built-in functionality is written with it!</li>
@@ -60,7 +60,7 @@ We will focus on core concepts in this video!
 </p>
 </div>
 
-<h2><a id="lisp-syntax" class="anchor" href="#lisp-syntax">¶</a>Lisp Syntax</h2><div class="outline-text-2" id="text-org9fae86a">
+<h2><a id="lisp-syntax" class="anchor" href="#lisp-syntax">¶</a>Lisp Syntax</h2><div class="outline-text-2" id="text-org20c5cb5">
 <p>
 The beauty of Lisp comes from the simplicity of its syntax!
 </p>
@@ -86,13 +86,13 @@ You shouldn&rsquo;t be afraid of editing code with parentheses, there are packag
 </p>
 </div>
 
-<h2><a id="values-or-ldquoobjectsrdquo" class="anchor" href="#values-or-ldquoobjectsrdquo">¶</a>Values (or &ldquo;Objects&rdquo;)</h2><div class="outline-text-2" id="text-orgc1bb35a">
+<h2><a id="values-or-ldquoobjectsrdquo" class="anchor" href="#values-or-ldquoobjectsrdquo">¶</a>Values (or &ldquo;Objects&rdquo;)</h2><div class="outline-text-2" id="text-orge5c4f67">
 <p>
 Any value, or object, has a type.  It also has a textual representation that may or may not be &ldquo;readable&rdquo;!
 </p>
 </div>
 
-<h3><a id="lisp-types" class="anchor" href="#lisp-types">¶</a>Lisp Types</h3><div class="outline-text-3" id="text-org3b02dcf">
+<h3><a id="lisp-types" class="anchor" href="#lisp-types">¶</a>Lisp Types</h3><div class="outline-text-3" id="text-orgbcd1635">
 <ul class="org-ul">
 <li>Strings</li>
 <li>Numbers (both integer and float)</li>
@@ -107,7 +107,7 @@ Any value, or object, has a type.  It also has a textual representation that may
 </p>
 </div>
 
-<h3><a id="emacs-types" class="anchor" href="#emacs-types">¶</a>Emacs Types</h3><div class="outline-text-3" id="text-org965b5d2">
+<h3><a id="emacs-types" class="anchor" href="#emacs-types">¶</a>Emacs Types</h3><div class="outline-text-3" id="text-org979cda7">
 <p>
 There are many types specific to Emacs as well, most don&rsquo;t have a code representation:
 </p>
@@ -133,13 +133,13 @@ Things we do with these types can affect the Emacs interface:
 </p>
 </div>
 
-<h2><a id="forms-and-evaluation" class="anchor" href="#forms-and-evaluation">¶</a>Forms and Evaluation</h2><div class="outline-text-2" id="text-orge3e46cc">
+<h2><a id="forms-and-evaluation" class="anchor" href="#forms-and-evaluation">¶</a>Forms and Evaluation</h2><div class="outline-text-2" id="text-org9b29509">
 <p>
 A &ldquo;form&rdquo; is any lisp object that can be evaluated.
 </p>
 </div>
 
-<h3><a id="how-evaluation-works" class="anchor" href="#how-evaluation-works">¶</a>How evaluation works</h3><div class="outline-text-3" id="text-org9220835">
+<h3><a id="how-evaluation-works" class="anchor" href="#how-evaluation-works">¶</a>How evaluation works</h3><div class="outline-text-3" id="text-orgf0df751">
 <p>
 Evaluation works differently for:
 </p>
@@ -173,7 +173,7 @@ buffer-file-name
 #&lt;buffer Emacs-Lisp-01.org&gt;</pre>
 </div>
 
-<h3><a id="the-ldquoenvironmentrdquo" class="anchor" href="#the-ldquoenvironmentrdquo">¶</a>The &ldquo;Environment&rdquo;</h3><div class="outline-text-3" id="text-orgfe6c154">
+<h3><a id="the-ldquoenvironmentrdquo" class="anchor" href="#the-ldquoenvironmentrdquo">¶</a>The &ldquo;Environment&rdquo;</h3><div class="outline-text-3" id="text-org2baf69f">
 <p>
 Everything is evaluated in terms of Emacs Lisp&rsquo;s global environment!
 </p>
@@ -190,7 +190,7 @@ Cons: your environment might get &ldquo;dirty&rdquo; over time in your Emacs ses
 (<span class="org-keyword">setq</span> efs/our-nice-variable 1337)</pre>
 </div>
 
-<h3><a id="expressions" class="anchor" href="#expressions">¶</a>Expressions</h3><div class="outline-text-3" id="text-org3b5f3b2">
+<h3><a id="expressions" class="anchor" href="#expressions">¶</a>Expressions</h3><div class="outline-text-3" id="text-org2c467cb">
 <p>
 Lisp is an expression-based language, almost all forms return a value.
 </p>
@@ -206,7 +206,7 @@ Lisp is an expression-based language, almost all forms return a value.
 (* (add-42 58) 100)</pre>
 </div>
 
-<h2><a id="symbols" class="anchor" href="#symbols">¶</a>Symbols</h2><div class="outline-text-2" id="text-orgdb5b03c">
+<h2><a id="symbols" class="anchor" href="#symbols">¶</a>Symbols</h2><div class="outline-text-2" id="text-org1ca9472">
 <p>
 A symbol is also a type of object, but it&rsquo;s not self-evaluating!
 </p>
@@ -251,7 +251,7 @@ We will discuss this point more in a future episode.
 </p>
 </div>
 
-<h2><a id="infix-vs-prefix" class="anchor" href="#infix-vs-prefix">¶</a>Infix vs Prefix</h2><div class="outline-text-2" id="text-orgc6a3636">
+<h2><a id="infix-vs-prefix" class="anchor" href="#infix-vs-prefix">¶</a>Infix vs Prefix</h2><div class="outline-text-2" id="text-orgbd046fa">
 <p>
 Lisp expressions use &ldquo;prefix&rdquo; notation:
 </p>
@@ -263,7 +263,7 @@ Why is this useful?  Because it puts all functions and operators at the same lev
 </p>
 </div>
 
-<h2><a id="exercise" class="anchor" href="#exercise">¶</a>Exercise</h2><div class="outline-text-2" id="text-orgeb6d8c7">
+<h2><a id="exercise" class="anchor" href="#exercise">¶</a>Exercise</h2><div class="outline-text-2" id="text-orgd67acbf">
 <p>
 Open up the <code>*scratch*</code> buffer and experiment with writing simple expressions.  Use <code>C-x C-e</code> (<code>eval-last-sexp</code>) at the end of each expression to evaluate them.
 </p>
@@ -294,4 +294,4 @@ Here are some you can try:
 Also, go take a look at your Emacs configuration and see what things you can recognize about it now!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

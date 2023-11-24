@@ -1,9 +1,9 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Types, Conditionals, and Loops in Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Types, Conditionals, and Loops in Emacs Lisp</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Types, Conditionals, and Loops in Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Types, Conditionals, and Loops in Emacs Lisp</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/XXpgzyeYh_4" allowfullscreen></iframe></div>
 </p>
 
-<h2><a id="what-will-we-cover" class="anchor" href="#what-will-we-cover">¶</a>What will we cover?</h2><div class="outline-text-2" id="text-orga66de1d">
+<h2><a id="what-will-we-cover" class="anchor" href="#what-will-we-cover">¶</a>What will we cover?</h2><div class="outline-text-2" id="text-org1decacc">
 <p>
 We&rsquo;ll get a sense for the basic data types of the language and how we can use them!
 </p>
@@ -26,7 +26,7 @@ If you find this guide helpful, please consider supporting System Crafters via t
 </div>
 </div>
 
-<h2><a id="follow-along-with-ielm" class="anchor" href="#follow-along-with-ielm">¶</a>Follow along with IELM!</h2><div class="outline-text-2" id="text-org3467ff8">
+<h2><a id="follow-along-with-ielm" class="anchor" href="#follow-along-with-ielm">¶</a>Follow along with IELM!</h2><div class="outline-text-2" id="text-org16def5f">
 <p>
 You can open up an interactive Emacs Lisp REPL in Emacs by running <code>M-x ielm.</code>
 </p>
@@ -60,7 +60,7 @@ I&rsquo;ll be using the following snippet for evaluating code in the REPL:
 (define-key org-mode-map (kbd <span class="org-string">"C-c E"</span>) 'efs/show-ielm)</pre>
 </div>
 
-<h2><a id="true-and-false" class="anchor" href="#true-and-false">¶</a>True and false</h2><div class="outline-text-2" id="text-org7429d3b">
+<h2><a id="true-and-false" class="anchor" href="#true-and-false">¶</a>True and false</h2><div class="outline-text-2" id="text-org08b3333">
 <p>
 Normally a language would have a &ldquo;boolean&rdquo; type for expressing &ldquo;true&rdquo; and &ldquo;false&rdquo;.
 </p>
@@ -85,7 +85,7 @@ There are many &ldquo;predicates&rdquo; for the different types which return <co
 </p>
 </div>
 
-<h2><a id="equality" class="anchor" href="#equality">¶</a>Equality</h2><div class="outline-text-2" id="text-orgc5701fb">
+<h2><a id="equality" class="anchor" href="#equality">¶</a>Equality</h2><div class="outline-text-2" id="text-org2f7ae38">
 <p>
 One of the most basic operations you would do on any type is check whether two values are the same!
 </p>
@@ -130,7 +130,7 @@ A general rule is that you should use <code>equal</code> for most equality check
 </p>
 </div>
 
-<h2><a id="numbers" class="anchor" href="#numbers">¶</a>Numbers</h2><div class="outline-text-2" id="text-orgff34e2b">
+<h2><a id="numbers" class="anchor" href="#numbers">¶</a>Numbers</h2><div class="outline-text-2" id="text-org99a8087">
 <p>
 There are two main types of numbers in Emacs Lisp:
 </p>
@@ -152,7 +152,7 @@ There are two main types of numbers in Emacs Lisp:
 -0</pre>
 </div>
 
-<h3><a id="operations" class="anchor" href="#operations">¶</a>Operations</h3><div class="outline-text-3" id="text-org109b12a">
+<h3><a id="operations" class="anchor" href="#operations">¶</a>Operations</h3><div class="outline-text-3" id="text-org6af4863">
 <p>
 You can perform mathematical operations on these numbers:
 </p>
@@ -206,7 +206,7 @@ See also:
 </ul>
 </div>
 
-<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-orgaccdffd">
+<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-org0c045af">
 <p>
 These predicates will help you identify the number types in code:
 </p>
@@ -228,7 +228,7 @@ These predicates will help you identify the number types in code:
 (zerop 0.0)      <span class="org-comment-delimiter">;; </span><span class="org-comment">t</span></pre>
 </div>
 
-<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org8c99025">
+<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org7e5d55e">
 <p>
 You can compare two numeric values (even integers against floats):
 </p>
@@ -250,7 +250,7 @@ You can compare two numeric values (even integers against floats):
 (min -1 3 2 4) <span class="org-comment-delimiter">;; </span><span class="org-comment">-1</span></pre>
 </div>
 
-<h2><a id="characters" class="anchor" href="#characters">¶</a>Characters</h2><div class="outline-text-2" id="text-orgc00046e">
+<h2><a id="characters" class="anchor" href="#characters">¶</a>Characters</h2><div class="outline-text-2" id="text-orgbf510b6">
 <p>
 Characters are really just integers that are interpreted as characters:
 </p>
@@ -278,7 +278,7 @@ Characters are really just integers that are interpreted as characters:
 </p>
 </div>
 
-<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org1663ab3">
+<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org14269ec">
 <pre>(char-equal ?A ?A)
 (char-equal ?A 65)
 (char-equal ?A ?a)
@@ -288,7 +288,7 @@ case-fold-search
 (<span class="org-keyword">setq</span> case-fold-search t)</pre>
 </div>
 
-<h2><a id="sequences" class="anchor" href="#sequences">¶</a>Sequences</h2><div class="outline-text-2" id="text-orgb1785e4">
+<h2><a id="sequences" class="anchor" href="#sequences">¶</a>Sequences</h2><div class="outline-text-2" id="text-org4548d1d">
 <p>
 In Emacs Lisp, strings, lists, and arrays are all considered sequences
 </p>
@@ -335,7 +335,7 @@ You can get an element of any sequence at a zero-based index with <code>elt</cod
 (elt [1 2 3 4] -1)  <span class="org-comment-delimiter">;; </span><span class="org-comment">error - out of range</span></pre>
 </div>
 
-<h2><a id="strings" class="anchor" href="#strings">¶</a>Strings</h2><div class="outline-text-2" id="text-org4597246">
+<h2><a id="strings" class="anchor" href="#strings">¶</a>Strings</h2><div class="outline-text-2" id="text-org4ff70f2">
 <p>
 Strings are arrays of characters:
 </p>
@@ -351,7 +351,7 @@ Strings are arrays of characters:
 (string ?H ?e ?l ?l ?o ?!)    <span class="org-comment-delimiter">;; </span><span class="org-comment">"Hello!"</span></pre>
 </div>
 
-<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-org7445096">
+<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-orgd201a19">
 <pre>(stringp <span class="org-string">"Test!"</span>)           <span class="org-comment-delimiter">;; </span><span class="org-comment">t</span>
 (stringp 1)                 <span class="org-comment-delimiter">;; </span><span class="org-comment">nil</span>
 (stringp nil)               <span class="org-comment-delimiter">;; </span><span class="org-comment">nil</span>
@@ -368,7 +368,7 @@ Strings are arrays of characters:
 (listp <span class="org-string">"List?"</span>)             <span class="org-comment-delimiter">;; </span><span class="org-comment">nil</span></pre>
 </div>
 
-<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org9f0a78e">
+<h3><a id="comparisons" class="anchor" href="#comparisons">¶</a>Comparisons</h3><div class="outline-text-3" id="text-org636e5ee">
 <p>
 You can compare strings for equivalence or for sorting:
 </p>
@@ -395,7 +395,7 @@ You can compare strings for equivalence or for sorting:
 </p>
 </div>
 
-<h3><a id="operations" class="anchor" href="#operations">¶</a>Operations</h3><div class="outline-text-3" id="text-org73040d2">
+<h3><a id="operations" class="anchor" href="#operations">¶</a>Operations</h3><div class="outline-text-3" id="text-orgc663cd0">
 <pre>(substring <span class="org-string">"Hello!"</span> 0 4)    <span class="org-comment-delimiter">;; </span><span class="org-comment">Hell</span>
 (substring <span class="org-string">"Hello!"</span> 1)      <span class="org-comment-delimiter">;; </span><span class="org-comment">ello!</span>
 
@@ -415,7 +415,7 @@ You can compare strings for equivalence or for sorting:
 (<span class="org-keyword">setq</span> case-fold-search t)</pre>
 </div>
 
-<h3><a id="formatting" class="anchor" href="#formatting">¶</a>Formatting</h3><div class="outline-text-3" id="text-orgab0cd0f">
+<h3><a id="formatting" class="anchor" href="#formatting">¶</a>Formatting</h3><div class="outline-text-3" id="text-org9111deb">
 <p>
 You can create a string from existing values using <code>format</code>:
 </p>
@@ -432,7 +432,7 @@ There are many more format specifications, mainly for number representations, co
 </p>
 </div>
 
-<h3><a id="writing-messages" class="anchor" href="#writing-messages">¶</a>Writing messages</h3><div class="outline-text-3" id="text-org8e8e4fd">
+<h3><a id="writing-messages" class="anchor" href="#writing-messages">¶</a>Writing messages</h3><div class="outline-text-3" id="text-orgeb96067">
 <p>
 As you&rsquo;ve already seen, you can write messages to the echo area (minibuffer) and <code>*Messages*</code> buffer using the <code>message</code> function:
 </p>
@@ -444,13 +444,13 @@ It uses the same formatting specifications as <code>format!</code>
 </p>
 </div>
 
-<h2><a id="lists" class="anchor" href="#lists">¶</a>Lists</h2><div class="outline-text-2" id="text-org60f3e30">
+<h2><a id="lists" class="anchor" href="#lists">¶</a>Lists</h2><div class="outline-text-2" id="text-org754a7c5">
 <p>
 The list is possibly the most useful data type in Emacs Lisp.
 </p>
 </div>
 
-<h3><a id="cons-cells" class="anchor" href="#cons-cells">¶</a>Cons Cells</h3><div class="outline-text-3" id="text-org5dfe22f">
+<h3><a id="cons-cells" class="anchor" href="#cons-cells">¶</a>Cons Cells</h3><div class="outline-text-3" id="text-org42d7be0">
 <p>
 Lists are built out of something called &ldquo;cons cells&rdquo;.  They enable you to chain together list elements using the &ldquo;cons&rdquo; container.
 </p>
@@ -479,7 +479,7 @@ some-cons              <span class="org-comment-delimiter">;; </span><span class
 some-cons              <span class="org-comment-delimiter">;; </span><span class="org-comment">'(3 . 4)</span></pre>
 </div>
 
-<h3><a id="building-lists-from-cons" class="anchor" href="#building-lists-from-cons">¶</a>Building lists from cons</h3><div class="outline-text-3" id="text-orgb45e6fe">
+<h3><a id="building-lists-from-cons" class="anchor" href="#building-lists-from-cons">¶</a>Building lists from cons</h3><div class="outline-text-3" id="text-org998ef9a">
 <p>
 There are two ways to build a list from cons cells:
 </p>
@@ -493,7 +493,7 @@ There are two ways to build a list from cons cells:
 (append '(1 2 3) '(4))</pre>
 </div>
 
-<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-orgd9c2fe4">
+<h3><a id="predicates" class="anchor" href="#predicates">¶</a>Predicates</h3><div class="outline-text-3" id="text-org97751b0">
 <pre>(listp '(1 2 3))
 (listp 1)
 
@@ -506,7 +506,7 @@ There are two ways to build a list from cons cells:
 (consp (cons 1 (cons 2 (cons 3 (cons 4 nil)))))</pre>
 </div>
 
-<h3><a id="alists" class="anchor" href="#alists">¶</a>Alists</h3><div class="outline-text-3" id="text-org8ec1b62">
+<h3><a id="alists" class="anchor" href="#alists">¶</a>Alists</h3><div class="outline-text-3" id="text-orgd78908f">
 <p>
 Association lists (or &ldquo;alists&rdquo;) are lists containing cons pairs for the purpose of storing named values:
 </p>
@@ -528,7 +528,7 @@ Association lists (or &ldquo;alists&rdquo;) are lists containing cons pairs for 
 (alist-get 'one some-alist)  <span class="org-comment-delimiter">;; </span><span class="org-comment">5</span></pre>
 </div>
 
-<h3><a id="plists" class="anchor" href="#plists">¶</a>Plists</h3><div class="outline-text-3" id="text-org5837a58">
+<h3><a id="plists" class="anchor" href="#plists">¶</a>Plists</h3><div class="outline-text-3" id="text-org088bfcc">
 <p>
 A property list (or &ldquo;plist&rdquo;) is another way to do key/value pairs with a flat list:
 </p>
@@ -539,7 +539,7 @@ A property list (or &ldquo;plist&rdquo;) is another way to do key/value pairs wi
 (plist-put '(one 1 two 2) 'three 3)</pre>
 </div>
 
-<h2><a id="arrays" class="anchor" href="#arrays">¶</a>Arrays</h2><div class="outline-text-2" id="text-org8cdfa57">
+<h2><a id="arrays" class="anchor" href="#arrays">¶</a>Arrays</h2><div class="outline-text-2" id="text-org4fa7733">
 <p>
 Arrays are sequences of values that are arranged contiguously in memory.  They are much faster to access!
 </p>
@@ -569,7 +569,7 @@ We can set all values in an array using <code>fillarray</code>
 some-array</pre>
 </div>
 
-<h2><a id="logic-expressions" class="anchor" href="#logic-expressions">¶</a>Logic Expressions</h2><div class="outline-text-2" id="text-orgeb5e6c8">
+<h2><a id="logic-expressions" class="anchor" href="#logic-expressions">¶</a>Logic Expressions</h2><div class="outline-text-2" id="text-org1e57653">
 <p>
 Logic expressions allow you to combine expressions using logical operators (<code>and</code>, <code>or</code>)
 </p>
@@ -579,7 +579,7 @@ You can think of this as operations on the &ldquo;truthiness&rdquo; or &ldquo;fa
 </p>
 </div>
 
-<h3><a id="what-is-true" class="anchor" href="#what-is-true">¶</a>What is true?</h3><div class="outline-text-3" id="text-orgfd67551">
+<h3><a id="what-is-true" class="anchor" href="#what-is-true">¶</a>What is true?</h3><div class="outline-text-3" id="text-orgef61818">
 <p>
 When evaluating expressions, everything except the value <code>nil</code> and the empty list <code>'()</code> is considered <code>t</code>!
 </p>
@@ -592,7 +592,7 @@ When evaluating expressions, everything except the value <code>nil</code> and th
 (<span class="org-keyword">if</span> '()      'true 'false)  <span class="org-comment-delimiter">;; </span><span class="org-comment">false</span></pre>
 </div>
 
-<h3><a id="logic-operators" class="anchor" href="#logic-operators">¶</a>Logic operators</h3><div class="outline-text-3" id="text-org51ecb9d">
+<h3><a id="logic-operators" class="anchor" href="#logic-operators">¶</a>Logic operators</h3><div class="outline-text-3" id="text-org7799a89">
 <p>
 Emacs provides the following logic operators:
 </p>
@@ -618,7 +618,7 @@ Emacs provides the following logic operators:
 (<span class="org-keyword">or</span> (- 3 3) (+ 2 0)) <span class="org-comment-delimiter">;; </span><span class="org-comment">0</span></pre>
 </div>
 
-<h2><a id="conditional-expressions" class="anchor" href="#conditional-expressions">¶</a>Conditional expressions</h2><h3><a id="the-codeifcode-expression" class="anchor" href="#the-codeifcode-expression">¶</a>The <code>if</code> expression</h3><div class="outline-text-3" id="text-orgb3cf997">
+<h2><a id="conditional-expressions" class="anchor" href="#conditional-expressions">¶</a>Conditional expressions</h2><h3><a id="the-codeifcode-expression" class="anchor" href="#the-codeifcode-expression">¶</a>The <code>if</code> expression</h3><div class="outline-text-3" id="text-orgaa49271">
 <p>
 As we saw before, the <code>if</code> expression evaluates an expression and based on the result, picks one of two &ldquo;branches&rdquo; to evaluate next.
 </p>
@@ -666,7 +666,7 @@ You can use <code>if</code> expressions inline when setting variables:
                     2))</pre>
 </div>
 
-<h3><a id="the-codewhencode-and-codeunlesscode-expressions" class="anchor" href="#the-codewhencode-and-codeunlesscode-expressions">¶</a>The <code>when</code> and <code>unless</code> expressions</h3><div class="outline-text-3" id="text-orgb90ddd4">
+<h3><a id="the-codewhencode-and-codeunlesscode-expressions" class="anchor" href="#the-codewhencode-and-codeunlesscode-expressions">¶</a>The <code>when</code> and <code>unless</code> expressions</h3><div class="outline-text-3" id="text-org5e23c77">
 <p>
 These expressions are useful for evaluating forms when a particular condition is true or false:
 </p>
@@ -697,7 +697,7 @@ Both of these expressions can contain multiple forms and return the result of th
   (+ 2 2)) <span class="org-comment-delimiter">;; </span><span class="org-comment">4</span></pre>
 </div>
 
-<h3><a id="the-codecondcode-expression" class="anchor" href="#the-codecondcode-expression">¶</a>The <code>cond</code> expression</h3><div class="outline-text-3" id="text-org0d368fb">
+<h3><a id="the-codecondcode-expression" class="anchor" href="#the-codecondcode-expression">¶</a>The <code>cond</code> expression</h3><div class="outline-text-3" id="text-orgd60f81b">
 <p>
 The <code>cond</code> expression enables you to concisely list multiple conditions to check with resulting forms to execute:
 </p>
@@ -711,19 +711,19 @@ The <code>cond</code> expression enables you to concisely list multiple conditio
       (t         <span class="org-string">"Something else!"</span>))</pre>
 </div>
 
-<h3><a id="the-codepcasecode-expression" class="anchor" href="#the-codepcasecode-expression">¶</a>The <code>pcase</code> expression</h3><div class="outline-text-3" id="text-orga30af38">
+<h3><a id="the-codepcasecode-expression" class="anchor" href="#the-codepcasecode-expression">¶</a>The <code>pcase</code> expression</h3><div class="outline-text-3" id="text-orgbfd2c1c">
 <p>
 This one is powerful!  We will cover it in a future episode.
 </p>
 </div>
 
-<h2><a id="loops" class="anchor" href="#loops">¶</a>Loops</h2><div class="outline-text-2" id="text-org7f2790d">
+<h2><a id="loops" class="anchor" href="#loops">¶</a>Loops</h2><div class="outline-text-2" id="text-orgd1fcd01">
 <p>
 There are 4 ways to loop in Emacs Lisp:
 </p>
 </div>
 
-<h3><a id="while" class="anchor" href="#while">¶</a>while</h3><div class="outline-text-3" id="text-org0b1fb13">
+<h3><a id="while" class="anchor" href="#while">¶</a>while</h3><div class="outline-text-3" id="text-org8f5ac92">
 <p>
 Loops until the condition expression returns false:
 </p>
@@ -735,12 +735,12 @@ Loops until the condition expression returns false:
   (<span class="org-keyword">setq</span> my-loop-counter (1+ my-loop-counter)))</pre>
 </div>
 
-<h3><a id="dotimes" class="anchor" href="#dotimes">¶</a>dotimes</h3><div class="outline-text-3" id="text-orgbe1bef8">
+<h3><a id="dotimes" class="anchor" href="#dotimes">¶</a>dotimes</h3><div class="outline-text-3" id="text-orga31be50">
 <pre>(<span class="org-keyword">dotimes</span> (count 5)
   (message <span class="org-string">"I'm looping more easily! %d"</span> count))</pre>
 </div>
 
-<h3><a id="dolist" class="anchor" href="#dolist">¶</a>dolist</h3><div class="outline-text-3" id="text-orga36fe17">
+<h3><a id="dolist" class="anchor" href="#dolist">¶</a>dolist</h3><div class="outline-text-3" id="text-orgb692cbe">
 <p>
 Loops for each item in a list:
 </p>
@@ -749,7 +749,7 @@ Loops for each item in a list:
   (message <span class="org-string">"Item %s"</span> item))</pre>
 </div>
 
-<h3><a id="recursion" class="anchor" href="#recursion">¶</a>Recursion</h3><div class="outline-text-3" id="text-org746b16f">
+<h3><a id="recursion" class="anchor" href="#recursion">¶</a>Recursion</h3><div class="outline-text-3" id="text-orgf40807b">
 <p>
 Can be fun and interesting, but not safe for a loop that will have many cycles:
 </p>
@@ -762,10 +762,10 @@ Can be fun and interesting, but not safe for a loop that will have many cycles:
 (efs/recursion-test 0 5)</pre>
 </div>
 
-<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-org6e3fe8f">
+<h2><a id="whatrsquos-next" class="anchor" href="#whatrsquos-next">¶</a>What&rsquo;s next?</h2><div class="outline-text-2" id="text-org9af6d2e">
 <ul class="org-ul">
 <li>Dive into functions!</li>
 <li>Shorter side videos on <code>pcase</code>, regular expressions</li>
 </ul>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

@@ -1,6 +1,6 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Improving the IRC Experience in ERC - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Improving the IRC Experience in ERC</h1><p class="site-post-meta">June  4, 2021</p><div class="video">  <iframe src="https://www.youtube.com/embed/Qci8t_jpVGA" allowfullscreen></iframe></div><div id="content">
-<h2><a id="the-great-irc-experiment" class="anchor" href="#the-great-irc-experiment">¶</a>The Great IRC Experiment</h2><div class="outline-text-2" id="text-org2de4436">
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Improving the IRC Experience in ERC - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Improving the IRC Experience in ERC</h1><p class="site-post-meta">June  4, 2021</p><div class="video">  <iframe src="https://www.youtube.com/embed/Qci8t_jpVGA" allowfullscreen></iframe></div><div id="content">
+<h2><a id="the-great-irc-experiment" class="anchor" href="#the-great-irc-experiment">¶</a>The Great IRC Experiment</h2><div class="outline-text-2" id="text-org820486e">
 <ul class="org-ul">
 <li>About 40-50 people in the channel at any time</li>
 <li>We&rsquo;re now a registered community on Libera.Chat!</li>
@@ -22,7 +22,7 @@ I&rsquo;m experimenting with a ZNC bouncer for $5+ sponsors, looking for 5 peopl
 </p>
 </div>
 
-<h2><a id="improving-the-irc-experience-in-erc" class="anchor" href="#improving-the-irc-experience-in-erc">¶</a>Improving the IRC Experience in ERC</h2><h3><a id="improving-the-display-of-messages" class="anchor" href="#improving-the-display-of-messages">¶</a>Improving the display of messages</h3><div class="outline-text-3" id="text-org93a82d4">
+<h2><a id="improving-the-irc-experience-in-erc" class="anchor" href="#improving-the-irc-experience-in-erc">¶</a>Improving the IRC Experience in ERC</h2><h3><a id="improving-the-display-of-messages" class="anchor" href="#improving-the-display-of-messages">¶</a>Improving the display of messages</h3><div class="outline-text-3" id="text-orgb4e84e1">
 <p>
 You can change how ERC displays messages with <code>erc-fill-mode</code>:
 </p>
@@ -32,7 +32,7 @@ You can change how ERC displays messages with <code>erc-fill-mode</code>:
       erc-fill-static-center 20)</pre>
 </div>
 
-<h3><a id="customizing-activity-tracking" class="anchor" href="#customizing-activity-tracking">¶</a>Customizing activity tracking</h3><div class="outline-text-3" id="text-org50055d6">
+<h3><a id="customizing-activity-tracking" class="anchor" href="#customizing-activity-tracking">¶</a>Customizing activity tracking</h3><div class="outline-text-3" id="text-org492bbee">
 <p>
 Mode line tracking of channels is useful but can be a little annoying:
 </p>
@@ -49,17 +49,17 @@ If you&rsquo;re using multiple frames, especially if you keep IRC buffers on a s
 <pre>(<span class="org-keyword">setq</span> erc-track-visibility nil) <span class="org-comment-delimiter">; </span><span class="org-comment">Only use the selected frame for visibility</span></pre>
 </div>
 
-<h3><a id="tracking-specific-keywords-or-people" class="anchor" href="#tracking-specific-keywords-or-people">¶</a>Tracking specific keywords or people</h3><div class="outline-text-3" id="text-org677b64e">
+<h3><a id="tracking-specific-keywords-or-people" class="anchor" href="#tracking-specific-keywords-or-people">¶</a>Tracking specific keywords or people</h3><div class="outline-text-3" id="text-orgd423006">
 <pre>(<span class="org-keyword">setq</span> erc-pals '(<span class="org-string">"shom_"</span> <span class="org-string">"masteroman"</span> <span class="org-string">"benoitj"</span>)
             erc-fools '(<span class="org-string">"daviwil-test"</span>)
             erc-keywords '(<span class="org-string">"guix"</span> <span class="org-string">"wiki"</span>))</pre>
 </div>
 
-<h3><a id="desktop-notifications-for-matchesmentions" class="anchor" href="#desktop-notifications-for-matchesmentions">¶</a>Desktop notifications for matches/mentions</h3><div class="outline-text-3" id="text-org1518c35">
+<h3><a id="desktop-notifications-for-matchesmentions" class="anchor" href="#desktop-notifications-for-matchesmentions">¶</a>Desktop notifications for matches/mentions</h3><div class="outline-text-3" id="text-org57bfd71">
 <pre>(add-to-list 'erc-modules 'notifications)</pre>
 </div>
 
-<h3><a id="uniquely-colorizing-nicknames-in-chat" class="anchor" href="#uniquely-colorizing-nicknames-in-chat">¶</a>Uniquely colorizing nicknames in chat</h3><div class="outline-text-3" id="text-org7c6b505">
+<h3><a id="uniquely-colorizing-nicknames-in-chat" class="anchor" href="#uniquely-colorizing-nicknames-in-chat">¶</a>Uniquely colorizing nicknames in chat</h3><div class="outline-text-3" id="text-orga8844a1">
 <p>
 This makes it easier to recognize specific people at a glance!
 </p>
@@ -75,7 +75,7 @@ You might need to run <code>M-: (erc-update-modules)</code> after running this i
 </p>
 </div>
 
-<h3><a id="displaying-inline-images" class="anchor" href="#displaying-inline-images">¶</a>Displaying inline images</h3><div class="outline-text-3" id="text-org01b73a8">
+<h3><a id="displaying-inline-images" class="anchor" href="#displaying-inline-images">¶</a>Displaying inline images</h3><div class="outline-text-3" id="text-org2814834">
 <pre>(<span class="org-keyword">use-package</span> <span class="org-constant">erc-image</span>
   <span class="org-builtin">:ensure</span> t
   <span class="org-builtin">:after</span> erc
@@ -96,7 +96,7 @@ Try it out in a chat (like in <code>/query NickServ</code>): <a href="https://up
 </p>
 </div>
 
-<h3><a id="displaying-emojis-in-messages" class="anchor" href="#displaying-emojis-in-messages">¶</a>Displaying emojis in messages</h3><div class="outline-text-3" id="text-orga30f1f6">
+<h3><a id="displaying-emojis-in-messages" class="anchor" href="#displaying-emojis-in-messages">¶</a>Displaying emojis in messages</h3><div class="outline-text-3" id="text-org845763c">
 <p>
 Use emojify-mode:
 </p>
@@ -107,7 +107,7 @@ Use emojify-mode:
   <span class="org-builtin">:commands</span> emojify-mode)</pre>
 </div>
 
-<h3><a id="connecting-to-a-specific-server-with-a-keybinding" class="anchor" href="#connecting-to-a-specific-server-with-a-keybinding">¶</a>Connecting to a specific server with a keybinding</h3><div class="outline-text-3" id="text-org68f147d">
+<h3><a id="connecting-to-a-specific-server-with-a-keybinding" class="anchor" href="#connecting-to-a-specific-server-with-a-keybinding">¶</a>Connecting to a specific server with a keybinding</h3><div class="outline-text-3" id="text-orgfd0b3da">
 <pre>(<span class="org-keyword">defun</span> <span class="org-function-name">my/connect-irc</span> ()
   (<span class="org-keyword">interactive</span>)
   (erc-tls
@@ -120,7 +120,7 @@ Use emojify-mode:
 (global-set-key (kbd <span class="org-string">"C-c c c"</span>) 'my/connect-irc)</pre>
 </div>
 
-<h3><a id="jumping-to-irc-buffers-easily" class="anchor" href="#jumping-to-irc-buffers-easily">¶</a>Jumping to IRC buffers easily</h3><div class="outline-text-3" id="text-org0a4202e">
+<h3><a id="jumping-to-irc-buffers-easily" class="anchor" href="#jumping-to-irc-buffers-easily">¶</a>Jumping to IRC buffers easily</h3><div class="outline-text-3" id="text-org60b47cc">
 <p>
 Two commands are useful for this:
 </p>
@@ -133,7 +133,7 @@ Two commands are useful for this:
 <pre>(<span class="org-keyword">setq</span> erc-track-enable-keybindings t)</pre>
 </div>
 
-<h3><a id="automatically-logging-in" class="anchor" href="#automatically-logging-in">¶</a>Automatically logging in</h3><div class="outline-text-3" id="text-org6078170">
+<h3><a id="automatically-logging-in" class="anchor" href="#automatically-logging-in">¶</a>Automatically logging in</h3><div class="outline-text-3" id="text-org37d5c82">
 <p>
 You&rsquo;ll need <code>auth-source</code> set up for this to work!  Check out the video I made about <a href="https://www.youtube.com/watch?v=nZ_T7Q49B8Y">storing your passwords in Emacs</a>.
 </p>
@@ -145,13 +145,13 @@ Setting this variable to <code>nil</code> will tell ERC that it should look up y
 <pre>(<span class="org-keyword">setq</span> erc-prompt-for-password nil)</pre>
 </div>
 
-<h3><a id="using-znc" class="anchor" href="#using-znc">¶</a>Using ZNC</h3><div class="outline-text-3" id="text-org33dba7f">
+<h3><a id="using-znc" class="anchor" href="#using-znc">¶</a>Using ZNC</h3><div class="outline-text-3" id="text-orgd3309fd">
 <p>
 <a href="https://github.com/sshirokov/ZNC.el">https://github.com/sshirokov/ZNC.el</a>
 </p>
 </div>
 
-<h2><a id="emacs-news" class="anchor" href="#emacs-news">¶</a>Emacs News</h2><div class="outline-text-2" id="text-org5e29112">
+<h2><a id="emacs-news" class="anchor" href="#emacs-news">¶</a>Emacs News</h2><div class="outline-text-2" id="text-org4d49a70">
 <ul class="org-ul">
 <li><a href="https://github.com/rougier/svg-lib">svg-lib</a></li>
 <li><a href="https://www.reddit.com/r/emacs/comments/noh7da/consult_08_and_marginalia_06_released_on_gnu_elpa/">Consult 0.8 and Marginalia 0.6 released to ELPA</a></li>
@@ -159,9 +159,9 @@ Setting this variable to <code>nil</code> will tell ERC that it should look up y
 </ul>
 </div>
 
-<h2><a id="next-week-on-the-stream" class="anchor" href="#next-week-on-the-stream">¶</a>Next week on the stream</h2><div class="outline-text-2" id="text-orgca3c94b">
+<h2><a id="next-week-on-the-stream" class="anchor" href="#next-week-on-the-stream">¶</a>Next week on the stream</h2><div class="outline-text-2" id="text-org92feb8f">
 <p>
 We&rsquo;ll be doing another Dotfile Detective stream featuring a discussion with <a href="https://ambrevar.xyz">Ambrevar</a> about <a href="https://gitlab.com/ambrevar/dotfiles/">his dotfiles</a> and possibly other topics!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

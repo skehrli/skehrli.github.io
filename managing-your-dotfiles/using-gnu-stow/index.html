@@ -1,9 +1,9 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using GNU Stow to Manage Symbolic Links for Your Dotfiles - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using GNU Stow to Manage Symbolic Links for Your Dotfiles</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using GNU Stow to Manage Symbolic Links for Your Dotfiles - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using GNU Stow to Manage Symbolic Links for Your Dotfiles</h1><p class="site-post-meta"></p><div id="content"><p>
 <div class="video">  <iframe src="https://www.youtube.com/embed/CxAT1u8G7is" allowfullscreen></iframe></div>
 </p>
 
-<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-org99fbbd4">
+<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-orgcc0eaaf">
 <p>
 One painful part of keeping a dotfiles directory is managing symbolic links between your configuration files and the locations where they need to go in your home directory.
 </p>
@@ -13,7 +13,7 @@ In this video, I&rsquo;ll show you how easy it is to use GNU Stow to automate th
 </p>
 </div>
 
-<h2><a id="getting-started" class="anchor" href="#getting-started">¶</a>Getting started</h2><div class="outline-text-2" id="text-orgec9b42e">
+<h2><a id="getting-started" class="anchor" href="#getting-started">¶</a>Getting started</h2><div class="outline-text-2" id="text-orga4f0bb7">
 <p>
 To get started, make sure you&rsquo;ve already set up a dotfiles directory like I&rsquo;ve described in the video called <a href="https://www.youtube.com/watch?v=gibqkbdVbeY">How to Create a Dotfiles Folder</a>.
 </p>
@@ -35,7 +35,7 @@ On Windows, you can install Stow via the <a href="https://www.msys2.org/">MSYS2<
 </p>
 </div>
 
-<h2><a id="about-gnu-stow" class="anchor" href="#about-gnu-stow">¶</a>About GNU Stow</h2><div class="outline-text-2" id="text-orge1fc544">
+<h2><a id="about-gnu-stow" class="anchor" href="#about-gnu-stow">¶</a>About GNU Stow</h2><div class="outline-text-2" id="text-org9a87466">
 <p>
 <a href="https://www.gnu.org/software/stow/">GNU Stow</a> describes itself as a &ldquo;symlink farm manager,&rdquo; but in practical terms it&rsquo;s just a program that can mirror the structure of one directory into another by creating symbolic links back to the original files.
 </p>
@@ -45,7 +45,7 @@ This is extremely useful when you have a directory full of configuration files t
 </p>
 </div>
 
-<h2><a id="basic-usage" class="anchor" href="#basic-usage">¶</a>Basic usage</h2><div class="outline-text-2" id="text-org480ce73">
+<h2><a id="basic-usage" class="anchor" href="#basic-usage">¶</a>Basic usage</h2><div class="outline-text-2" id="text-org962c977">
 <p>
 Let&rsquo;s say we&rsquo;ve got our configuration files stored in a directory under the home directory called <code>.dotfiles</code>.  We can easily create symbolic links to the files in this directory to the equivalent locations in the home directory using the following command:
 </p>
@@ -76,7 +76,7 @@ It&rsquo;s possible that you will receive an error saying that the target file o
 </p>
 </div>
 
-<h2><a id="how-it-works" class="anchor" href="#how-it-works">¶</a>How it works</h2><div class="outline-text-2" id="text-orgeadae7f">
+<h2><a id="how-it-works" class="anchor" href="#how-it-works">¶</a>How it works</h2><div class="outline-text-2" id="text-orgbf7b1a2">
 <p>
 GNU Stow walks the file and directory hierarchy of the directory passed as the first parameter to the <code>stow</code> command and creates symbolic links to those files in the equivalent locations in the target directory.
 </p>
@@ -108,7 +108,7 @@ This means that you have full control over the source and target directories tha
 </p>
 </div>
 
-<h2><a id="ignoring-files-and-directories" class="anchor" href="#ignoring-files-and-directories">¶</a>Ignoring files and directories</h2><div class="outline-text-2" id="text-org3fc7775">
+<h2><a id="ignoring-files-and-directories" class="anchor" href="#ignoring-files-and-directories">¶</a>Ignoring files and directories</h2><div class="outline-text-2" id="text-org6483850">
 <p>
 By default, GNU Stow does a good job of <a href="https://www.gnu.org/software/stow/manual/stow.html#Types-And-Syntax-Of-Ignore-Lists">ignoring common files and directories</a> you might not want to be linked back to your home directory like <code>README</code> and <code>LICENSE</code> files, source control folders.
 </p>
@@ -143,7 +143,7 @@ An important detail here is that specifying your own ignore file will override S
 </p>
 </div>
 
-<h2><a id="cleaning-up-symbolic-links" class="anchor" href="#cleaning-up-symbolic-links">¶</a>Cleaning up symbolic links</h2><div class="outline-text-2" id="text-org345b768">
+<h2><a id="cleaning-up-symbolic-links" class="anchor" href="#cleaning-up-symbolic-links">¶</a>Cleaning up symbolic links</h2><div class="outline-text-2" id="text-org49d4756">
 <p>
 If for some reason you&rsquo;d like to get rid of all the symbolic links that GNU Stow created in your home folder, you can do that with one extra parameter to the command we&rsquo;ve been running so far:
 </p>
@@ -155,7 +155,7 @@ All of the previously-created symbolic links in the home directory will now be g
 </p>
 </div>
 
-<h2><a id="donrsquot-forget-to-codestowcode-every-time-you-sync" class="anchor" href="#donrsquot-forget-to-codestowcode-every-time-you-sync">¶</a>Don&rsquo;t forget to <code>stow</code> every time you sync!</h2><div class="outline-text-2" id="text-orgeabad80">
+<h2><a id="donrsquot-forget-to-codestowcode-every-time-you-sync" class="anchor" href="#donrsquot-forget-to-codestowcode-every-time-you-sync">¶</a>Don&rsquo;t forget to <code>stow</code> every time you sync!</h2><div class="outline-text-2" id="text-org29f1008">
 <p>
 One last tip I&rsquo;ll mention: if you use Git to commit your configuration files to a repo that is shared between multiple machines, don&rsquo;t forget to run <code>stow</code> each time you sync to ensure that any new configuration files get linked into the proper location.
 </p>
@@ -214,7 +214,7 @@ git pull origin master
 </p>
 </div>
 
-<h2><a id="check-out-the-gnu-stow-manual" class="anchor" href="#check-out-the-gnu-stow-manual">¶</a>Check out the GNU Stow manual</h2><div class="outline-text-2" id="text-org336556d">
+<h2><a id="check-out-the-gnu-stow-manual" class="anchor" href="#check-out-the-gnu-stow-manual">¶</a>Check out the GNU Stow manual</h2><div class="outline-text-2" id="text-org2ba04cd">
 <p>
 For more information about GNU Stow and details on other ways it can be used, check out the manual:
 </p>
@@ -223,4 +223,4 @@ For more information about GNU Stow and details on other ways it can be used, ch
 <a href="https://www.gnu.org/software/stow/manual/stow.html">GNU Stow Manual</a>
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>

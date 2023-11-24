@@ -1,9 +1,9 @@
-<!-- Generated from 7bd10fb on 2023-11-24 @ 05:09 with Emacs 27.2 (Org mode 9.4.4) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://systemcrafters.net/rss/news.xml"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://systemcrafters.net/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/code.css"/><link rel="stylesheet" href="https://systemcrafters.net/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using Multiple Emacs Configurations with Chemacs2 - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://systemcrafters.net/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://store.systemcrafters.net?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using Multiple Emacs Configurations with Chemacs2</h1><p class="site-post-meta"></p><div id="content"><p>
+<!-- Generated from a55539d on 2023-11-24 @ 05:26 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="https://skehrli.github.io/rss/news.xml"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/iosevka-aile/iosevka-aile.css"/><link rel="stylesheet" href="https://skehrli.github.io/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/code.css"/><link rel="stylesheet" href="https://skehrli.github.io/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Using Multiple Emacs Configurations with Chemacs2 - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="https://skehrli.github.io/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/projects/">Projects</a> <a class="nav-link" href="/cv/">CV</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title">Using Multiple Emacs Configurations with Chemacs2</h1><p class="site-post-meta"></p><div id="content"><p>
 <a href="https://www.youtube.com/watch?v=hHdM2wVM1PI">Watch the video</a> on YouTube!
 </p>
 
-<h2><a id="the-challenge-of-multiple-emacs-configurations" class="anchor" href="#the-challenge-of-multiple-emacs-configurations">¶</a>The challenge of multiple Emacs configurations</h2><div class="outline-text-2" id="text-orgf53078f">
+<h2><a id="the-challenge-of-multiple-emacs-configurations" class="anchor" href="#the-challenge-of-multiple-emacs-configurations">¶</a>The challenge of multiple Emacs configurations</h2><div class="outline-text-2" id="text-org0127015">
 <p>
 When you start using Emacs, you typically either build up your own configuration from scratch little by little or adopt one of the many pre-built configurations like Doom Emacs, Spacemacs, or Prelude.
 </p>
@@ -25,7 +25,7 @@ There must be a better way to solve this problem&#x2026;
 </p>
 </div>
 
-<h2><a id="enter-chemacs2" class="anchor" href="#enter-chemacs2">¶</a>Enter Chemacs2</h2><div class="outline-text-2" id="text-orgfd648c1">
+<h2><a id="enter-chemacs2" class="anchor" href="#enter-chemacs2">¶</a>Enter Chemacs2</h2><div class="outline-text-2" id="text-orge504074">
 <p>
 Chemacs2 is a very small Emacs configuration &ldquo;shim&rdquo; which allows you to set up multiple Emacs configuration profiles so that you can easily switch between them or use them all simultaneously!
 </p>
@@ -55,7 +55,7 @@ It&rsquo;s called Chemacs2 because it&rsquo;s the successor to the original Chem
 </p>
 </div>
 
-<h2><a id="setting-it-up" class="anchor" href="#setting-it-up">¶</a>Setting it up</h2><div class="outline-text-2" id="text-org63ff1e8">
+<h2><a id="setting-it-up" class="anchor" href="#setting-it-up">¶</a>Setting it up</h2><div class="outline-text-2" id="text-orgbdf8bb4">
 <p>
 To set up Chemacs2, you first need to move your existing Emacs configuration out of the way.  Typically your Emacs configuration folder would be in one of two places:
 </p>
@@ -81,7 +81,7 @@ This merely sets up the Chemacs configuration shim so that it gets loaded first 
 </p>
 </div>
 
-<h2><a id="managing-your-emacs-profiles" class="anchor" href="#managing-your-emacs-profiles">¶</a>Managing your Emacs profiles</h2><div class="outline-text-2" id="text-org3364131">
+<h2><a id="managing-your-emacs-profiles" class="anchor" href="#managing-your-emacs-profiles">¶</a>Managing your Emacs profiles</h2><div class="outline-text-2" id="text-org1ca0eff">
 <p>
 To tell Chemacs2 where to get your Emacs configuration, create a file in your home directory called <code>~/.emacs-profiles.el</code> and populate it with this line:
 </p>
@@ -97,7 +97,7 @@ Now that we have this file in place, let&rsquo;s start Emacs to verify that it w
 </p>
 </div>
 
-<h3><a id="adding-a-profile" class="anchor" href="#adding-a-profile">¶</a>Adding a profile</h3><div class="outline-text-3" id="text-orga6ce1c4">
+<h3><a id="adding-a-profile" class="anchor" href="#adding-a-profile">¶</a>Adding a profile</h3><div class="outline-text-3" id="text-org52c553d">
 <p>
 Let&rsquo;s imagine that we wanted to create a new configuration to run alongside the current one.  This is just as easy as adding a new entry to the <code>~/.emacs-profiles.el</code> file:
 </p>
@@ -106,7 +106,7 @@ Let&rsquo;s imagine that we wanted to create a new configuration to run alongsid
  (<span class="org-string">"newconfig"</span> . ((user-emacs-directory . <span class="org-string">"~/.my-new-emacs"</span>))))</pre>
 </div>
 
-<h3><a id="setting-the-default-profile" class="anchor" href="#setting-the-default-profile">¶</a>Setting the default profile</h3><div class="outline-text-3" id="text-org7de2906">
+<h3><a id="setting-the-default-profile" class="anchor" href="#setting-the-default-profile">¶</a>Setting the default profile</h3><div class="outline-text-3" id="text-org03afd14">
 <p>
 When you have multiple profiles set up in this way, you can easily specify which one gets chosen as the default by creating the file <code>~/.emacs-profile</code> and writing the name of the default profile there:
 </p>
@@ -114,7 +114,7 @@ When you have multiple profiles set up in this way, you can easily specify which
 <pre><span class="org-builtin">echo</span> <span class="org-string">'myconfig'</span> &gt; ~/.emacs-profile</pre>
 </div>
 
-<h2><a id="a-real-example" class="anchor" href="#a-real-example">¶</a>A real example!</h2><div class="outline-text-2" id="text-org937709e">
+<h2><a id="a-real-example" class="anchor" href="#a-real-example">¶</a>A real example!</h2><div class="outline-text-2" id="text-org37db345">
 <p>
 Here&rsquo;s an example of using Chemacs2 to use 4 different Emacs configurations:
 </p>
@@ -148,7 +148,7 @@ Also note that we have a a profile named <code>default</code>, this will automat
 </p>
 </div>
 
-<h3><a id="doom-emacs-tip" class="anchor" href="#doom-emacs-tip">¶</a>Doom Emacs Tip</h3><div class="outline-text-3" id="text-org5e085bd">
+<h3><a id="doom-emacs-tip" class="anchor" href="#doom-emacs-tip">¶</a>Doom Emacs Tip</h3><div class="outline-text-3" id="text-org3bfc760">
 <p>
 If you originally cloned Doom Emacs to the <code>~/.emacs.d</code> folder and you now had to move it to make room for Chemacs, you might need to do one of two things to ensure that the configuration works!
 </p>
@@ -164,7 +164,7 @@ If that doesn&rsquo;t work, you will need to delete the Doom config repo folder 
 </p>
 </div>
 
-<h2><a id="using-chemacs2-in-your-dotfiles-repository" class="anchor" href="#using-chemacs2-in-your-dotfiles-repository">¶</a>Using Chemacs2 in your dotfiles repository</h2><div class="outline-text-2" id="text-org9dcccc1">
+<h2><a id="using-chemacs2-in-your-dotfiles-repository" class="anchor" href="#using-chemacs2-in-your-dotfiles-repository">¶</a>Using Chemacs2 in your dotfiles repository</h2><div class="outline-text-2" id="text-org9e6ed2d">
 <p>
 If you have a dotfiles repository (you should!), you can make the Chemacs2 repo a submodule of your dotfiles repository so that you can replicate your multi-Emacs configuration setup on any of your machines.
 </p>
@@ -191,7 +191,7 @@ This will both your dotfiles repository and also any submodule repositories that
 </p>
 </div>
 
-<h2><a id="setting-the-codeeln-cachecode-path-correctly" class="anchor" href="#setting-the-codeeln-cachecode-path-correctly">¶</a>Setting the <code>eln-cache</code> path correctly</h2><div class="outline-text-2" id="text-org425b26c">
+<h2><a id="setting-the-codeeln-cachecode-path-correctly" class="anchor" href="#setting-the-codeeln-cachecode-path-correctly">¶</a>Setting the <code>eln-cache</code> path correctly</h2><div class="outline-text-2" id="text-org9858476">
 <p>
 One thing I noticed while using Chemacs2 with Emacs 28 and native compilation functionality turned on: the compiler output files were being sent to Chemacs&rsquo; config folder instead of the real folder where my personal configuration lives.  To send those files to the right location, add this line to your configuration:
 </p>
@@ -207,7 +207,7 @@ Doom Emacs seems to have adjusted for this but I can&rsquo;t see it done in Spac
 </p>
 </div>
 
-<h2><a id="what-will-you-use-chemacs2-for" class="anchor" href="#what-will-you-use-chemacs2-for">¶</a>What will you use Chemacs2 for?</h2><div class="outline-text-2" id="text-org86a5904">
+<h2><a id="what-will-you-use-chemacs2-for" class="anchor" href="#what-will-you-use-chemacs2-for">¶</a>What will you use Chemacs2 for?</h2><div class="outline-text-2" id="text-org06f25b3">
 <p>
 Hopefully this gives you some interesing ideas for how you can use Chemacs2 for managing your Emacs configurations!
 </p>
@@ -216,4 +216,4 @@ Hopefully this gives you some interesing ideas for how you can use Chemacs2 for 
 I&rsquo;m curious to hear how you can imagine yourself using it, so please leave a comment on the video and let me know!
 </p>
 </div>
-</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p><a href="https://systemcrafters.net/privacy-policy/">Privacy Policy</a> · <a href="https://systemcrafters.net/credits/">Credits</a> · <a href="https://systemcrafters.net/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></p><p>© 2021-2023 System Crafters LLC</p></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="https://systemcrafters.net/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"/></div></div></footer></body></html>
