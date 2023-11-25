@@ -4,10 +4,9 @@
 * Education
 + BSc in Computer Science from *ETH Zurich* (2021-2024)
 + Exchange student at the *University of Washington* (2023-2024).
-  Focus on OS, Compilers, Distributed
 
 * Teaching
-+ TA in 'Parallel Programming'. For this one, I wrote a [[../PProg_Script.pdf][course script]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA.
++ TA in 'Parallel Programming'. For this one, I wrote a [[https://github.com/skehrli/ParallelProgrammingScript][course script]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA.
 + TA in 'Algorithms & Datastructures'.
 
 # * Research
