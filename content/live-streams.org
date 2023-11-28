@@ -1,5 +1,19 @@
 #+TITLE: Live Streams
 
+- [[file:november-3-2023.org][Improving the IRC Experience]] - November 03, 2023
+- [[file:october-20-2023.org][Investigating GNU Hyperbole]] - October 20, 2023
+- [[file:october-13-2023.org][This is the Future of Scheme Hacking]] - October 13, 2023
+- [[file:october-6-2023.org][Exploring Denote 2.0 for Emacs]] - October 06, 2023
+- [[file:september-22-2023.org][The Value of Community]] - September 22, 2023
+- [[file:september-1-2023.org][How to Develop New Guile Libraries]] - September 01, 2023
+- [[file:july-28-2023.org][Terminal Velocity: Eshell, vterm, and Eat]] - July 28, 2023
+- [[file:july-21-2023.org][Self-Hosting Git Repositories with Guix]] - July 21, 2023
+- [[file:july-14-2023.org][Crafter Q&A: Emacs, Guix, and more!]] - July 14, 2023
+- [[file:july-7-2023.org][Crafting Minimal Docker Images with Guix]] - July 07, 2023
+- [[file:june-30-2023.org][Crafting a Guix Installer with Guile and GTK]] - June 30, 2023
+- [[file:june-23-2023.org][Taming Your Emacs Packages with Elpaca]] - June 23, 2023
+- [[file:june-16-2023.org][Crafting Streamlined Guix Configurations]] - June 16, 2023
+- [[file:june-9-2023.org][A New Model for Crafted Emacs]] - June 09, 2023
 - [[file:may-26-2023.org][Is Ement.el the Best Matrix Client?]] - May 26, 2023
 - [[file:may-19-2023.org][Exploring the Depths of Dired]] - May 19, 2023
 - [[file:may-12-2023.org][How I Crafted the New Website with Org Publish]] - May 12, 2023

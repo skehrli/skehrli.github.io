@@ -235,9 +235,20 @@ Examples:
 
 You can create bookmarks to show merged views of folders across accounts:
 
+In mu4e 1.2.0:
+
 #+begin_src emacs-lisp
 
   (add-to-list 'mu4e-bookmarks '("m:/Fastmail/INBOX or m:/Gmail/Inbox" "All Inboxes" ?i))
+
+#+end_src
+
+As of mu4e 1.3.7:
+
+#+begin_src emacs-lisp
+
+  (add-to-list 'mu4e-bookmarks
+	       '(:name "All Inboxes" :query "m:/Fastmail/INBOX or m:/Gmail/Inbox" :key ?i))
 
 #+end_src
 
