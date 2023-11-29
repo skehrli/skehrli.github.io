@@ -138,6 +138,8 @@ Now we can add the IMAP configuration for the Fastmail account to our =.mbsyncrc
   Trash ~/Mail/Fastmail/Trash/
   SubFolders Verbatim
 
+  # With mbsync 1.4.0 and later: Use 'Far' instead of 'Master', and
+  # 'Near' instead of 'Slave'.
   Channel fastmail
   Master :fastmail-remote:
   Slave :fastmail-local:
@@ -353,6 +355,8 @@ Here's the complete configuration for this episode:
   Path ~/Mail/Gmail/
   Inbox ~/Mail/Gmail/Inbox
 
+  # For mbsync 1.4.0 and later: Use 'Far' instead of 'Master', and
+  # 'Near' instead of 'Slave'.
   Channel gmail
   Master :gmail-remote:
   Slave :gmail-local:
@@ -378,6 +382,8 @@ Here's the complete configuration for this episode:
   Trash ~/Mail/Fastmail/Trash/
   SubFolders Verbatim
 
+  # With mbsync 1.4.0 and later: Use 'Far' instead of 'Master', and
+  # 'Near' instead of 'Slave'.
   Channel fastmail
   Master :fastmail-remote:
   Slave :fastmail-local:

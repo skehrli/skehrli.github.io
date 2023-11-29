@@ -56,6 +56,8 @@ Set up an initial configuration at =~/.mbsyncrc=:
   Path ~/Mail/
   Inbox ~/Mail/Inbox
 
+  # With mbsync 1.4.0 and later: Use 'Far' instead of 'Master', and
+  # 'Near' instead of 'Slave'.
   Channel gmail
   Master :gmail-remote:
   Slave :gmail-local:
