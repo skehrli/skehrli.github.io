@@ -159,15 +159,29 @@ Now you can sync the new account:
 
 #+end_src
 
-You'll also need to reindex with =mu= to add the new address:
+- When using a =mu= version prior to version 1.4.0:
 
-#+begin_src sh
+  You'll also need to reindex with =mu= to add the new address:
 
-  mu index --maildir=~/Mail \
-      --my-address=systemcrafters.test@gmail.com \
-      --my-address=systemcrafterstest@fastmail.com
+  #+begin_src sh
 
-#+end_src
+    mu index --maildir=~/Mail \
+	--my-address=systemcrafters.test@gmail.com \
+	--my-address=systemcrafterstest@fastmail.com
+
+  #+end_src
+
+- When using =mu= version 1.4.0 or later:
+
+  You'll need to rerun =mu init= to add the new address:
+
+  #+begin_src sh
+
+    mu init --maildir=~/Mail \
+	--my-address=systemcrafters.test@gmail.com \
+	--my-address=systemcrafterstest@fastmail.com
+    mu index
+  #+end_src
 
 *NOTE:* It's possible you will see an error like this -
 
