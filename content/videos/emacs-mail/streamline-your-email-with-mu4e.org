@@ -56,6 +56,8 @@ Set up an initial configuration at =~/.mbsyncrc=:
   Path ~/Mail/
   Inbox ~/Mail/Inbox
 
+  # With mbsync 1.4.0 and later: Use 'Far' instead of 'Master', and
+  # 'Near' instead of 'Slave'.
   Channel gmail
   Master :gmail-remote:
   Slave :gmail-local:
@@ -132,11 +134,26 @@ Install it on Ubuntu via the =mu4e= package (it's actually the dependency =maild
 
 Run the initial index, providing your e-mail address so it knows how to identify you:
 
-#+begin_src sh
+- When using a =mu= version prior to version 1.4.0:
 
-  mu index --maildir=~/Mail --my-address=systemcrafters.test@gmail.com
+  #+begin_src sh
 
-#+end_src
+    mu index --maildir=~/Mail --my-address=systemcrafters.test@gmail.com
+
+  #+end_src
+
+- When using =mu= version 1.4.0 or later:
+
+  Later versions of =mu= require a separate command for initialization
+  (=mu init=).  The indexation step ( =mu index=) is subsequently
+  simpler.
+
+  #+begin_src sh
+
+    mu init --maildir=~/Mail --my-address=systemcrafters.test@gmail.com
+    mu index
+
+  #+end_src
 
 *NOTE*: You will need to use =--my-address= for every e-mail address you use in a multiple account setup.
 
