@@ -23,3 +23,35 @@ Hyperdrive Manual: https://docs.holepunch.to/building-blocks/hyperdrive
 There was a talk by Joseph Turner and Protesilaos Stavrou at EmacsConf 2023:
 
 https://emacsconf.org/2023/talks/hyperdrive/
+
+IPFS vs Hyperdrive: https://stackoverflow.com/questions/44859200/what-are-the-differences-between-ipfs-and-hyperdrive
+
+Veilid by Cult of the Dead Cow: https://veilid.com
+
+EFF article on Spritely and Veilid: https://www.eff.org/deeplinks/2023/12/meet-spritely-and-veilid
+
+** Installation
+
+#+begin_src sh
+
+  npm install -g hyper-gateway debug
+
+#+end_src
+
+** Configuration
+
+#+begin_src emacs-lisp
+
+    (add-to-list 'load-path "/home/daviwil/.dotfiles/.emacs.d/elpa/hyperdrive-0.3")
+
+    (use-package hyperdrive
+      :ensure t
+      :pin "nongnu"
+      :commands (hyperdrive-menu)
+      :bind ("C-c h" . #'hyperdrive-menu)
+      :config
+      (hyperdrive-menu-bar-mode 1))
+
+#+end_src
+
+Start the gateway with =M-x hyperdrive-start=
