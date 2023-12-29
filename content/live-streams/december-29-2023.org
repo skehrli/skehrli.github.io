@@ -5,6 +5,11 @@
 
 * Updates
 
+- Buy Guix merch here!
+
+  https://um4no.creator-spring.com/
+  https://mastodon.online/@luis_felipe
+
 - Gentoo now provides binary package builds:
 
   https://www.gentoo.org/news/2023/12/29/Gentoo-binary.html
@@ -19,9 +24,10 @@ Let's take a look at my year in review and plans for last year and see what we a
 
 https://systemcrafters.net/live-streams/december-23-2022/
 
-** Move to Matrix and IRC
-
+** Move from Discord to Matrix and IRC
+** The new website
 ** The Newsletter
+
 
 * Areas of Focus in 2024
 
@@ -37,6 +43,17 @@ https://systemcrafters.net/live-streams/december-23-2022/
 
 ** Focusing on some useful non-Emacs tools
 
+tmux, vim
+
 ** Looking at other Linux distributions to find an ideal secondary for servers, workstations, etc
 
+- Debian
+- Alpine
+- Gentoo
+
 ** Organize a more focused effort around providing community services
+
+- IRC bouncer
+- XMPP server
+- file sharing (0x0?)
+- Fediverse server?
