@@ -447,3 +447,17 @@ strong {
 
 .newsletter-text {
 }
+
+.register-button {
+  width: 60%;
+  padding: 10px 10px;
+  border: 1px solid #89aaeb;
+  border-radius: 4px;
+  background-color: #89aaeb;
+  color: #232635;
+}
+
+a:hover.register-button,
+a:focus.register-button {
+  color: #232635;
+}

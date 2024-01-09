@@ -1,0 +1,11 @@
+#+title: Hands-On Guile Scheme for Beginners
+
+* Next Steps
+
+Thank you so much for registering for the course!  I'm extremely excited to get started on this with you.
+
+Before the first meeting, you'll want to make sure you have a working Guile Scheme installation, preferrably with Emacs configured to use it.
+
+* System Setup
+
+* Course Schedule

@@ -449,6 +449,14 @@ holding contextual information."
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
+            '("systemcrafters:courses"
+              :base-directory "./content/courses"
+              :base-extension "org"
+              :recursive t
+              :publishing-directory "./public/courses"
+              :publishing-function org-html-publish-to-html
+              :with-title nil
+              :with-timestamps nil)
             '("systemcrafters:assets"
               :base-directory "./assets"
               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
