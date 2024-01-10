@@ -26,7 +26,7 @@ If you are an intermediate to advanced programmer or if you already have some ex
 
 * How It Works
 
-Starting the week of *February 5, 2024*, we will have one live session each week for 4 weeks where I teach you Scheme fundamentals and help you build a practical project with Guile.  Each session has a specific set of topics planned with live demonstrations and project exercises for you to work on before the next session.
+Starting the week of *February 5, 2024*, we will have one 2-hour live session each week for 4 weeks where I teach you Scheme fundamentals and help you build a few practical projects with Guile.  Each session has a specific set of topics planned with live demonstrations and project exercises for you to work on before the next session.
 
 This will not be like my typical live stream where viewers only talk in chat; this is a group [[https://meet.jit.si/][Jitsi]] call where you can turn on your microphone and video (optional) to participate!  Everyone is welcome to ask questions, provide suggestions, and share their screen.  Later sessions will start with (voluntary) participant demonstrations of what they built for the previous session's exercise.
 
