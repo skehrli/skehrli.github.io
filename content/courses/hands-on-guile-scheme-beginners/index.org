@@ -14,7 +14,7 @@
 
 *Hands-On Guile Scheme for Beginners* is a 4-week, interactive learning course led by [[https://daviwil.com][David Wilson]] of [[https://youtube.com/@SystemCrafters][System Crafters]].  You will learn how to think like a Scheme programmer through interactive programming demonstrations, directed project work, and group discussions both live and over e-mail.
 
-By the end of the 4 weeks, each participant will have written a useful program of their own in Scheme!  You will also know enough about Guile to move on to more advanced tasks like writing  GNU Guix configurations.
+By the end of the 4 weeks, each participant will have written several small programs of their own in Scheme!  You will also know enough about Guile to move on to more advanced tasks like writing GNU Guix configurations.
 
 * Who Should Join?
 
@@ -54,17 +54,19 @@ To join, complete the registration and payment form by clicking the blue button 
 
 *Make sure you register with a valid e-mail address that you are comfortable to participate with during the course!*
 
-The cost for this course is *$X USD* for the full 4 week experience.  I have chosen this price because I believe it represents to the value you will receive from this personalized learning experience!
+The cost for this course is *$120 USD* for the full 4 week experience.  I have chosen this price because I believe it represents the value you will receive from this personalized learning experience!
+
+*FOR SPONSORS:* If you are currently a sponsor of mine at the $5 or $15 tier, you are eligible for a discount for this course!  Check your e-mail or reach out to me to get it.
 
 #+BEGIN_EXPORT html
 
 <p>
 
-<a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/a8beea80-d876-467a-b68d-4cb135e7b30d?embed=1&logo=0" class="lemonsqueezy-button">
+<a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/bf5ae018-bd31-44af-9f66-4e683bc25731?embed=1&logo=0" class="lemonsqueezy-button">
   <img src="/img/courses/HandsOnGuileSchemeBeginners.png" class="center" style="width: 50%; margin-bottom: 10px; border: 1px solid #c3e88d;"/>
 </a>
 
-<b><a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/a8beea80-d876-467a-b68d-4cb135e7b30d?embed=1&logo=0" class="lemonsqueezy-button register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
+<b><a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/bf5ae018-bd31-44af-9f66-4e683bc25731?embed=1&logo=0" class="lemonsqueezy-button register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
 
 <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
