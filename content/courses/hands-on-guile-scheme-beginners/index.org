@@ -14,7 +14,7 @@
 
 *Hands-On Guile Scheme for Beginners* is a 4-week, interactive learning course led by [[https://daviwil.com][David Wilson]] of [[https://youtube.com/@SystemCrafters][System Crafters]].  You will learn how to think like a Scheme programmer through interactive programming demonstrations, directed project work, and group discussions both live and over e-mail.
 
-By the end of the 4 weeks, each participant will have written several small programs of their own in Scheme!  You will also know enough about Guile to move on to more advanced tasks like writing GNU Guix configurations.
+By the end of the 4 weeks, you will have written several small programs of your own in Scheme!  You will also know enough about Guile to move on to more advanced tasks like writing GNU Guix configurations.
 
 * Who Should Join?
 
