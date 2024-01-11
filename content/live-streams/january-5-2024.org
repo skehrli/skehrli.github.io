@@ -5,6 +5,10 @@
 
 * Updates
 
+- LibrePlanet 2024 will be May 4 and 5 in Boston, MA!
+
+  https://libreplanet.org/2024/
+
 * Let's take a look at Fennel
 
 First of all, what is Lua?
@@ -24,3 +28,8 @@ Fennel is a Clojure-inspired Lisp language that compiles down to Lua.
 - For Clojure Users: https://fennel-lang.org/from-clojure
 - Codebases Using Fennel: https://wiki.fennel-lang.org/Codebases
 - Writing Macros: https://fennel-lang.org/macros
+
+Configuring AwesomeWM with Fennel:
+
+- Example config: https://gist.github.com/christoph-frick/d3949076ffc8d23e9350d3ea3b6e00cb
+- friar: eval Fennel into the AwesomeWM session: https://github.com/shtwzrd/friar
