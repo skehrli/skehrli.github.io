@@ -1,4 +1,5 @@
 #+title: Hands-On Guile Scheme for Beginners
+#+video: 3eXK9YZ0NjU
 
 - Start Date: February 5, 2024
 - Duration: 4 Weeks

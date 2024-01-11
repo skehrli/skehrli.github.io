@@ -1,4 +1,5 @@
 #+title: 5 Reasons to Learn Scheme in 2024
+#+video: 3eXK9YZ0NjU
 
 * What is Scheme?
 
