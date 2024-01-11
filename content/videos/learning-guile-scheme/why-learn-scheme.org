@@ -12,7 +12,7 @@ If after the video you're interested to learn it, I'm running a 4 week live inst
 
 https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
 
-I'll be making more advanced courses this year about Guile Scheme and other topics, so if you want to be notified about those you can sign up for my newsletter, the link can also be found in the description:
+I'll also be making more advanced courses this year about Guile Scheme and other topics, so if you want to be notified about those you can sign up for my newsletter, the link can also be found in the description:
 
 https://systemcrafters.net/newsletter/
 
