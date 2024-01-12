@@ -1,5 +1,12 @@
 #+TITLE: Live Streams
 
+- [[file:january-5-2024.org][Lisp-Flavored Lua with Fennel]] - January 05, 2024
+- [[file:december-29-2023.org][2023 Retrospective and 2024 Plans]] - December 29, 2023
+- [[file:december-22-2023.org][Testing Arei, a New Guile Scheme IDE for Emacs]] - December 22, 2023
+- [[file:december-15-2023.org][Sharing Files from Emacs with Hyperdrive.el]] - December 15, 2023
+- [[file:december-1-2023.org][Host Your Own Forgejo - Part 2]] - December 01, 2023
+- [[file:november-17-2023.org][Host Your Own Forgejo with Guix]] - November 17, 2023
+- [[file:november-10-2023.org][Hosting Services with Guix Containers]] - November 10, 2023
 - [[file:november-3-2023.org][Improving the IRC Experience]] - November 03, 2023
 - [[file:october-20-2023.org][Investigating GNU Hyperbole]] - October 20, 2023
 - [[file:october-13-2023.org][This is the Future of Scheme Hacking]] - October 13, 2023
@@ -7,7 +14,6 @@
 - [[file:september-22-2023.org][The Value of Community]] - September 22, 2023
 - [[file:september-1-2023.org][How to Develop New Guile Libraries]] - September 01, 2023
 - [[file:july-28-2023.org][Terminal Velocity: Eshell, vterm, and Eat]] - July 28, 2023
-- [[file:july-21-2023.org][Self-Hosting Git Repositories with Guix]] - July 21, 2023
 - [[file:july-14-2023.org][Crafter Q&A: Emacs, Guix, and more!]] - July 14, 2023
 - [[file:july-7-2023.org][Crafting Minimal Docker Images with Guix]] - July 07, 2023
 - [[file:june-30-2023.org][Crafting a Guix Installer with Guile and GTK]] - June 30, 2023
