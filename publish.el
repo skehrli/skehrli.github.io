@@ -78,7 +78,7 @@
 (setq user-mail-address "david@systemcrafters.net")
 
 (defvar dw/site-url (if (string-equal (getenv "CI") "true")
-                        "https://systemcrafters.net"
+                        "" ;; Don't hardcode the domain
                       "http://localhost:8080")
   "The URL for the site being generated.")
 
@@ -522,6 +522,10 @@ holding contextual information."
 (defun dw/publish ()
   "Publish the entire site."
   (interactive)
+
+  (make-directory "public/rss" t)
+  (make-directory "public/newsletter" t)
+
   (org-publish-all (string-equal (or (getenv "FORCE")
                                      (getenv "CI"))
                                  "true"))
