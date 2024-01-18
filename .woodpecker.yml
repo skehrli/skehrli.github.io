@@ -5,5 +5,5 @@ steps:
       branch: [ master ]
     secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
     commands: |
-      apk add emacs-nox
+      apk add git emacs-nox
       ./publish.sh
