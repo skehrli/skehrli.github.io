@@ -1,5 +1,6 @@
 #+TITLE: Live Streams
 
+- [[file:january-12-2024.org][Comparing Emacs Workspace Packages]] - January 12, 2024
 - [[file:january-5-2024.org][Lisp-Flavored Lua with Fennel]] - January 05, 2024
 - [[file:december-29-2023.org][2023 Retrospective and 2024 Plans]] - December 29, 2023
 - [[file:december-22-2023.org][Testing Arei, a New Guile Scheme IDE for Emacs]] - December 22, 2023
