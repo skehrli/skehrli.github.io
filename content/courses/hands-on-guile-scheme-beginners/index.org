@@ -61,33 +61,13 @@ Here is an overview of the topics we will cover during the 4 weeks:
 
 * How To Join
 
-To join, complete the registration and payment form by clicking the blue button in this section.  After registration completes, you will be sent to another page on this site with further details to prepare you for the course.
+*REGISTRATIONS CLOSED, THE FEBRUARY 2024 COURSE IS NOW FULL*
 
-*Make sure you register with a valid e-mail address that you are comfortable to participate with during the course!*
+Huge thanks to everyone who registered to the course so far!  If you were thinking about signing up, make sure to sign up for the newsletter (form at the bottom of this page) to be notified when the next iteration will be open for registration.
 
-The cost for this course is *$120 USD* (+ VAT for EU citizens) for the full 4 week experience.  I have chosen this price because I believe it represents the value you will receive from this personalized learning experience!
+The next iteration will occur in *March or April*!
 
-*FOR SPONSORS:* If you are currently a sponsor of mine at the $5 or $15 tier, you are eligible for a discount for this course!  Check your e-mail or reach out to me to get it.
-
-#+BEGIN_EXPORT html
-
-<p>
-
-<a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/bf5ae018-bd31-44af-9f66-4e683bc25731?embed=1&logo=0" class="lemonsqueezy-button">
-  <img src="/img/courses/HandsOnGuileSchemeBeginners.png" class="center" style="width: 50%; margin-bottom: 10px; border: 1px solid #c3e88d;"/>
-</a>
-
-<b><a href="https://systemcrafters.lemonsqueezy.com/checkout/buy/bf5ae018-bd31-44af-9f66-4e683bc25731?embed=1&logo=0" class="lemonsqueezy-button register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
-
-<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
-</p>
-
-#+END_EXPORT
-
-Once you register, you will be added to a special mailing list for participants of this course.  Before the day the course begins, I will send you one or two e-mails with instructions on how you can prepare your machine to hack on Guile Scheme code along with me during the first session.
-
-Refunds will only be given under exceptional circumstances.  It is my mission to ensure that you learn /a lot/ from this course.  That's the whole point of creating it!
+For those who registered, you have been added to a special mailing list for participants of this course.  I will soon send you a few e-mails to finalize the schedule and help you prepare your machine to hack on Guile Scheme code along with me.
 
 * Not Ready Yet?
 
