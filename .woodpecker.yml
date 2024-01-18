@@ -1,9 +1,9 @@
 steps:
   build-web:
-    image: silex/emacs:alpine-ci
+    image: node:lts-alpine
     when:
       branch: [ master ]
     secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
     commands: |
-      apk add nodejs npm
+      apk add emacs-nox
       ./publish.sh
