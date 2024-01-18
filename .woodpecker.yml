@@ -1,9 +1,9 @@
 steps:
   build-web:
-    image: silex/emacs:ci
+    image: silex/emacs:alpine-ci
     when:
       branch: [ master ]
     secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
     commands: |
-      apt install nodejs
+      apk add nodejs npm
       ./publish.sh
