@@ -5,5 +5,5 @@ steps:
       branch: [ master ]
     secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
     commands: |
-      sudo apt install nodejs
+      apt install nodejs
       ./publish.sh
