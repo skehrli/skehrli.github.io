@@ -21,7 +21,6 @@
 - Reminder: I'll be giving a keynote at LibrePlanet 2024!
 
   May 4 and 5, 2024 at the Wentworth Institute of Technology in Boston, MA
-
   https://www.fsf.org/blogs/community/libreplanet-2024-may-4-and-5-wentworth-institute-of-technology-boston-ma
 
   You can register to attend online or in-person!
@@ -53,3 +52,15 @@ Useful built-in libraries:
 Check out [[https://codeberg.org/SystemCrafters/live-crafter/][live-crafter]]'s chat bot:
 
 https://codeberg.org/SystemCrafters/live-crafter/raw/commit/c5a3738b475fd807b60e33a6f914d33e8ea4c3fb/chat.scm
+
+** Links worth checking out
+
+- https://guix.gnu.org/en/blog/2023/from-development-environments-to-continuous-integrationthe-ultimate-guide-to-software-development-with-guix/
+
+- https://spritely.institute/static/papers/spritely-core.html
+
+- https://community.spritely.institute/ (password OCAPN2023)
+
+- https://guix-forge.systemreboot.net/
+
+- https://awesome.haunt.page/
