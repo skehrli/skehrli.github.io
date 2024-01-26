@@ -1,0 +1,167 @@
+#+title: Writing Manuals with Texinfo in Emacs
+#+subtitle: System Crafters Live - January 26, 2024
+#+date: [2024-01-26 Fri]
+#+video:
+
+* News
+
+- The "Hands On Guile Scheme for Beginners" course is a little over a week away!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  The next iteration should happen in March or April, sign up for the newsletter to be notified!
+
+  https://systemcrafters.net/newsletter/
+
+  Also, feel free to send me an e-mail directly if you're interested or have questions about it.
+
+- Check out Sacha Chua's next live stream!
+
+  https://www.youtube.com/watch?v=x81McHcnUMs
+
+- Gavin Freeborn has a new video out about Emacs:
+
+  https://www.youtube.com/watch?v=6oeE52bIFyE
+
+
+* Learning Texinfo
+
+- Learn a bit about Texinfo
+- Start writing an example book or manual
+- Attempt to export the manual to different formats (HTML, PDF, ePUB, .info)
+- Take a look at Org Mode's Texinfo export backend
+
+In Guix, run this command to enter a shell that makes it easy to run Texinfo!
+
+#+begin_src sh
+
+  guix shell texinfo texlive-scheme-small texlive-texinfo
+
+#+end_src
+
+Add this to your Emacs configuration to automatically load =.info= files in the Info viewer:
+
+#+begin_src emacs-lisp
+
+;; Load the info system for info files
+(add-to-list 'auto-mode-alist '("\\.info\\'" . Info-on-current-buffer))
+
+#+end_src
+
+Alternatively, you can use the ~C-u C-h i~ key binding to be prompted for an info file to load.  (Or ~C-u M-x info~)
+
+** Generating Texinfo Output Files
+
+#+begin_src sh
+
+  makeinfo -D 'VERSION 6.6.6' -D 'UPDATED Jan 26, 2024' mymanual.texinfo
+  makeinfo --html --no-split mymanual.texinfo
+  makeinfo --pdf mymanual.texinfo
+
+#+end_src
+
+
+** Document Contents
+
+#+begin_src texinfo
+
+\input texinfo
+@settitle Sample Manual 1.0
+
+@copying
+This is a short example of a complete Texinfo file.
+
+Copyright @copyright{} 2016 Free Software Foundation, Inc.
+@end copying
+
+@titlepage
+@title Sample Title
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@node Top
+@top System Crafters IRC Manual
+
+This manual is for System Crafters IRC
+(version @value{VERSION}, @value{UPDATED}).
+
+@menu
+* How to Join::    Where to find the System Crafters IRC.
+* Clients to Use::  Suggested IRC Clients
+* Concept Index::            Concept index.
+* Programming Index::        Programming index.
+@end menu
+
+
+@node How to Join
+@chapter How to Join
+
+@cindex chapter, first
+@cindex index entry, another
+@findex hello-world
+This is the first chapter.
+
+Here is a numbered list.
+
+@enumerate
+@item
+This is the first item.
+
+@item
+This is the second item.
+@end enumerate
+
+
+@node First Section
+@section First Section
+
+First section of first chapter.
+
+@node Second Section
+@section Second Section
+
+Second section of first chapter.
+
+@node Clients to Use
+@chapter Clients to Use
+
+@lisp
+(use-modules (guix inferior) (guix channels)
+             (srfi srfi-1))   ;for 'first'
+
+(define channels
+  ;; This is the old revision from which we want to
+  ;; extract guile-json.
+  (list (channel
+         (name 'guix)
+         (url "https://git.savannah.gnu.org/git/guix.git")
+         (commit
+          "65956ad3526ba09e1f7a40722c96c6ef7c0936fe"))))
+
+(define inferior
+  ;; An inferior representing the above revision.
+  (inferior-for-channels channels))
+
+;; Now create a manifest with the current "guile" package
+;; and the old "guile-json" package.
+(packages->manifest
+ (list (first (lookup-inferior-packages inferior "guile-json"))
+       (specification->package "guile")))
+@end lisp
+
+@node Concept Index
+@unnumbered Concept Index
+
+@printindex cp
+
+@node Programming Index
+@unnumbered Programming Index
+@printindex fn
+
+@bye
+
+#+end_src
