@@ -1,0 +1,196 @@
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                                 Welcome to the
+                          System Crafters Newsletter!
+
+                         Issue #006 - February 1, 2024
+
+                                by David Wilson
+
+
+         --  This newsletter is best viewed with a monospace font!   --
+         --    If your e-mail client can't do that, use this URL:    --
+         --  https://systemcrafters.net/newsletter/sc-news-006.html  --
+         --            Read it in Emacs with `M-x eww`!              --
+
+== Contents ==
+
+1. Introduction
+2. Announcing the new System Crafters Forum!
+3. Feedback Requested: System Crafters Community Guidelines
+4. Crafter News
+5. Friday's Stream - Craftable Terminal Sessions with Zellij
+6. Closing
+
+== Introduction ==
+
+Welcome to the new issue of the System Crafters Newsletter!
+
+Exciting times in System Crafters world with another new announcement this week
+and a few more coming over the next few weeks!
+
+2024 will be the year that many of my goals for System Crafters will start to
+materialize and I'm more motivated than ever to create a ton of valuable tools
+and learning material for you.
+
+Your support and participation is what makes this possible, and also makes this
+community great!
+
+                                     -----
+
+     Are you interested in writing a tip or news entry for the newsletter?
+    Feel free to send drafts or recommendations to david@systemcrafters.net
+
+== Announcing the new System Crafters Forum! ==
+
+Today I'm excited to announce the launch of the new System Crafters Forum!
+
+  -> https://forum.systemcrafters.net
+
+For years now, our community has lacked a good middle ground between the main
+System Crafters website and the various chat channels we've used (Discord,
+Matrix, IRC) to offer a more reliable environment for asking questions, finding
+answers, and sharing the cool things we've made.
+
+I recently started looking into Discourse as an option and was very impressed
+with the capabilities that they provide.  I feel confident that our new forum be
+the ideal home for many of the community activities that I'm planning in the
+near future like hackathons, mini-conferences, courses, mentoring groups, and
+more!
+
+With the introduction of the forum, the IRC chat will become more of a lounge
+for the community where people can hang out and discuss topics of interest in a
+more ephemeral way.  Any time a question in the chat is more deep than just a
+one-line answer, it should probably move to the forum so that others can find
+the answer in the future!
+
+To start things off, I've added categories for relevant topics like Emacs, Guix,
+and Programming:
+
+  -> https://forum.systemcrafters.net/c/emacs
+  -> https://forum.systemcrafters.net/c/guix
+  -> https://forum.systemcrafters.net/c/programming
+
+There's probably a lot more we'd like to discuss, so create a post and suggest
+other categories we should add!
+
+  -> https://forum.systemcrafters.net/new-topic?&category=General
+
+If you're interested to participate, head to the forum site, browse around, and
+then sign up for an account.  We look forward to seeing you there!
+
+== Feedback Requested: System Crafters Community Guidelines ==
+
+While setting up the new forum, I decided that it would be a good time to
+formalize some guidelines to protect the positive vibe of the community and help
+newcomers feel that this is a great place to spend their time.
+
+Yesterday I wrote a a draft of what I think our official Community Guidelines
+should be:
+
+  -> https://forum.systemcrafters.net/t/feedback-needed-system-crafters-community-guidelines/
+
+This is my first time writing a set of community guidelines so I would really
+love your help to read them and give me your honest feedback!
+
+Let me know your thoughts in a reply on the forum thread or reply directly to
+this e-mail if you would prefer to give your feedback privately.
+
+== Crafter News ==
+
+Here are some interesting news items in the broader sphere of system crafting:
+
+* Guile Hoot 0.3.0 has been released!
+
+  In this exciting new release, Guile Hoot becomes even more powerful by
+  the addition of a partial module system implementation.  This means that you
+  import R7RS-style modules in the `(scheme ...)` namespace in your code.
+
+  More of R7RS-small has also been implemented!  This brings us even closer to
+  having a full Scheme implementation that can run in any environment that
+  supports WebAssembly.
+
+  There have also been some quality of life improvements like the addition of
+  hash tables and automatic loading of `reflect.wasm`, so the development
+  experience should be even more smooth now!
+
+  Check out the official news post about the release here:
+
+  -> https://spritely.institute/news/guile-hoot-v030-released.html
+
+  We'll be experimenting with the new Hoot release in this week's stream!
+
+* Protesilaos is moving his projects away from Sourcehut
+
+  In an unexpected turn of events, Protesilaos Stavrou, also known as Prot to
+  the Emacs community, has decided to move away from Sourcehut as the primary
+  collaboration site for his projects.
+
+  The primary reasons being that Sourcehut's interface is not very user-friendly
+  and that the e-mail driven workflow can often be a burden both for contributors
+  and maintainers.
+
+  As much as I like the ethos of Sourcehut and what they're aiming for, I do
+  think that more care needs to be put into the user experience to make it a
+  welcoming and effective platform for everyone to collaborate.  Prot's decision
+  here definitely makes sense to me, though I think he should consider moving to
+  Codeberg instead of going back to GitHub :)
+
+  Read more about Prot's rationale on his blog post here:
+
+  -> https://protesilaos.com/codelog/2024-01-27-sourcehut-no-more/
+
+* Sacha Chua is live streaming more frequently on YouTube!
+
+  Emacs guru and community aggregator Sacha Chua has been streaming more
+  frequently on her YouTube channel.  She usually covers topics of interest that
+  she finds while putting together Emacs News for the week as well as discussing
+  her own Emacs Lisp hacks.
+
+  Check out her most recent stream here:
+
+  -> https://www.youtube.com/watch?v=Pc2kpqgg8pU
+
+  Support her renewed interest in streaming by subscribing to her channel and
+  joining her next stream!
+
+  -> https://www.youtube.com/@sachactube
+  -> https://www.youtube.com/watch?v=vj73DQT4dmA
+
+== Friday's Stream - Craftable Terminal Sessions with Zellij ==
+
+In this week's stream, we'll take a look at a tool called Zellij which provides
+a rich "terminal multiplexer" environment enabling you to create advanced
+workspace layouts in the terminal with persistable sessions.  It also supports
+plugins written with WebAssembly which means we might be able to use Guile Hoot
+to extend it!
+
+If you like using terminal apps with Tmux, you'll definitely want to check this
+out.
+
+The stream will go live at Friday, February 2nd at 6PM EET (UTC+2),
+  check your local time on this page: https://time.is/compare/1800_in_Athens
+
+You can find the stream at these URLs:
+
+  -> https://youtube.com/live/xzm5xiQKJB8
+  -> https://twitch.tv/SystemCrafters
+  -> https://systemcrafters.net/live-streams/february-2-2023/
+
+== Closing ==
+
+I hope you enjoyed this issue of the System Crafters Newsletter!  I always want
+to improve and streamline the content as time goes on so please send me your
+thoughts and feedback by replying directly to this e-mail!
+
+Until next time, Happy Hacking!
+
+        ---------------------------------------------------------------
+        --    If you enjoyed this newsletter and other content by    --
+        --       System Crafters, consider supporting my work!       --
+        --            More information can be found here:            --
+        --  https://systemcrafters.net/how-to-help/#support-my-work  --
+        ---------------------------------------------------------------
+
+--
+David Wilson
+david@systemcrafters.net
