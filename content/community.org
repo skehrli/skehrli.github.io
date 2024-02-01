@@ -2,24 +2,34 @@
 
 The System Crafters community meets in a few places online in case you want to engage with other people about your favorite tools and techniques!
 
+Take a look at the [[file:../community-guidelines.org][Community Guidelines]] before engaging with the community to better understand how we prefer to operate.
+
+* The Forum
+
+The [[https://forum.systemcrafters.net][System Crafters Forum]] is the main hub of the community where you should go to ask questions, share tips, and discuss the new tools and techniques you have discovered.  You should also feel free to share new projects you've created!
+
+There are categories for specific topics like [[https://forum.systemcrafters.net/c/emacs][Emacs]], [[https://forum.systemcrafters.net/c/guix][Guix]], [[https://forum.systemcrafters.net/c/programming][Programming]], and more.  Since the forum is just getting started, you should feel free to [[https://forum.systemcrafters.net/new-topic?&category=General][create a post]] and suggest other categories we should add!
+
 * Chat With Us
 
-If you'd like to chat with the community, you can join us on IRC!
+If you'd like a friendly, informal place to hang out, you can join us on IRC!  The IRC chat is intended to just be a "lounge" for the community where off-topic chat is common.  System crafting topics may also be discussed each day, but real answer-seeking should be done on the forum!
 
-Connect to =irc.libera.chat= and join the =#systemcrafters= room (or use the [[https://web.libera.chat/?channel=#systemcrafters][web chat]])
+To join, connect to =irc.libera.chat= with your favorite IRC client and join the =#systemcrafters= room (or use the [[https://web.libera.chat/?channel=#systemcrafters][web chat]]).
 
 If you've never used IRC before, check out the following videos:
 
 - [[https://systemcrafters.net/chatting-with-emacs/irc-basics-with-erc/][Chatting in IRC using Emacs and ERC]]
 - [[https://systemcrafters.net/live-streams/june-04-2021/][Improving the IRC experience in ERC]]
 
-Check out the [[file:../irc-tips.org][IRC Tips]] page for more information!
+You should also check out the [[file:../irc-tips.org][IRC Tips]] page for more information!
 
 * Friday Streams
 
 Join us *every Friday* for our weekly show *[[file:../live-streams.org][System Crafters Live!]]* The stream is broadcast on both [[https://youtube.com/@SystemCrafters][YouTube]] and [[https://twitch.tv/SystemCrafters][Twitch]].
 
 In these streams we usually experiment with new packages, configurations, and customizations to understand the pros and cons of using them.  Other times we have philosophical discussions about software, computing, and productivity.  It's always a good time!
+
+We are gradually moving the primary stream chat to IRC via the =#systemcrafters-live= room on Libera Chat.  You can find the live stream with embedded IRC chat at this link: https://systemcrafters.net/live
 
 [[https://time.is/compare/1800_in_Athens][Click here]] to see the stream time in your local time zone!
 
