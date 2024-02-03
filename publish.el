@@ -243,10 +243,8 @@
   (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
     (cond
      (exported-link exported-link)
-     ;; Figure out why this isn't working!
-     ;; ((and (null contents)
-     ;;       (not (org-html-inline-image-p link)))
-     ((null contents)
+     ((and (null contents)
+           (not (org-export-inline-image-p link)))
       (format "<a href=\"%s\">%s</a>"
               (org-element-property :raw-link link)
               (org-element-property :raw-link link)))
