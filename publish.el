@@ -243,7 +243,7 @@
   (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
     (cond
      (exported-link exported-link)
-     ((equal contents nil)
+     ((null contents)
       (format "<a href=\"%s\">%s</a>"
               (org-element-property :raw-link link)
               (org-element-property :raw-link link)))
