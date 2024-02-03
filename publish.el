@@ -161,10 +161,10 @@
 
     (if (string-match "\\/index.org\\|\\/404.org$" org-file)
         pub-dir
-        (progn
-          (unless (file-directory-p article-dir)
-            (make-directory article-dir t))
-          article-dir))))
+      (progn
+        (unless (file-directory-p article-dir)
+          (make-directory article-dir t))
+        article-dir))))
 
 (defun dw/get-commit-hash ()
   "Get the short hash of the latest commit in the current repository."
@@ -243,8 +243,10 @@
   (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
     (cond
      (exported-link exported-link)
-     ((and (null contents)
-           (not (org-html-inline-image-p link)))
+     ;; Figure out why this isn't working!
+     ;; ((and (null contents)
+     ;;       (not (org-html-inline-image-p link)))
+     ((null contents)
       (format "<a href=\"%s\">%s</a>"
               (org-element-property :raw-link link)
               (org-element-property :raw-link link)))
@@ -256,9 +258,9 @@
 
 (defun dw/make-heading-anchor-name (headline-text)
   (thread-last headline-text
-    (downcase)
-    (replace-regexp-in-string " " "-")
-    (replace-regexp-in-string "[^[:alnum:]_-]" "")))
+               (downcase)
+               (replace-regexp-in-string " " "-")
+               (replace-regexp-in-string "[^[:alnum:]_-]" "")))
 
 (defun dw/org-html-headline (headline contents info)
   (let* ((text (org-export-data (org-element-property :title headline) info))
@@ -311,14 +313,14 @@ holding contextual information."
                   "")))))
 
 (org-export-define-derived-backend 'site-html 'html
-  :translate-alist
-  '((template . dw/org-html-template)
-    (link . dw/org-html-link)
-    (src-block . dw/org-html-src-block)
-    (special-block . dw/org-html-special-block)
-    (headline . dw/org-html-headline))
-  :options-alist
-  '((:video "VIDEO" nil nil)))
+                                   :translate-alist
+                                   '((template . dw/org-html-template)
+                                     (link . dw/org-html-link)
+                                     (src-block . dw/org-html-src-block)
+                                     (special-block . dw/org-html-special-block)
+                                     (headline . dw/org-html-headline))
+                                   :options-alist
+                                   '((:video "VIDEO" nil nil)))
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
@@ -429,8 +431,8 @@ holding contextual information."
       ;; NOTE: Hardcoding this at 8am for now
       (encode-time 0 0 8 day month year))))
 
-;(defun dw/rss-extract-summary (html-file)
-;  )
+                                        ;(defun dw/rss-extract-summary (html-file)
+                                        ;  )
 
 (setq webfeeder-title-function #'dw/rss-extract-title
       webfeeder-date-function #'dw/rss-extract-date)
