@@ -1,0 +1,19 @@
+#+title: Hype Skeptic: Testing Hyprland
+#+subtitle: System Crafters Live - February 16, 2024
+#+date: [2024-02-16 Fri]
+#+video: I6cDYLjjZKQ
+
+* News
+
+- Next week, two course announcements:
+
+  Hands-On Guile Scheme for Beginners, March 2024
+  Unnamed Intermedia Guile Scheme Course (Ideas? Let me know!)
+
+  Sign up to the newsletter or catch next week's stream!
+
+  https://systemcrafters.net/newsletter
+
+* Let's Try out Hyprland
+
+https://hyprland.org/
