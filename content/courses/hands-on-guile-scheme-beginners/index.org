@@ -111,6 +111,12 @@ I had *zero previous experience* before taking this course.  It has been an *imm
 Glenn
 #+end_quote
 
+#+begin_quote
+I’ve spent plenty on programming courses elsewhere but none were as valuable as this one.  David’s teaching style, sense of humor, and patience served us well and made the learning process both challenging and fun.  I definitely recommend it to any newcomer wanting to learn Scheme and functional programming.
+
+Mark V
+#+end_quote
+
 * How To Join
 
 If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-march-2024][System Crafters Store]] to register or click the blue button below:
