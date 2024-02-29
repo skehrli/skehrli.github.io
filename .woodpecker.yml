@@ -6,4 +6,4 @@ steps:
     secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
     commands: |
       apk add git emacs-nox
-      ./publish.sh
+      CI=true ./publish.sh
