@@ -145,7 +145,7 @@
                                    (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
                                    " · "
                                    (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                                (p "© 2021-2024 System Crafters LLC"))
+                                (p "© 2021-2024 · System Crafters LLC"))
                            (div (@ (class "column align-right"))
                                 (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
                                       (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
@@ -212,7 +212,9 @@
                      (dw/site-header))
                  (div (@ (class "container"))
                       (div (@ (class "site-post"))
-                           (h1 (@ (class "site-post-title"))
+                           (h1 (@ (class ,(if (string= (plist-get info :page-type) "course")
+                                              "site-post-title center"
+                                            "site-post-title")))
                                ,title)
                            ,(when publish-date
                               `(p (@ (class "site-post-meta")) ,publish-date))
@@ -318,7 +320,8 @@ holding contextual information."
                                      (special-block . dw/org-html-special-block)
                                      (headline . dw/org-html-headline))
                                    :options-alist
-                                   '((:video "VIDEO" nil nil)))
+                                   '((:video "VIDEO" nil nil)
+                                     (:page-type "PAGE-TYPE" nil nil)))
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
