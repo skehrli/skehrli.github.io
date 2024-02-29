@@ -1,4 +1,9 @@
 #!/bin/sh
 
-CI=true emacs -Q --batch -l ./publish.el --funcall dw/publish
-npx wrangler pages deploy --project-name systemcrafters public/
+if [ "${SKIP_BUILD}" = "true" ]; then
+  echo "Skipping site build..."
+else
+  CI=${CI:-true} emacs -Q --batch -l ./publish.el --funcall dw/publish
+fi
+
+npx wrangler pages deploy --project-name systemcrafters --branch ${BRANCH:-master} public/
