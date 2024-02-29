@@ -112,7 +112,7 @@ Glenn
 #+end_quote
 
 #+begin_quote
-I’ve spent plenty on programming courses elsewhere but none were as valuable as this one.  David’s teaching style, sense of humor, and patience served us well and made the learning process both challenging and fun.  I definitely recommend it to any newcomer wanting to learn Scheme and functional programming.
+I’ve spent plenty on programming courses elsewhere but *none were as valuable as this one*.  David’s teaching style, sense of humor, and patience served us well and *made the learning process both challenging and fun*.  I *definitely recommend it to any newcomer wanting to learn Scheme* and functional programming.
 
 Mark V
 #+end_quote
