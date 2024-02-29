@@ -6,4 +6,4 @@ else
   CI=${CI:-true} emacs -Q --batch -l ./publish.el --funcall dw/publish
 fi
 
-npx wrangler pages deploy --project-name systemcrafters --branch ${BRANCH:-master} public/
+npx wrangler pages deploy --skip-caching --project-name systemcrafters --branch ${BRANCH:-master} public/
