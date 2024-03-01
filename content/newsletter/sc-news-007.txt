@@ -77,9 +77,10 @@ big improvements over last time:
 - The course is now 8 weeks long to give more time for learning and exercises
 - Course material will be delivered as on-demand videos and written content so
   that you can learn at your own pace
-- We will have 3 live, 1-hour group Q&A sessions (maybe 4?) so that you can ask
-  questions about the material or anything else related to Guile and Scheme
-- You'll receive a lot of useful material at the end of the course to help you
+- We will have 3 live, 1-hour group Q&A sessions so that you can ask questions
+  about the material or anything else related to Guile and Scheme
+- You'll receive a lot of useful material at the end of the course to give you
+  a clear path for what projects you can build next with Guile!
 
 If you're interested to join, head over to the official site to see full details
 about the course and how it will operate:
