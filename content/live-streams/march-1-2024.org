@@ -1,0 +1,38 @@
+#+title: Crafting a Minimal Writing Environment with Emacs
+#+subtitle: System Crafters Live - March 1, 2024
+#+date: [2024-03-01 Fri]
+#+video: yY-qyCYc5GU
+
+* News
+
+- Registration is open for the next "Hands On Guile Scheme for Beginners" iteration!
+
+  There are a number of improvements to the course this time, so check out the site even if you've looked at it before:
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  If you register early before *6 AM UTC, Monday, March 4th*, you'll receive an automatic 15% off of the registration price!
+
+- The Spritely Institute is hiring a Scheme hacker!
+
+  This is an exciting opportunity to hack on cutting-edge Scheme software: integrating Guile Hoot and Spritely Goblins!
+
+  https://spritely.institute/jobs/Contract-WASM-integration.html
+
+- Check out this week's SC Newsletter:
+
+  https://systemcrafters.net/newsletter/sc-news-007
+
+  Sign up here: https://systemcrafters.net/newsletter/
+
+* Let's build an Emacs for writing!
+
+We'll use the following packages (mostly by Prot):
+
+- Fontaine: https://protesilaos.com/emacs/fontaine
+- Spacious Padding: https://protesilaos.com/emacs/spacious-padding
+- Logos: https://protesilaos.com/emacs/logos
+- TMR: https://protesilaos.com/emacs/tmr
+- wc-mode: https://github.com/bnbeckwith/wc-mode
+
+And maybe others that we find!
