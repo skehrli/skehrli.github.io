@@ -120,6 +120,7 @@ b {
 
 blockquote {
   background-color: #232635;
+  font-size: 0.8em;
   font-style: italic;
   border: 1px solid;
   border-radius: 4px;

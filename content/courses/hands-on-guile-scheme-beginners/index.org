@@ -72,7 +72,7 @@ If you can't make it to one of the live Q&A sessions, don't worry, *these sessio
 
 * What You'll Learn
 
-Here is an overview of the topics we will cover during the 4 weeks:
+Here is an overview of the topics we will cover during the 8 weeks:
 
 - Scheme language fundamentals
 - Functional programming for beginners
@@ -117,6 +117,12 @@ I’ve spent plenty on programming courses elsewhere but *none were as valuable 
 Mark V
 #+end_quote
 
+#+begin_quote
+I wanted to *learn the fundamentals of functional programming* and a bit about the world of Lisp(s), and *this was a fantastic course.* David is an excellent instructor and did a great job of *making the material approachable for everyone* and providing feedback. Rewiring my brain for functional programming was *fun but still a challenge.* Being able to refer back to the videos and having access to the discussion forum are great on-going perks. *I highly recommend it!*
+
+Shom
+#+end_quote
+
 * How To Join
 
 If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-march-2024][System Crafters Store]] to register or click the blue button below:
@@ -141,7 +147,7 @@ Once you complete registration, you will be sent an e-mail invite to a private a
 
 ** Early Registration Discount
 
-If you *register before 06:00 UTC, Monday March 3rd* you will receive an *automatic discount of 15%* from the course price!
+If you *register before 06:00 UTC, Monday March 4th* you will receive an *automatic discount of 15%* from the course price!
 
 ** Refund Policy
 
