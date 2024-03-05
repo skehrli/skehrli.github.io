@@ -4,7 +4,7 @@ I have started offering more in-depth courses and workshops to deepen your knowl
 
 * Guile Scheme
 
-If you're interested to go from beginner to productive with Guile Scheme, I will be running the [[file:hands-on-guile-scheme-beginners/index.org][Hands-On Guile Scheme for Beginners]] course once a month this year.
+If you're interested to go from beginner to productive with Guile Scheme, I will be running the [[file:hands-on-guile-scheme-beginners.org][Hands-On Guile Scheme for Beginners]] course once a month this year.
 
 You will learn the fundamentals of Scheme and functional programming and then apply them to build practical projects with Guile!
 

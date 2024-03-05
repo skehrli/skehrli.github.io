@@ -6,6 +6,14 @@ This website is intended to be the /most comprehensive/ reference on the interne
 
 The [[https://youtube.com/@SystemCrafters][System Crafters YouTube channel]] also contains almost 200 videos and live stream recordings demonstrating and explaining these tools and broader topics!
 
+#+begin_cta
+
+Want to *learn Scheme* in a friendly, interactive environment?
+
+*Check out the [[file:courses/hands-on-guile-scheme-beginners.org][Hands-On Guile Scheme for Beginners]] course!*
+
+#+end_cta
+
 * Start Here!
 
 If you are just getting started with *GNU Emacs* and want to learn the basics, check out [[file:emacs-essentials/absolute-beginners-guide-to-emacs.org][The Absolute Beginner's Guide to Emacs]]!
