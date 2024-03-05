@@ -128,6 +128,7 @@
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
                                 (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
+                                (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
                                 (a (@ (class "nav-link") (href "/news/")) "News") " "
                                 (a (@ (class "nav-link") (href "/community/")) "Community") " "
                                 (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "

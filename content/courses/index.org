@@ -1,0 +1,15 @@
+#+title: Courses and Workshops
+
+I have started offering more in-depth courses and workshops to deepen your knowledge and understanding of the topics related to this community:
+
+* Guile Scheme
+
+If you're interested to go from beginner to productive with Guile Scheme, I will be running the [[file:hands-on-guile-scheme-beginners/index.org][Hands-On Guile Scheme for Beginners]] course once a month this year.
+
+You will learn the fundamentals of Scheme and functional programming and then apply them to build practical projects with Guile!
+
+If you have some experience with Guile or Scheme already, I will also be offering project-focused workshops and a course on more advanced Scheme topics later this year, so subscribe to the newsletter (form below) to be notified when those are announced!
+
+* What else would you like to learn?
+
+If you'd like to see a course that covers a particular topic in more depth, feel free to send a suggestion to =david at systemcrafters.net= or start up a thread on the [[https://forum.systemcrafters.net][System Crafters Forum]]!
