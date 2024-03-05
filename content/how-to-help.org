@@ -44,10 +44,6 @@ Monthly support options:
 
 You can also send a one-time tip via [[https://ko-fi.com/SystemCrafters][Ko-Fi]], [[https://github.com/sponsors/daviwil][GitHub Sponsors]] or [[https://paypal.me/SystemCrafters][PayPal]]!  I really appreciate all support, no matter the amount.
 
-** Custom Crafting Support
-
-If you have a configuration or tool you want to build and you need a little help with it, contact me by e-mail (=david= at =systemcrafters.net=) to discuss consulting rates.  From small enhancements to complete Emacs and Guix configurations, I will be happy to help you!
-
 * Buy System Crafters Merchandise
 
 The [[https://store.systemcrafters.net?utm_source=support-the-channel][System Crafters Store]] is a place where you can find t-shirts, hoodies, coffee cups, hats, stickers, and more!  Support the channel by purchasing something with our logo on it.
