@@ -1,0 +1,115 @@
+@media (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+
+body {
+  color: #eeffff;
+  background-color: #292d3e;
+  line-height: 1.4;
+  font-weight: normal;
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+}
+
+pre {
+  color: #f9e7d2;
+  padding: 1em;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: 0.8rem;
+  overflow-x: scroll;
+  background-color: #232635;
+}
+
+code {
+  color: #c3e88d;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: 0.8rem;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  color: #89aaeb;
+}
+
+h2 {
+  color: #c3e88d;
+}
+
+h3 {
+  color: #c792ea;
+}
+
+h4 {
+  color: #c3e88d;
+}
+
+a {
+  color: #82aaff;
+}
+
+a:hover,
+a:focus {
+  color: #82aaff;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  text-align:center;
+}
+
+td.header-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+td.header-date {
+  font-size: 1.2rem;
+  color: #d3d3d3;
+}
+
+td img {
+  color: #ffffff;
+  display: block;
+  margin: 20px auto;
+}
+
+div.notice {
+  font-size: 0.8rem;
+  margin: 30px auto;
+  padding: 20px;
+  width: 80%;
+  border: 1px solid #f9e7d2;
+}
+
+span.arrow {
+  margin-left: 20px;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #f9e7d2;
+  padding: 0.01rem 2em;
+  margin: 0;
+}

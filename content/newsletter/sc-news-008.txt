@@ -1,0 +1,305 @@
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                                 Welcome to the
+                          System Crafters Newsletter!
+
+                           Issue #008 - March 7, 2024
+
+                                by David Wilson
+
+
+         --  This newsletter is best viewed with a monospace font!   --
+         --    If your e-mail client can't do that, use this URL:    --
+         --  https://systemcrafters.net/newsletter/sc-news-008.html  --
+         --            Read it in Emacs with `M-x eww`!              --
+
+== Table of Contents ==
+
+1. Introduction
+2. The Mission of System Crafters
+3. Learn Scheme with Us!
+4. Tip of the Week - Project Switch Actions in Emacs
+5. Crafter News
+6. Friday's Stream - Code Dive: Project.el in Emacs
+7. Closing
+
+== Introduction ==
+
+Welcome to the new issue of the System Crafters Newsletter!
+
+This issue finally delivers on a change that I've been mulling over for months:
+the introduction of a more modern layout using HTML.
+
+I didn't forget about those of you who prefer the plain text format, though;
+this e-mail contains both the HTML and old-school plain text versions!  Your
+e-mail client should be able to display either format to you by switching a
+setting in the message viewer.
+
+This new improvement is possible thanks to Org Export and e-mail's support for
+multiple [MIME] types for the message body.  In the near future, I'll continue
+my [Publishing Websites with Org Mode] series to explain all of the cool things
+I've learned about Org's publishing system!
+
+I am still trying to calibrate the look of the HTML version of the e-mail so
+please feel free to reply directly and let me know what you think, particularly
+if the fonts are too large or small or if the colors I use are not very
+readable.
+
+I hope you like it!
+
+------
+Links:
+
+[MIME] <https://en.wikipedia.org/wiki/MIME>
+
+[Publishing Websites with Org Mode]
+<https://www.youtube.com/watch?v=AfkrzFodoNw&list=PLEoMzSkcN8oNBsVT7h2Fyt4oTABckSv8j>
+
+== The Mission of System Crafters ==
+
+You might be surprised to learn that the System Crafters YouTube channel and
+community has been going for almost 4 years now.  It's been amazing to see so
+many smart, friendly, and interesting people join us every year.  It has become
+a welcoming little corner of the Internet where geeks and hackers of all sorts
+can hang out and share their interests.
+
+As the community continues to grow, it feels appropriate to define a guiding
+mission that reflects what we've already been doing and where we are headed.
+After thinking a lot about this, I've come up with this concise mission
+statement:
+
+      Elevating computer enthusiasts to experts of code and craft.
+
+We're all /computer enthusiasts/ to some degree, there's no questioning that.
+We come from many different backgrounds; professional programmers, engineers,
+researchers, physicists, mathematicians, entrepreneurs, creatives, and many
+more.  Our passion is to explore what we can do with our computers to have fun,
+build cool projects, share what we learn, and achieve personal goals.
+
+We /elevate/ someone by giving them knowledge and support to improve the skills
+needed to accomplish their goals.  We do it in a kind, constructive, and
+encouraging way.  Crafting our tools and systems is so much fun that we want
+everyone to experience the same satisfaction from it!
+
+We become /experts/ by developing a level of skill that gives complete
+confidence and ability to accomplish our goals.  Whether it's to customize every
+detail of your working environment, build useful tools for oneself and others,
+or achieve the next great hack, our expertise is what gets us there.  Those of
+us who are experts should share our knowledge to help create more experts!
+
+I believe that everyone would benefit from learning to /code/, to become a
+programmer.  Our lives are becoming more entwined with software and technology
+every year.  Having the ability to write code gives you incredible power, the
+ability to bend software to your will rather than be controlled by it.  Even if
+you don't consider yourself a programmer, you *can* learn to do it and I am very
+motivated to help you.
+
+Regardless of one's expertise or programming ability, there is always joy in the
+/craft/ of computing.  This is what keeps us up late at night, tweaking our
+Emacs configuration or trying out a new window manager.  The inescapable desire
+to build something both useful and personally meaningful.  System crafting is a
+form of self expression and a fulfilling endeavour that can actually improve the
+quality of your life!
+
+What does all this mean for you, the reader?  If you are early in your system
+crafting journey, we are here to help you learn and accomplish your goals.  If
+you are an experienced crafter, please share what you know and inspire others to
+keep reaching for the next level of experience.
+
+I am very thankful that all of you are on this journey with me, especially those
+of you who have been around since the beginning.  Your continued participation
+and enthusiasm has given me confidence that this community can actually have a
+meaningful impact.
+
+My role here is to teach what I know and facilitate the operation of the
+community.  With your help, we can elevate many more computer enthusiasts to
+experts!
+
+Please feel free to reply to this e-mail with your thoughts, I would be happy to
+hear from you.
+
+== Learn Scheme with Us! ==
+
+I've been working hard this week on the new iteration of the "Hands-On Guile
+Scheme for Beginners" course that I announced last Thursday.  I'm really excited
+about all the improvements that I'm working on, I think it's going to make a
+huge difference in the value that the course will provide.
+
+To connect with the mission I described in the last section, my goal with this
+course is to teach beginners, either to programming or just to Scheme, how to
+think like a Scheme hacker and build real programs using a fascinating
+programming language.
+
+The potential for Scheme to become /the/ core language for system crafting is
+only growing every year.  I want to help more people to become Scheme hackers so
+that we can all help to accelerate this progress and build some cool projects
+while we do it!
+
+There are a few seats left for the March iteration of the course, so if you're
+interested to join you should sign up before next Friday, March 15th.  More
+details can be found on the course page:
+
+https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+This is a unique opportunity to learn Scheme with a diverse group of crafters, I
+hope you'll join us!
+
+== Tip of the Week - Project Switch Actions in Emacs ==
+
+This week I want to share a cool feature of Emacs' built-in `project.el' which
+enables you to control what happens when you switch projects using `M-x
+project-switch-project' (`C-x p p').
+
+By default, `project-switch-project' will prompt you for a project to open, and
+upon selecting a project you will be presented with a menu in the echo area with
+a series of actions like finding files in the project, opening the project
+directory with `find-file', or launching an Eshell buffer for the project.  Each
+action you are presented with has an associated keyboard key that you can press
+to select that action.
+
+As you'd probably expect, the set of actions that you are offered is
+configurable!  This list is stored in the variable `project-switch-commands'
+which has the following default value as of Emacs 29:
+
+,----
+| 
+| (defcustom project-switch-commands
+|   '((project-find-file "Find file")
+|     (project-find-regexp "Find regexp")
+|     (project-find-dir "Find directory")
+|     (project-vc-dir "VC-Dir")
+|     (project-eshell "Eshell")))
+| 
+`----
+
+This variable holds a list where each item is another list beginning with the
+symbol representing an Emacs Lisp function, a string for the action's name, and
+an optional string to control the quick key that is presented for that action in
+the echo area.
+
+You can add any actions you like to this list using `add-to-list'.  For example,
+perhaps I want to make it really easy to search across a project using Ripgrep
+as soon as I try to switch to it.  I can add this single line to my
+configuration:
+
+,----
+| 
+| (add-to-list 'project-switch-commands '(consult-ripgrep "Ripgrep" "F"))
+| 
+`----
+
+This binds the `consult-ripgrep' command (part of the [Consult] package) to the
+action name "Ripgrep" and the quick key "F".
+
+You can add any other actions you like in this way!
+
+But what if you want `project.el' to immediately switch to your project without
+prompting you?
+
+You can replace the value of `project-switch-commands' with the symbol
+representing any Emacs Lisp function to have it call that function immediately
+without any prompting.  Here's how you can configure it to immediately open up a
+Dired buffer for the project using the `project-dired' command:
+
+,----
+| 
+| (setq project-switch-commands 'project-dired)
+| 
+`----
+
+There's one catch to this approach, though!  It seems that the
+`default-directory' is not set to the project path at the time that your
+preferred function is executed, or at least that has been my experience.
+
+In some cases, we need to create our own function to ensure that our action is
+executed inside of the path of the project.
+
+We can use the expression `(project-root (project-current))' to get the path of
+the current project:
+
+,----
+| 
+| (defun my/project-magit-status ()
+|   (interactive)
+|   (magit-status (project-root (project-current))))
+| 
+| (setq project-switch-commands 'my/project-git-status)
+| 
+`----
+
+If you want to learn more about `project.el', check out this week's live stream
+where I'll dive into the code for this package to see what other interesting
+tricks we can discover!
+
+------
+Links:
+
+[Consult] <https://github.com/minad/consult>
+
+== Crafter News ==
+
+Here are some interesting news items in the broader sphere of system crafting:
+
+* LibrePlanet 2024 is 2 months away!
+
+  LibrePlanet 2024 will be happening on May 4th and 5th this year!  If you're
+  interested to attend either in-person or online, there are registration links
+  on the site below:
+
+  https://libreplanet.org/2024
+
+  There is a full deck of really interesting sessions to attend!  I'll be giving
+  a keynote presentation called "Cultivating a welcoming free software community
+  that lasts" on Saturday morning.  I hope I'll get to meet some of you there!
+
+* Article: Proven Complexity and Technology Choice
+
+  Colin Woodbury, aka fosskers, has written another great article, this time
+  making the case that we should perhaps choose simpler tools for our projects
+  instead of making things unnecessarily complicated.
+
+  He makes this case by establishing a philosophical "razor" for evaluating
+  whether our technology choices are actually driven by need or just for our own
+  entertainment.
+
+  I certainly agree with the spirit of his point: to really solve problems it's
+  better to be as direct as possible without introducing anything that
+  complicates the software such that it is harder to maintain or even to
+  complete.
+
+  On the other hand, there's a lot of value in trying new languages, frameworks,
+  platforms, and tools to learn what you can and decide what works best for you.
+  Learning is a big part of becoming an expert crafter!
+
+  Colin's article is well worth a read:
+
+  http://www.fosskers.ca/en/blog/proven-complexity
+
+== Friday's Stream - Code Dive: Project.el in Emacs ==
+
+This week on "Code Dive" we'll be taking a deeper look at Emacs' built-in
+project.el to see what interesting features or Emacs Lisp tricks we can
+discover.  If we have time, we'll try hacking on some customizations using the
+hooks that this package provides.
+
+The stream will go live at Friday, March 8th at 6PM EET (UTC+2), check your
+local time on this page:
+
+https://time.is/compare/1800_in_Athens
+
+You can find the stream at these URLs:
+
+https://youtube.com/live/O6hMwJfaXV8
+https://twitch.tv/SystemCrafters
+https://systemcrafters.net/live-streams/march-8-2024/
+
+== Closing ==
+
+I hope you enjoyed this issue of the System Crafters Newsletter!  I always want
+to improve and streamline the content so please send me your thoughts and
+feedback by replying directly to this e-mail.
+
+Until next time, Happy Hacking!
+
+--
+David Wilson
+david@systemcrafters.net
