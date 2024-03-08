@@ -1,0 +1,30 @@
+#+title: Code Dive: Project.el in Emacs
+#+subtitle: System Crafters Live - March 8, 2024
+#+date: [2024-03-08 Fri]
+#+video: O6hMwJfaXV8
+
+* News
+
+- Registration is still open for the next "Hands-On Guile Scheme for Beginners" iteration!
+
+  There are a number of improvements to the course this time, so check out the site even if you've looked at it before:
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  *Special Announcement:* A member of the community is looking to sponsor a spot at the course for anyone who is really motivated to learn Scheme but can't afford to pay for a course right now (student, early career, etc).  If you are interested, please reach out to me via e-mail!
+
+- Check out this week's SC Newsletter:
+
+  https://systemcrafters.net/newsletter/sc-news-008
+
+  Sign up here: https://systemcrafters.net/newsletter/
+
+* Let's dive into the code!
+
+I'm going to experiment with a new model for the weekly streams!
+
+I have a few different show concepts in mind that I will attempt to rotate over the course of 4 or 5 weeks so that we always have something interesting to come back to.
+
+This week is our first "episode" of *Code Dive*, a stream segment where we dive deep into the code of a package, program, or library to discover interesting patterns and see how we might use these insights for our own projects!
+
+This week we'll take a look at the built-in =project.el= package in Emacs to see what interesting things we can learn from it.
