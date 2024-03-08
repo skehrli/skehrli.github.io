@@ -28,3 +28,17 @@ I have a few different show concepts in mind that I will attempt to rotate over 
 This week is our first "episode" of *Code Dive*, a stream segment where we dive deep into the code of a package, program, or library to discover interesting patterns and see how we might use these insights for our own projects!
 
 This week we'll take a look at the built-in =project.el= package in Emacs to see what interesting things we can learn from it.
+
+#+begin_src emacs-lisp
+
+  (defun my/project-prompter ()
+    (read-file-name "Select a project folder:"
+                    "/home/daviwil/Projects/Code/"
+                    nil
+                    nil
+                    nil
+                    #'file-directory-p))
+
+  (setq project-prompter #'my/project-prompter)
+
+#+end_src
