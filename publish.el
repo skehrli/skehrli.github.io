@@ -139,14 +139,16 @@
                  (div (@ (class "container"))
                       (div (@ (class "row"))
                            (div (@ (class "column"))
-                                (p (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
-                                   " · "
-                                   (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
-                                   " · "
-                                   (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
-                                   " · "
-                                   (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                                (p "© 2021-2024 · System Crafters LLC"))
+                                (div (@ (class "site-footer-line"))
+                                     (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
+                                     " · "
+                                     (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
+                                     " · "
+                                     (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
+                                     " · "
+                                     (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
+                                (div (@ (class "site-footer-line"))
+                                     "© 2021-2024 · System Crafters LLC"))
                            (div (@ (class "column align-right"))
                                 (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
                                       (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
@@ -198,8 +200,6 @@
                      (type "application/rss+xml")
                      (title "System Crafters News")
                      (href ,(concat dw/site-url "/rss/news.xml"))))
-            (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/fonts/iosevka-aile/iosevka-aile.css"))))
-            (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/fonts/jetbrains-mono/jetbrains-mono.css"))))
             (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/css/code.css"))))
             (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/css/site.css"))))
             (script (@ (defer "defer")
@@ -213,12 +213,10 @@
                      (dw/site-header))
                  (div (@ (class "container"))
                       (div (@ (class "site-post"))
-                           (h1 (@ (class ,(if (string= (plist-get info :page-type) "course")
-                                              "site-post-title center"
-                                            "site-post-title")))
+                           (h1 (@ (class "site-post-title center"))
                                ,title)
                            ,(when publish-date
-                              `(p (@ (class "site-post-meta")) ,publish-date))
+                              `(p (@ (class "site-post-meta center")) ,publish-date))
                            ,(if-let ((video-id (plist-get info :video)))
                                 (dw/embed-video video-id))
                            ,(when pre-content pre-content)
@@ -314,15 +312,15 @@ holding contextual information."
                   "")))))
 
 (org-export-define-derived-backend 'site-html 'html
-                                   :translate-alist
-                                   '((template . dw/org-html-template)
-                                     (link . dw/org-html-link)
-                                     (src-block . dw/org-html-src-block)
-                                     (special-block . dw/org-html-special-block)
-                                     (headline . dw/org-html-headline))
-                                   :options-alist
-                                   '((:video "VIDEO" nil nil)
-                                     (:page-type "PAGE-TYPE" nil nil)))
+  :translate-alist
+  '((template . dw/org-html-template)
+    (link . dw/org-html-link)
+    (src-block . dw/org-html-src-block)
+    (special-block . dw/org-html-special-block)
+    (headline . dw/org-html-headline))
+  :options-alist
+  '((:video "VIDEO" nil nil)
+    (:page-type "PAGE-TYPE" nil nil)))
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
