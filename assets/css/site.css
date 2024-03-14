@@ -144,6 +144,16 @@ blockquote p {
   margin-bottom: 0.6rem;
 }
 
+dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+dd {
+  border-left: 3px solid #89aaeb;
+  padding-left: 10px;
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;
