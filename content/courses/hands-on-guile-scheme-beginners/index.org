@@ -125,6 +125,10 @@ Shom
 
 * How To Join
 
+Registration for the March iteration has now closed!  If you're interested to join the next iteration of the course, sign up for the newsletter at the bottom of this page to be notified when registration opens again.
+
+** Registration form :noexport:
+
 If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-march-2024][System Crafters Store]] to register or click the blue button below:
 
 #+BEGIN_EXPORT html
