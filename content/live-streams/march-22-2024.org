@@ -5,6 +5,12 @@
 
 * News
 
+- Benoit has created an "Awesome" list on the forum!
+  https://forum.systemcrafters.net/t/awesome-crafting-links-from-the-community/446/
+
+- Glenneth has announced Guile-Stash!
+  https://forum.systemcrafters.net/t/new-project-guile-stash/438/
+
 * Guile is great!  It can be better!
 
 I think Scheme is a fantastic programming language.  It is minimal yet powerful and practical enough for both personal hacking and larger projects.
@@ -17,17 +23,104 @@ Here are some thoughts I have, in no particular order, on how we can all help Gu
 
 ** Better Developer Tools
 
+- Editor integration and tooling
+- Unit testing frameworks
+- Linters
+- Debugging tools
+- Performance measurement tools
+
 Use and contribute to Andrew Tropin's Ares RS and Arei IDE projects:
 
 - https://git.sr.ht/~abcdw/guile-ares-rs
 - https://git.sr.ht/~abcdw/emacs-arei
 
+** Better Compiler Errors
+
+This is a must for helping new people become comfortable using the language and tools.
+
 ** An Improved Manual
+
+This has a direct impact on the adoption of not only Guile, but Guix as well!
+
 ** Cross-platform Dependency Manager
+
+Guix is not cross platform, but it is the best Guile package manager and build tool.
+
+Guildhall was a solution for this but it is no longer used: https://github.com/guildhall/
+
+Perhaps something more lightweight could be created?
+
 ** Better Windows Support
+
+This may be improving soon!  But, there is probably more work to do to ensure that cross-platform applications work well on Windows (including using community Guile libraries).
+
 ** Standardized Guile Library Documentation
+
+Info/texinfo, etc, could be considered a solution for this, but is there a good way to generate Guile library documentation directly from the source?
+
+Does Guix have a solution for this already?
+
+There could be a centralized documentation site for Guile libraries like Rust's own [[https://docs.rs][docs.rs]].
+
 ** More Community Libraries
+
+Cover more interesting use cases.  Provide FFI wrappers for important C libraries, like ffmpeg, etc.
+
+Someone should implement an Org Mode parser for Guile!  Haunt, the static site generator for Guile, could really use it!  [[https://wingolog.org/projects/guile-present/][Guile Present]] may have a starting point for an Org Mode parser.
+
+Existing list of libraries: https://www.gnu.org/software/guile/libraries/
+
 ** Alias =ice-9= to =guile=
+
+This may not be possible due to Scheme standard naming conventions, but it would be nice if there was a more user-friendly name that made it obvious that these are Guile-specific libraries that are built-in.
+
 ** Streamlined Application Deployment
+
+Right now, you can package a Guile application using =guix pack= but this really only works on Linuxes.
+
+What about Windows or macOS?
+
+Is there a way to create statically linked Guile applications containing pre-compiled Scheme code (.go files)?
+
+Maybe not fully statically linked, there could be dynamic C libraries, but the Guile code would all be linked in one program.
+
+You can compile a C application using libguile, possibly even statically linked, to make an application that contains Guile.  But, can you embed .go files in it?
+
+There may be some interesting pointers found in the Chickadee implementation of [[https://files.dthompson.us/docs/chickadee/latest/Invoking-chickadee-bundle.html][chickadee bundle]].
+
 ** More Flagship Projects
+
+GNU Guix is a good example of a flagship project.
+
+dwl-guile could be an example of this if it becomes more well known.
+
+Zrythm could also be a flagship project because it enables scripting with Guile.
+
+GNU Shepherd and mcron could also be considered flagship projects.
+
+We need more flagship apps like:
+
+- Games
+- Tools, either command line or graphical
+- Window managers, or desktop environment style tools
+- Hackable common programs like web browsers or editors
+- Media creation apps (graphics, audio, video, etc)
+- A code forge written in Guile (Gitile is one example)
+
 ** A Larger, More Visible Community
+
+There isn't a lot of Guile activity on the "public internet".  A lot of discussion happens on mailing lists which most people avoid like the plague.
+
+And there isn't really much promotion of Guile happening on social media, YouTube, etc.
+
+What we need is more people talking about Guile, teaching Guile, sharing projects written with Guile, on various social medias including video platforms.
+
+This also requires people creating projects with Guile who are excited to talk about them!
+
+* Discuss on the Forum!
+
+cow_2001 has already created a thread for discussing Guile library ideas:
+
+https://forum.systemcrafters.net/t/guile-libraries-ideas/494
+
+Come create your own threads about the kinds of projects or improvements you'd like to see in Guile!
