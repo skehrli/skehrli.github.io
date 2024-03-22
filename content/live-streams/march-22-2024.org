@@ -1,0 +1,33 @@
+#+title: Improving the Guile Ecosystem
+#+subtitle: System Crafters Live - March 22, 2024
+#+date: [2024-03-22 Fri]
+#+video: P4wA8l7S_i8
+
+* News
+
+* Guile is great!  It can be better!
+
+I think Scheme is a fantastic programming language.  It is minimal yet powerful and practical enough for both personal hacking and larger projects.
+
+Guile is a great Scheme implementation with a lot of practical value, but why don't more people use it?
+
+On a technical level, Guile is improving every year.  There's a ton of work going into the compiler ([[https://spritely.institute/hoot/][Hoot]]) and garbage collector ([[https://github.com/wingo/whippet][whippet]]) right now which will help Guile reach more platforms and run much more efficiently.
+
+Here are some thoughts I have, in no particular order, on how we can all help Guile Scheme become a more compelling choice for programmers who want to try Scheme out for new projects:
+
+** Better Developer Tools
+
+Use and contribute to Andrew Tropin's Ares RS and Arei IDE projects:
+
+- https://git.sr.ht/~abcdw/guile-ares-rs
+- https://git.sr.ht/~abcdw/emacs-arei
+
+** An Improved Manual
+** Cross-platform Dependency Manager
+** Better Windows Support
+** Standardized Guile Library Documentation
+** More Community Libraries
+** Alias =ice-9= to =guile=
+** Streamlined Application Deployment
+** More Flagship Projects
+** A Larger, More Visible Community
