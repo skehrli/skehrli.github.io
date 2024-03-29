@@ -253,20 +253,18 @@ kbd {
 }
 
 pre {
-  font-family: "JetBrains Mono", monospace;
   background-color: #232635;
   padding: 1em;
   overflow-x: scroll;
+  font-size: 0.8rem;
 }
 
 code {
   color: #c3e88d;
 }
 
-pre,
-code {
+pre, code {
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.8rem;
 }
 
 strong {
