@@ -132,7 +132,8 @@
                                 ;; (a (@ (class "nav-link") (href "/news/")) "News") " "
                                 ;; (a (@ (class "nav-link") (href "/community/")) "Community") " "
                                 ;; (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
-                                ;; (a (@ (class "nav-link") (href "/cv/cv")) "About")))))))
+                                ;; (a (@ (class "nav-link") (href "/cv/cv")) "About")
+                                ))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -465,12 +466,12 @@ holding contextual information."
               :publishing-directory "./public"
               :recursive t
               :publishing-function org-publish-attachment)
-            '("skehrli:pdf"
-              :base-directory "./content/assets"
-              :base-extension "pdf"
-              :publishing-directory "./public/pdf"
-              :recursive t
-              :publishing-function org-publish-attachment)
+            ;; '("skehrli:pdf"
+            ;;   :base-directory "./content/assets"
+            ;;   :base-extension "pdf"
+            ;;   :publishing-directory "./public/pdf"
+            ;;   :recursive t
+            ;;   :publishing-function org-publish-attachment)
             ;; '("systemcrafters:live-streams"
             ;;   :base-directory "./content/live-streams"
             ;;   :base-extension "org"
