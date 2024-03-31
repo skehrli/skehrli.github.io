@@ -2,4 +2,4 @@
 
 # Insert a bunch of links here to other pages explaining the projects. Unsure yet how to do that and where they should be.
 
-[[file:locks.org][Properties of various Mutual-Exclusion Algorithms]]
+[[http:skehrli.github.io/posts/locks][Interesting Properties of Mutual-Exclusion Algorithms]]
