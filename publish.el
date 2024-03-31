@@ -132,7 +132,7 @@
                                 ;; (a (@ (class "nav-link") (href "/news/")) "News") " "
                                 ;; (a (@ (class "nav-link") (href "/community/")) "Community") " "
                                 ;; (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
-                                (a (@ (class "nav-link") (href "/cv/cv")) "CV")))))))
+                                ;; (a (@ (class "nav-link") (href "/cv/cv")) "About")))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -445,20 +445,20 @@ holding contextual information."
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("skehrli:CV"
-              :base-directory "./content/cv"
-              :base-extension "org"
-              :publishing-directory "./public/cv"
-              :publishing-function org-html-publish-to-html
-              :auto-sitemap t
-              :sitemap-filename "../cv.org"
-              :sitemap-title "CV"
-              :sitemap-format-entry dw/format-news-entry
-              :sitemap-style list
-              ;; :sitemap-function dw/news-sitemap
-              :sitemap-sort-files anti-chronologically
-              :with-title nil
-              :with-timestamps nil)
+            ;; '("skehrli:CV"
+            ;;   :base-directory "./content/cv"
+            ;;   :base-extension "org"
+            ;;   :publishing-directory "./public/cv"
+            ;;   :publishing-function org-html-publish-to-html
+            ;;   :auto-sitemap t
+            ;;   :sitemap-filename "../cv.org"
+            ;;   :sitemap-title "CV"
+            ;;   :sitemap-format-entry dw/format-news-entry
+            ;;   :sitemap-style list
+            ;;   ;; :sitemap-function dw/news-sitemap
+            ;;   :sitemap-sort-files anti-chronologically
+            ;;   :with-title nil
+            ;;   :with-timestamps nil)
             '("skehrli:assets"
               :base-directory "./assets"
               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"

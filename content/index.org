@@ -1,9 +1,29 @@
 #+title: Welcome!
 
-I'm a computer science undergraduate student at ETH Zurich interested in everything systems related. Currently, I'm working on static array verification within the Java Checker Framework.
+I'm a computer science undergraduate student at ETH Zürich interested in everything systems related. Currently, I'm working on static array verification within the Java Checker Framework.
 
 You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] is my Github and [[https://sascha-kehrli-cv.tiiny.site][this]] is my CV.
 
+* Education
++ BSc in Computer Science from *ETH Zürich* (2021-2024).
++ Exchange student at the *University of Washington* (2023-2024).
+
+* Teaching
++ Teaching Assistant in /Parallel Programming/. For this one, I wrote a [[https://online.fliphtml5.com/kxggl/swny/][course script]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. Theory recaps and exercise solving for two classes at ~30 students each per week.
++ Teaching Assistant in /Algorithms & Datastructures/. Weekly theory recaps and exercise solving for about ~25 students, grading their homework and co-supervising the final exam.
+
+* Projects
++ Before starting my undergrad, I was learning about ML algorithms in my free time. To understand neural networks better, I implemented a small neural network library in Python, using only few frameworks and implementing things like backpropagation from scratch, which was a great exercise. Later, during my studies, I added support for CNN's (convolution and pooling layers), again with their own backpropagation implementation and rewrote the library in Cython, which transpiles to C for better performance:
+
+  [[https://github.com/skehrli/neuronetlib][Neuronetlib]]
++ For a compiler class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java:
+
+  [[https://github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
+
+* Research
++ Currently, I'm working on designing and implementing a type system to prove the absence of resource leaks for collections of resources in Java. This is implemented as a checker in the excellent [[https://github.com/typetools/checker-framework][Java Checker Framework]]. Guided by [[https://homes.cs.washington.edu/~mernst/][Michael Ernst]]:
+
+  [[https://github.com/skehrli/checker-framework][Resource Leak Checker For Collections]]
 
 # * Stay Up to Date!
 
