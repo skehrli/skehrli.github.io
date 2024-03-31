@@ -128,7 +128,7 @@
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/projects/projects")) "Projects") " "
+                                (a (@ (class "nav-link") (href "/posts/posts")) "Posts") " "
                                 ;; (a (@ (class "nav-link") (href "/news/")) "News") " "
                                 ;; (a (@ (class "nav-link") (href "/community/")) "Community") " "
                                 ;; (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
