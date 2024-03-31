@@ -465,6 +465,12 @@ holding contextual information."
               :publishing-directory "./public"
               :recursive t
               :publishing-function org-publish-attachment)
+            '("skehrli:pdf"
+              :base-directory "./content/assets"
+              :base-extension "pdf"
+              :publishing-directory "./public/pdf"
+              :recursive t
+              :publishing-function org-publish-attachment)
             ;; '("systemcrafters:live-streams"
             ;;   :base-directory "./content/live-streams"
             ;;   :base-extension "org"
