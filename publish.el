@@ -478,14 +478,14 @@ holding contextual information."
             ;;   :sitemap-sort-files anti-chronologically
             ;;   :with-title nil
             ;;   :with-timestamps nil)
-            '("skehrli:Projects"
-              :base-directory "./content/projects"
+            '("skehrli:Posts"
+              :base-directory "./content/posts"
               :base-extension "org"
-              :publishing-directory "./public/projects"
+              :publishing-directory "./public/posts"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
-              :sitemap-filename "../projects.org"
-              :sitemap-title "Projects"
+              :sitemap-filename "../posts.org"
+              :sitemap-title "Posts"
               :sitemap-format-entry dw/format-news-entry
               :sitemap-style list
               ;; :sitemap-function dw/news-sitemap
