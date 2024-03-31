@@ -2,24 +2,14 @@
 
 Some time ago I TAed /Parallel Programming/, which covers a multitude of software locking algorithms. They solve the mutual exclusion problem for two or more threads. This is an overview of how they compare in key properties, such as starvation-freedom and fairness and includes some proof sketches of those properties (the ones I found interesting). However, we're not discussing how the locks themselves work. Rather is this a writeup of the more surprising and non-obvious properties/proofs I've found when covering this in my classes.
 
-#+begin_latex
-\begin{table}
-    \centering
-        \begin{tabular}{|c||c|c|c|c|}
-            \hline
-            Algorithm & Mutually Exclusive & Starvation-Free & Deadlock-Free & Fair (FIFO) \\
-            \hline
-            Peterson Lock & Yes & Yes & Yes & Yes \\
-            Dekker Lock & Yes & Yes & Yes & No \\
-            Filter Lock & Yes & Yes & Yes & No \\
-            Bakery Lock & Yes & Yes & Yes & Yes \\
-            Atomic-RMW-Locks & Yes & No & Yes & No \\
-            \hline
-        \end{tabular}
-        \caption{Comparing Different Lock Implementations}
-        \label{tab:example}
-\end{table}
-#+end_latex
+#+CAPTION: Comparing Different Mutual-Exclusion Algorithms
+| Algorithm        | Mutually Exclusive | Starvation-Free | Deadlock-Free | Fair (FIFO) |
+|------------------+--------------------+-----------------+---------------+-------------|
+| Peterson Lock    | Yes                | Yes             | Yes           | Yes         |
+| Dekker Lock      | Yes                | Yes             | Yes           | No          |
+| Filter Lock      | Yes                | Yes             | Yes           | No          |
+| Bakery Lock      | Yes                | Yes             | Yes           | Yes         |
+| Atomic-RMW-Locks | Yes                | No              | Yes           | No          |
 
 * Before we Start: Assumptions
 In order for the definitions and proofs in this post to make sense and be meaningful, we need to make a few assumptions.
@@ -27,16 +17,18 @@ In order for the definitions and proofs in this post to make sense and be meanin
 ** The Anatomy of a Lock Algorithm
 When analyzing a lock algorithm, we divide the code into a few parts:
 
-#+begin_latex
-\begin{itemize}
-    \item \textbf{Non-critical section}: This is the code part before the thread starts acquiring the lock. It does not have anything to do with the lock algorithm itself, but it is important to have it there: A thread is not simply acquiring and releasing a lock (with a critical section in between), but it also executes some non-critical code (that is, code that does not require mutual exclusion) before trying to acquire the lock. This is modelled with this non-critical section.
-    \item \textbf{lock() method}: We are going to refer to the algorithm that is executed to actually acquire the lock as \texttt{lock()} method. We split the \texttt{lock()} method into two parts, the doorway and the waiting section as listed below.
-    \item \textbf{Doorway}: A \textit{finite} part of the \texttt{lock()} method. Usually, flags are set and variables written that are used to coordinate and communicate with competing threads. Note that the doorway must contain a finite number of instructions, so it cannot contain for example spin-loops.
-    \item \textbf{Waiting section}: A part of the \texttt{lock()} method that may contain an unbounded number of instructions. Usually, this section comes after the doorway and is simply a spin-wait to wait for some condition to be fulfilled (such that the thread can actually enter the critical section, i.e. acquire the lock).
-    \item \textbf{Critical section}: This is the code that is executed while a thread actually holds the lock. Like with the non-critical section, the actual code here is irrelevant.
-    \item \textbf{unlock() method}: The code that is executed after the critical section to make the lock available again for other threads.
-\end{itemize}
-#+end_latex
++ Non-critical section:
+   This is the code part before the thread starts acquiring the lock. It does not have anything to do with the lock algorithm itself, but it is important to have it there: A thread is not simply acquiring and releasing a lock (with a critical section in between), but it also executes some non-critical code (that is, code that does not require mutual exclusion) before trying to acquire the lock. This is modelled with this non-critical section.
++ *lock()* method:
+   We are going to refer to the algorithm that is executed to actually acquire the lock as *lock()* method. We split the *lock()* method into two parts, the doorway and the waiting section as listed below.
++ Doorway:
+   A /finite/ part of the *lock()* method. Usually, flags are set and variables written that are used to coordinate and communicate with competing threads. Note that the doorway must contain a finite number of instructions, so it cannot contain for example spin-loops.
++ Waiting section:
+   A part of the *lock()* method that may contain an unbounded number of instructions. Usually, this section comes after the doorway and is simply a spin-wait to wait for some condition to be fulfilled (such that the thread can actually enter the critical section, i.e. acquire the lock).
++ Critical section:
+   This is the code that is executed while a thread actually holds the lock. Like with the non-critical section, the actual code here is irrelevant.
++ *unlock()* method:
+   The code that is executed after the critical section to make the lock available again for other threads.
 
 Let us see on the example of Peterson's algorithm how we would divide it up into these different sections:
 
