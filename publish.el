@@ -480,7 +480,7 @@ holding contextual information."
             ;;   :with-timestamps nil)
             '("skehrli:Posts"
               :base-directory "./content/posts"
-              :base-extension "org"
+              :base-extension "org\\|pdf"
               :publishing-directory "./public/posts"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
