@@ -3,3 +3,5 @@
 # Insert a bunch of links here to other pages explaining the projects. Unsure yet how to do that and where they should be.
 
 [[http:skehrli.github.io/posts/locks][Interesting Properties of Mutual-Exclusion Algorithms]]
+
+[[https:skehrli.github.io/posts/introToPP][An Introduction to Parallel Programming]]

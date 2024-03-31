@@ -1,0 +1,5 @@
+#+title: An Introduction to Parallel Programming
+
+Some time ago, also while TAing the /Parallel Programming/ class at ETH, I wrote a course script to better break down the lecture concepts for the students. The class has some beautiful theory and great insight into parallelism on modern systems, but this tends to be hard to see when taking the class. The script was my attempt at simplifying concepts, adding context where required and conveying the big picture, with which I struggled so much when taking the class as a student myself. Convince yourself:
+
+[[https:skehrli.github.io/posts/pprog_script.pdf][An Introduction to Parallel Programming]]
