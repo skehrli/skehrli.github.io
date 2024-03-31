@@ -12,7 +12,7 @@
 * Projects
 + Before starting my undergrad, I was learning about machine learning algorithms in my free time. To understand neural networks better, I implemented a small neural network library in Python, using only few frameworks and implementing things like backpropagation from scratch, which was a great exercise. Later, during my studies, I added support for CNN's, again with their own backpropagation implementation and rewrote the library in Cython, which transpiles to C for better performance:
   [[https:github.com/skehrli/neuronetlib][Neuronetlib]]
-+ For a compilers class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java: [[https:github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
++ For a compiler class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java: [[https:github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
 
 # * Research
 # + Designed and implemented an ownership type system for the popular checker framework in Java. Guided by Michael Ernst.
