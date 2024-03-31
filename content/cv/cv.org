@@ -2,7 +2,7 @@
 [[https://sascha-kehrli-cv.tiiny.site][Here]] is a fancy PDF version.
 
 * Education
-+ BSc in Computer Science from *ETH Zurich* (2021-2024)
++ BSc in Computer Science from *ETH Zurich* (2021-2024).
 + Exchange student at the *University of Washington* (2023-2024).
 
 * Teaching
@@ -11,10 +11,13 @@
 
 * Projects
 + Before starting my undergrad, I was learning about ML algorithms in my free time. To understand neural networks better, I implemented a small neural network library in Python, using only few frameworks and implementing things like backpropagation from scratch, which was a great exercise. Later, during my studies, I added support for CNN's (convolution and pooling layers), again with their own backpropagation implementation and rewrote the library in Cython, which transpiles to C for better performance:
+
   [[https://github.com/skehrli/neuronetlib][Neuronetlib]]
-+ For a compiler class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java: [[https://github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
++ For a compiler class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java:
+
+  [[https://github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
 
 * Research
-+ Currently I'm working on designing and implementing a type system to prove the absence of resource leaks for collections of resources in Java. This is implemented as a checker in the excellent [[https://github.com/typetools/checker-framework][Java Checker Framework]]. Guided by [[https://homes.cs.washington.edu/~mernst/][Michael Ernst]].
++ Currently, I'm working on designing and implementing a type system to prove the absence of resource leaks for collections of resources in Java. This is implemented as a checker in the excellent [[https://github.com/typetools/checker-framework][Java Checker Framework]]. Guided by [[https://homes.cs.washington.edu/~mernst/][Michael Ernst]]:
+
   [[https://github.com/skehrli/checker-framework][Resource Leak Checker For Collections]]
-# + Designed and proposed Terminator, a novel Operating System Kernel. Guided by Tom Anderson.
