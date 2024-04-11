@@ -1,0 +1,231 @@
+#+title: System Crafters Newsletter - Issue #009
+#+date: [2024-04-11 Thu]
+#+subtitle: April 11, 2024
+
+* Introduction
+
+Welcome to the new issue of the System Crafters Newsletter!
+
+I've been hard at work on the Guile Scheme course over the last 2 months so I'm way behind on sending out issues of the newsletter.  That will change soon though as I start to shift my focus back to content and project work for the channel and community!
+
+Recently I've been refreshing my personal Emacs and system configurations.  I dropped evil-mode and started shifting back to a literate Emacs configuration.  I live streamed about both of these topics recently:
+
+- [[https://youtu.be/AG_OB3CiPnI][Evil No More: Kicking the Habit]]
+- [[https://youtu.be/Ex9zI4Fcirs][Literate Configuration: A Direct Approach]]
+
+I've also started experimenting with other Linux distributions to find one that might be optimal for System Crafting.  The most promising one I've tried recently is Void Linux.  More thoughts on it in a later section of this newsletter!
+
+These recent changes definitely inspire lots of new videos and streams, I'm excited to be hacking more on my configuration again.
+
+Side note: I recently merged the `guix-home` branch of my dotfiles back into the `master` branch, so it will be easier to find my up to date configuration now :)  My configuration website will also be back online soon!
+
+https://github.com/daviwil/dotfiles
+
+If you'd like to tell me your thoughts about anything in this issue, please feel free to reply directly to this e-mail or comment on this System Crafters Forum thread:
+
+https://forum.systemcrafters.net/t/system-crafters-newsletter-issue-009/
+
+* Learn Scheme With Us!
+
+In March, I launched the second iteration of the "Hands-On Guile Scheme for Beginners" course with a new delivery model and expanded material.  I believe this new approach has worked well so far, so I've now opened registration for the April iteration of the course!
+
+Over the last month I've put a ton of effort into clarifying and improving the material and recording a bunch of videos to go along with all of the written text and examples.  I'm also including more auxiliary material that will give you starting points for a number of different projects you could try after you finish the course.
+
+Registration is open for the new iteration beginning on April 20th!  You can read more details about the course and check the live session schedule on the website:
+
+https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+If you register *before 06:00 UTC, Monday April 15th*, you will get an automatic 10% discount off of the course price!
+
+The potential for Scheme to become /the/ core language for system crafting is only growing every year.  I want to help more people become Scheme hackers so that we can all help to accelerate this progress and build some cool projects while we do it!
+
+This is a unique opportunity to learn Scheme with a diverse group of crafters, I hope you'll join us!
+
+* Thoughts on Void Linux
+
+I've mentioned a few times over the last 6 months that I was interested in finding another Linux distribution to use and recommend for system crafting.  I've been spending some time recently looking at a few options for this.
+
+As much as I love GNU Guix, the learning curve can be steep and it isn't easy to install on machines that require non-free firmware for devices like wifi adapters and graphics cards.  Even though Guix is certainly the most craftable Linux distribution I've seen, there must be others that can accomplish this in their own way!
+
+Last year I experimented with Alpine Linux a bit and enjoyed it, but still didn't feel like it was ideal due to the use of musl-c and the fairly poor documentation.  I've been looking for another Linux distribution with a similar focus on simplicity, with the following criteria:
+
+- Minimal system by default, only add what you need
+- Useful both for desktop environments and servers
+- System configuration is straightforward and easy to manage
+- Optimized for deployment in OCI containers
+- Installation is straightforward and replicable via scripts
+- Installer doesn't require special effort to run on non-free hardware
+- Easy to package new software for yourself and others
+- Easy to contribute package definitions to the main repo
+- Well-written documentation
+- Friendly, helpful community
+
+It turns out that Void Linux is a pretty good candidate for a minimal yet craftable Linux distribution!
+
+https://voidlinux.org
+
+Here are a few things that I liked about it:
+
+First of all the [[https://docs.voidlinux.org][documentation]] is well-written and contains useful information for setting up a system and installing the most important components you'll need.  The same goes for the documentation on the various GitHub repos related to the project, they contain detailed, well-written documentation for all of the tools related to the project.
+
+The [[https://docs.voidlinux.org/installation/index.html][system installation]] was also very straightforward.  There is a "graphical" installer wizard which can make the installation process really easy if you don't need a more custom install.  It enables you to set up your partitions, mount points, networking devices, and basic system configuration.
+
+The manual installation process via shell commands is also very straightforward compared to other distributions I've tried.  I do have to note that I ran into an issue with the latest installer image while trying to [[https://docs.voidlinux.org/installation/guides/fde.html][install to an encrypted volume]], there is apparently a bug in the =grub-install= program.  When I tried an earlier version of the installer, the problem went away.
+
+The system is quite easy to configure between the use of the =xbps= package manager and the =runit= init system.  =runit= in particular is refreshing compared to other init systems because your enabled services are just symlinks from the folder of all possible services to equivalent entries in the =/var/service= folder.  The service files themselves are just shell scripts, unlike =systemd= which has its own service configuration format.
+
+You can create your own package definitions pretty easily with a Bash-based package description language by cloning the [[https://github.com/void-linux/void-packages][void-packages]] repo and following its [[https://github.com/void-linux/void-packages/blob/master/Manual.md][manual]].  I've already added and changed a couple of packages and found the process to be straightforward.
+
+Their package build setup is well-designed and streamlines the process for common build systems while still providing hooks for customization.  It's definitely easier than writing Guix packages!
+
+One downside is that I haven't yet figured out a good way to share my custom packages with other people aside from having them fork my repo or cherry-pick my package commits.  I definitely miss Guix's concept of "channels".  Maybe this is something that can be added through contributions to the project?
+
+Regarding the community, the downsides seem to be that the primary forum for the project is the [[https://www.reddit.com/r/voidlinux/][/r/voidlinux]] subreddit and that the community tends to attract "hardcore" users who may not be as friendly as users in other communities.
+
+I've also spent some time in the #voidlinux channel of Libera.Chat and noticed a couple of interactions that concerned me, but for the most part the project maintainers have been helpful to those with questions and willing to shut down conversations that were not appropriate for the channel.
+
+It's too early to come to a definite conclusion on the quality of the community, but the quality of the distro itself encourages me to keep experimenting with it long enough to understand the full picture better.
+
+There is certainly a lot more to say about the use of Void as a good distro for system crafting, I will be focusing on it a bit in some upcoming streams and videos to investigate further.
+
+Have you tried Void Linux?  What are your thoughts about it?
+
+* Regular Live Streams Soon
+
+For a long time now, I've wanted to live stream more than once a week.  I've tried to do this at various different points but never really found enough time to keep it going.
+
+All that will change soon, though!  After I return from LibrePlanet 2024, I will begin streaming on the System Crafters channel 3-5 days per week.
+
+What will we do in these streams?
+
+- Hack on my personal Emacs and system configuration to try new things
+- Experiment with interesting software and Linux distributions
+- Write new guides and videos for the System Crafters channel and website
+- Write content for new courses with your live input
+- Read and discuss interesting news items for the week
+- Hack on free and open source software projects, either my own or others that I use
+
+It should be a lot of fun, I'm really excited about it!
+
+The existing Friday stream will stay the same as it's always been, the same time and duration every week.  I don't want to disrupt something that is already working well :)
+
+The tentative start date for this new streaming schedule will be *Monday, May 13, 2024*.  The streams will last 3-4 hours and will likely be during early afternoon in the EEST timezone (UTC+3).  I wish I could stream a little later in the day to catch more people on the western side of North America, but family responsibilities must take priority!
+
+I'll remind you about the new streaming schedule before it actually happens so that you can join me when it starts.  Hope to see you there!
+
+* Tip of the Week - Excluding Org Headings when Publishing
+
+I've been using Org Mode in some pretty interesting ways while building the Guile Scheme course.  One of the more interesting problems I wanted to solve was the following:
+
+There should be a single set of Org files that represent the full content for the course, the "master" copy.  Each iteration of the course will have its own progress that dictates which sections of material are available to study.
+
+How can I write the table of contents for the course once while including it in the main page of each course, only showing the set of sections that each course uniquely has access to?
+
+It turns out that Org Mode provides two useful features that make this possible: the =#+INCLUDE= directive and the file-level keyword =#+SELECT_TAGS=.  Here's a simplified example of how I use it:
+
+First, create a file =./master/toc.org= with the following contents:
+
+#+begin_src text
+
+  ,* Chapter 1 - Fun Stuff :chapter1:
+
+  [Section links here]
+
+  ,* Chapter 2 - More Fun Stuff :chapter2:
+  ,* Chapter 3 - Even More Fun Stuff :chapter3:
+
+#+end_src
+
+There are three top-level headings in this file, each with their own unique tag indicating the chapter that they belong to.  Under each heading, you would have links to the individual sections of content or whatever else you wanted to expose.
+
+Now let's create a file called =./group-1/index.org=:
+
+#+begin_src text
+
+  ,#+SELECT_TAGS: main chapter1 chapter2
+
+  ,* Welcome! :main:
+
+    Welcome to the course!
+
+  ,#+INCLUDE: ../master/toc.org
+
+#+end_src
+
+This file does two things: it includes the =toc.org= file so that its contents are integrated, and it uses =SELECT_TAGS= to select which headings are included in =org-publish= jobs based on their tag.
+
+In this case, we're filtering the headings in =index.org= to only those tagged with =main=, =chapter1=, and =chapter2=, so the =chapter3= heading will not be included when we publish an HTML file for this page!
+
+Keep in mind that all headings in both of these files will need to be tagged in a way that enables them to be displayed under the appropriate circumstances.  It can be easy to forget to tag other headings in =index.org= with the =main= tag!
+
+This is a simple, contrived example, but I hope it shows how you can leverage Org Mode to do some interesting things when you think about how to use its features to solve your problems.
+
+* Crafter News
+
+Here are some interesting news items in the broader sphere of system crafting:
+
+** Guile Hoot 0.4.0 has been released
+
+Guile Hoot, the Scheme to WebAssembly compiler project by the Spritely Institute, has just released version 0.4.0 with a number of important improvements for Scheme hackers:
+
+https://spritely.institute/news/guile-hoot-v040-released.html
+
+The most notable improvements for me:
+
+- You can now break your program into multiple modules, it no longer has to be a single .scm file!
+- The standard Scheme R7RS small library is now fully supported and available for import
+- Errors in Scheme code now show Scheme stack traces instead of an indecipherable wasm stack
+
+There are many more improvements that might be interesting to you, so check out the release post above to learn more!
+
+** The Spring Lisp Game Jame is Coming
+
+Want to hack on a cool game project?  Want to use a Lisp or Scheme to do it?  Join the Spring Lisp Game Jame 2024, a 10 day event where a number of us will be hacking on a game to have fun writing Lisp!
+
+https://itch.io/jam/spring-lisp-game-jam-2024
+
+The jam starts on May 17th and lasts until May 27th.  I will be hacking on my entry using Guile Hoot 0.4.0 and live streaming the majority of it on the System Crafters channel.  Hope you'll join the fun!
+
+** Join the Craftering
+
+[[https://shom.dev/][Shom]] has brought back the "webrings" of the 90s with the new Craftering project, a webring for members of the System Crafters community!
+
+http://craftering.systemcrafters.net/
+
+By joining the webring and including the HTML snippet on your site, visitors of your site and the others in the ring will be able to quickly jump between sites in the ring to discover other cool people discussing the topics we enjoy!
+
+Full instructions for adding yourself to the ring can be found at the above link.
+
+** Check out the System Crafters Awesome List
+
+Another way to link your own site or favorite resources into the community is to add new items to the System Crafters "Awesome" list:
+
+https://forum.systemcrafters.net/t/awesome-crafting-links-from-the-community/446
+
+[[https://blog.benoitj.ca/][Benoit]] put this together as a way for everyone to share cool links that are relevant to the System Crafters community.  Feel free to edit the page to add your own entries!
+
+* Friday's Stream - Packaging Guix for Void Linux
+
+In this week's stream, we will attempt to package GNU Guix for Void Linux!  Regardless of your choice of distro, GNU Guix is an incredibly useful tool for developing software.  It's also the primary package manager for Guile Scheme so I will definitely need it to develop Guile programs when using Void!
+
+Let's see how far we can get in one stream.  Perhaps we can contribute the package definition to the void-packages repo?
+
+The stream will go live at Friday, April 12th at 16:00 PM UTC, check your local time on this page:
+
+https://time.is/compare/1600_in_UTC
+
+You can find the stream at these URLs:
+
+https://youtube.com/live/AxQU5aHWKRo
+https://twitch.tv/SystemCrafters
+https://systemcrafters.net/live-streams/april-12-2024/
+
+* Closing
+
+I hope you enjoyed this issue of the System Crafters Newsletter!  I always want to improve and streamline the content so please send me your thoughts and feedback by replying directly to this e-mail.
+
+Until next time, Happy Hacking!
+
+--
+David Wilson
+david@systemcrafters.net

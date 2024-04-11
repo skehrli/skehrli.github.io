@@ -10,13 +10,13 @@
       (insert "<style type=\"text/css\">\n" css "</style>")
       (buffer-string))))
 
-(defun dw/generate-newsletter-header (info)
-  (concat
-   (format "<table><thead><tr><td colspan=\"2\"><img alt=\"System Crafters Logo\" src=\"https://systemcrafters.net/img/sc_logo.png\" width=250 height=74></td></tr></thead><tbody><tr><td class=\"header-title\">%s</td></tr><tr><td class=\"header-date\">%s</td></tr></tbody></table>"
+(defun dw/org-html-template (contents info)
+  (org-html-template
+   (format "<table><thead><tr><td><img alt=\"System Crafters Logo\" src=\"https://systemcrafters.net/img/sc_logo.png\" width=250 height=74></td></tr></thead><tbody><tr><td class=\"header-title\">%s</td></tr><tr><td class=\"header-date\">%s</td></tr><tr><td><div class=\"notice\">This e-mail also provides <code>text/plain</code> content if you prefer it to HTML!  Just ask your e-mail client to show the plain text version of this e-mail.</div>%s</td></tr></tbody></table>"
            (car (plist-get info :title))
-           (car (plist-get info :subtitle)))
-   (format "<div class=\"notice\">%s</div>"
-           "This e-mail also provides <code>text/plain</code> content if you prefer it to HTML!  Just ask your e-mail client to show the plain text version of this e-mail.")))
+           (car (plist-get info :subtitle))
+           contents)
+   info))
 
 (defun dw/org-html-src-block (src-block _contents info)
   (let* ((lang (org-element-property :language src-block))
@@ -32,7 +32,6 @@
         (org-export-filter-paragraph-functions '(dw/filter-html-paragraph))
         (org-html-doctype "html5")
         (org-html-html5-fancy t)
-        (org-html-preamble 'dw/generate-newsletter-header)
         (org-html-head-extra (dw/get-newsletter-css))
         (org-html-validation-link nil)
         (org-export-with-toc 1)
@@ -50,7 +49,8 @@
         (org-html-head-include-scripts nil)
         (html-backend (org-export-create-backend :name 'newsletter-html
                                                  :parent 'html
-                                                 :transcoders '((src-block . dw/org-html-src-block)))))
+                                                 :transcoders '((src-block . dw/org-html-src-block)
+                                                                (template . dw/org-html-template)))))
     (org-export-to-file html-backend (format "%s-email.html" newsletter-file-name))))
 
 (defun dw/org-ascii-toc (info &optional n scope keyword)

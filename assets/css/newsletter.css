@@ -1,23 +1,22 @@
 @media (max-width: 767px) {
-  html {
+  table {
     font-size: 16px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  html {
+  table {
     font-size: 18px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  html {
+  table {
     font-size: 18px;
   }
 }
 
-
-body {
+table {
   color: #eeffff;
   background-color: #292d3e;
   line-height: 1.4;
@@ -75,20 +74,24 @@ table {
 }
 
 td {
-  text-align:center;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 td.header-title {
   font-weight: bold;
   font-size: 1.3rem;
+  text-align:center;
 }
 
 td.header-date {
+  text-align:center;
   font-size: 1.2rem;
   color: #d3d3d3;
 }
 
 td img {
+  text-align:center;
   color: #ffffff;
   display: block;
   margin: 20px auto;
