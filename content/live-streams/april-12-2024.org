@@ -1,4 +1,4 @@
-title: Packaging GNU Guix for Void Linux
+#+title: Packaging GNU Guix for Void Linux
 #+subtitle: System Crafters Live - April 12, 2024
 #+date: [2024-04-12 Fri]
 #+video: AxQU5aHWKRo
