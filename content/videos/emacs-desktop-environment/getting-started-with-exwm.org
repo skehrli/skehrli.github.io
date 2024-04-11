@@ -6,7 +6,7 @@ Check out the final code [[https://github.com/daviwil/emacs-from-scratch/blob/21
 
 * What is EXWM?
 
-Check out the wiki: https://github.com/ch11ng/exwm/wiki
+Check out the wiki: https://github.com/emacs-exwm/exwm/wiki
 
 *Benefits*
 
