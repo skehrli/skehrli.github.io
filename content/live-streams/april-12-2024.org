@@ -1,0 +1,27 @@
+title: Packaging GNU Guix for Void Linux
+#+subtitle: System Crafters Live - April 12, 2024
+#+date: [2024-04-12 Fri]
+#+video: AxQU5aHWKRo
+
+* News
+
+- Hands-On Guile Scheme for Beginners, April Edition is now open for registration!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  There's a 10% discount until *6AM UTC, Monday April 15*!
+
+- Guile Hoot 0.4.0 has been released!
+
+  https://spritely.institute/news/guile-hoot-v040-released.html
+
+- Join the System Crafters Craftering:
+
+  https://codeberg.org/SystemCrafters/craftering
+
+- System Crafters Newsletter Issue #009 is out!
+
+  Read it here: https://systemcrafters.net/newsletter/sc-news-009
+  Subscribe here: https://systemcrafters.net/newsletter/
+
+* Packaging Guix for Void Linux
