@@ -146,7 +146,7 @@ If you're ready to learn Scheme, head over to the [[https://systemcrafters.store
 
 Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where we will communicate before, during, and after the course.
 
-** Early Registration Discount
+** Early Registration Discount :noexport:
 
 If you *register before 06:00 UTC, Monday April 15th* you will receive an *automatic discount of 10%* from the course price!
 
