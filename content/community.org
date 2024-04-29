@@ -64,4 +64,14 @@ I've used GitHub Actions to automatically produce up-to-date installation images
 - https://github.com/SystemCrafters/guix-installer
 - https://github.com/SystemCrafters/guix-live-image
 
+** Craftering
+
+[[https://codeberg.org/SystemCrafters/craftering][Craftering]] is the System Crafters community webring.
+
+- This is a fun way for community members to link to each other's sites and discover other Crafters.
+- Anyone is welcome to join and instructions can be found on the [[https://codeberg.org/SystemCrafters/craftering][repo]].
+- This page is part of the ring! You can browse it here: [[https://craftering.systemcrafters.net/@scc/previous][←]] [[https://craftering.systemcrafters.net/][directory]] [[https://craftering.systemcrafters.net/@scc/next][→]], the ring is shuffled often.
+
+This project is maintained by [[https://codeberg.org/shom][Shom]] and [[https://codeberg.org/benoitj][Benoit]].  You can read [[https://shom.dev/posts/20240417_starting-a-webring-in-2024/][Shom's post]] to learn more about webrings!
+
 If you have ideas for how to improve these, please feel free to send a PR!
