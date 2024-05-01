@@ -75,3 +75,9 @@ I've used GitHub Actions to automatically produce up-to-date installation images
 This project is maintained by [[https://codeberg.org/shom][Shom]] and [[https://codeberg.org/benoitj][Benoit]].  You can read [[https://shom.dev/posts/20240417_starting-a-webring-in-2024/][Shom's post]] to learn more about webrings!
 
 If you have ideas for how to improve these, please feel free to send a PR!
+
+# WARNING: Anything beyond that point must stay at the end of the file.
+#+begin_center
+[[https://craftering.systemcrafters.net/@scc/previous][←]] [[https://craftering.systemcrafters.net/][craftering]] [[https://craftering.systemcrafters.net/@scc/next][→]]
+#+end_center
+
