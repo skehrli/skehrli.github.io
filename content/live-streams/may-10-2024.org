@@ -1,0 +1,26 @@
+#+title: Experimenting with New Guix Features
+#+subtitle: System Crafters Live - May 10, 2024
+#+date: [2024-05-10 Fri]
+#+video: cKUD5XxjtlY
+
+* News
+
+- LibrePlanet 2024 was great!
+
+  Recordings of talks should be up in a week or two at this site:
+
+  https://media.libreplanet.org/
+
+- Sign up for the Spring Lisp Game Jam, starting May 17th!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+  I'll be working on my own entry and streaming it on this channel!
+
+* New Guix Features?
+
+Let's test out some (relatively) new Guix features!
+
+- [[https://guix.gnu.org/manual/devel/en/html_node/Customizing-the-System_002dWide-Guix.html][System-Wide Channel Configuration]]
+- [[https://guix.gnu.org/manual/devel/en/html_node/Guix-Services.html#Guix-Home-Service][Guix Home Service]]
+- [[https://guix.gnu.org/manual/devel/en/html_node/Essential-Home-Services.html#index-home_002ddotfiles_002dservice_002dtype][home-dotfiles-service-type]]
