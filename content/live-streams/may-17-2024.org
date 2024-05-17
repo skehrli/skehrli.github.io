@@ -17,6 +17,8 @@
 
   https://gitlab.com/spritely/guile-hoot-game-jam-template
 
+  I'll be streaming my work all next week on the System Crafters channel.  I'll also stream for 2 hours each day this weekend starting around 10-11AM UTC
+
 - I'll be speaking at London Guix Meetup on Wednesday, May 29th!
 
   I'll be sharing my current best practices for using Guix to manage your system configurations and development workflow.
@@ -31,3 +33,16 @@ Today we're going to go through Karthik Chikmagalur's excellent new article, "Th
 https://karthinks.com/software/emacs-window-management-almanac/
 
 I'm sure we will learn a lot!
+
+#+begin_src emacs-lisp
+
+  (defvar-keymap dw/windmove-keys
+    :repeat t
+    "h" #'windmove-left
+    "j" #'windmove-down
+    "k" #'windmove-up
+    "l" #'windmove-right)
+
+  (keymap-global-set "C-c w" dw/windmove-keys)
+
+#+end_src
