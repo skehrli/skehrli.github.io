@@ -62,10 +62,10 @@ If you complete and submit the exercises before the submission deadline (Wednesd
 
 The 1-hour live Q&A meetings will generally occur on *Sundays at 15:00 UTC* one week after the chapter material is released.  For this iteration of the course, the live sessions will occur on the following dates, click the link for your local time:
 
-- [[https://time.is/1500_28_Apr_2024_in_UTC][April 28, 2024]]
-- [[https://time.is/1500_12_May_2024_in_UTC][May 12, 2024]]
-- [[https://time.is/1500_26_May_2024_in_UTC][May 26, 2024]]
-- [[https://time.is/1500_9_June_2024_in_UTC][June 9, 2024]]
+- [[https://time.is/1600_16_Jun_2024_in_UTC][June 16, 2024]]
+- [[https://time.is/1600_30_Jun_2024_in_UTC][June 30, 2024]]
+- [[https://time.is/1600_14_Jul_2024_in_UTC][July 14, 2024]]
+- [[https://time.is/1600_28_Jul_2024_in_UTC][July 28, 2024]]
 
 If you can't make it to one of the live Q&A sessions, don't worry, *these sessions are not mandatory to get the full value of the course!*  In fact, they will all be recorded so that you can watch them at your leisure.  Only other members of this iteration of the course will have access to these live recordings.
 
