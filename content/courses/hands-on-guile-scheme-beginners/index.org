@@ -60,7 +60,7 @@ If you complete and submit the exercises before the submission deadline (Wednesd
 
 ** Live Q&A Session Schedule
 
-The 1-hour live Q&A meetings will generally occur on *Sundays at 15:00 UTC* one week after the chapter material is released.  For this iteration of the course, the live sessions will occur on the following dates, click the link for your local time:
+The 1-hour live Q&A meetings will generally occur on *Sundays at 16:00 UTC* one week after the chapter material is released.  For this iteration of the course, the live sessions will occur on the following dates, click the link for your local time:
 
 - [[https://time.is/1600_16_Jun_2024_in_UTC][June 16, 2024]]
 - [[https://time.is/1600_30_Jun_2024_in_UTC][June 30, 2024]]
