@@ -2,7 +2,7 @@
 #+video: 3eXK9YZ0NjU
 #+page-type: course
 
-- Start Date: Saturday, April 20, 2024
+- Start Date: Saturday, June 8, 2024
 - Duration: 8 Weeks
 - Experience Level: Beginner and above!
 
@@ -132,11 +132,11 @@ If you're ready to learn Scheme, head over to the [[https://systemcrafters.store
 
 <p>
 
-<a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-april-2024">
+<a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-june-2024">
   <img src="/img/courses/HandsOnGuileSchemeBeginners.png" class="center" style="width: 50%; margin-bottom: 10px; border: 1px solid #c3e88d;"/>
 </a>
 
-<b><a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-april-2024" class="register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
+<b><a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-june-2024" class="register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
 
 </p>
 
@@ -146,9 +146,9 @@ If you're ready to learn Scheme, head over to the [[https://systemcrafters.store
 
 Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where we will communicate before, during, and after the course.
 
-** Early Registration Discount :noexport:
+** Early Registration Discount
 
-If you *register before 06:00 UTC, Monday April 15th* you will receive an *automatic discount of 10%* from the course price!
+If you *register before 06:00 UTC, Monday June 3rd* you will receive an *automatic discount of 10%* from the course price!
 
 ** Registration is Closed!                                         :noexport:
 Registration for the March iteration has now closed!  If you're interested to join the next iteration of the course, sign up for the newsletter at the bottom of this page to be notified when registration opens again.
