@@ -42,7 +42,7 @@ By the end of the 8 weeks, you will have written several projects in Scheme!  Yo
 
 * Who Should Join?
 
-This course is *specifically designed for beginners to Guile Scheme*, but it is also intended for those who have not yet learned to program!  If you've never written a line of code before, you /will/ be able to start your programming journey here.
+This course is *specifically designed for beginners to Guile Scheme*, whether you have some intermediate experience in other languages or if you're an experienced programmer.  It will also be helpful for those who have started experimenting with Guile but still feel like they don't know how to write Scheme the "right" way.
 
 I've also designed this course to be *effective for people who have busy lives* and have challenges finding free time in their weekly schedule!  The two-week gap between new exercises is intended to give ample time for learning, hacking, discussion, and review.
 
