@@ -52,7 +52,7 @@ If you already have experience with Scheme and want something more advanced, I a
 
 * How It Works
 
-Every two weeks starting on *Saturday, April 20, 2024* you will receive a new "chapter" with high-quality instructional material both in text and video form.  Each chapter will contain 10+ sections with material focused on a particular area like Scheme fundamentals, functional programming, and practical programming with Guile.
+Every two weeks starting on *Saturday, June 8, 2024* you will receive a new "chapter" with high-quality instructional material both in text and video form.  Each chapter will contain 10+ sections with material focused on a particular area like Scheme fundamentals, functional programming, and practical programming with Guile.
 
 For each chapter, you will be given a series of exercises to work through over the next 2 weeks.  You will be able to ask questions and discuss the material and exercises with me and the other participants in the private forum group throughout those 2 weeks and in the live Q&A session on the Sunday one week after the chapter was released!
 
