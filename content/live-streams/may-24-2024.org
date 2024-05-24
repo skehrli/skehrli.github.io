@@ -1,11 +1,11 @@
 #+title: Can Guix Replace Docker Compose?
 #+subtitle: System Crafters Live - May 24, 2024
 #+date: [2024-05-24 Fri]
-#+video:
+#+video: o7-Ga1ZoLds
 
 * News
 
-- Hands-On Guile Scheme for Beginners, April Edition is now open for registration!
+- Hands-On Guile Scheme for Beginners, June Edition is now open for registration!
 
   https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
 
@@ -19,7 +19,6 @@
   https://codeberg.org/daviwil/lambda-dungeon
 
   If you've joined, post your project to this forum thread:
-
   https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684
 
 - System Crafters Newsletter Issue #010 is out!
@@ -34,3 +33,31 @@
 
 
 * Guix and Docker, Better Together?
+
+Here's the configuration we were working on:
+
+#+begin_src scheme
+
+  (services (list
+             (service oci-container-service-type
+                      (list
+                       (oci-container-configuration
+                        (image "postgres")
+                        (provision "postgres")
+                        (ports
+                         '(("5432" . "5432")))
+                        (environment
+                         '(("POSTGRES_PASSWORD" . "hello"))))
+                       (oci-container-configuration
+                        (image "boxinaclosedbox/forgejo")
+                        (provision "forgejo")
+                        (ports
+                         '(("8081" . "3000")
+                           ("222" . "22")))
+                        (volumes
+                         '("/var/run/forgejo:/data"
+                           "/etc/timezone:/etc/timezone:ro"
+                           "/etc/localtime:/etc/localtime:ro")))))))
+
+
+#+end_src
