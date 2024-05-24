@@ -1,0 +1,36 @@
+#+title: Can Guix Replace Docker Compose?
+#+subtitle: System Crafters Live - May 24, 2024
+#+date: [2024-05-24 Fri]
+#+video:
+
+* News
+
+- Hands-On Guile Scheme for Beginners, April Edition is now open for registration!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- Spring Lisp Game Jam 2024 is almost finished!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+  My project Lambda Dungeon has been going well!
+
+  https://fluxharmonic.itch.io/lambda-dungeon
+  https://codeberg.org/daviwil/lambda-dungeon
+
+  If you've joined, post your project to this forum thread:
+
+  https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684
+
+- System Crafters Newsletter Issue #010 is out!
+
+  https://systemcrafters.net/newsletter/sc-news-010
+
+- I'll be speaking at London Guix Meetup on Wednesday, May 29th!
+
+  I'll be sharing my current best practices for using Guix to manage your system configurations and development workflow.
+
+  https://libreplanet.org/wiki/Group:Guix/PatchReviewSessions2024
+
+
+* Guix and Docker, Better Together?
