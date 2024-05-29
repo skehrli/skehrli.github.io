@@ -123,7 +123,7 @@ Shom
 #+end_quote
 
 #+begin_quote
-Only a few times in my life have I felt like my brain was bulging from trying to hold in new ideas. Having never done functional programming before, I got that feeling in this course. In such cases, a good instructor is essential for helping you consolidate your new knowledge and navigate the landmines that come with it. David does an excellent job filling that role. I mostly write Python professionally, but I’ve already begun incorporating the ideas I’ve learned in this course into my work. I feel like this course has made me a better programmer overall, and I’d probably value it around the cost of a college course, so tons of value for the money in my opinion.
+Only a few times in my life have *I felt like my brain was bulging* from trying to hold in new ideas. I mostly write Python professionally, but *I’ve already begun incorporating the ideas I’ve learned* in this course into my work. I feel like this course has *made me a better programmer overall*, and I’d probably value it around the cost of a college course, so *tons of value for the money* in my opinion.
 
 Amol V
 #+end_quote
