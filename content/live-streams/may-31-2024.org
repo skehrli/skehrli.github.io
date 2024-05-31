@@ -1,0 +1,41 @@
+#+title: Exporting Org Mode Files...  to Scheme?
+#+subtitle: System Crafters Live - May 31, 2024
+#+#+date: [2024-05-31 Fri]
+#+#+video: CcBqZiwgDj8
+
+* News
+
+- Hands-On Guile Scheme for Beginners, June Edition is open for registration!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  The early registration discount ends on Monday at 6AM UTC!
+
+- Spring Lisp Game Jam 2024 is finished!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+  Lots of excellent submissions, including a few from SC community folks!
+
+  https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684
+
+* Rewriting the Course in Scheme
+
+Today I'm going to engage in a bizarre experiment: converting all of the Org Mode files that I wrote for my Guile Beginners course into Scheme files that can be used with the [[https://www.nongnu.org/skribilo/][Skribilo]] document production tool.
+
+Why?
+
+- Creating custom markup to automate certain tasks
+- Potentially easier to cross-reference and build indexes
+- Can customize the output of the course material per-iteration and per-participant
+- To have fun writing more Scheme!
+
+I don't know if I will stick with this approach, but I did want to give it a fair shot to see if it can speed up the process of developing and delivering educational material.
+
+Setting up the environment:
+
+#+begin_src sh
+
+  guix shell skribilo pandoc texlive-scheme-base texlive-xcolor texlive-fancyvrb
+
+#+end_src
