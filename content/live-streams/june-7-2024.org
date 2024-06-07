@@ -21,7 +21,87 @@
 
 * Crafting Denote Workflow Extensions
 
-- Create topic entries
+- Create topic entries (add category automatically?)
 - Create an entry of a certain kind with starter template, prompt for topic
 - Extract subtree to new note and create link (preserve topic?)
 - Some approach for templating dblocks
+
+** Tag Design
+
+- "pra" "prb" "prc"
+- "ply" "plm" "plw"
+- "kh" "kt" "kp" "kl" "ka" "kap"
+- "kcp" "kca" "kcc"
+- "kra" "krb" "krv"
+- "rn"
+
+** Note Titles
+
+- System Crafters: Update SC website home page (tagged =pra=)
+
+** Workflow Customizations
+
+#+begin_src emacs-lisp
+
+  (defun my/denote-insert-category (category)
+    (save-excursion
+      (beginning-of-buffer)
+      (while (and
+              (< (point) (point-max))
+              (string= "#+"
+                      (buffer-substring-no-properties
+                       (point-at-bol)
+                       (+ (point-at-bol) 2))))
+        (next-line))
+
+      (insert "#+category: " category)
+      (save-buffer)))
+
+  (defun my/denote-create-topic-note ()
+    (interactive)
+    (let* ((topic-files (mapcar (lambda (file)
+                                  (cons (denote-retrieve-front-matter-title-value file 'org)
+                                        file))
+                                (denote-directory-files-matching-regexp "_kt")))
+           (selected-topic (completing-read "Select topic: "
+                                            (mapcar #'car topic-files))))
+
+      (denote (denote-title-prompt (format "%s: " selected-topic))
+              (denote-keywords-prompt))
+
+      ;(my/denote-insert-category selected-topic)
+      ))
+
+  (defun my/denote-extract-subtree ()
+    (interactive)
+    (save-excursion
+      (if-let ((text (org-get-entry))
+               (heading (denote-link-ol-get-heading)))
+          (progn
+            (delete-region (org-entry-beginning-position)
+                           (save-excursion (org-end-of-subtree t) (point)))
+            (denote heading (denote-keywords-prompt) 'org)
+            (insert text)))))
+
+  (defvar my/denote-keywords
+    '(("pra" . "Active Project")
+      ("prb" . "Backlogged Project")
+      ("prc" . "Closed Project")))
+
+  (defun my/denote-custom-affixation (completions)
+    (mapcar (lambda (completion)
+              (list completion
+                    ""
+                    (alist-get completion
+                               my/denote-keywords
+                               nil
+                               nil
+                               #'string=)))
+            completions))
+
+  (defun my/denote-keyword-prompt ()
+    (let ((completion-extra-properties
+           (list :affixation-function
+                 #'my/denote-custom-affixation)))
+      (denote-keywords-prompt)))
+#+end_src
