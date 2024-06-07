@@ -1,0 +1,27 @@
+#+title: Crafting Note Taking Extensions for Denote
+#+subtitle: System Crafters Live - June 7, 2024
+#+#+date: [2024-06-07 Fri]
+#+#+video:
+
+* News
+
+- New Merch and support options on the System Crafters Store!
+
+  https://systemcrafters.store
+
+  Let me know what you'd like to see next!
+
+- Guix is looking for contributors to infrastructure projects:
+
+  https://lists.gnu.org/archive/html/guix-devel/2024-05/msg00183.html
+
+- Hands-On Guile Scheme for Beginners, June Edition starts tomorrow!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+* Crafting Denote Workflow Extensions
+
+- Create topic entries
+- Create an entry of a certain kind with starter template, prompt for topic
+- Extract subtree to new note and create link (preserve topic?)
+- Some approach for templating dblocks
