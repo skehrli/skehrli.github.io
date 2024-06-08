@@ -130,7 +130,7 @@ Amol V
 
 * How To Join
 
-** Registration form
+** Registration form :noexport:
 
 If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-april-2024][System Crafters Store]] to register or click the blue button below:
 
@@ -152,12 +152,13 @@ If you're ready to learn Scheme, head over to the [[https://systemcrafters.store
 
 Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where we will communicate before, during, and after the course.
 
-** Early Registration Discount
+** Early Registration Discount :noexport:
 
 If you *register before 06:00 UTC, Monday June 3rd* you will receive an *automatic discount of 10%* from the course price!
 
-** Registration is Closed!                                         :noexport:
-Registration for the March iteration has now closed!  If you're interested to join the next iteration of the course, sign up for the newsletter at the bottom of this page to be notified when registration opens again.
+** Registration is Closed!
+
+Registration for the current iteration has now closed!  If you're interested to join the next iteration of the course, sign up for the newsletter at the bottom of this page to be notified when registration opens again.
 
 ** Refund Policy
 
