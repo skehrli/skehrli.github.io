@@ -30,3 +30,266 @@ Today we're going to try and build the following 3 applications so that I can us
 We may not end up with fully working applications for each of them, but we're going to go as far as we can in the 45 minutes I will devote to each one!
 
 I'll include the source to these programs in the show notes.
+
+* Application Code
+
+** Pong Clone
+
+Not the best code, but it's a starting point!
+
+*manifest.scm*:
+
+#+begin_src scheme
+
+  (specifications->manifest
+   (list "guile-chickadee"
+         "guile"))
+
+#+end_src
+
+*main.scm*:
+
+#+begin_src scheme
+
+  (use-modules (srfi srfi-9)
+               (chickadee)
+               (chickadee math vector)
+               (chickadee graphics text)
+               (chickadee graphics color)
+               (chickadee graphics sprite)
+               (chickadee graphics texture))
+
+  (define-record-type <paddle>
+    (make-paddle pos)
+    paddle?
+    (pos paddle-pos set-paddle-pos!)
+    (direction paddle-direction set-paddle-direction!))
+
+  (define left-paddle #f)
+  (define right-paddle #f)
+  (define ball-pos #f)
+
+  (define paddle-texture #f)
+  (define ball-texture #f)
+
+  (define (load)
+    (set! paddle-texture (load-image "paddle.png"))
+    (set! ball-texture (load-image "ball.png"))
+
+    (let ((window (current-window)))
+      (set! left-paddle
+            (make-paddle (vec2 20
+                               (/ (window-height window) 2))))
+      (set! right-paddle
+            (make-paddle (vec2 (- (window-width window)
+                                  20)
+                               (/ (window-height window) 2))))
+      (set! ball-pos (vec2 (/ (window-width window) 2)
+                           (/ (window-height window) 2)))))
+
+  (define (draw alpha)
+    (draw-sprite ball-texture ball-pos)
+    (draw-sprite paddle-texture (paddle-pos left-paddle))
+    (draw-sprite paddle-texture (paddle-pos right-paddle)))
+
+  (define paddle-speed 50.0)
+
+  (define (update delta)
+    (let* ((left-pos (paddle-pos left-paddle))
+           (left-delta
+            (case (paddle-direction left-paddle)
+              ((up)  (* paddle-speed delta))
+              ((down) (* (- paddle-speed) delta))
+              (else 0.0))))
+      (set-vec2-y! left-pos (+ (vec2-y left-pos)
+                               left-delta)))
+
+    (let* ((right-pos (paddle-pos right-paddle))
+           (right-delta
+            (case (paddle-direction right-paddle)
+              ((up)  (* paddle-speed delta))
+              ((down) (* (- paddle-speed) delta))
+              (else 0.0))))
+      (set-vec2-y! right-pos (+ (vec2-y right-pos)
+                               right-delta))))
+
+  (define (key-press key modifiers repeat?)
+    (case key
+      ((w) (set-paddle-direction! left-paddle 'up))
+      ((s) (set-paddle-direction! left-paddle 'down))
+      ((i) (set-paddle-direction! right-paddle 'up))
+      ((k) (set-paddle-direction! right-paddle 'down))))
+
+  (define (key-release key modifiers)
+    (case key
+      ((w) (set-paddle-direction! left-paddle #f))
+      ((s) (set-paddle-direction! left-paddle #f))
+      ((i) (set-paddle-direction! right-paddle #f))
+      ((k) (set-paddle-direction! right-paddle #f))))
+
+  (run-game #:window-width 640
+            #:window-height 480
+            #:load load
+            #:draw draw
+            #:update update
+            #:key-press key-press
+            #:key-release key-release
+            #:clear-color black)
+#+end_src
+
+** Web API Server
+
+Got the basics working but no database integration yet.
+
+*manifest.scm*:
+
+#+begin_src scheme
+
+  (specifications->manifest
+   (list "guile-sqlite3"
+         "guile-json"
+         "guile"))
+
+#+end_src
+
+*main.scm*:
+
+#+begin_src scheme
+
+  (use-modules (json)
+               (web uri)
+               (web request)
+               (web response)
+               (web server))
+
+  ;; GET, POST: /lispers
+  ;; GET: /lispers/<id>
+
+  (define lispers
+    '((1
+       (name . "John McCarthy")
+       (date-of-birth . "Sep 4 1927")
+       (language . "Lisp")
+       (known-for . "Invented the Lisp programming language"))
+
+      (2
+       (name . "Guy L. Steele Jr.")
+       (date-of-birth . "Oct 2 1954")
+       (language . "Lisp")
+       (known-for . "Co-authored the Common Lisp standard"))
+
+      (3
+       (name . "Richard Stallman")
+       (date-of-birth . "Mar 16 1953")
+       (language . "Lisp")
+       (known-for . "Founder of the Free Software Foundation"))
+
+      (4
+       (name . "Gerald Jay Sussman")
+       (date-of-birth . "Feb 8 1947")
+       (language . "Scheme")
+       (known-for . "Co-author of Structure and Interpretation of Computer Programs"))
+
+      (5
+       (name . "Hal Abelson")
+       (date-of-birth . "Apr 26 1947")
+       (language . "Scheme")
+       (known-for . "Co-author of Structure and Interpretation of Computer Programs"))
+
+      (6
+       (name . "R. Kent Dybvig")
+       (date-of-birth . "Dec 12 1959")
+       (language . "Scheme")
+       (known-for . "Creator of Chez Scheme and author of many academic papers on Scheme"))
+
+      (7
+       (name . "Rich Hickey")
+       (date-of-birth . "Apr 22 1976")
+       (language . "Clojure")
+       (known-for . "Creator of the Clojure programming language"))
+
+      (8
+       (name . "Paul Graham")
+       (date-of-birth . "Nov 13 1964")
+       (language . "Lisp")
+       (known-for . "Wrote \"On Lisp\" and more influential books"))
+
+      (9
+       (name . "Peter Norvig")
+       (date-of-birth . "Dec 14 1956")
+       (language . "Lisp")
+       (known-for . "Wrote a book about the use of Lisp in artificial intelligence"))))
+
+  (define (handle-crafter-request path-arg request body)
+    (values '((content-type . (application/json)))
+            (if (pair? path-arg)
+                (scm->json-string (cdr (assq (string->number (car path-arg))
+                                             lispers)))
+                (scm->json-string (list->vector (map cdr lispers))))))
+
+  (define (main-handler request body)
+    (let ((path-parts (split-and-decode-uri-path
+                       (uri-path (request-uri request)))))
+      (if (and (pair? path-parts)
+               (string= (car path-parts) "lispers"))
+          (handle-crafter-request (cdr path-parts)
+                                  request
+                                  body)
+          (values (build-response #:code 404)
+                  "Not found"))))
+
+  (run-server main-handler 'http '(#:port 8888))
+
+#+end_src
+
+** Failed GTK application
+
+This one didn't work!  UI development is pretty rough on Guile right now.
+
+*manifest.scm*:
+
+#+begin_src scheme
+
+  (specifications->manifest
+   (list "guile-g-golf"
+         "guile-json"
+         "guile"))
+#+end_src
+
+*main.scm*:
+
+#+begin_src scheme
+
+  (use-modules (g-golf))
+
+  (gi-import "Gtk")
+
+  ;; When the application is launched..
+  (define (activate app)
+    ;; - Create a new window and a new button
+    (let ((window (make <gtk-application-window>
+                    #:title "Hello"
+                    #:application app))
+
+          (button (make <gtk-button>
+                    #:label "Hello, World!")))
+
+      ;; - Which closes the window when clicked
+      (connect button
+               'clicked
+               (lambda (b)
+                 (close window)))
+
+      (set-child window button)
+      (show window)))
+
+  ;; Create a new application
+  (let ((app (make <gtk-application>
+               #:application-id "org.example.GtkApplication")))
+
+    (connect app 'activate activate)
+
+    ;; Run the application
+    (run app 0 '()))
+
+#+end_src
