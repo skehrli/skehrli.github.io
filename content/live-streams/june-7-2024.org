@@ -1,7 +1,7 @@
 #+title: Crafting Note Taking Extensions for Denote
 #+subtitle: System Crafters Live - June 7, 2024
-#+#+date: [2024-06-07 Fri]
-#+#+video:
+#+date: [2024-06-07 Fri]
+#+video: q2l_EShllus
 
 * News
 
