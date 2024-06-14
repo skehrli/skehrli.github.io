@@ -1,0 +1,32 @@
+#+title: Crafting 3 Guile Scheme Programs in 2 Hours
+#+subtitle: System Crafters Live - June 14, 2024
+#+#+date: [2024-06-14 Fri]
+#+#+video: qCvqZPf3smI
+
+* News
+
+- Check out Andrew Tropin's RDE Monthly Newsletter:
+
+  https://lists.sr.ht/~abcdw/rde-monthly/%3C87bk4l2i46.fsf@trop.in%3E
+
+  Also, give feedback on Andrew's Guix Community Infrastructure proposal:
+
+  https://lists.sr.ht/~abcdw/rde-discuss/%3C87zfs320es.fsf@trop.in%3E
+
+- New video next week: a tag-based task management workflow with Org Mode!
+
+* Let's Hack on Programs in Scheme!
+
+One of the things I've promised for participants of the Hands-On Guile Scheme for Beginners course is a series of starter projects which demonstrate how to use Guile Scheme for practical application development.
+
+The goal of these programs is to provide a starting point and inspiration for participants to get started on their own projects with what they've learned!
+
+Today we're going to try and build the following 3 applications so that I can use them for the course:
+
+- A Pong clone with Dave Thompson's Chickadee library
+- A web API server which speaks JSON and stores information in a SQLite database
+- A GTK UI that serves as a client to the web API server
+
+We may not end up with fully working applications for each of them, but we're going to go as far as we can in the 45 minutes I will devote to each one!
+
+I'll include the source to these programs in the show notes.
