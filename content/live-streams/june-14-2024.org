@@ -1,7 +1,7 @@
 #+title: Crafting 3 Guile Scheme Programs in 2 Hours
 #+subtitle: System Crafters Live - June 14, 2024
-#+#+date: [2024-06-14 Fri]
-#+#+video: qCvqZPf3smI
+#+date: [2024-06-14 Fri]
+#+video: qCvqZPf3smI
 
 * News
 
