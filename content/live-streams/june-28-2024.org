@@ -40,6 +40,8 @@ Ultimately I ended up making a short video using the Shotcut editor (built with 
 
 Let's see what we can do!
 
+Here's the code: https://codeberg.org/daviwil/melted-scheme
+
 ** Resources
 
 - The best resource: https://www.mltframework.org/docs/framework/
