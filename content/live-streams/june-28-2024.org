@@ -1,0 +1,48 @@
+#+title: Creating a Video With Scheme
+#+subtitle: System Crafters Live - June 28, 2024
+#+date: [2024-06-28 Fri]
+#+video: VKmQpJf-Y7M
+
+* News
+
+- New Emacs 29 and Org Mode Releases
+
+  Last weekend there were releases for both Emacs 29 and Org Mode to address a critical security vulerability when previewing Org file attachments in e-mails!
+
+  https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00695.html
+  https://list.orgmode.org/87sex5gdqc.fsf@localhost/T/#u
+
+- Emacs 30 Release is Underway
+
+  https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00746.html
+
+  First pretest release should happen in around a month, so help flush out any remaining bugs by building a copy yourself or use =emacs-next= / =emacs-next-pgtk= packages on Guix!
+
+  One interesting inclusion: =which-key=
+
+  https://github.com/emacs-mirror/emacs/commit/fa4203300fde6820a017bf1089652fb95759d68c
+
+* Hacking the MLT Framework with Guile
+
+Before this week got completely lost to the events of life, I was actively working on a new video for the channel.
+
+However, I didn't really want to settle with the typical old format of me just talking over a screencast in realtime.  I'd like to increase the quality of the videos and make them more impactful through good editing.
+
+This lead me on a bit of an oddysey both through the current set of Linux video editors (because Blender has unexpected limitations), leading me to once again try to write my own editor or video creation toolkit using Scheme.
+
+The two options were =libav= which powers =ffmpeg= or a library I've been looking at for a while but never tried called the MLT Framework:
+
+https://www.mltframework.org/
+
+This library is really interesting because it has a really simple C interface and internal data representation, making it easy to write my own Guile library on top using the dynamic FFI feature.
+
+Ultimately I ended up making a short video using the Shotcut editor (built with MLT), but now that I've learned the capabilities of MLT better through Shotcut, I think it's time to try and replicate that video with the library that I've been working on.
+
+Let's see what we can do!
+
+** Resources
+
+- The best resource: https://www.mltframework.org/docs/framework/
+- https://www.mltframework.org/docs/
+- https://www.mltframework.org/plugins/PluginsFilters/
+- https://www.mltframework.org/docs/previewscaling/
