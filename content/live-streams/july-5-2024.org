@@ -13,7 +13,7 @@
 
   If you have an Emacs-related topic you're excited about, consider submitting a proposal!
 
-- My LibrePlanet 2024 keynote has finally been posted!
+- The recording of my LibrePlanet 2024 keynote has finally been posted!
 
   https://media.libreplanet.org/u/libreplanet/m/cultivating-a-welcoming-free-software-community-that-lasts/
 
@@ -27,3 +27,38 @@ Release posts:
 
 - https://protesilaos.com/codelog/2024-06-30-emacs-denote-3-0-0/
 - https://protesilaos.com/codelog/2024-07-03-emacs-consult-denote-0-1-0/
+
+* The final configuration
+
+#+begin_src emacs-lisp
+
+  (load-theme 'modus-vivendi-tinted t)
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+
+  (add-to-list 'completion-styles 'flex)
+
+  (use-package vertico
+    :ensure t
+    :config
+    (vertico-mode 1))
+
+  (use-package consult
+    :ensure t)
+
+  (use-package denote
+    :ensure t
+    :custom
+    (denote-directory "~/Notes")
+    (denote-rename-confirmations '(rewrite-front-matter))
+    (denote-save-buffers t)
+    :config
+    (add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe))
+
+  (use-package consult-denote
+    :after (denote consult)
+    :ensure t
+    :config
+    (consult-denote-mode 1))
+
+#+end_src
