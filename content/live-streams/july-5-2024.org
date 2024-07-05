@@ -1,0 +1,29 @@
+#+title: What's New in Denote 3.0 for Emacs
+#+subtitle: System Crafters Live - July 5, 2024
+#+date: [2024-07-05 Fri]
+#+video: WbLPgn_L050
+
+* News
+
+- EmacsConf 2024 has announced a Call for Participation!
+
+  The conference will be December 7 and 8 this year:
+
+  https://emacsconf.org/2024/cfp/
+
+  If you have an Emacs-related topic you're excited about, consider submitting a proposal!
+
+- My LibrePlanet 2024 keynote has finally been posted!
+
+  https://media.libreplanet.org/u/libreplanet/m/cultivating-a-welcoming-free-software-community-that-lasts/
+
+* Checking out Denote 3.0
+
+At the beginning of this week, Protesilaos released version 3.0 of Denote with a set of new features that should be useful for your note-taking workflow customizations.  He also published the first release of a new package called =consult-denote= which integrates Denote with the Consult package to make certain tasks easier.
+
+Today we're going to try out both of these packages to see if there are new workflow tricks we can use in our own configurations!
+
+Release posts:
+
+- https://protesilaos.com/codelog/2024-06-30-emacs-denote-3-0-0/
+- https://protesilaos.com/codelog/2024-07-03-emacs-consult-denote-0-1-0/
