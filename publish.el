@@ -131,7 +131,7 @@
                                 (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
                                 (a (@ (class "nav-link") (href "/news/")) "News") " "
                                 (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                (a (@ (class "nav-link") (href "https://store.systemcrafters.net?utm_source=sc-site-nav")) "Store") " "
+                                (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
                                 (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
 
 (defun dw/site-footer ()
