@@ -15,7 +15,7 @@
 
 * Let's Hack on Org Mode Files!
 
-This week I made a post on socials asking Emacs users asking how much their life would be improved by understanding how to write Emacs Lisp code at an intermediate level:
+This week I made a post on socials asking Emacs users how much their life would be improved by understanding how to write Emacs Lisp code at an intermediate level:
 
 https://fosstodon.org/@daviwil/112756516386132987
 
@@ -24,10 +24,16 @@ This post generated quite a lot of responses and discussion!  One recurring them
 Let's learn a bit about how we might do that by hacking on a few useful tasks:
 
 - Looping over all TODO items in a file
-- Sorting all TODO items under a heading based on their task state
 - Refiling all DONE tasks to another file
+- Sorting all TODO items under a heading based on their task state
 - Scraping Org Agenda items to extract details
+- Exporting clocked task data to another format
 - What else?
+
+** Useful Functions
+
+- =org-map-entries=: Loops over all headings in an org document, including filtering, etc
+- =org-entry-get=: Gets the value of a property of a given entry
 
 ** Existing Code for Agenda Scraping
 
@@ -44,7 +50,6 @@ Let's learn a bit about how we might do that by hacking on a few useful tasks:
                          "Schedule")
             (push entry entries))))
         entries))
-
 #+end_src
 
 Extracting details about the agenda item at point:
@@ -63,5 +68,47 @@ Extracting details about the agenda item at point:
          (current-min (nth 1 current-time)))
     ;; do comparison here
     )
+
+#+end_src
+
+** The final code
+
+#+begin_src emacs-lisp
+
+  ;; -*- lexical-binding: t; -*-
+
+  ;; (with-current-buffer "Tasks.org"
+  ;;   (org-map-entries (lambda ()
+  ;;                      (org-entry-get nil "TODO"))
+  ;;                    "+TODO=\"DONE\""))
+
+  (defun my/refile-heading-to-file-heading (file heading)
+    (let ((pos (save-excursion
+                 (find-file-noselect file)
+                 (org-find-exact-headline-in-buffer heading))))
+      (org-refile nil nil (list heading file nil pos))))
+
+  (defun my/refile-done-tasks-to-archive ()
+    (interactive)
+    (let ((archive-file-name
+           (format "%s_archive.org"
+                   (file-name-sans-extension (buffer-file-name)))))
+      (org-map-entries (lambda ()
+                         (my/refile-heading-to-file-heading
+                          archive-file-name
+                          "Archived Tasks"))
+                       "+TODO=\"DONE\"")))
+
+  (defun my/org-move-done-tasks-to-bottom ()
+    "Sort all tasks in the topmost heading by TODO state."
+    (interactive)
+    (save-excursion
+      (while (org-up-heading-safe))
+      (org-sort-entries nil ?o))
+
+    ;; Reset the view of TODO items
+    (org-overview)
+    (org-show-entry)
+    (org-show-children))
 
 #+end_src
