@@ -1,0 +1,67 @@
+#+title: Automating Org Mode Tasks with Emacs Lisp
+#+subtitle: System Crafters Live - July 12, 2024
+#+date: [2024-07-12 Fri]
+#+video: 25HBEqIPoH8
+
+* News
+
+- Reminder about the EmacsConf 2024 Call for Participation:
+
+  The conference will be December 7 and 8 this year:
+
+  https://emacsconf.org/2024/cfp/
+
+  If you have an Emacs-related topic you're excited about, consider submitting a proposal!
+
+* Let's Hack on Org Mode Files!
+
+This week I made a post on socials asking Emacs users asking how much their life would be improved by understanding how to write Emacs Lisp code at an intermediate level:
+
+https://fosstodon.org/@daviwil/112756516386132987
+
+This post generated quite a lot of responses and discussion!  One recurring theme I saw was the desire to automate Org Mode tasks with Emacs Lisp.
+
+Let's learn a bit about how we might do that by hacking on a few useful tasks:
+
+- Looping over all TODO items in a file
+- Sorting all TODO items under a heading based on their task state
+- Refiling all DONE tasks to another file
+- Scraping Org Agenda items to extract details
+- What else?
+
+** Existing Code for Agenda Scraping
+
+#+begin_src emacs-lisp
+
+  (defun dw/get-schedule-entries ()
+    "Get all daily agenda entries with the category 'Schedule'."
+    (let ((entries '()))
+      (save-window-excursion
+        (org-agenda nil "a")
+        (goto-char (point-min))
+        (while (org-agenda-next-item 1)
+          (when (string= (get-text-property (point) 'org-category)
+                         "Schedule")
+            (push entry entries))))
+        entries))
+
+#+end_src
+
+Extracting details about the agenda item at point:
+
+#+begin_src emacs-lisp
+
+  (get-text-property (point) 'time) ;; 14:00-16:00
+  (get-text-property (point) 'time-of-day) ;; 1400
+  (get-text-property (point) 'duration) ;; 120.0 or nil if no range
+
+  (let* ((time-of-day (get-text-property (point) 'time-of-day))
+         (hour (/ time-of-day 100))
+         (min (% time-of-day 100))
+         (current-time (decode-time))
+         (current-hour (nth 2 current-time))
+         (current-min (nth 1 current-time)))
+    ;; do comparison here
+    )
+
+#+end_src
