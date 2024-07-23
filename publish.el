@@ -462,7 +462,7 @@ holding contextual information."
               :with-timestamps nil)
             '("systemcrafters:assets"
               :base-directory "./assets"
-              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
+              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|zip"
               :publishing-directory "./public"
               :recursive t
               :publishing-function org-publish-attachment)
