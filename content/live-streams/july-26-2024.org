@@ -3,6 +3,24 @@
 
 *  News
 
+- New System Crafters video this week!
+
+  https://www.youtube.com/watch?v=GP8uOU6SSyk
+
+- New Prot video this week:
+
+  https://www.youtube.com/watch?v=RaqtzemHFDU
+
+- Mastering Emacs v29 Update is Out!
+
+  Including a nice mention of Crafted Emacs!
+
+  https://www.masteringemacs.org/r/systemcrafters
+
+- New blog post by glenneth about his journey with Guix:
+
+  https://glenneth.srht.site/a-journey-through-gnu-guix-from-installation-to-returning-to-arch-linux.html
+
 * Let's Talk About Hype
 
 - Gartner hype cycle: https://en.wikipedia.org/wiki/Gartner_hype_cycle
