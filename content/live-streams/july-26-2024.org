@@ -1,0 +1,8 @@
+#+title: Hype, Value, and How to Tell The Difference
+#+video: Zf11TWGpypM
+
+*  News
+
+* Let's Talk About Hype
+
+- Gartner hype cycle: https://en.wikipedia.org/wiki/Gartner_hype_cycle
