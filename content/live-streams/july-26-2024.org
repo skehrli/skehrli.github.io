@@ -1,7 +1,7 @@
 #+title: Hype, Value, and How to Tell The Difference
 #+video: Zf11TWGpypM
 
-*  News
+* News
 
 - New System Crafters video this week!
 
@@ -18,9 +18,27 @@
   https://www.masteringemacs.org/r/systemcrafters
 
 - New blog post by glenneth about his journey with Guix:
-
   https://glenneth.srht.site/a-journey-through-gnu-guix-from-installation-to-returning-to-arch-linux.html
 
+- Don't forget EmacsConf 2024 CFP!
+
+  https://emacsconf.org/2024/cfp/
+
 * Let's Talk About Hype
+
+Goal: Understand how to tell the difference between something that is just hype and something that deserves your time and attention?
+
+** Examples of Hype
+
+- What is something that was hyped which didn't really pan out?
+- What is something that was hyped that eventually became standard? (React.js)
+
+- Rust
+- NFTs
+- Ruby on Rails
+- Metaverse
+- AI (both present and future)
+- Swift
+- HTMX
 
 - Gartner hype cycle: https://en.wikipedia.org/wiki/Gartner_hype_cycle
