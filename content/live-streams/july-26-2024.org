@@ -1,4 +1,6 @@
 #+title: Hype, Value, and How to Tell The Difference
+#+subtitle: System Crafters Live - July 26, 2024
+#+date: [2024-07-26 Fri]
 #+video: Zf11TWGpypM
 
 * News
