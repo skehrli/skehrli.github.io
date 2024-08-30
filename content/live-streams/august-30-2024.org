@@ -1,0 +1,27 @@
+#+title: Janet: A Practical, Embeddable Lisp
+#+subtitle: System Crafters Live - August 30, 2024
+#+date: [2024-08-30 Fri]
+#+video: f5KZHGGogbc
+
+* News
+
+- New Steel Bank Common Lisp (SBCL) release:
+
+  S
+
+  The conference will be December 7 and 8 this year:
+
+  https://emacsconf.org/2024/cfp/
+
+  If you have an Emacs-related topic you're excited about, consider submitting a proposal!
+
+- Next week (really?): New System Crafters video on workflows for managing many tasks with Org agenda bulk actions!
+
+* Let's Look at Janet!
+
+- Module system, projects
+- Making a standalone application
+- Simple program using Jaylib
+- PEG parser
+- Basic scripting, common tasks
+- Shell DSL https://acha.ninja/blog/dsl_for_shell_scripting/
