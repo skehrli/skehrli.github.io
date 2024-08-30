@@ -7,17 +7,13 @@
 
 - New Steel Bank Common Lisp (SBCL) release:
 
-  S
-
-  The conference will be December 7 and 8 this year:
-
-  https://emacsconf.org/2024/cfp/
-
-  If you have an Emacs-related topic you're excited about, consider submitting a proposal!
+  https://www.sbcl.org/news.htmlj
 
 - Next week (really?): New System Crafters video on workflows for managing many tasks with Org agenda bulk actions!
 
 * Let's Look at Janet!
+
+https://janet-lang.org/
 
 - Module system, projects
 - Making a standalone application
@@ -25,3 +21,26 @@
 - PEG parser
 - Basic scripting, common tasks
 - Shell DSL https://acha.ninja/blog/dsl_for_shell_scripting/
+
+The code we worked on near the end:
+
+#+begin_src scheme
+
+  (def get-command-grammar
+    '{:target (<- (some (range "az")))
+      :get "get "
+      :main (* :get :target)})
+
+  (defn process-command []
+    (def input (file/read stdin :line))
+    (print "The command was: " input)
+    (pp (peg/match get-command-grammar input))
+
+    # Recursive loop!
+    (process-command))
+
+  (defn main
+    [& args]
+    (process-command))
+
+#+end_src
