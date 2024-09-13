@@ -1,0 +1,28 @@
+#+title: What's New in Guile Hoot 0.5.0
+#+subtitle: System Crafters Live - September 13, 2024
+#+date: [2024-09-13 Fri]
+#+video: 2MdwuPUNgr0
+
+* News
+
+- The Spritely Institute is hiring a Technical Administrator!
+
+  https://spritely.institute/news/come-work-with-us-hiring-a-technical-administrator.html
+
+  This is a really cool way to use Emacs, Org Mode, and other tools we love to help the Spritely Institute deliver all of the amazing projects they're working on!
+
+- Andy Wingo talking about Scheme on WebAssembly at ICFP 2024
+
+  https://www.youtube.com/live/KQJ-Xl1ULGU?t=2230
+
+  There are other interesting talks to check out in that video, too!
+
+- Update on R7RS Large progress by Daphne Preston-Kendall at the European Lisp Symposium
+
+  https://www.youtube.com/watch?v=BMvurzOj9ww
+
+* Trying Out Guile Hoot 0.5.0
+
+More details on the new release can be found on the news page:
+
+https://spritely.institute/news/guile-hoot-v050-released.html
