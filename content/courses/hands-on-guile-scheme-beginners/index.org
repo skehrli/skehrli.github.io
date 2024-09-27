@@ -2,8 +2,6 @@
 #+video: 3eXK9YZ0NjU
 #+page-type: course
 
-- Start Date: Saturday, June 8, 2024
-- Duration: 8 Weeks
 - Experience Level: Beginner and above!
 
 #+begin_export html
@@ -24,27 +22,24 @@
 
 [[https://www.gnu.org/software/guile/][Guile Scheme]] is a practical Scheme implementation with a growing community thanks to projects like [[https://guix.gnu.org][GNU Guix]], [[https://spritely.institute/goblins/][Spritely Goblins]], and [[https://spritely.institute/hoot/][Guile Hoot]].  I believe that it is the best language to use for crafting reproducible systems, personal tool hacking, and task automation.
 
-*Hands-On Guile Scheme for Beginners* is an 8-week, interactive learning course led by [[https://daviwil.com][David Wilson]] of [[https://youtube.com/@SystemCrafters][System Crafters]].  You will *learn how to think like a Scheme programmer* through on-demand video instruction and demonstrations, directed project work, live Q&A sessions, and group discussions in a private area on the [[https://forum.systemcrafters.net][System Crafters Forum]].
+*Hands-On Guile Scheme for Beginners* is an on-demand, interactive learning course created by [[https://daviwil.com][David Wilson]] of [[https://youtube.com/@SystemCrafters][System Crafters]].  You will *learn how to think like a Scheme programmer* through video instruction and demonstrations, directed project work, and discussions in a private area on the [[https://forum.systemcrafters.net][System Crafters Forum]].
 
-By the end of the 8 weeks, you will have written several projects in Scheme!  You will also know enough about Guile to move on to more advanced projects like the ones we will cover in future courses.
+By the end of the course, you will have written several projects in Scheme!  You will also know enough about Guile to move on to more advanced projects like the ones we will cover in future courses.
 
 * What's Included
 
 - *Over 6 hours* of self-paced, on-demand video instruction on Scheme fundamentals and practical programming with Guile, broken into easily consumable chunks
 - All course videos are accompanied with *equivalent written material* that expands on the video content in case you would prefer to read!
 - *20+ exercises* that will reinforce what you learn and lead you on a path to *writing practical applications* with Scheme
-- An *encouraging, collaborative group learning environment* in a private forum area just for the participants of this iteration
-- *Personal code review* from David Wilson for each of your exercise submissions
-- *4 live 1-hour group Q&A sessions* (optional) to chat with me, ask questions, and discuss the course content
-- *A personalized e-book* with the course content *plus [[bonus-material][bonus material]]* upon completion of the course
+- An *encouraging, collaborative group learning environment* in a private forum area just for the participants of this course
 - *Lifetime access* to the course material and private forum group after the course is complete
-- Automatic, *free access to updated material* when I add improvements for future iterations of the course
+- Automatic, *free access to updated material* when I add improvements to the course
 
 * Who Should Join?
 
 This course is *specifically designed for beginners to Guile Scheme*, whether you have some intermediate experience in other languages or if you're an experienced programmer.  It will also be helpful for those who have started experimenting with Guile but still feel like they don't know how to write Scheme the "right" way.
 
-I've also designed this course to be *effective for people who have busy lives* and have challenges finding free time in their weekly schedule!  The two-week gap between new exercises is intended to give ample time for learning, hacking, discussion, and review.
+I've also designed this course to be *effective for people who have busy lives* and have challenges finding free time in their weekly schedule!
 
 If you are an intermediate to advanced programmer that has not yet learned Scheme, don't let the focus on "beginners" discourage you.  *You will learn a lot about Scheme* and how it is different from other programming languages, particularly with a focus on functional programming concepts.
 
@@ -52,26 +47,13 @@ If you already have experience with Scheme and want something more advanced, I a
 
 * How It Works
 
-Every two weeks starting on *Saturday, June 8, 2024* you will receive a new "chapter" with high-quality instructional material both in text and video form.  Each chapter will contain 10+ sections with material focused on a particular area like Scheme fundamentals, functional programming, and practical programming with Guile.
+Once you register for the course, you will immediately get access to 4 chapters of high-quality instructional material both in text and video form.  Each chapter contains 10+ sections with material focused on a particular area like Scheme fundamentals, functional programming, and practical programming with Guile.
 
-For each chapter, you will be given a series of exercises to work through over the next 2 weeks.  You will be able to ask questions and discuss the material and exercises with me and the other participants in the private forum group throughout those 2 weeks and in the live Q&A session on the Sunday one week after the chapter was released!
-
-If you complete and submit the exercises before the submission deadline (Wednesday of the second week), I will personally review your code and provide helpful feedback on your approach so that you feel confident in what you've learned.  However, it is *not required to submit your exercises*, they exist primarily to help you learn Scheme!
-
-** Live Q&A Session Schedule
-
-The 1-hour live Q&A meetings will generally occur on *Sundays at 16:00 UTC* one week after the chapter material is released.  For this iteration of the course, the live sessions will occur on the following dates, click the link for your local time:
-
-- [[https://time.is/1600_16_Jun_2024_in_UTC][June 16, 2024]]
-- [[https://time.is/1600_30_Jun_2024_in_UTC][June 30, 2024]]
-- [[https://time.is/1600_14_Jul_2024_in_UTC][July 14, 2024]]
-- [[https://time.is/1600_28_Jul_2024_in_UTC][July 28, 2024]]
-
-If you can't make it to one of the live Q&A sessions, don't worry, *these sessions are not mandatory to get the full value of the course!*  In fact, they will all be recorded so that you can watch them at your leisure.  Only other members of this iteration of the course will have access to these live recordings.
+For each chapter, you will be given a series of exercises to work through to internalize the concepts we cover.  You will be able to ask questions and discuss the material and exercises with me and the other participants in the private forum group!  You can also feel free to share your solutions to get feedback from David and other participants.
 
 * What You'll Learn
 
-Here is an overview of the topics we will cover during the 8 weeks:
+Here is an overview of the topics we cover during the course:
 
 - Scheme language fundamentals
 - Functional programming for beginners
@@ -98,7 +80,7 @@ You'll also get a lot of extra bonus material along with the course:
 - A list of useful community Guile libraries that you might want to experiment with
 - A list of programs you can configure and extend with Guile
 
-Once you are finished with this course and the bonus material, you will have at least 5 new ideas for cool projects to work on with Guile!
+Once you are finished with this course and the bonus material, you will have at least a few new ideas for cool projects to work on with Guile!
 
 * Testimonials
 
@@ -128,46 +110,28 @@ Only a few times in my life have *I felt like my brain was bulging* from trying 
 Amol V
 #+end_quote
 
-* How To Join
+* Get Started Here!
 
-** Registration form :noexport:
-
-If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-april-2024][System Crafters Store]] to register or click the blue button below:
+If you're ready to learn Scheme, head over to the [[https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners][System Crafters Store]] to register or click the blue button below:
 
 #+BEGIN_EXPORT html
 
 <p>
 
-<a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-june-2024">
+<a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners">
   <img src="/img/courses/HandsOnGuileSchemeBeginners.png" class="center" style="width: 50%; margin-bottom: 10px; border: 1px solid #c3e88d;"/>
 </a>
 
-<b><a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners-june-2024" class="register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
+<b><a href="https://systemcrafters.store/products/hands-on-guile-scheme-for-beginners" class="register-button center">Click Here to Register for Hands-On Guile Scheme for Beginners!</a></b>
 
 </p>
 
 #+END_EXPORT
 
-*There are a limited number of spots available*, so make sure to register early if you want to join!
-
-Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where we will communicate before, during, and after the course.
-
-** Early Registration Discount :noexport:
-
-If you *register before 06:00 UTC, Monday June 3rd* you will receive an *automatic discount of 10%* from the course price!
-
-** Registration is Closed!
-
-Registration for the current iteration has now closed!  If you're interested to join the next iteration of the course, sign up for the newsletter at the bottom of this page to be notified when registration opens again.
+Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where you can ask questions as you work through the material.  Your forum account will also give you access to the course site at [[https://guild.systemcrafters.net][System Crafters Guild]]!
 
 ** Refund Policy
 
-I am committed to giving you the best possible learning experience with this course!  If you are unsure about whether the course is right for you, I am offering a *full refund upon request before the end of the first week of the course* so that you can give it a fair trial and decide whether you want to continue.
+I am committed to giving you the best possible learning experience with this course!  If you are unsure about whether the course is right for you, feel free to send me an e-mail to ask about it first.  If you decide to buy the course and decide it isn't for you, please e-mail me and we can discuss it.
 
 I am confident that you won't want to ask for a refund, though, because I have packed a ton of information into this course and anyone will learn a lot from it!
-
-* Not Ready Yet?
-
-If this isn't a good time for you to join this course, I will run another iteration of it in May!
-
-To be notified when new courses are announced, subscribe to the System Crafters Newsletter using this form:
