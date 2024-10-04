@@ -1,0 +1,31 @@
+#+title: Live-Coding a Text Adventure Game in Scheme
+#+subtitle: System Crafters Live - October 4, 2024
+#+date: [2024-10-04 Fri]
+#+video: XdlikvTHsM8
+
+* News
+
+- The "Hands-On Guile Scheme for Beginners" course is now on-demand!
+
+  If you'd like to learn Scheme, functional programming, and Guile at your own pace, this might be for you!
+
+  More information can be found on the course details page:
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- The Autumn Lisp Game Jam has been scheduled for October 25, 2024!
+
+  https://itch.io/jam/autumn-lisp-game-jam-2024
+
+* Writing a Text Adventure in Scheme!
+
+- Use functional style as much as possible
+- Use record types
+- Use an in-memory game world description
+- Take a test-first approach?
+
+* Check out the code!
+
+Here's a repository with the state of the code after this stream:
+
+https://codeberg.org/SystemCrafters/grue-hunt/src/commit/244d655abb8019d938b388714e952abc8a80812b
