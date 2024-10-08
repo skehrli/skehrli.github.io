@@ -1,0 +1,661 @@
+#+title: How to Organize Your Guix Configuration
+
+* Treat your Guix config like a program!
+
+One of the most interesting aspects of Guix is how your entire system configuration is actually a Guile Scheme program.  Because of this, you can design your configuration in a modular way using features of the Guile language, including modules!
+
+In this video I'm going to show you the strategy I use for organizing all of the aspects of my system configuration, including multiple machines with shared base configs, modular home configurations, and my own personal package and service definitions.
+
+We won't go into a lot of depth on how to *write* all of these in this video, but I'll show you the tricks for how you can organize your files the way I do so that you've got a good structure in place for your own configuration.
+
+We'll start with an example configuration that's just a loose collection of files and migrate it over to my recommended layout.  If you'd like to follow along, the original files can be found in the appendix of the show notes linked in the description.
+
+* Establishing the folder structure
+
+I'm going to proceed with the assumption that you've already got at least one =operating-system= configuration file, maybe a =guix home= configuration, and possibly some custom package or service definitions.
+
+The first thing you'll want to do is create a dotfiles folder if you don't have one already.  There is nothing special about this folder, it's just a central place to keep all of your personal configuration files.
+
+In this example I'm assuming that you'll create a folder called =dotfiles= in your =$HOME= folder.  You don't have to keep it here, it can live anywhere else in your home folder, even with the rest of your code repositories or anywhere else you'd like!
+
+When you see =~/dotfiles= in later examples, just keep in mind that this represents your own dotfiles folder path.
+
+Here is the overall folder structure that I recommend for your Guix configuration:
+
+- =~/dotfiles=
+  - =config=: The top-level module path for your Guix configuration
+    - =systems=: For all your =operating-system= configurations
+    - =services=: For any custom system-level services you might create
+    - =packages=: For any custom package definitions you create
+    - =home=: For all =home-environment= configurations
+      - =services=: For any custom home services you create
+  - =files=: Miscellanous files that are needed for your home configuration
+
+We'll talk more about how to use the =files= folder in another video about Guix Home!
+
+You can add other files or folders to this structure as necessary, this is just the bare minimum needed for the strategy we're looking at today.
+
+* Migrating your existing configuration files
+
+Now that you've got your folder structure settled, the next step is to migrate your existing configuration files into the appropriate folders.
+
+We're going to start with 4 files: two system configuration files which share a base configuration, a home configuration file which has a custom home service and a simple package definition file.
+
+** System Configurations
+
+Let's start by dropping the two system configuration files, =gemini.scm= and =taurus.scm=, and the =base-system.scm= file into the =~/dotfiles/config/systems= path.  Now we'll need to convert all of these files from plain code files into full Guile Scheme modules.
+
+System configuration files don't /really/ need to be converted into module files to work correctly, but since we're trying to treat our configuration like code, let's start there!
+
+First, we add a =define-module= expression to the top of the =gemini.scm= file:
+
+#+begin_src scheme
+
+  (define-module (config systems gemini))
+
+#+end_src
+
+This line tells the Guile runtime that this file represents the module =(config systems gemini)=.  Pay special attention to the fact that this module name matches the path parts under the =~/dotfiles= folder, =config/systems/gemini.scm=.  The file path and the module name must be consistent for this to work correctly!
+
+Your configuration may also have a =use-modules= expression which imports a few modules that your system configuration needs.  Technically you could leave this how it is, but it's better to convert all of the module imports to use the =#:use-module= syntax inside of =define-module=.
+
+For example, the following =use-modules= expression:
+
+#+begin_src scheme
+
+  (use-modules (gnu)
+               (guix))
+
+#+end_src
+
+... would get turned into the following =#:use-modules= lines:
+
+#+begin_src scheme
+
+  (define-module (config systems gemini)
+    #:use-modules (gnu)
+    #:use-modules (guix))
+
+#+end_src
+
+This is definitely not as clean and simple as =use-modules=, but it's the standard way to express dependencies when defining a module in Guile Scheme.
+
+Before we can finish converting =gemini.scm=, though, we will need to also convert =base-system.scm= to a module so that we can import it here.  The process is the same, but we must also add an =#:export= directive to =define-module= so that the =base-system= variable can be accessed by any module that imports it.
+
+Let's replace the =use-modules= expression at the top of =base-system.scm= with the following =define-module= expression:
+
+#+begin_src scheme
+
+  (define-module (config systems base-system)
+    #:use-modules (gnu)
+    #:use-modules (guix)
+    #:export (base-system))
+
+#+end_src
+
+You can put as many variable names as needed in the =#:export= list if they need to be visible to the modules that import it.
+
+Back in =gemini.scm=, let's add the =#:use-modules= expression to import =(config systems base-system)=:
+
+#+begin_src scheme
+
+  (define-module (config systems gemini)
+    #:use-modules (gnu)
+    #:use-modules (guix)
+    #:use-modules (config systems base-system))
+
+#+end_src
+
+Don't forget to remove the =include= expression that pulls in the =base-system.scm= file if you happen to be using something like that to share a base configuration!
+
+Also, if you happen use the =use-package-modules= or =use-service-modules= expressions, like the ones in =base-system.scm=, these do not need to be converted to =#:use-modules=!  We'll discuss these syntaxes more in another video where we cover =operating-system= configuration tips.
+
+We should make the same edits to =taurus.scm= as we made to =gemini.scm=, just making sure to use =(config systems taurus)= as the module name in the =define-module= expression.
+
+** Home Configuration
+
+Now that our system configurations have been converted to modules, let's convert our =home-environment= configuration in the same way.  We'll move =home-config.scm= into the =~/dotfiles/config/home= path and add the =define-modules= expression to the top of the file, converting all the =use-modules= imports to the =#:use-module= syntax:
+
+#+begin_src scheme
+
+  (define-module (config home home-config)
+    #:use-modules (gnu)
+    #:use-modules (gnu home)
+    #:use-modules (gnu home services)
+    #:use-modules (gnu packages emacs)
+    #:use-modules (gnu services)
+    #:use-modules (guix packages)
+    #:use-modules (guix git-download)
+    #:use-modules (guix build-system emacs)
+    #:use-modules (guix licenses))
+
+#+end_src
+
+But wait, there's both a package definition and a home service declaration in this file!  This is a good opportunity to break these definitions into their own module files so that they can be imported and used when needed.
+
+For the package definition, let's create a new file under the path =~/dotfiles/config/packages= called =emacs.scm= and move the =emacs-super-save= package definition into it.  We'll start with the =define-module= expression for this module and move across the module imports that are necessary for package definitions:
+
+#+begin_src scheme
+
+  (define-module (config packages emacs)
+    #:use-package (guix packages)
+    #:use-package (guix git-download)
+    #:use-package (guix build-system emacs)
+    #:use-package (guix licenses)
+    #:export (emacs-super-save))
+
+  (define-public emacs-super-save
+    (let ((commit "886b5518c8a8b4e1f5e59c332d5d80d95b61201d")
+          (revision "0"))
+      (package
+        (name "emacs-super-save")
+        (version (git-version "0.3.0" revision commit))
+        (source
+         (origin
+           (uri (git-reference
+                 (url "https://github.com/bbatsov/super-save")
+                 (commit commit)))
+           (method git-fetch)
+           (sha256
+            (base32 "1w62sd1vcn164y70rgwgys6a8q8mwzplkiwqiib8vjzqn87w0lqv"))
+           (file-name (git-file-name name version))))
+        (build-system emacs-build-system)
+        (home-page "https://github.com/bbatsov/super-save")
+        (synopsis "Emacs package for automatic saving of buffers")
+        (description
+         "super-save auto-saves your buffers, when certain events happen: you
+  switch between buffers, an Emacs frame loses focus, etc.  You can think of
+  it as an enhanced `auto-save-mode'")
+        (license license:gpl3+))))
+
+#+end_src
+
+Notice we also added an =#:export= for the =emacs-super-save= variable!  This will be needed to reference the package in our home configuration.
+
+We can also create a module for the =home-emacs-config-service-type= and at =~/dotfiles/config/home/services/emacs-config.scm=.  We'll start it off with its own =define-modules= expression before copying over the =home-emacs-config-service-type= and =home-emacs-config-profile-service= definitions:
+
+#+begin_src scheme
+
+  (define-module (config home services emacs-config)
+    #:use-module (gnu)
+    #:use-module (gnu home)
+    #:use-module (gnu home services)
+    #:use-module (gnu packages emacs)
+    #:use-module (config packages emacs))
+
+  (define (home-emacs-config-profile-service config)
+    (list emacs emacs-super-save))
+
+  (define home-emacs-config-service-type
+    (service-type (name 'home-emacs-config)
+                  (description "A service for configuring Emacs.")
+                  (extensions
+                   (list (service-extension
+                          home-profile-service-type
+                          home-emacs-config-profile-service))
+                   (default-value #f))))
+
+#+end_src
+
+Since we're using our own =emacs-super-save= package definition, we'll need to make sure to add the =#:use-module= directive for the =(config packages emacs)= module too!
+
+In this module, we only need to add =home-emacs-config-service-type= to the =#:export= list because that is what a home configuration will need to apply the Emacs configuration.
+
+How that we've finished moving these definitions out of =home-config.scm=, we can replace many of the module imports with one for =(config home services emacs)=:
+
+#+begin_src scheme
+
+  (define-module (config home home-config)
+    #:use-modules (gnu)
+    #:use-modules (gnu home)
+    #:use-modules (config home services emacs-config))
+
+#+end_src
+
+* Using Your Dotfiles with Guix
+
+The trick to using this strategy is to add your dotfiles folder to the Guix "load path" so that your configuration modules can be found.  There is a standard command line parameter of =-L= (or =--load-path=) which you can use to pass your dotfiles path to many of the Guix commands, including the following:
+
+- guix shell
+- guix system
+- guix home
+- guix build
+- guix repl
+
+For example, if you want to apply an update to your system configuration, you would invoke =guix system reconfigure= like this:
+
+#+begin_src sh
+
+  guix system -L ~/dotfiles reconfigure ~/dotfiles/config/systems/gemini.scm
+
+#+end_src
+
+Obviously this is a lot more typing, though!  There isn't an ideal solution for adding your dotfiles path to Guix commands by default, but what you /can/ do is create aliases for the most frequently used commands in your shell configuration.  I typically add shortcuts for applying my =guix system= and =guix home= configurations:
+
+#+begin_src sh
+
+  alias update-system='sudo guix system -L ~/dotfiles reconfigure ~/dotfiles/config/systems/$(hostname).scm'
+  alias update-home='guix home -L ~/dotfiles reconfigure ~/dotfiles/config/home/home-config.scm'
+
+#+end_src
+
+Notice that the =update-system= alias includes a call to the =hostname= command so that it automatically picks up the correct configuration file if you name the files with each system's host name!
+
+* Testing Your Changes
+
+Now that we've finished all the changes to our configuration files, it's time to try them out and make sure they work!  The first thing I'd recommend before using the configuration files, though, is to try loading them using the =guix repl=.  This will help you to detect errors in your configuration files, like syntax issues or missing module imports.  Guix will sometimes give you very vague errors that don't indicate what's really going on!
+
+To test out your new configuration files, open up a terminal and run the following command:
+
+#+begin_src sh
+
+  guix repl -L ~/dotfiles
+
+#+end_src
+
+You can now enter the following expression into the REPL to import your configuration module to ensure that it doesn't have any syntax errors or any other unexpected issues:
+
+#+begin_src scheme
+
+  ,use (config home home-config)
+
+#+end_src
+
+The =,use= command is just a shortened form of the =(use-modules)= expression for use in the REPL, it attempts to load your =(config home home-config)= module into the current session.  Doing this will expose any errors that might be preventing your configuration from loading correctly when you use it with one of the =guix= commands.
+
+In this case, it seems that we missed a parentheses somewhere in the =(config home services emacs-config)= module:
+
+#+begin_src sh
+
+#+end_src
+
+Once we fix the mistake, we can exit the REPL, start it again, and then try loading the module in the REPL again to ensure there are no more errors:
+
+#+begin_src sh
+
+#+end_src
+
+Why do we need to restart the REPL entirely?  Because Guile may have cached things from the previous load attempt so it may not load the latest changes to your module file!  This can lead to further confusion, so it's best to just restart the REPL each time you want to test your configuration file again.
+
+It also seems that I forgot to import the =base-system= module in the =taurus= configuration according to this error I get back from =guix repl=:
+
+#+begin_src sh
+
+  scheme@(guix-user)> ,use (config systems taurus)
+  While executing meta-command:
+  error: base-system: unbound variable
+
+#+end_src
+
+One thing to point out: this approach will not find /all/ possible problems with your configuration files, only those that would affect the loading and compilation of the configuration code.  Applying the configuration files will let you know about the rest of the problems!
+
+After verifying that all these files load correctly, you can try applying the configurations to your system!
+
+* Conclusion
+
+I hope this video gave you some ideas on how you can structure your own Guix configuration!  Please feel free to leave any questions in the comments or head over to the [[https://forum.systemcrafters.net][System Crafters Forum]] to discuss your thoughts with the community.
+
+In future videos we will discuss how to write all of the various parts of your Guix configuration and put them together using this folder strategy.  Make sure to subscribe to the channel and click the bell to be notified when those are released!
+
+* Appendix
+
+** Original Configuration Files
+
+Here are the configuration files we started with:
+
+*** base-system.scm
+
+#+begin_src scheme :tangle original/base-system.scm
+
+  (use-modules (gnu)
+               (guix))
+
+  (use-package-modules ssh)
+  (use-service-modules networking ssh)
+
+  (define base-system
+    (operating-system
+      (host-name "base-system")
+      (timezone "Etc/UTC")
+      (locale "en_US.utf8")
+      (keyboard-layout (keyboard-layout "us" "altgr-intl"))
+
+      ;; Don't include any default firmware
+      (firmware '())
+
+      (initrd (lambda (file-systems . rest)
+            ;; Create a standard initrd but set up networking
+            ;; with the parameters QEMU expects by default.
+            (apply base-initrd file-systems
+                   #:qemu-networking? #t
+                   rest)))
+
+      ;; The bootloader and file-systems fields here will be replaced by
+      ;; the exact same values in the gemini and taurus configurations,
+      ;; but in practice these fields will depend on each machine's
+      ;; partition configuration.
+      (bootloader (bootloader-configuration
+                   (bootloader grub-bootloader)
+                   (targets '("/dev/vda"))
+                   (terminal-outputs '(console))))
+
+      (file-systems (cons (file-system
+                            (mount-point "/")
+                            (device "/dev/vda1")
+                            (type "ext4"))
+                          %base-file-systems))
+
+      (users (cons (user-account
+                    (name "crafter")
+                    (comment "System Crafter")
+                    (password (crypt "crafter" "$6$abc"))
+                    (group "users")
+                    (supplementary-groups '("wheel" "netdev"
+                                            "audio" "video")))
+                   %base-user-accounts))
+
+      (services (cons* (service dhcp-client-service-type)
+                       (service openssh-service-type)
+                       %base-services))))
+
+#+end_src
+
+*** gemini.scm
+
+#+begin_src scheme :tangle original/gemini.scm
+
+  (use-modules (gnu)
+               (guix))
+
+  (include "./base-system.scm")
+
+  (operating-system
+   (inherit base-system)
+   (host-name "gemini")
+
+   (bootloader (bootloader-configuration
+                (bootloader grub-bootloader)
+                (targets '("/dev/vda"))
+                (terminal-outputs '(console))))
+
+   (file-systems (cons (file-system
+                        (mount-point "/")
+                        (device "/dev/vda1")
+                        (type "ext4"))
+                       %base-file-systems)))
+
+#+end_src
+
+*** taurus.scm
+
+#+begin_src scheme :tangle original/taurus.scm
+
+  (use-modules (gnu)
+               (guix))
+
+  (include "./base-system.scm")
+
+  (operating-system
+    (inherit base-system)
+    (host-name "taurus")
+
+    (bootloader (bootloader-configuration
+                 (bootloader grub-bootloader)
+                 (targets '("/dev/vda"))
+                 (terminal-outputs '(console))))
+
+    (file-systems (cons (file-system
+                          (mount-point "/")
+                          (device "/dev/vda1")
+                          (type "ext4"))
+                        %base-file-systems)))
+
+#+end_src
+
+*** home-config.scm
+
+#+begin_src scheme :tangle original/home-config.scm
+
+  (use-modules (gnu)
+               (gnu home)
+               (gnu home services)
+               (gnu packages emacs)
+               (gnu services)
+               (guix packages)
+               (guix git-download)
+               (guix build-system emacs)
+               (guix licenses))
+
+  (define-public emacs-super-save
+    (let ((commit "886b5518c8a8b4e1f5e59c332d5d80d95b61201d")
+          (revision "0"))
+      (package
+        (name "emacs-super-save")
+        (version (git-version "0.3.0" revision commit))
+        (source
+         (origin
+           (uri (git-reference
+                 (url "https://github.com/bbatsov/super-save")
+                 (commit commit)))
+           (method git-fetch)
+           (sha256
+            (base32 "1w62sd1vcn164y70rgwgys6a8q8mwzplkiwqiib8vjzqn87w0lqv"))
+           (file-name (git-file-name name version))))
+        (build-system emacs-build-system)
+        (home-page "https://github.com/bbatsov/super-save")
+        (synopsis "Emacs package for automatic saving of buffers")
+        (description
+         "super-save auto-saves your buffers, when certain events happen: you
+  switch between buffers, an Emacs frame loses focus, etc.  You can think of
+  it as an enhanced `auto-save-mode'")
+        (license gpl3+))))
+
+  (define (home-emacs-config-profile-service config)
+    (list emacs emacs-super-save))
+
+  (define home-emacs-config-service-type
+    (service-type (name 'home-emacs-config)
+                  (description "A service for configuring Emacs.")
+                  (extensions
+                   (list (service-extension
+                          home-profile-service-type
+                          home-emacs-config-profile-service))
+                  (default-value #f))))
+
+  (home-environment
+   (packages (list git))
+   (services (list (service home-emacs-config-service-type))))
+
+#+end_src
+
+** Final Configuration Files
+
+*** ~/dotfiles/config/systems/base-system.scm
+
+#+begin_src scheme
+
+  (define-module (config systems base-system)
+    #:use-modules (gnu)
+    #:use-modules (guix)
+    #:export (base-system))
+
+  (use-package-modules ssh)
+  (use-service-modules networking ssh)
+
+  (define base-system
+    (operating-system
+      (host-name "base-system")
+      (timezone "Etc/UTC")
+      (locale "en_US.utf8")
+      (keyboard-layout (keyboard-layout "us" "altgr-intl"))
+
+      ;; Don't include any default firmware
+      (firmware '())
+
+      (initrd (lambda (file-systems . rest)
+            ;; Create a standard initrd but set up networking
+            ;; with the parameters QEMU expects by default.
+            (apply base-initrd file-systems
+                   #:qemu-networking? #t
+                   rest)))
+
+      ;; The bootloader and file-systems fields here will be replaced by
+      ;; the exact same values in the gemini and taurus configurations,
+      ;; but in practice these fields will depend on each machine's
+      ;; partition configuration.
+      (bootloader (bootloader-configuration
+                   (bootloader grub-bootloader)
+                   (targets '("/dev/vda"))
+                   (terminal-outputs '(console))))
+
+      (file-systems (cons (file-system
+                            (mount-point "/")
+                            (device "/dev/vda1")
+                            (type "ext4"))
+                          %base-file-systems))
+
+      (users (cons (user-account
+                    (name "crafter")
+                    (comment "System Crafter")
+                    (password (crypt "crafter" "$6$abc"))
+                    (group "users")
+                    (supplementary-groups '("wheel" "netdev"
+                                            "audio" "video")))
+                   %base-user-accounts))
+
+      (services (cons* (service dhcp-client-service-type)
+                       (service openssh-service-type)
+                       %base-services))))
+
+#+end_src
+
+*** ~/dotfiles/config/systems/gemini.scm
+
+#+begin_src scheme
+
+  (define-module (config systems gemini)
+    #:use-modules (gnu)
+    #:use-modules (guix)
+    #:use-modules (config systems base-system))
+
+  (operating-system
+   (inherit base-system)
+   (host-name "gemini")
+
+   (bootloader (bootloader-configuration
+                (bootloader grub-bootloader)
+                (targets '("/dev/vda"))
+                (terminal-outputs '(console))))
+
+   (file-systems (cons (file-system
+                        (mount-point "/")
+                        (device "/dev/vda1")
+                        (type "ext4"))
+                       %base-file-systems)))
+
+#+end_src
+
+*** ~/dotfiles/config/systems/taurus.scm
+
+#+begin_src scheme
+
+  (define-module (config systems taurus)
+    #:use-module (gnu)
+    #:use-module (guix)
+    #:use-module (config systems base-system))
+
+  (operating-system
+    (inherit base-system)
+    (host-name "taurus")
+
+    (bootloader (bootloader-configuration
+                 (bootloader grub-bootloader)
+                 (targets '("/dev/vda"))
+                 (terminal-outputs '(console))))
+
+    (file-systems (cons (file-system
+                          (mount-point "/")
+                          (device "/dev/vda1")
+                          (type "ext4"))
+                        %base-file-systems)))
+
+#+end_src
+
+*** ~/dotfiles/config/home/home-config.scm
+
+#+begin_src scheme
+
+  (define-module (config home home-config)
+    #:use-module (gnu)
+    #:use-module (gnu home)
+    #:use-module (gnu packages emacs)
+    #:use-module (gnu packages version-control)
+    #:use-module (config home services emacs-config))
+
+  (home-environment
+   (packages (list git))
+   (services (list (service home-emacs-config-service-type))))
+
+#+end_src
+
+*** ~/dotfiles/config/home/services/emacs-config.scm
+
+#+begin_src scheme
+
+  (define-module (config home services emacs-config)
+    #:use-module (gnu home)
+    #:use-module (gnu home services)
+    #:use-module (gnu packages emacs)
+    #:use-module (config packages emacs)
+    #:export (home-emacs-config-service-type))
+
+  (define (home-emacs-config-profile-service config)
+    (list emacs emacs-super-save))
+
+  (define home-emacs-config-service-type
+    (service-type (name 'home-emacs-config)
+                  (description "A service for configuring Emacs.")
+                  (extensions
+                   (list (service-extension
+                          home-profile-service-type
+                          home-emacs-config-profile-service)))
+                  (default-value #f)))
+
+#+end_src
+
+*** ~/dotfiles/config/packages/emacs.scm
+
+#+begin_src scheme
+
+  (define-module (config packages emacs)
+    #:use-module (guix packages)
+    #:use-module (guix git-download)
+    #:use-module (guix build-system emacs)
+    #:use-module (guix licenses)
+    #:export (emacs-super-save))
+
+  (define-public emacs-super-save
+    (let ((commit "886b5518c8a8b4e1f5e59c332d5d80d95b61201d")
+          (revision "0"))
+      (package
+        (name "emacs-super-save")
+        (version (git-version "0.3.0" revision commit))
+        (source
+         (origin
+           (uri (git-reference
+                 (url "https://github.com/bbatsov/super-save")
+                 (commit commit)))
+           (method git-fetch)
+           (sha256
+            (base32 "1w62sd1vcn164y70rgwgys6a8q8mwzplkiwqiib8vjzqn87w0lqv"))
+           (file-name (git-file-name name version))))
+        (build-system emacs-build-system)
+        (home-page "https://github.com/bbatsov/super-save")
+        (synopsis "Emacs package for automatic saving of buffers")
+        (description
+         "super-save auto-saves your buffers, when certain events happen: you
+  switch between buffers, an Emacs frame loses focus, etc.  You can think of
+  it as an enhanced `auto-save-mode'")
+        (license gpl3+))))
+
+#+end_src
