@@ -1,0 +1,27 @@
+#+title: Examining the Brutalist Programming Manifesto
+#+subtitle: System Crafters Live - October 11, 2024
+#+date: [2024-10-11 Fri]
+#+video: Hi66j7I-8F0
+
+* News
+
+- The "Hands-On Guile Scheme for Beginners" course is now on-demand!
+
+  If you'd like to learn Scheme, functional programming, and Guile at your own pace, this might be for you!
+
+  More information can be found on the course details page:
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- The Autumn Lisp Game Jam has been scheduled for October 25, 2024!
+
+  https://itch.io/jam/autumn-lisp-game-jam-2024
+
+
+* A Hacker Manifesto
+
+http://www.call-with-current-continuation.org/articles/brutalist-manifesto.txt
+
+** Questions
+
+- Is Emacs Brutalist?
