@@ -1,4 +1,5 @@
 #+title: How to Organize Your Guix Configuration
+#+video: PGGvoabfvkM
 
 * Treat your Guix config like a program!
 
