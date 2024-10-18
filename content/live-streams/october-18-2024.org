@@ -1,0 +1,75 @@
+#+title: Making the Most of Terminal Emacs
+#+subtitle: System Crafters Live - October 18, 2024
+#+date: [2024-10-18 Fri]
+#+video: TjMTNSdhUvk
+
+* News
+
+- New SC Video: How to Organize Your Guix Configuration
+
+  https://youtu.be/PGGvoabfvkM
+
+- The "Hands-On Guile Scheme for Beginners" course is now on-demand!
+
+  If you'd like to learn Scheme, functional programming, and Guile at your own pace, this might be for you!
+
+  More information can be found on the course details page:
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- The Autumn Lisp Game Jam is next Friday, October 25!
+
+  https://itch.io/jam/autumn-lisp-game-jam-2024
+
+- It's been 4 years of System Crafters!j
+
+* Emacs in the Terminal is Useful!
+
+- Why using Emacs in the terminal can be useful
+  - Installing Guix
+  - Desktop environment gets broken and you need to fix it in the tty
+  - ssh'ing into a remote machine or container
+  - WSL2 Linux environment in the terminal
+  - Termux on Android, probably the best Emacs experience on mobile right now
+
+- How to minimally configure Emacs to be slightly nicer to use in the terminal
+
+- Emacs vs tmux
+- Use Emacs as the program that gets launched automatically on tty login
+
+See also Wai Hon's blog post https://whhone.com/posts/emacs-in-a-termainl/ -- especially about clipboard integration!
+
+Check out Lionyx's configurations too:
+
+https://github.com/LionyxML/emacs-solo/blob/main/init.el#L309
+https://github.com/LionyxML/emacs-kick/
+
+* The Final Configuration
+
+#+begin_src emacs-lisp
+
+  (setq inhibit-startup-message t)
+  (menu-bar-mode -1)
+  (fido-vertical-mode 1)
+
+  ;; Alternatively, use this:
+  ;; (icomplete-vertical-mode 1)
+  ;; (push 'flex completion-styles)
+
+  ;; -------- UNNECESSARY --------
+
+  (tab-bar-mode 1)
+
+  ;; Unnecessary Emacs Lisp editing enhancements
+  (add-hook 'emacs-lisp-mode-hook #'flymake-mode)
+  (global-eldoc-mode 1)
+
+  ;; Unnecessary visual improvements
+  (load-theme 'modus-vivendi-tinted t)
+  (setopt mode-line-end-spaces nil)
+  (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
+
+  ;; Make the infernal rodent work!
+  (xterm-mouse-mode 1)
+
+#+end_src
