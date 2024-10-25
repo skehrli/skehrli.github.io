@@ -46,3 +46,9 @@ Tasks documentation: https://publish.obsidian.md/tasks/
   ```
 
 #+end_src
+
+* Other useful plugins
+
+- Dataview, seems more comprehensive than Tasks: https://blacksmithgu.github.io/obsidian-dataview/
+- Orgmode file editing support: https://github.com/bbazard/obsidian-orgmode-cm6
+- Advanced templating (capture templates): https://silentvoid13.github.io/Templater/
