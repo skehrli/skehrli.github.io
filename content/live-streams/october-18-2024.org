@@ -21,7 +21,7 @@
 
   https://itch.io/jam/autumn-lisp-game-jam-2024
 
-- It's been 4 years of System Crafters!j
+- It's been 4 years of System Crafters!
 
 * Emacs in the Terminal is Useful!
 
