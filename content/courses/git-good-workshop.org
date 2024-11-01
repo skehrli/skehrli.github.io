@@ -8,7 +8,6 @@
 <div class="subnav">
   <a href="#whatrsquos-included">What's Included</a> ·
   <a href="#how-it-works">How It Works</a> ·
-  <a href="#what-yoursquoll-learn">What You'll Learn</a> ·
   <a href="#how-to-join">How to Join</a>
 </div>
 
@@ -20,7 +19,7 @@ Have you used Git for a while but still feel like you don't really understand wh
 
 "Git Good" is a one-day live workshop that intends to teach you many of the secrets of expert Git users within 4 hours while giving you hands-on exercises to try it all for yourself!
 
-This workshop is meant for those who have used Git at a basic or intermediate level but it should also be quite informative for more advanced users who feel they have some gaps in their Git knowledge.
+This workshop is meant for those who have used Git at a basic or intermediate level but it should also be quite informative for more experienced users who feel they have some gaps in their Git knowledge.
 
 Here is a sample of the topics we will cover:
 
@@ -29,7 +28,7 @@ Here is a sample of the topics we will cover:
 - Understanding remotes and how to use them effectively
 - Understanding merge vs rebase, when to use them, and how to resolve conflicts
 - Cleaning up commits with amends and interactive rebase
-- Fixing commit mistakes with `git reset` and `git cherry-pick`
+- Fixing commit mistakes with =git reset= and =git cherry-pick=
 - ... and other best practices for working with Git repositories in professional and open source projects!
 
 * What's Included
@@ -43,18 +42,18 @@ Here is a sample of the topics we will cover:
 
 There are currently two dates for the workshop:
 
-- Sunday, December 8, 2024
-- Sunday, December 15, 2024
+- Sunday, December 8, 2024 at [[https://time.is/0900_8_Dec_2024_in_UTC][09:00 UTC]]
+- Sunday, December 15, 2024 at [[https://time.is/1600_15_Dec_2024_in_UTC][16:00 UTC]]
 
-My plan is to pick a different time for both dates, one that works well for the US and one that works better for Europe and Asia so that more people have a chance to join at a comfortable time!
+I've chosen these times to hopefully be convenient for people all across the world!
 
-Once you register for the course, you will be added to a private forum group where we will discuss the optimal time for both of these dates.  You'll be able to choose your preferred date once the final times have been determined!
+Once you register, you will be added to a private forum group on the [[https://forum.systemcrafters.net][System Crafters Forum]] where you'll be able to choose the slot that works best for you!  More slots may be added if there is enough interest.
 
 On the day of the workshop, we will meet at the scheduled time for a 4 hour block of interactive teaching and exercises.  My goal is to deliver the maximum amount of value in the time we have available!
 
 More details on the exact minute-to-minute schedule will be provided here soon.
 
-* How to Join
+* How To Join
 
 If you want to learn Git with us, head over to the [[https://systemcrafters.store/products/git-good-workshop][System Crafters Store]] to register or click the blue button below:
 
