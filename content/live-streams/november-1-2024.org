@@ -24,3 +24,19 @@
 * Exploring Community Guix Channels
 
 An index of Guix community channels: https://toys.whereis.みんな/
+
+Channels we looked at:
+
+- https://codeberg.org/akib/guix-channel-emacs-master
+- https://git.sr.ht/~puercopop/glue
+- https://git.sr.ht/~whereiseveryone/guixrus
+- https://github.com/umanwizard/guix-tailscale
+- https://gitlab.inria.fr/guix-hpc/guix-hpc
+- https://git.sr.ht/~abcdw/rde/
+- https://gitlab.com/orang3/small-guix
+- https://github.com/ieugen/bin-guix
+- https://codeberg.org/ieure/atomized-guix.git
+- https://github.com/declantsien/guix-rustup
+- https://codeberg.org/kakafarm/guix-kakafarm-channel
+- https://gitlab.com/guix-gaming-channels/games
+- https://notabug.org/wigust/guix-wigust/
