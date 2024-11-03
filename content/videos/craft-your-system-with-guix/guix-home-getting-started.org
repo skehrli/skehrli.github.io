@@ -1,4 +1,5 @@
 #+title: Getting Started with Guix Home
+#+video: XRL3J6rfb3w
 
 * Intro
 
