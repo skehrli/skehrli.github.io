@@ -1,0 +1,51 @@
+#+title: Getting Comfortable with Emacs Registers
+#+subtitle: System Crafters Live - November 8, 2024
+#+date: [2024-11-08 Fri]
+#+video: ByhVuBAHCPU
+
+* News
+
+- New SC Video: Getting Started with Guix Home
+
+  https://youtu.be/XRL3J6rfb3w
+
+  I'll give you an introduction to Guix Home and how to get started with a simple configuration that help you migrate your existing configuration over and leverage its unique benefits!
+
+- New SC Newsletter tomorrow (?)
+
+- New Workshop: "Git Good: From Basics to Beyond in 4 Hours"
+
+  I'll be giving a one-day, 4 hour workshop on December 8 and December 15 that will take you from the basics of Git all the way to advanced techniques like =git rebase=.
+
+  This will be an interactive workshop where I teach you the core concepts of Git and practical techniques for everyday use.  Participants will be given short, hands-on exercises to try while the event goes on so that you can learn quickly and ask questions.
+
+  If you want to learn how to use Git like an experienced hacker, join us here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  More dates may be added if there is enough interest!
+
+- Upcoming SC Video: Git Reflog
+
+* Let's Learn About Registers!
+
+=C-h r=, then =g=, then select "Registers"
+
+
+** Programatically Creating File Registers
+
+#+begin_src emacs-lisp
+
+  (set-register ?D '(file . "~/.dotfiles"))
+
+#+end_src
+
+** Persisting Registers Across Sessions
+
+Thanks *alternateved*!
+
+#+begin_src emacs-lisp
+
+  (setopt savehist-additional-variables '(register-alist))
+
+#+end_src
