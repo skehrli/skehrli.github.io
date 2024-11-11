@@ -147,7 +147,7 @@ I've filled it out and you should too!
 ------
 Links:
 
-[Guix User and Contributor Survey] <https://guix.limesurvey.net/216541>
+[Guix User and Contributor Survey] <https://guix.limesurvey.net/>
 
 [this Guix blog post]
 <https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/>

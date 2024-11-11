@@ -61,7 +61,7 @@ https://forum.systemcrafters.net/t/system-crafters-newsletter-issue-011/
 
 * Take the Guix User and Contributor Survey!
 
-Want to give feedback on your experience as a Guix user and influence future efforts on the project?  If so, spend 10 minutes and fill out the [[https://guix.limesurvey.net/216541][Guix User and Contributor Survey]]!
+Want to give feedback on your experience as a Guix user and influence future efforts on the project?  If so, spend 10 minutes and fill out the [[https://guix.limesurvey.net/][Guix User and Contributor Survey]]!
 
 More information can be found on [[https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/][this Guix blog post]] by [[https://www.futurile.net/][Steve George]] (futurile).
 
