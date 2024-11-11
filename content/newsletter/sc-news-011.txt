@@ -1,0 +1,373 @@
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                                 Welcome to the
+                          System Crafters Newsletter!
+
+                         Issue #011 - November 11, 2024
+
+                                by David Wilson
+
+
+         --  This newsletter is best viewed with a monospace font!   --
+         --    If your e-mail client can't do that, use this URL:    --
+         --  https://systemcrafters.net/newsletter/sc-news-011.html  --
+         --            Read it in Emacs with `M-x eww`!              --
+
+== Table of Contents ==
+
+1. Introduction
+2. Crafting a Minimal Terminal Emacs Configuration
+3. Take the Guix User and Contributor Survey!
+4. Tip of the Week - Using Logos For Presentations
+5. Crafter News
+6. Upcoming Git Workshops!
+7. Closing== Introduction ==
+
+Welcome to the System Crafters Newsletter!
+
+It's been just over 5 months now since the last issue.  I was quite busy this
+year working on the Guile Scheme course, new videos, and some other stuff behind
+the scenes so the newsletter went on a bit of a hiatus.
+
+Since the last issue, there have been a few new videos on the System Crafters
+YouTube channel:
+
+- [Never Miss a Task Again: Tagging Org Mode TODOs by Context]
+- [5 Custom Org Mode Agenda Views for Productivity]
+- [How to Organize Your Guix Configuration]
+- [Why I Choose Guix Over NixOS]
+- [Getting Started with Guix Home]
+
+Which one was your favorite?  I'm looking forward to making a lot more videos
+about Guix, Git, and other interesting topics for the rest of this year and into
+2025, so your feedback is valuable!
+
+If you'd like to tell me your thoughts about anything in this issue, please feel
+free to reply directly to this e-mail or comment on this System Crafters Forum
+thread:
+
+https://forum.systemcrafters.net/t/system-crafters-newsletter-issue-011/
+
+------
+Links:
+
+[Never Miss a Task Again: Tagging Org Mode TODOs by Context]
+<https://www.youtube.com/watch?v=GP8uOU6SSyk>
+
+[5 Custom Org Mode Agenda Views for Productivity]
+<https://www.youtube.com/watch?v=-9rpQA6O3aM>
+
+[How to Organize Your Guix Configuration]
+<https://www.youtube.com/watch?v=PGGvoabfvkM>
+
+[Why I Choose Guix Over NixOS] <https://www.youtube.com/watch?v=PiAMRXYIri0>
+
+[Getting Started with Guix Home] <https://www.youtube.com/watch?v=XRL3J6rfb3w>
+
+== Crafting a Minimal Terminal Emacs Configuration ==
+
+On a recent live stream called [Making the Most of Terminal Emacs] ([video]), I
+described what I consider to be the value of using a lightly-configured Emacs in
+the terminal.
+
+As the stream progressed, we hacked together a simple configuration that would
+be a good starting point to streamline a "vanilla" Emacs experience when used in
+the terminal.
+
+Since that stream I've been somewhat obsessed with the idea of building a
+minimal base Emacs configuration that is terminal-first and replicates as much
+of my usual workflow as possible while only relying on minimally-configured,
+built-in Emacs features.
+
+I've started writing a brand new Emacs configuration from scratch that brings
+together these ideas with everything I've learned over the past few years and a
+couple other config rewrites.
+
+The most important goal was to produce a single `init.el' file that I can easily
+`curl' onto a new machine and load up to be productive immediately.  This can be
+useful when I need to SSH into a remote machine, use Emacs in a TTY (like during
+a Guix install) or inside of a container environment.
+
+The rest of the functionality I need on a day to day basis should be provided as
+a set of optional modules that will be loaded conditionally on different
+machines.  These modules may actually pull in community packages as needed to
+fulfill the use cases that they're designed for.
+
+I also decided to go back to a literate configuration format again because,
+despite the challenges it can pose, it still feels more convenient to manage
+things this way.  It also enables me to write a lot about my rationale for the
+configuration in a convenient way!
+
+For that reason, It seemed more effective to write up my goals and motivations
+there instead of directly in the newsletter, so check out the new `Emacs.org' at
+one of the following links to learn more about the configuration and see it for
+yourself:
+
+- https://codeberg.org/daviwil/dotfiles/src/branch/master/Emacs.org
+- https://github.com/daviwil/dotfiles/blob/master/Emacs.org
+
+You can also check out the standalone `init.el' file here:
+
+- https://codeberg.org/daviwil/dotfiles/src/branch/master/emacs/init.el
+
+If you want to give this configuration a try without replacing your existing
+configuration and you have Emacs 29 or above, download the `init.el' file I
+linked above into a folder like `~/minimal-emacs' and use the `--init-directory'
+parameter to set that directory as the `user-emacs-directory':
+
+,----
+| 
+| emacs -nw --init-directory ~/minimal-emacs
+| 
+`----
+
+Do you have any other cool tips for minimal Emacs configurations, especially for
+terminal use?  Let us know on the forum post for this newsletter:
+
+https://forum.systemcrafters.net/t/system-crafters-newsletter-issue-011/
+
+------
+Links:
+
+[Making the Most of Terminal Emacs]
+<https://systemcrafters.net/live-streams/october-18-2024/>
+
+[video] <https://www.youtube.com/watch?v=TjMTNSdhUvk>
+
+== Take the Guix User and Contributor Survey! ==
+
+Want to give feedback on your experience as a Guix user and influence future
+efforts on the project?  If so, spend 10 minutes and fill out the [Guix User and
+Contributor Survey]!
+
+More information can be found on [this Guix blog post] by [Steve George]
+(futurile).
+
+I've filled it out and you should too!
+
+------
+Links:
+
+[Guix User and Contributor Survey] <https://guix.limesurvey.net/216541>
+
+[this Guix blog post]
+<https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/>
+
+[Steve George] <https://www.futurile.net/>
+
+== Tip of the Week - Using Logos For Presentations ==
+
+[Logos] is yet another useful Emacs package by Protesilaos Stavrou (prot) which
+provides some convenient behavior for focusing on a subset of the content of a
+buffer.  This comes in handy when you want to make a presentation of something
+like an Org Mode file.
+
+The interesting part about Logos is that it also provides capabilities for
+narrowing to specific sections of *any* kind of file as long as there is a
+common pattern in each file that can be identified in a page break, like a
+certain comment syntax in a source code file.
+
+As is common with Prot's packages, Logos is pretty straightforward and doesn't
+do /everything/ you can imagine, so it will require a bit of configuration to
+approximate how I normally use it for presentations.
+
+Here is a simple configuration for Logos that uses some of the tricks I discuss
+in the [Secrets of My Emacs Presentation Style] video.  Take a look and then
+I'll explain each part:
+
+,----
+| 
+| (defun dw/present-prepare-slide ()
+|   (when (and logos-focus-mode
+|              (derived-mode-p 'org-mode))
+|     (org-overview)
+|     (org-show-entry)
+|     (org-show-children)))
+| 
+| (defun dw/present-toggle ()
+|   "Configures the buffer for a presentation."
+|   (interactive)
+|   (if logos-focus-mode
+|       (progn
+|         (setq-local face-remapping-alist nil)
+|         (widen)
+|         (logos-focus-mode 0))
+| 
+|     (setq-local face-remapping-alist '((default (:height 1.5) default)
+|                                        (org-document-title (:height 1.75) org-document-title)
+|                                        (org-block-begin-line (:height 0.7) org-block)))
+| 
+|     ;; Narrow the buffer and start focus mode
+|     (logos-narrow-dwim)
+|     (logos-focus-mode 1)
+| 
+|     ;; Prepare the slide
+|     (dw/present-prepare-slide)))
+| 
+| (use-package logos
+|   :bind (([remap narrow-to-region] . logos-narrow-dwim)
+| 	       ([remap forward-page] . logos-forward-page-dwim)
+|          ([remap backward-page] . logos-backward-page-dwim))
+|   :custom
+|   (logos-outlines-are-pages t)
+|   (logos-scroll-lock t)
+|   :config
+|   (setf (alist-get 'org-mode logos-outline-regexp-alist) "^\\*\\{1,2\\} +")
+|   (add-hook 'logos-page-motion-hook #'dw/present-prepare-slide))
+| 
+`----
+
+The `use-package logos' expression sets the stage for everything.  To make sure
+that Logos can treat both Org and source code files as presentations, I set
+`logos-outlines-are-pages' to `t'.
+
+I also set `logos-scroll-lock' to `t' so that the whole page scrolls when I move
+the cursor up and down to make motion more consistent for presentations.  This
+causes `scroll-lock-mode' to be activated when I turn on `logos-focus-mode'.
+
+By default, Logos will treat /all/ Org headings as slides, so I've used `setf'
+to customize `logos-outline-regexp-alist' to set the `org-mode' regex to limit
+the number of heading starts to 2.  You can change the `2' in that string to `3'
+or any other value if you have a specific level that you'd only like to see
+treated as a slide.
+
+I also add `dw/present-prepare-slide' to `logos-page-motion-hook' to customize
+how each "slide" is set up whenever I switch between them.  More on that later.
+
+For the key bindings, I follow the recommended configuration for Logos and remap
+`narrow-to-region', `forward-page' (`C-x ]') and `backward-page' (`C-x [') so
+that Logos provides improved behavior for those default commands.
+
+The `forward/backward-page' bindings are especially useful because they help you
+navigate through the headings of your files faster even when you aren't
+displaying them as presentations!
+
+The `dw/present-toggle' command will turn on or off `logos-focus-mode' and
+narrow or widen the buffer depending on its current state.  Narrowing is what
+causes the buffer to be focused on the contents of a particular heading.  I also
+tweak the face configuration for the buffer to make the text slightly larger for
+presentations.
+
+The `dw/present-prepare-slide' function will collapse all children of the
+current slide upon entry, but only if it's an `org-mode' buffer and
+`logos-focus-mode' is active.  You definitely don't want this happening when
+you're trying to navigate around an Org Mode buffer outside of a presentation!
+
+There's probably a lot more to say about Logos configuration but I'll leave it
+there for now.  Feel free to share your own Logos tweaks in the forum thread for
+this issue!
+
+------
+Links:
+
+[Logos] <https://protesilaos.com/emacs/logos>
+
+[Secrets of My Emacs Presentation Style]
+<https://systemcrafters.net/emacs-tips/presentations-with-org-present/>
+
+== Crafter News ==
+
+Here are some interesting news items in the broader sphere of system crafting.
+
+All of today's items come from members of the System Crafters community!  If
+you'd like to see your posts mentioned here, consider joining the Craftering:
+
+https://craftering.shom.dev
+
+* Using Emacs for Container Development
+
+  Here's a useful article by Rahul Juliato (Lionyx in #systemcrafters) which
+  describes the workflow he uses for hacking on projects inside of Docker
+  containers using Emacs!
+
+  https://www.rahuljuliato.com/posts/emacs-docker-podman
+
+  This workflow uses a number of Emacs packages that make it convenient to
+  create and manage Docker containers without touching the command line.  He
+  even goes through how you can manage more complicated apps with Docker
+  Compose.
+
+  This information is very useful if you have to work with Docker containers
+  frequently.  It should be of particular interest to Guix users who need to use
+  containers to work on projects for development platforms that are not well
+  supported in Guix!
+
+* Denote Project Tasks
+
+  In this detailed article, Ben Whitley (PurplG) describes a task management
+  workflow using Denote, Org Mode, and a cool Org feature called Dynamic Blocks
+  (dblocks) which enables him to create individual notes for project tasks and
+  aggregate their details into the overall project note file.
+
+  If you want to see another interesting angle for task and project management
+  with Denote, check this out:
+
+  https://purplg.dev/posts/denote-project-tasks/
+
+* A Journey Into Scheme
+
+  Here's a nice post by Glenn Thompson (glenneth) where he details his journey
+  into learning Guile Scheme for the purpose of building his own Stow-like
+  symlink management tool called `stash'.
+
+  If you don't consider yourself a programmer but aspire to learn to use
+  programming languages like Scheme, check out Glenn's article for inspiration!
+
+  https://glenneth.srht.site/a-journey-into-scheme.html
+
+* Customizing Scheme Indentation in Emacs
+
+  Yuval Langer (cow_2001) has just published a tutorial on how you can customize
+  indentation of your own custom syntaxes in Emacs by tweaking the
+  `scheme-indent-function'.
+
+  This is a pretty useful technique for all Lisps where you write custom macros
+  that may need to be indented more like a syntax than a normal expression!
+
+  https://kaka.farm/posts/adding-extra-syntax-indentation-to-gnu-emacs-scheme-mode.html
+
+== Upcoming Git Workshops! ==
+
+I'm excited to announce that I am kicking off a new learning experience in the
+month of December: a one-day, 4-hour workshop where I will teach you the Git
+techniques used by expert hackers!
+
+"Git Good: From Basics to Beyond in 4 Hours" is a live workshop experience where
+I will teach you the fundamentals of Git beyond the basic commands so that you
+actually learn what is happening "under the hood."
+
+I'll also show you a number of practical techniques with hands-on examples so
+that you can try them out for yourself and ask questions during the event.
+
+Here is a sample of the topics we will cover:
+
+- Unlocking the Git conceptual model: commits, hashes, and refs
+- Discovering what Git stores locally
+- Understanding remotes and how to use them effectively
+- Understanding merge vs rebase, when to use them, and how to resolve conflicts
+- Cleaning up commits with amends and interactive rebase
+- Fixing commit mistakes with `git reset` and `git cherry-pick`
+- ... and other best practices for working with Git repositories in professional
+  and open source projects!
+
+For specific dates and more information, check out the event page here:
+
+https://systemcrafters.net/courses/git-good-workshop/
+
+If you have any questions about the workshop, please feel free to reply directly
+to this e-mail.
+
+Hope to see you there!
+
+== Closing ==
+
+I hope you enjoyed this issue of the System Crafters Newsletter!  I always want
+to improve and streamline the content so please send me your thoughts and
+feedback by replying directly to this e-mail.
+
+Until next time, Happy Hacking!
+
+--
+David Wilson
+david@systemcrafters.net
+
+
