@@ -1,12 +1,22 @@
 #+title: Welcome!
 
-I'm a computer science undergraduate student at ETH Zürich interested in everything systems related. Currently, I'm working on static array verification within the Java Checker Framework.
+I'm a computer science undergraduate student at ETH Zürich broadly interested in verification, programming languages and compilers.
+Currently, I'm working on static verification within the Java Checker Framework.
 
 You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] is my Github and [[https://sascha-kehrli-cv.tiiny.site][this]] is my CV.
 
 * Education
-+ BSc in Computer Science from *ETH Zürich* (2021-2024).
++ BSc in Computer Science from *ETH Zürich* (2021-2025).
 + Exchange student at the *University of Washington* (2023-2024).
+
+* Research
++ Currently, I'm working on designing and implementing a type system to prove the absence of resource leaks on collections of resources in Java. This is implemented as a checker in the excellent [[https://github.com/typetools/checker-framework][Java Checker Framework]]. Advised by [[https://homes.cs.washington.edu/~mernst/][Michael Ernst]]:
+
+  [[https://github.com/skehrli/checker-framework][Resource Leak Checker For Collections]]
+#+ For a grad class, I assessed the container abstraction in Linux. It's widely believed that the abstraction, while unsafe
+  for deployment with untrusted co-hosts (full DoS attacks are possible), is sufficient for deployment with trusted co-hosts.
+  We showed experimentally that certain realistic workloads can also impact the performance of co-hosted containers, even when
+  running on different CPUs.
 
 * Teaching
 + Teaching Assistant in /Parallel Programming/. For this one, I wrote a [[https://online.fliphtml5.com/kxggl/swny/][course script]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. Theory recaps and exercise solving for two classes at ~30 students each per week.
@@ -19,11 +29,6 @@ You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] i
 + For a compiler class I wrote a simple, unoptimized compiler for (a large subset of) Java in Java:
 
   [[https://github.com/skehrli/MiniJava_compiler][MiniJava Compiler]]
-
-* Research
-+ Currently, I'm working on designing and implementing a type system to prove the absence of resource leaks for collections of resources in Java. This is implemented as a checker in the excellent [[https://github.com/typetools/checker-framework][Java Checker Framework]]. Guided by [[https://homes.cs.washington.edu/~mernst/][Michael Ernst]]:
-
-  [[https://github.com/skehrli/checker-framework][Resource Leak Checker For Collections]]
 
 # * Stay Up to Date!
 
