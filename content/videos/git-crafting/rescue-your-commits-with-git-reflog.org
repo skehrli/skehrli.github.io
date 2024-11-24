@@ -9,7 +9,7 @@ But here's the good news: Git has a hidden safety net called reflog, and it can 
 
 In this video, I'll show you how =git reflog= works and walk you through some practical examples where it can save your work and help you recover from common Git mistakes.  Whether you're a solo developer or working in a team, understanding reflog can give you the confidence to handle Git like a pro!
 
-If you enjoy this video and want to dive deeper into Git and other interesting topics, check out the links in the description for more resources, like my upcoming "Git Good" workshop, where we'll cover real-world Git techniques step by step.
+If you enjoy this video and want to dive deeper into Git and other interesting topics, check out the links in the description for more resources, like my upcoming [[https://systemcrafters.net/courses/git-good-workshop/][Git Good workshop]], where we'll cover real-world Git techniques step by step.
 
 Now let's learn a bit about =git reflog=!
 
