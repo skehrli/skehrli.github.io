@@ -1,4 +1,4 @@
-#+title: Video: Rescue Your Commits with Git Reflog
+#+title: How to Rescue Your Commits with Git Reflog
 #+video: K7-wrGpnqUM
 
 * Intro
