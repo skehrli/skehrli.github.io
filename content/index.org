@@ -3,7 +3,7 @@
 I'm a computer science undergraduate student at ETH Zürich broadly interested in verification, programming languages and compilers.
 Currently, I'm working on static verification within the Java Checker Framework.
 
-You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] is my Github and [[https://sascha-kehrli-cv.tiiny.site][this]] is my CV.
+You can reach me at skehrli[at]ethz[.]ch. [[https://github.com/skehrli][This]] is my Github.
 
 * Education
 + BSc in Computer Science from *ETH Zürich* (2021-2025).
