@@ -15,7 +15,7 @@
 
 * Get Good at Git!
 
-Have you used Git for a while but still feel like you don't really understand what you're doing?  Do you wish you understood how Git /really/ works under the hood?  Wish you knew all the cool techniques that the expert hackers use?
+Have you used Git for a while but still feel like you don't really understand what you're doing?  Do you wish you understood how Git /really/ works under the hood?  Want to know all the cool techniques that the expert hackers use?
 
 "Git Good" is a one-day live workshop that intends to teach you many of the secrets of expert Git users within 4 hours while giving you hands-on exercises to try it all for yourself!
 
