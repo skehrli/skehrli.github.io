@@ -1,5 +1,8 @@
 #+title: Git Good: From Basics to Beyond in 4 Hours
 #+page-type: course
+#+video: K7-wrGpnqUM
+
+[The video above is an example of the kind of material we will cover!]
 
 - Experience Level: Beginner and above!
 
