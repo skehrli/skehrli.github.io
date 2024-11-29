@@ -10,6 +10,9 @@ The [[https://youtube.com/@SystemCrafters][System Crafters YouTube channel]] als
 Want to *learn Scheme* in a friendly, interactive environment?
 
 *Check out the [[file:courses/hands-on-guile-scheme-beginners.org][Hands-On Guile Scheme for Beginners]] course!*
+
+/Black Friday / Cyber Week Deal: 50$ off the price of the course!/
+
 #+end_cta
 
 * Start Here!
