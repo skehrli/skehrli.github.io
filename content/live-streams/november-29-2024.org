@@ -1,0 +1,49 @@
+#+title: Crafting Color Overrides for Emacs' Modus Themes
+#+subtitle: System Crafters Live - November 29, 2024
+#+date: [2024-11-29 Fri]
+#+video: 4iyCkEA_KaY
+
+* News
+
+- New SC Newsletter Issue #011
+
+  https://systemcrafters.net/newsletter/sc-news-011
+  https://systemcrafters.net/newsletter/
+
+- New SC Video: Rescue Your Commits with Git Reflog
+
+  In this video, I'll show you three techniques using the 'git reflog' command that can save you from lost work and despair!  If you've ever deleted a branch by accident, lost commits against a detached head, or make a mistake during a 'git rebase' operation, you'll want to check these out!
+
+  https://www.youtube.com/watch?v=K7-wrGpnqUM
+
+- Next SC Video: My Review of the Framework 13 with AMD Ryzen
+
+  I got a Framework 13 last week!  It's awesome, I'll post a video soon with a review, especially with my experience installing Guix on it.
+
+- Black Friday Deal: $50 off Hands-On Guile Scheme for Beginners!
+
+  This will go on through Cyber Week!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- New Workshop: "Git Good: From Basics to Beyond in 4 Hours"
+
+  I'll be giving a one-day, 4 hour workshop on December 8 and December 15 that will take you from the basics of Git all the way to advanced techniques like =git rebase=.
+
+  (The first session is next Sunday!)
+
+  This will be an interactive workshop where I teach you the core concepts of Git and practical techniques for everyday use.  Participants will be given short, hands-on exercises to try while the event goes on so that you can learn quickly and ask questions.
+
+  If you want to learn how to use Git like an experienced hacker, join us here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  More dates may be added if there is enough interest!
+
+- Complete the Guix Survey!
+
+  This is the last few days!
+
+  https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/
+
+* Let's Customize the Modus Themes!
