@@ -46,7 +46,7 @@ Here are the places where you might find the main configuration file:
 
 - =~/.emacs=  or =~/.emacs.el= - The old location for the configuration file (not recommended!)
 - =~/.emacs.d/init.el= - The main configuration file in the Emacs config folder (recommended on macOS and Windows)
-- =~/.config/emacs/init.el= - Follows Linux desktop environment guidlines (recommended on Linux!)
+- =~/.config/emacs/init.el= - Follows Linux desktop environment guidelines (recommended on Linux!)
 
 Emacs will look for a configuration file in each of these locations every time it starts up!
 

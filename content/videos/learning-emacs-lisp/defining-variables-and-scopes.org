@@ -403,7 +403,7 @@ Use =customize-set-variable= to set these variables correctly in code:
 #+begin_src emacs-lisp
 
   (customize-set-variable 'tab-width 2)
-  (customize-set-variable 'org-directory "~/Notes)
+  (customize-set-variable 'org-directory "~/Notes")
 
 #+end_src
 
