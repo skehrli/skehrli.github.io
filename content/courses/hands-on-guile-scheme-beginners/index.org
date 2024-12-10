@@ -16,12 +16,6 @@
 
 #+end_export
 
-#+begin_cta
-
-*Black Friday / Cyber Week Deal: 50$ off the price of the course!  The discount is already applied on the registration page, link below.*
-
-#+end_cta
-
 * Learn Scheme With Us!
 
 [[https://en.wikipedia.org/wiki/Scheme_(programming_language)][Scheme]] is a fascinating programming language with a minimal design that is both easy for beginners to learn and incredibly powerful for advanced users.
