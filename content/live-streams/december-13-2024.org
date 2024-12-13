@@ -1,0 +1,61 @@
+#+title: Taming the Future with Shepherd 1.0
+#+subtitle: System Crafters Live - December 13, 2024
+#+date: [2024-12-13 Fri]
+#+video: 8MaRhtwksjU
+
+* News
+
+- EmacsConf 2024 was last weekend!
+
+  Lots of great talks were given!  Check out the recordings here:
+
+  https://emacsconf.org/2024/talks/
+
+  I'm particularly excited about Robin Templeton's talk about the revival of Guile Emacs:
+
+  https://emacsconf.org/2024/talks/guile/
+
+  Also I liked Daniel Gopar's talk here:
+
+  https://emacsconf.org/2024/talks/sharing/
+
+- The Git Good workshop is this weekend!
+
+  In this workshop, I'll teach you everything you need to know about Git from the basic commands to advanced techniques like =git rebase= and =git cherry-pick=.
+
+  But that's not all: along the way I'll also be teaching you how Git manages everything internally so that you actually understand how it works under the hood.  It's really interesting!
+
+  There are two dates, the first being *this Sunday*, Dec 8th at 09:00 UTC and the next the following Sunday on Dec 15th at 16:00 UTC.
+
+  More information and registration details can be found here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  If you can't make these dates, keep an eye out for more for January!
+
+  Subscribe to the newsletter to be notified:
+
+  https://systemcrafters.net/newsletter/
+
+- The Spritely Institute is having a fundraiser!
+
+  We will talk about this more with Christine later in the stream, but I did want to call it out right up front:
+
+  https://spritely.institute/donate/
+
+  The Spritely Institute is working hard on new tools and technologies that are very important to the future of the Internet and also the future of Scheme!
+
+  Consider donating on a monthly basis to help them continue working toward these goals so that we can have a more friendly, fun Internet that isn't dominated by corporate interests.
+
+- Check out glenneth's early work on the Discourse client for Emacs!
+
+  https://codeberg.org/glenneth/discourse-emacs
+
+* Checking Out Shepherd 1.0
+
+https://www.gnu.org/software/shepherd/
+https://www.gnu.org/software/shepherd/news/2024/12/the-shepherd-1.0.0-released/
+
+Read more about delimited continuations vs undelimited:
+
+https://okmij.org/ftp/continuations/against-callcc.html
