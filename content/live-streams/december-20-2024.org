@@ -5,11 +5,9 @@
 
 * News
 
-- No stream next week!  Happy Holidays!
+- No stream next week (Dec 27)!  Happy Holidays!
 
 - The Spritely Institute is having a fundraiser!
-
-  We will talk about this more with Christine later in the stream, but I did want to call it out right up front:
 
   https://spritely.institute/donate/
 
@@ -21,3 +19,33 @@
 
 - Homepage: https://kaorahi.github.io/howm/
 - Unofficial manual: https://github.com/Emacs101/howm-manual/blob/main/Howm_tutorial_eng.pdf
+
+** What we'll do
+
+Look into these features:
+
+- Creating notes
+- The home screen
+- Linking notes
+- Searching for notes
+- Creating tasks, especially with deadlines
+- General workflow tips
+
+** The configuration
+
+#+begin_src emacs-lisp
+
+  (use-package howm
+    :ensure t
+    :init
+    (setq howm-directory "~/Howm")
+    (setq howm-home-directory howm-directory)
+    (setq howm-file-name-format "%Y-%m-%d-%H%M%S.md")
+    (setq howm-view-title-header "#")
+    ;; This binding is only needed if you want to use Howm in Org files!
+    (setq howm-prefix (kbd "C-c ;"))
+    :bind*
+    ;; Conveniently open the Howm menu with "C-c ; ;".
+    ("C-c ; ;" . howm-menu))
+
+#+end_src
