@@ -1,0 +1,39 @@
+#+title: Crafter Hours Development Log
+
+* 2025
+
+** January
+
+*** Wednesday, January 8
+
+- Set up basic HTTP server with Guile Fibers
+- Established basic route handlers
+- Basic page rendering with SXML
+- Created record type for the =package= model
+
+*** Monday, January 13
+
+- Created a basic sqlite schema for the =package= model
+- Implemented basic CRUD operations for =package=
+- Split out =package= model into its own module
+- Updated the =package= list and detail pages to load from the database
+- Attempted to set up a coop REPL server to no avail
+
+*** Wednesday, January 15
+
+- Figure out how ELPA repositories expose their package information
+- Download the =archive-contents= file and process the contents, determine structure
+- Insert initial package details into our sqlite database
+- Update package details page to display version and description
+
+*** Next Time
+
+- Finish porting ELPA, NonGNU ELPA, and MELPA package details into our database
+- Search for packages by name on the site
+- Improve package details page to display all information
+- Package listing page should use a table with columns
+- Define the strategy for periodically updating package details (upserts?)
+- Store the last updated time for a package record
+- Make sure to log the source of the package (elpa, nongnu-elpa, melpa, melpa-stable)
+- Deduplicate package information if they share the same name?
+- Sort package listing alphabetically?  (query parameter?)
