@@ -1,0 +1,32 @@
+#+title: Going Back to Graphical Emacs?
+#+subtitle: System Crafters Live - January 17, 2025
+#+date: [2025-01-17 Fri]
+#+video: 3Fq_lghCP8E
+
+* News
+
+- Check out the "Crafter Hours" streams!
+
+  Stream recording playlist: https://www.youtube.com/playlist?list=PLEoMzSkcN8oO0-TVZf-NW68tn-TN5ccM0
+  Summary Video #1: https://www.youtube.com/watch?v=ACQ_CQ277gA
+  Development log: https://systemcrafters.net/crafter-hours/
+
+  Next stream is on Monday, January 20!
+
+- The Spritely Institute is having a fundraiser!
+
+  https://spritely.institute/donate/
+
+  The Spritely Institute is working hard on new tools and technologies that are very important to the future of the Internet and also the future of Scheme!
+
+  Consider donating on a monthly basis to help them continue working toward these goals so that we can have a more friendly, fun Internet that isn't dominated by corporate interests.
+
+* Feedback Requested!
+
+Lots of videos over the past week!  What do you think?
+
+* Terminal Emacs Experiment Over?
+
+- Too easy to close terminal emulator by accident
+- Terminal escape sequence problems
+- Performance issues
