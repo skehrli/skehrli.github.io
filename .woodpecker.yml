@@ -3,7 +3,13 @@ steps:
     image: node:lts-alpine
     when:
       branch: [ master ]
-    secrets: [ cloudflare_account_id, cloudflare_api_token, repo_token ]
+    environment:
+      CLOUDFLARE_ACCOUNT_ID:
+        from_secret: cloudflare_account_id
+      CLOUDFLARE_API_TOKEN:
+        from_secret: cloudflare_api_token
+      REPO_TOKEN:
+        from_secret: repo_token
     commands: |
       apk add git emacs-nox
       CI=true ./publish.sh
