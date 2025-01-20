@@ -32,7 +32,21 @@
 - Insert initial package details into our sqlite database
 - Update package details page to display version and description
 
+*** Monday, January 20 2025
+
+[[https://youtube.com/live/3LM9eKd879s][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/239721c4d656ce9ca7a210c8b9ab1877bb7d4a7c][Project Code]]
+
+- Fleshed out data model to add =package-author= and =package-source=
+- Revamped SQL schemas to add tables for =package_author=, =package_authors= (relation table), and =package_source=
+- Updated =insert-package!= procedure to update package and related tables with information from package metadata
+- Attempted to update code to import package archives but failed due to technicalities
+
 *** Next Time
+
+- Fix the issue with ELPA data import
+- Load all information to be displayed on the website
+
+*** Backlog
 
 - Finish porting ELPA, NonGNU ELPA, and MELPA package details into our database
 - Search for packages by name on the site
@@ -43,3 +57,4 @@
 - Make sure to log the source of the package (elpa, nongnu-elpa, melpa, melpa-stable)
 - Deduplicate package information if they share the same name?
 - Sort package listing alphabetically?  (query parameter?)
+- Need a way to represent package dependencies across package sources but tie them together at the higher level of packages
