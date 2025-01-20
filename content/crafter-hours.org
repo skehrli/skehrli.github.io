@@ -4,14 +4,18 @@
 
 ** January
 
-*** Wednesday, January 8
+*** Wednesday, January 8 2025
+
+[[https://www.youtube.com/live/jpYROJ9_W2E][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/cba0d95247f67420ccbd1998ab2145d39badd0cb][Project Code]]
 
 - Set up basic HTTP server with Guile Fibers
 - Established basic route handlers
 - Basic page rendering with SXML
 - Created record type for the =package= model
 
-*** Monday, January 13
+*** Monday, January 13 2025
+
+[[https://www.youtube.com/live/wEEXc4gZJyk][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/f66a10d44cb93ad52d2279e0cf036f396d113366][Project Code]]
 
 - Created a basic sqlite schema for the =package= model
 - Implemented basic CRUD operations for =package=
@@ -19,7 +23,9 @@
 - Updated the =package= list and detail pages to load from the database
 - Attempted to set up a coop REPL server to no avail
 
-*** Wednesday, January 15
+*** Wednesday, January 15 2025
+
+[[https://www.youtube.com/live/bRfMbUlUT3Y?si=C9ft01FlsCXZomvo][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/4212d96f828659e9a695a2f337eae66bf5bd5e21][Project Code]]
 
 - Figure out how ELPA repositories expose their package information
 - Download the =archive-contents= file and process the contents, determine structure
