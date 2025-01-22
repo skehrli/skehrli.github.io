@@ -41,10 +41,24 @@
 - Updated =insert-package!= procedure to update package and related tables with information from package metadata
 - Attempted to update code to import package archives but failed due to technicalities
 
+*** Wednesday, January 22 2025
+
+[[https://www.youtube.com/watch?v=LnptdEe5E14][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/fdecf5124b9217764b7d4e6d7055b181e9ae6976][Project Code]]
+
+- Integrated trev's fixes for syncing package archives
+- Split out database population into a Scheme script =sync-archives=
+- Split out server startup to a script =start-server=
+- Split server handling into the =(site server)= module
+- Split current view templating into =(site views *)= modules
+- Established basic =(site db)= module to abstract database handling
+- Integrated existing =scss->css= code to generate a cached stylesheet for all pages
+
 *** Next Time
 
-- Fix the issue with ELPA data import
-- Load all information to be displayed on the website
+- Set up REPL-driven interactive development of HTML and CSS
+- Figure out JOIN queries for loading authors and maintainers
+- Flesh out CSS for all pages
+- Add author details page to list which packages they wrote/maintained
 
 *** Backlog
 
