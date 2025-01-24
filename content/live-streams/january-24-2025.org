@@ -1,0 +1,18 @@
+#+title: Gubar: A Sway Bar in Guile Scheme
+#+subtitle: System Crafters Live - January 24, 2025
+#+date: [2025-01-24 Fri]
+#+video: SdQhiVKzwXk
+
+* News
+
+- Guile Hoot 0.6.0 has been released!
+
+  https://spritely.institute/news/guile-hoot-0-6-0-released.html
+
+- Guix User and Contributor Survey Results
+  https://guix.gnu.org/en/blog/2025/guix-user-and-contributor-survey-2024-the-results-part-1/
+
+* Experimenting with Gubar
+
+https://github.com/trevarj/gubar
+https://github.com/glenneth1/gubar
