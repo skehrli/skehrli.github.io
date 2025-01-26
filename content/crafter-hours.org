@@ -53,6 +53,17 @@
 - Established basic =(site db)= module to abstract database handling
 - Integrated existing =scss->css= code to generate a cached stylesheet for all pages
 
+*** Monday, January 27 2025
+
+[[https://youtube.com/live/BSdnYoxmoyc][Stream Recording]] ⋅ Project Code
+
+**** Agenda
+
+- Review trev's PR
+- Set up a REPL-driven workflow for live UI development
+- Add query UI for packages by keyword and author
+- Consider changing ID strategy for packages to not use ID
+
 *** Next Time
 
 - Set up REPL-driven interactive development of HTML and CSS
