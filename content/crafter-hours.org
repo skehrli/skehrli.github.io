@@ -55,21 +55,19 @@
 
 *** Monday, January 27 2025
 
-[[https://youtube.com/live/BSdnYoxmoyc][Stream Recording]] ⋅ Project Code
+[[https://youtube.com/live/BSdnYoxmoyc][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/04f39847c5c9ae13ef5a5044fc9927cf61c24a03][Project Code]]
 
-**** Agenda
-
-- Review trev's PR
 - Set up a REPL-driven workflow for live UI development
-- Add query UI for packages by keyword and author
-- Consider changing ID strategy for packages to not use ID
+- Add routes and views to show all keywords and packages by keyword
+- Add SQL queries for keyword IDs by name and packages by keyword
+- Improve the site CSS somewhat to make it more readable
 
 *** Next Time
 
-- Set up REPL-driven interactive development of HTML and CSS
-- Figure out JOIN queries for loading authors and maintainers
 - Flesh out CSS for all pages
 - Add author details page to list which packages they wrote/maintained
+- Basic user creation
+- Adding tips for specific packages
 
 *** Backlog
 
@@ -83,3 +81,4 @@
 - Deduplicate package information if they share the same name?
 - Sort package listing alphabetically?  (query parameter?)
 - Need a way to represent package dependencies across package sources but tie them together at the higher level of packages
+- Consider changing ID strategy for packages to not use an auto-incremented, numeric ID
