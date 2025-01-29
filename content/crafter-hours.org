@@ -62,15 +62,27 @@
 - Add SQL queries for keyword IDs by name and packages by keyword
 - Improve the site CSS somewhat to make it more readable
 
+*** Wednesday, January 29 2025
+
+[[https://youtube.com/live/5FAnjs300UA][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/efc91aa55d83297678ca2887cc34b749a3dcd07b][Project Code]]
+
+- Created basic routes, views, and schema for the user type
+- Create route and form for user login (no cookies yet)
+- Created the schema for package tips
+
 *** Next Time
 
-- Flesh out CSS for all pages
+- Logged in sessions with logout
+- User registration form
+- Tip submission form
 - Add author details page to list which packages they wrote/maintained
-- Basic user creation
-- Adding tips for specific packages
+- Factor out query parameter handling into a module
 
 *** Backlog
 
+- Improve the internal API for generating reponses with page bodies
+- Flesh out CSS for all pages
+- Do proper password salting in the database
 - Finish porting ELPA, NonGNU ELPA, and MELPA package details into our database
 - Search for packages by name on the site
 - Improve package details page to display all information
