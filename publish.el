@@ -546,7 +546,8 @@ holding contextual information."
                    :author "David Wilson")
 
   (dw/generate-redirects '(("support-the-channel" . "how-to-help")
-                           ("videos" . "guides")))
+                           ("videos" . "guides")
+                           ("learn-scheme" . "courses/hands-on-guile-scheme-beginners"))
 
   ;; Copy the domains file to ensure the custom domain resolves
   (copy-file ".domains" "public/.domains" t)
