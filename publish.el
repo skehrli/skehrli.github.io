@@ -68,7 +68,7 @@
 
 (defvar yt-iframe-format
   (concat "<div class=\"video\">"
-          "  <iframe src=\"https://www.youtube.com/embed/%s\" allowfullscreen></iframe>"
+          "  <iframe src=\"https://www.youtube.com/embed/%s\" allow=\"fullscreen\"></iframe>"
           "</div>"))
 
 (defun dw/embed-video (video-id)
@@ -186,45 +186,23 @@
                             (exclude-header)
                             (exclude-footer))
   (concat
-   "<!-- Generated from " (dw/get-commit-hash)  " on " (format-time-string "%Y-%m-%d @ %H:%M") " with " org-export-creator-string " -->\n"
-   "<!DOCTYPE html>"
+   (format "title: %s\n" title)
+   ;; TODO publish date
+   "---\n"
    (sxml-to-xml
-    `(html (@ (lang "en"))
-           (head
-            (meta (@ (charset "utf-8")))
-            (meta (@ (author "System Crafters - David Wilson")))
-            (meta (@ (name "viewport")
-                     (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
-            (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
-            (link (@ (rel "alternative")
-                     (type "application/rss+xml")
-                     (title "System Crafters News")
-                     (href ,(concat dw/site-url "/rss/news.xml"))))
-            (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/css/code.css"))))
-            (link (@ (rel "stylesheet") (href ,(concat dw/site-url "/css/site.css"))))
-            (script (@ (defer "defer")
-                       (data-domain "systemcrafters.net")
-                       (src "https://plausible.io/js/plausible.js"))
-                    ;; Empty string to cause a closing </script> tag
-                    "")
-            ,(when head-extra head-extra)
-            (title ,(concat title " - System Crafters")))
-           (body ,@(unless exclude-header
-                     (dw/site-header))
-                 (div (@ (class "container"))
-                      (div (@ (class "site-post"))
-                           (h1 (@ (class "site-post-title center"))
-                               ,title)
-                           ,(when publish-date
-                              `(p (@ (class "site-post-meta center")) ,publish-date))
-                           ,(if-let ((video-id (plist-get info :video)))
-                                (dw/embed-video video-id))
-                           ,(when pre-content pre-content)
-                           (div (@ (id "content"))
-                                ,content))
-                      ,(dw/embed-list-form))
-                 ,@(unless exclude-footer
-                     (dw/site-footer)))))))
+    `(div (@ (class "container"))
+          (div (@ (class "site-post"))
+               (h1 (@ (class "site-post-title center"))
+                   ,title)
+               ,(when publish-date
+                  `(p (@ (class "site-post-meta center")) ,publish-date))
+               ,(if-let ((video-id (plist-get info :video)))
+                    (dw/embed-video video-id))
+               ,(when pre-content pre-content)
+               (div (@ (id "content"))
+                    ,content))
+                                        ;,(dw/embed-list-form)
+          ))))
 
 (defun dw/org-html-template (contents info)
   (dw/generate-page (org-export-data (plist-get info :title) info)
@@ -324,19 +302,20 @@ holding contextual information."
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
-  (let ((article-path (get-article-output-path filename pub-dir)))
-    (cl-letf (((symbol-function 'org-export-output-file-name)
-               (lambda (extension &optional subtreep pub-dir)
-                 ;; The 404 page is a special case, it must be named "404.html"
-                 (concat article-path
-                         (if (string= (file-name-nondirectory filename) "404.org") "404" "index")
-                         extension))))
+    ;;(let ((article-path (get-article-output-path filename pub-dir)))
+    ;; (cl-letf (((symbol-function 'org-export-output-file-name)
+    ;;            (lambda (extension &optional subtreep pub-dir)
+    ;;              ;; The 404 page is a special case, it must be named "404.html"
+    ;;              (concat article-path
+    ;;                      (if (string= (file-name-nondirectory filename) "404.org") "404" "index")
+    ;;                      extension))))
       (org-publish-org-to 'site-html
                           filename
                           (concat "." (or (plist-get plist :html-extension)
                                           "html"))
                           plist
-                          article-path))))
+                          pub-dir))
+                          ;; article-path))))
 
 (defun dw/publish-newsletter-page (plist filename pub-dir)
   "Publish a newsletter .txt file to a simple HTML page."
@@ -367,7 +346,7 @@ holding contextual information."
       org-publish-timestamp-directory "./.org-cache/"
       org-export-with-section-numbers nil
       org-export-use-babel nil
-      org-export-with-smart-quotes t
+      org-export-with-smart-quotes nil
       org-export-with-sub-superscripts nil
       org-export-with-tags 'not-in-toc
       org-html-htmlize-output-type 'css
@@ -375,7 +354,7 @@ holding contextual information."
       org-html-link-home dw/site-url
       org-html-link-use-abs-url t
       org-html-link-org-files-as-html t
-      org-html-html5-fancy t
+      org-html-html5-fancy nil
       org-html-self-link-headlines t
       org-export-with-toc nil
       make-backup-files nil)
@@ -441,14 +420,14 @@ holding contextual information."
       (list '("systemcrafters:main"
               :base-directory "./content"
               :base-extension "org"
-              :publishing-directory "./public"
+              :publishing-directory "./org-output"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
             '("systemcrafters:faq"
               :base-directory "./content/faq"
               :base-extension "org"
-              :publishing-directory "./public/faq"
+              :publishing-directory "./org-output/faq"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
@@ -456,20 +435,14 @@ holding contextual information."
               :base-directory "./content/courses"
               :base-extension "org"
               :recursive t
-              :publishing-directory "./public/courses"
+              :publishing-directory "./org-output/courses"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:assets"
-              :base-directory "./assets"
-              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|zip"
-              :publishing-directory "./public"
-              :recursive t
-              :publishing-function org-publish-attachment)
             '("systemcrafters:live-streams"
               :base-directory "./content/live-streams"
               :base-extension "org"
-              :publishing-directory "./public/live-streams"
+              :publishing-directory "./org-output/live-streams"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
               :sitemap-filename "../live-streams.org"
@@ -482,7 +455,7 @@ holding contextual information."
             '("systemcrafters:news"
               :base-directory "./content/news"
               :base-extension "org"
-              :publishing-directory "./public/news"
+              :publishing-directory "./org-output/news"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
               :sitemap-filename "../news.org"
@@ -496,13 +469,13 @@ holding contextual information."
             '("systemcrafters:newsletter"
               :base-directory "./content/newsletter"
               :base-extension "txt"
-              :publishing-directory "./public/newsletter"
+              :publishing-directory "./org-output/newsletter"
               :publishing-function dw/publish-newsletter-page)
             '("systemcrafters:videos"
               :base-directory "./content/videos"
               :base-extension "org"
               :recursive t
-              :publishing-directory "./public"
+              :publishing-directory "./org-output"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)))
@@ -510,7 +483,7 @@ holding contextual information."
 ;; TODO: Generate a _redirects file instead once Codeberg Pages releases a new version
 (defun dw/generate-redirects (redirects)
   (dolist (redirect redirects)
-    (let ((output-path (concat "./public/" (car redirect) "/index.html"))
+    (let ((output-path (concat "./org-output/" (car redirect) "/index.html"))
           (redirect-url (concat dw/site-url "/" (cdr redirect) "/")))
       (make-directory (file-name-directory output-path) t)
       (with-temp-file output-path
@@ -526,35 +499,32 @@ holding contextual information."
   "Publish the entire site."
   (interactive)
 
-  (make-directory "public/rss" t)
-  (make-directory "public/newsletter" t)
+  (make-directory "org-output/rss" t)
+  (make-directory "org-output/newsletter" t)
 
-  (org-publish-all (string-equal (or (getenv "FORCE")
-                                     (getenv "CI"))
-                                 "true"))
+  (org-publish-all t)
+   ;; (string-equal (or (getenv "FORCE")
+   ;;                                   (getenv "CI"))
+   ;;                               "true"))
 
-  (webfeeder-build "rss/news.xml"
-                   "./public"
-                   dw/site-url
-                   (let ((default-directory (expand-file-name "./public/")))
-                     (remove "news/index.html"
-                             (directory-files-recursively "news"
-                                                          ".*\\.html$")))
-                   :builder 'webfeeder-make-rss
-                   :title "System Crafters News"
-                   :description "News and Insights from System Crafters!"
-                   :author "David Wilson")
+  ;; (webfeeder-build "rss/news.xml"
+  ;;                  "./org-output"
+  ;;                  dw/site-url
+  ;;                  (let ((default-directory (expand-file-name "./org-output/")))
+  ;;                    (remove "news/index.html"
+  ;;                            (directory-files-recursively "news"
+  ;;                                                         ".*\\.html$")))
+  ;;                  :builder 'webfeeder-make-rss
+  ;;                  :title "System Crafters News"
+  ;;                  :description "News and Insights from System Crafters!"
+  ;;                  :author "David Wilson")
 
   (dw/generate-redirects '(("support-the-channel" . "how-to-help")
                            ("videos" . "guides")
                            ("learn-scheme" . "courses/hands-on-guile-scheme-beginners")))
 
   ;; Copy the domains file to ensure the custom domain resolves
-  (copy-file ".domains" "public/.domains" t)
-
-  ;; Copy the .well-known folder for Matrix
-  (unless (file-exists-p "public/.well-known")
-    (copy-directory ".well-known" "public/" t)))
+  (copy-file ".domains" "org-output/.domains" t))
 
 (provide 'publish)
 ;;; publish.el ends here

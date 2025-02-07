@@ -4,8 +4,6 @@
 ; Ignore the org-publish cache
 .org-cache/
 
-; Ignore shared content with daviwil.com
+; Ignore output files
 public/
-
-; Ignore Gemini output
-gemini/
+org-output/
