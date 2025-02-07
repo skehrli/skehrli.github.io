@@ -70,8 +70,17 @@
 - Create route and form for user login (no cookies yet)
 - Created the schema for package tips
 
+*** Wednesday, February 5 2025
+
+[[https://youtube.com/live/6FOF7sf6wUc][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/commit/8cfa6b35bcbe7a4e2954bed6802940de1abb16d7][Project Code]]
+
+- Draft out basic package tip authoring experience with Datastar (no users, no SQL)
+- Write a basic Datastar SSE library
+
 *** Next Time
 
+- Add Markdown formatting
+- Add tip voting
 - Logged in sessions with logout
 - User registration form
 - Tip submission form
