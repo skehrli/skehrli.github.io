@@ -28,7 +28,7 @@
                       (commit commit)))
                 (sha256
                  (base32
-                  "0nf2cakpgd2zshd5q97baklmmy1nzhwfbsg80pp105gvcdhvscxh"))))
+                  "1rhffhzg4ljjbsbijns4gg1cibvdiw2gcv1pmmd94gcmigh60g1m"))))
       (native-inputs
        (list automake autoconf pkg-config texinfo))
       (inputs
@@ -52,8 +52,7 @@
                 guile-sqlite3
                 guile-json-3
                 haunt-latest
-                emacs-no-x-toolkit
-                emacs-ox-haunt))
+                emacs-no-x-toolkit))
   (synopsis "The official System Crafters website.")
   (description "A hybrid static/dynamic website written in Guile Scheme.")
   (home-page "https://systemcrafters.net")

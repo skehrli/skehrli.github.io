@@ -186,7 +186,7 @@
                             (exclude-header)
                             (exclude-footer))
   (concat
-   (format "title: %s\n" title)
+   (format "title: %s\nindex: true\n" title)
    ;; TODO publish date
    "---\n"
    (sxml-to-xml
