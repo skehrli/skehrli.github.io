@@ -1,0 +1,28 @@
+#+title: Rebuilding the System Crafters Site in Guile Scheme
+#+subtitle: System Crafters Live - February 7, 2025
+#+date: [2025-02-07 Fri]
+#+video: pHh6vQysbqk
+
+* News
+
+- Watch dthompson's FOSDEM talk Minimalist Web Application Deployment with Scheme
+  https://fosdem.org/2025/schedule/event/fosdem-2025-5140-minimalist-web-application-deployment-with-scheme/
+
+  Other Spritely Talks:
+  https://fosdem.org/2025/schedule/event/fosdem-2025-6066-the-whippet-embeddable-garbage-collection-library/
+  https://fosdem.org/2025/schedule/event/fosdem-2025-5123-spritely-and-a-secure-collaborative-distributed-future/
+
+  https://spritely.institute/news/spritely-is-going-to-guix-days-and-fosdem.html
+
+  Ludovic's talk on Shepherd:
+  https://fosdem.org/2025/schedule/event/fosdem-2025-5720-the-shepherd-minimalism-in-pid-1/
+
+- Check out the SC Memes thread on the forum:
+
+  https://forum.systemcrafters.net/t/common-memes-in-the-systemcrafters-live-irc/1369
+
+* Rebuilding the SC Site in Guile Scheme
+
+Check out the code here:
+
+https://codeberg.org/SystemCrafters/systemcrafters-site/src/branch/scheme-conversion
