@@ -77,13 +77,17 @@
 - Draft out basic package tip authoring experience with Datastar (no users, no SQL)
 - Write a basic Datastar SSE library
 
+*** Monday, February 10 2025
+
+**** Agenda
+
+- Logged in sessions with logout
+- User registration form
+
 *** Next Time
 
 - Add Markdown formatting
 - Add tip voting
-- Logged in sessions with logout
-- User registration form
-- Tip submission form
 - Add author details page to list which packages they wrote/maintained
 - Factor out query parameter handling into a module
 
