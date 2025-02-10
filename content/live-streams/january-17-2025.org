@@ -27,6 +27,9 @@ Lots of videos over the past week!  What do you think?
 
 * Terminal Emacs Experiment Over?
 
+- C-g C-g
+- Some keybindings introduce junk into buffers
+- Some keybindings don't work like M-S-RET in org mode
 - Too easy to close terminal emulator by accident
-- Terminal escape sequence problems
+- Terminal escape sequence problems (recommendation from Tamas is =C-z reset RET fg RET= to fix the scrambled terminal, alternateved says use =M-x redraw-display=)
 - Performance issues
