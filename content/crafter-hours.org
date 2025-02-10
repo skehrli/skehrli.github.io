@@ -79,20 +79,25 @@
 
 *** Monday, February 10 2025
 
-**** Agenda
+[[https://youtube.com/live/ZkGszUeigB8][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/commit/7bc9cbc6b766096097cae36d1cebdd20be398a20][Project Code]]
 
-- Logged in sessions with logout
-- User registration form
+- Implemented a full login/logout flow with Datastar
+- Used jwt tokens to store session details
+- Added an =authenticated= wrapper for abstracting session checks in handlers
 
 *** Next Time
 
-- Add Markdown formatting
+- Finish true tip authoring experience with DB interaction
+- Add Markdown formatting for tip text
 - Add tip voting
-- Add author details page to list which packages they wrote/maintained
-- Factor out query parameter handling into a module
+- Allow user to select which packages they personally use
+- Add link to user's Emacs config repo in profile
 
 *** Backlog
 
+- Add author details page to list which packages they wrote/maintained
+- Implement proper session expiration
+- Load session token secret from an environment variable, etc
 - Improve the internal API for generating reponses with page bodies
 - Flesh out CSS for all pages
 - Do proper password salting in the database
