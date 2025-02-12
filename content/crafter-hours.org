@@ -85,13 +85,23 @@
 - Used jwt tokens to store session details
 - Added an =authenticated= wrapper for abstracting session checks in handlers
 
+*** Wednesday, February 12 2025
+
+[[https://youtube.com/live/6ZnwyYL-WAo][Stream Recording]] ([[https://youtube.com/live/ZRxElXBzmPg][Part 2]]) ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/commit/afe63b589722f449b4b1f9b1c4b26e68f021f06b][Project Code]]
+
+- Finished tip authoring experience with DB interaction
+- Added link to tip author profile
+- Added initial Markdown formatting for tip text
+- Added basic tip voting (not backed by DB yet)
+
 *** Next Time
 
-- Finish true tip authoring experience with DB interaction
-- Add Markdown formatting for tip text
-- Add tip voting
-- Allow user to select which packages they personally use
-- Add link to user's Emacs config repo in profile
+- Create DB migration framework
+- Add migrations for:
+  - Tip votes
+  - Vote count per tip
+  - Add a link to user's Emacs config repo in profile
+  - Adding the "I use this" mapping for packages
 
 *** Backlog
 
