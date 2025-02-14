@@ -1,0 +1,24 @@
+#+title: Investigating jj (Jujutsu): Can it Replace Git?
+#+subtitle: System Crafters Live - February 14, 2025
+#+date: [2025-02-14 Fri]
+#+video: zej0A21PJyc
+
+* News
+
+- Video about Datastar next week, interview with Delaney Gillilan after
+
+- Framework 2nd Gen event Feb 25th
+
+  https://frame.work/gr/en/blog/framework-2nd-gen-event-is-live-on-february-25th
+
+- Guix is discussing moving development to Codeberg (!!)
+  https://yhetil.org/guix-devel/87cyfw79h0.fsf@inventati.org/T/#m378830aa6403eaf9e2ecdce58f01786868fb9987
+
+* Let's take a look at jj
+
+Resources:
+
+- https://github.com/jj-vcs/jj
+- https://jj-vcs.github.io/jj/latest/tutorial/
+- https://steveklabnik.github.io/jujutsu-tutorial/
+- https://v5.chriskrycho.com/essays/jj-init/
