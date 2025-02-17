@@ -94,9 +94,18 @@
 - Added initial Markdown formatting for tip text
 - Added basic tip voting (not backed by DB yet)
 
-*** Next Time
+*** Monday, February 17 2025
 
-- Create DB migration framework
+[[https://youtube.com/live/oaVFge_bZlM][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/117470abea3c89b519236f72f802bde2cd50f874][Project Code]]
+
+- Created a DB schema update framework
+- Created a table to store applied migrations
+- Wrote unit tests to verify that the framework works
+- Moved current table initialization queries to first migration
+
+*** Next time
+
+- Prepare the site for deployment with Guix
 - Add migrations for:
   - Tip votes
   - Vote count per tip
