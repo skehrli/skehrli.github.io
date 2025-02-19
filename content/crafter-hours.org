@@ -103,17 +103,33 @@
 - Wrote unit tests to verify that the framework works
 - Moved current table initialization queries to first migration
 
-*** Next time
+*** Wednesday, February 19 2025
 
-- Prepare the site for deployment with Guix
+[[https://youtube.com/live/G4mnWTcQFWY][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/17e9f7f4bfad1a95e8da94780b04e5b9ba5bab9d][Project Code]]
+
+- Prepared the site for deployment with Guix
+- Packaged the current site code in Guix
+- Set up a basic server configuration
+- Set up a Shepherd service to run the Guile app
+- Set up an nginx reverse proxy for hosting the site
+- Set up a place to host the database file (under /var/db)
+
+*** Next Time
+
+- Run an initial package sync script on profile activation (?)
+- Fix any lingering issues that affect production
+  - Password hashing
+  - Session token secret
+  - Stable package ID strategy
+- Implement package repo data sync/merge?
+
+*** Backlog
+
 - Add migrations for:
   - Tip votes
   - Vote count per tip
   - Add a link to user's Emacs config repo in profile
   - Adding the "I use this" mapping for packages
-
-*** Backlog
-
 - Add author details page to list which packages they wrote/maintained
 - Implement proper session expiration
 - Load session token secret from an environment variable, etc
