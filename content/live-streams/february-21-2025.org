@@ -1,0 +1,11 @@
+#+title: What's New in Emacs - February 2025
+#+subtitle: System Crafters Live - February 21, 2025
+#+date: [2025-02-21 Fri]
+#+video: WcDhmW3gB4A
+
+* News
+
+- https://lists.gnu.org/archive/html/emacs-devel/2025-02/msg00802.html
+- https://sachachua.com/blog/category/emacs-news/
+- https://lambdaland.org/posts/2024-12-14_emacs_catchup/
+- https://eshelyaron.com/posts/2023-11-17-completion-preview-in-emacs.html
