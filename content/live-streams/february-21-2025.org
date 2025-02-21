@@ -9,3 +9,26 @@
 - https://sachachua.com/blog/category/emacs-news/
 - https://lambdaland.org/posts/2024-12-14_emacs_catchup/
 - https://eshelyaron.com/posts/2023-11-17-completion-preview-in-emacs.html
+
+
+Try Tree Sitter in Emacs: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
+
+
+#+begin_src emacs-lisp
+
+  (add-hook 'prog-mode-hook #'completion-preview-mode)
+
+  (keymap-set completion-preview-active-mode-map "M-n" #'completion-preview-next-candidate)
+  (keymap-set completion-preview-active-mode-map "M-p" #'completion-preview-prev-candidate)
+
+#+end_src
+
+More things we foud:
+
+- https://mbork.pl/2025-02-17_isearch-forward-thing-at-point
+- https://github.com/ErikPrantare/hatty.el
+- https://thanosapollo.org/projects/org-gnosis/
+- https://github.com/jroimartin/radio
+- https://github.com/emacs-sideline/sideline?tab=readme-ov-file
+- https://github.com/jdtsmith/ultra-scroll
+- https://github.com/emacs-tree-sitter/treesit-fold
