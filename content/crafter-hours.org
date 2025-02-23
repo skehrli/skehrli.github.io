@@ -123,6 +123,10 @@
   - Stable package ID strategy
 - Implement package repo data sync/merge?
 
+Until March 1, I'm giving a $50 discount on my "Hands-On Guile Scheme for Beginners" course!  If you want to learn how to write Scheme like I do in these streams, click the following link and the discount will be applied at checkout:
+
+https://systemcrafters.store/promo/CRAFTERHOURS
+
 *** Backlog
 
 - Add migrations for:
