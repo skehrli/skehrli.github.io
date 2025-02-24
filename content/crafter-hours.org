@@ -114,18 +114,31 @@
 - Set up an nginx reverse proxy for hosting the site
 - Set up a place to host the database file (under /var/db)
 
+*** Monday, February 24 2024
+
+[[https://youtube.com/live/egbznOiUzYI][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/97c8fb0c096025a6c724c8140c65dcccdf4df9dc][Project Code]]
+
+- Finished password salting algoritm
+- Discussed how to handle session token secret, deferred until certbot is set up
+- Figured out stable package ID strategy
+- Designed the first-pass package sync/update strategy (with disambiguation)
+
+**** Special Announcement
+
+Until March 1, I'm giving a $50 discount on my "Hands-On Guile Scheme for Beginners" course!  If you want to learn how to write Scheme like I do in these streams, click the following link to learn more, the discount is automatically applied!
+
+https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+
 *** Next Time
 
+- Deploy a staging build of the site to a VPS
+- Set up certbot for HTTPS
+
+*** Soon
+
 - Run an initial package sync script on profile activation (?)
-- Fix any lingering issues that affect production
-  - Password hashing
-  - Session token secret
-  - Stable package ID strategy
 - Implement package repo data sync/merge?
-
-Until March 1, I'm giving a $50 discount on my "Hands-On Guile Scheme for Beginners" course!  If you want to learn how to write Scheme like I do in these streams, click the following link and the discount will be applied at checkout:
-
-https://systemcrafters.store/promo/CRAFTERHOURS
 
 *** Backlog
 
@@ -139,7 +152,6 @@ https://systemcrafters.store/promo/CRAFTERHOURS
 - Load session token secret from an environment variable, etc
 - Improve the internal API for generating reponses with page bodies
 - Flesh out CSS for all pages
-- Do proper password salting in the database
 - Finish porting ELPA, NonGNU ELPA, and MELPA package details into our database
 - Search for packages by name on the site
 - Improve package details page to display all information
