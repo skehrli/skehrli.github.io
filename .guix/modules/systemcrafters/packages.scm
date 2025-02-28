@@ -1,25 +1,32 @@
 (define-module (systemcrafters packages)
-  #:use-modules (guix packages)
-  #:use-modules (guix licenses)
-  #:use-modules (guix git)
-  #:use-modules (guix git-download)
-  #:use-modules (guix build-system gnu)
-  #:use-modules (guix build-system guile)
-  #:use-modules (gnu packages)
-  #:use-modules (gnu packages autotools)
-  #:use-modules (gnu packages base)
-  #:use-modules (gnu packages guile)
-  #:use-modules (gnu packages guile-xyz)
-  #:use-modules (gnu packages pkg-config)
-  #:use-modules (gnu packages emacs)
-  #:use-modules (gnu packages emacs-xyz)
-  #:use-modules (gnu packages rsync)
-  #:use-modules (gnu packages texinfo)
-  #:use-modules (gnu packages version-control))
+  #:use-module (guix packages)
+  #:use-module (guix licenses)
+  #:use-module (guix git)
+  #:use-module (guix gexp)
+  #:use-module (guix utils)
+  #:use-module (guix git-download)
+  #:use-module (guix build-system gnu)
+  #:use-module (guix build-system guile)
+  #:use-module (gnu packages)
+  #:use-module (gnu packages autotools)
+  #:use-module (gnu packages base)
+  #:use-module (gnu packages guile)
+  #:use-module (gnu packages guile-xyz)
+  #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages emacs)
+  #:use-module (gnu packages emacs-xyz)
+  #:use-module (gnu packages rsync)
+  #:use-module (gnu packages texinfo)
+  #:use-module (gnu packages version-control))
 
 (define vcs-file?
-  ;; Return true if the given file is under version control.
-  (or (git-predicate (dirname (dirname (current-source-directory))))
+  ;; Return true if the given file is under version control.  The
+  ;; nested `dirname` calls *must* correspond to the relative path in
+  ;; the `local-file` expression below!
+  (or (git-predicate (dirname
+                      (dirname
+                       (dirname
+                        (current-source-directory)))))
       (const #t)))
 
 (define haunt-latest
@@ -44,24 +51,38 @@
   (package
     (name "systemcrafters-site")
     (version "0.0.1")
-    (source (local-file "../.." "systemcrafters-site-checkout"
+    (source (local-file "../../.." "systemcrafters-site-checkout"
                         #:recursive? #t
                         #:select? vcs-file?))
     (build-system guile-build-system)
     (arguments
-     '(#:source-directory "./src"))
-    ;; '(#:phases
-    ;;   (modify-phases %standard-phases
-    ;;     (add-after 'unpack 'bootstrap
-    ;;       (lambda _ (zero? (system* "sh" "bootstrap")))))))
-    (native-inputs (list guile-3.0))
-    (inputs (list git
-                  guile-lib
-                  guile-fibers
-                  guile-sqlite3
-                  guile-json-3
-                  haunt-latest
-                  emacs-no-x-toolkit))
+     (list #:source-directory "./src"
+           #:phases
+           #~(modify-phases %standard-phases
+               (add-after 'unpack 'fix-emacs-invoke
+                 (lambda* (#:key inputs #:allow-other-keys)
+                   (substitute* "haunt.scm"
+                     (("system* \"emacs\"")
+                      (format #f
+                              "system* \"~a/bin/emacs\""
+                              (assoc-ref inputs "emacs-no-x-toolkit"))))))
+
+               (add-after 'build 'generate-static
+                 (lambda* (#:key inputs outputs #:allow-other-keys)
+                   (zero? (system* #$(file-append haunt-latest "/bin/haunt") "build")))))))
+    (native-inputs
+     (list guile-3.0
+           emacs-no-x-toolkit))
+    (inputs
+     (list git
+           haunt-latest))
+    (propagated-inputs
+     (list guile-lib
+           emacs-esxml
+           emacs-htmlize
+           guile-fibers
+           guile-sqlite3
+           guile-json-3))
     (synopsis "The official System Crafters website.")
     (description "A hybrid static/dynamic website written in Guile Scheme.")
     (home-page "https://systemcrafters.net")

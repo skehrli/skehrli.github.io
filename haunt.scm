@@ -85,9 +85,9 @@
                 '()))))
 
 ;; Launch Emacs to export Org files
-;; (system* "emacs" "-Q"
-;;          "--batch" "-l" "./publish.el"
-;;          "--funcall" "dw/publish")
+(system* "emacs" "-Q"
+         "--batch" "-l" "./publish.el"
+         "--funcall" "dw/publish")
 
 (define (read-html-post port)
   (values (read-metadata-headers port)

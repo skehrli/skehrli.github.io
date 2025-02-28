@@ -41,8 +41,8 @@
 
 ;; Initialize the package system
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
+;(unless package-archive-contents
+;  (package-refresh-contents))
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -55,16 +55,20 @@
 (require 'subr-x)
 (require 'cl-lib)
 
+(message "LOAD PATH: %s" load-path)
+
+(require 'esxml)
+
 ;; Install other dependencies
-(use-package esxml
-  :pin "melpa-stable"
-  :ensure t)
+;; (use-package esxml
+;;   :pin "melpa-stable")
+;; ;  :ensure t)
 
-(use-package htmlize
-  :ensure t)
+;; (use-package htmlize)
+;; ;  :ensure t)
 
-(use-package webfeeder
-  :ensure t)
+;; (use-package webfeeder
+;;   :ensure t)
 
 (defvar yt-iframe-format
   (concat "<div class=\"video\">"
