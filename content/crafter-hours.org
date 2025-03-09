@@ -131,23 +131,23 @@
 - Set up certbot to auto-provision a certificate for HTTPS
 - Set up the new [[https://codeberg.org/SystemCrafters/server-configurations][server-configurations]] repository
 
-**** Special Announcement
+*** Wednesday, March 5 2025
 
-Until March 1, I'm giving a $50 discount on my "Hands-On Guile Scheme for Beginners" course!  If you want to learn how to write Scheme like I do in these streams, click the following link to learn more, the discount is automatically applied!
-
-https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+- Converted emacspackages.com repo into a Guix channel
+- Updated server-configurations repository to use the new channel
+- Ensured that the database is working after running sync-archives.scm manually
+- Created a one-shot Shepherd service that runs sync-archives.scm to populate the DB
+- Cleaned the manual =GUILE_LOAD_PATH= manipulation in script files
 
 *** Next Time
 
-- Ensure that the database is working
+- Ensure tip creation requests are being authenticated
+- Ensure that DB migrations are being applied by sync-archives with existing DB
 - Ensure that there is a public user creation page
-- Run the sync-archives.scm script to populate the database with all Emacs packages, including those from the MELPA archives
-- Authenticate tip creation requests
 
 *** Soon
 
-- Set up fail2ban and other security measures
-- Run an initial package sync script on profile activation (?)
+- Switch to PostgreSQL
 - Implement package repo data sync/merge?
 
 *** Backlog
