@@ -133,14 +133,25 @@
 
 *** Wednesday, March 5 2025
 
+[[https://youtube.com/live/oLk4lvLYKBs][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/4acc213830869b9664bfbc6630bdf7c3a544be7d][Project Code]] ⋅ [[https://codeberg.org/SystemCrafters/server-configurations/src/commit/adc01fc2b6f69d6ea477578473112caa5bdb1349][Server Configuration]]
+
 - Converted emacspackages.com repo into a Guix channel
 - Updated server-configurations repository to use the new channel
 - Ensured that the database is working after running sync-archives.scm manually
 - Created a one-shot Shepherd service that runs sync-archives.scm to populate the DB
 - Cleaned the manual =GUILE_LOAD_PATH= manipulation in script files
 
+*** Monday, March 10 2025
+
+[[https://youtube.com/live/cASKPWF95UE][Stream Recording]] ⋅ [[https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/e12f39f1958aa2fc1ab46d22cde1ab305040f7f5][Project Code]] ⋅ [[https://codeberg.org/SystemCrafters/server-configurations/src/commit/64ae26e2829d9c2d7bc334d137e68b6e6aa02b19][Server Configuration]]
+
+- Figure out why the site is down
+- Make sure initial data sync is working correctly
+
 *** Next Time
 
+- Don't try to sync the archives if DB already exists
+- Make sure there are no lingering issues from the channel conversion
 - Ensure tip creation requests are being authenticated
 - Ensure that DB migrations are being applied by sync-archives with existing DB
 - Ensure that there is a public user creation page
