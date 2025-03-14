@@ -1,0 +1,29 @@
+#+title: Dotfiles Check-Up: Emacs and Guix Tweaks
+#+subtitle: System Crafters Live - March 14, 2025
+#+date: [2025-03-14 Fri]
+#+video: JQBII2fO_CQ
+
+* News
+
+- Jeff Bowman's post on Crafted Emacs Updates
+
+  https://jeffbowman.writeas.com/crafted-emacs-update-march-2025
+
+- talos threads about Guix
+
+  https://forum.systemcrafters.net/t/my-adventures-in-guix-part-1-home-serving-it-up/1484
+  https://forum.systemcrafters.net/t/my-adventures-in-guix-part-2-tailscale/1485
+
+- New Guix Course in Development
+
+  System Crafters Guild members at 15/mo and above will have early access to in-development course material while I'm working on it (on the Forum).
+
+  Join the Guild here:  https://systemcrafters.store
+
+* Let's Fix My Dotfiles!
+
+- Fix =completion-styles= to not annoy me
+- Maybe *don't* use =fido-vertical-mode= ??
+- =ansi-term= is kinda terrible, use =eat=, fix =xterm-colors=
+- Any Guix Home services that are new that I should try
+- Scan over Guix config to clean it up
