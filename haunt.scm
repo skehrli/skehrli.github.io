@@ -85,9 +85,11 @@
                 '()))))
 
 ;; Launch Emacs to export Org files
-(system* "emacs" "-Q"
-         "--batch" "-l" "./publish.el"
-         "--funcall" "dw/publish")
+(unless (zero?
+         (system* "emacs" "-Q"
+                  "--batch" "-l" "./publish.el"
+                  "--funcall" "dw/publish"))
+  (error "Org Publish failed!"))
 
 (define (read-html-post port)
   (values (read-metadata-headers port)

@@ -32,21 +32,10 @@
 ;; Initialize package sources
 (require 'package)
 
-;; Set the package installation directory so that packages aren't stored in the
-;; ~/.emacs.d/elpa path.
-(setq package-user-dir (expand-file-name "./.packages"))
-
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-
 ;; Initialize the package system
 (package-initialize)
-;(unless package-archive-contents
-;  (package-refresh-contents))
 
 ;; Install use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
 (require 'use-package)
 
 ;; Require built-in dependencies
@@ -54,21 +43,7 @@
 (require 'ox-publish)
 (require 'subr-x)
 (require 'cl-lib)
-
-(message "LOAD PATH: %s" load-path)
-
 (require 'esxml)
-
-;; Install other dependencies
-;; (use-package esxml
-;;   :pin "melpa-stable")
-;; ;  :ensure t)
-
-;; (use-package htmlize)
-;; ;  :ensure t)
-
-;; (use-package webfeeder
-;;   :ensure t)
 
 (defvar yt-iframe-format
   (concat "<div class=\"video\">"
