@@ -165,7 +165,12 @@
                             (exclude-header)
                             (exclude-footer))
   (concat
-   (format "title: %s\nindex: true\n" title)
+   (format "title: %s\n" title)
+   ;; Only set "index" metadata for files that aren't index.org
+   (format "index: %s\n"
+           (if (string-suffix-p "index.org" (plist-get info :input-file))
+               "false"
+             "true"))
    ;; TODO publish date
    "---\n"
    (sxml-to-xml
