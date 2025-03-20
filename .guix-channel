@@ -3,4 +3,8 @@
 
 (channel
   (version 0)
-  (directory ".guix/modules"))
+  (directory ".guix/modules")
+  (dependencies
+   (channel
+    (name guile-webframe)
+    (url "https://codeberg.org/SystemCrafters/guile-webframe.git"))))
