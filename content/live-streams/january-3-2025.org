@@ -1,6 +1,6 @@
 #+title: Setting the Course for Crafting in 2025
 #+subtitle: System Crafters Live - January 3, 2025
-n#+date: [2025-01-03 Fri]
+#+date: [2025-01-03 Fri]
 #+video: lya80SkpkKk
 
 * News
