@@ -28,7 +28,7 @@
     (provision '(sc-site-backend))
     (start #~(make-forkexec-constructor
               (list #$(file-append systemcrafters.net "/bin/start-server.scm"))
-              ;;#:log-file "/var/log/systemcrafters/server.log"
+              #:log-file "/var/log/systemcrafters/server.log"
               #:environment-variables
               (cons #$(format #f
                               "PORT=~a"
@@ -57,13 +57,17 @@
          (locations
           (list
            (nginx-location-configuration
+            (uri "/")
+            (body '("try_files $uri $uri/ @backend;")))
+           (nginx-location-configuration
             (uri "@backend")
             (body `(,(format #f
                              "proxy_pass http://localhost:~a;"
-                             (systemcrafters-site-config-backend-port config)))))
-           (nginx-location-configuration
-            (uri "/")
-            (body '("try_files $uri $uri/index.html @backend;"))))))))
+                             (systemcrafters-site-config-backend-port config))
+                    ;; Make sure any 404s from the backend get sent to
+                    ;; the real 404 page
+                    "proxy_intercept_errors on;"
+                    "error_page 404 /404.html;"))))))))
 
 (define %nginx-deploy-hook
   (program-file
