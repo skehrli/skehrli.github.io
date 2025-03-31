@@ -39,7 +39,7 @@
 (define (systemcrafters-nginx-server config)
   (list (nginx-server-configuration
          (listen (if (systemcrafters-site-config-use-certs? config)
-                     '("80" "443 ssl")
+                     '("443 ssl")
                      '("8081")))
          (server-name (list (systemcrafters-site-config-domain config)
                             "systemcrafters.local"))
