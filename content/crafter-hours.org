@@ -172,6 +172,15 @@
 - Create =guile-webframe= repo to host reusable web library code (css and datastar for now)
 - Packaged the libraries with Guix and used them in the project for dev and deployment
 
+*** Monday, March 31 2025
+
+**** Agenda
+
+- Give a run-through of the systemcrafters.net deployment and packaging
+- Figure out why I can't deploy to the server anymore (roll back the server config?)
+- Make sure that both sites can run at the same time
+- Maybe start working on some of the new SC site backend
+
 *** Next Time
 
 - Move over more library code to guile-webframe
