@@ -166,12 +166,16 @@
                             (exclude-footer))
   (concat
    (format "title: %s\n" title)
-   ;; Only set "index" metadata for files that aren't index.org
+   ;; Only set "index" metadata for files that aren't index.org or 404.org
    (format "index: %s\n"
-           (if (string-suffix-p "index.org" (plist-get info :input-file))
+           (if (and info
+                    (string-match "\\/index.org\\|\\/404.org$"
+                                  (plist-get info :input-file)))
                "false"
              "true"))
-   ;; TODO publish date
+   (if publish-date
+       (org-export-data (org-export-get-date info "date: %Y-%m-%d %H:%M\n") info)
+     "")
    "---\n"
    (sxml-to-xml
     `(div (@ (class "container"))
@@ -185,8 +189,7 @@
                ,(when pre-content pre-content)
                (div (@ (id "content"))
                     ,content))
-                                        ;,(dw/embed-list-form)
-          ))))
+          ,(dw/embed-list-form)))))
 
 (defun dw/org-html-template (contents info)
   (dw/generate-page (org-export-data (plist-get info :title) info)
@@ -286,20 +289,12 @@ holding contextual information."
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
-    ;;(let ((article-path (get-article-output-path filename pub-dir)))
-    ;; (cl-letf (((symbol-function 'org-export-output-file-name)
-    ;;            (lambda (extension &optional subtreep pub-dir)
-    ;;              ;; The 404 page is a special case, it must be named "404.html"
-    ;;              (concat article-path
-    ;;                      (if (string= (file-name-nondirectory filename) "404.org") "404" "index")
-    ;;                      extension))))
-      (org-publish-org-to 'site-html
-                          filename
-                          (concat "." (or (plist-get plist :html-extension)
-                                          "html"))
-                          plist
-                          pub-dir))
-                          ;; article-path))))
+  (org-publish-org-to 'site-html
+                      filename
+                      (concat "." (or (plist-get plist :html-extension)
+                                      "html"))
+                      plist
+                      pub-dir))
 
 (defun dw/publish-newsletter-page (plist filename pub-dir)
   "Publish a newsletter .txt file to a simple HTML page."

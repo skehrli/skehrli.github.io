@@ -83,7 +83,7 @@
 ;; Launch Emacs to export Org files
 (unless (zero?
          (system* "emacs" "-Q"
-                  "--batch" "-l" "./publish.el"
+                  "--batch" "-l" "./publish-new.el"
                   "--funcall" "dw/publish"))
   (error "Org Publish failed!"))
 
