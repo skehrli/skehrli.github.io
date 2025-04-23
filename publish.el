@@ -60,6 +60,24 @@
   :pin "melpa-stable"
   :ensure t)
 
+;; HACK: Remove sanitization of strings for now because the new
+;; `raw-string' feature does not appear to work correctly.
+(defun esxml--to-xml-recursive (esxml)
+  (pcase esxml
+    ((and (pred stringp) string)
+     string)
+    (`(comment nil ,body)
+     (concat "<!-- " body " -->"))
+    (`(,tag ,attrs . ,body)
+     ;; code goes here to catch invalid data.
+     (concat "<" (symbol-name tag)
+             (when attrs
+               (concat " " (mapconcat 'esxml--convert-pair attrs " ")))
+             (if body
+                 (concat ">" (mapconcat 'esxml--to-xml-recursive body "")
+                         "</" (symbol-name tag) ">")
+               "/>")))))
+
 (use-package htmlize
   :ensure t)
 
