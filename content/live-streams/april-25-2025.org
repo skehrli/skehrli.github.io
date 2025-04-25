@@ -1,0 +1,25 @@
+#+title: Assembling Org Mode Files with Transclusion
+#+subtitle: System Crafters Live - April 25, 2025
+#+date: [2025-04-25 Fri]
+#+video: 6U9wG-pf-aQ
+
+* News
+
+- The Spring Lisp Game Jam is almost here!  May 9th - May 19th
+
+  https://itch.io/jam/spring-lisp-game-jam-2025
+
+* Discovering Uses for Transclusion
+
+Today we'll be taking a look at the =org-transclusion= package to see how we might be able to use it to assemble Org files by including other text files, either the entire file or subsections of it depending on file type.
+
+https://github.com/nobiot/org-transclusion
+
+Transclusion is better than the built-in =#+INCLUDE= syntax because it supports more types of files and the included content gets dynamically updated!
+
+Here's what we'll try:
+
+- Creating larger Org Mode documents like articles or books from Denote notes
+- Literate programming and configuration from original source files
+- Publishing/exporting transcluded Org documents
+- ... and more!
