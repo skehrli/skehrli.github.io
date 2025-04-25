@@ -23,3 +23,35 @@ Here's what we'll try:
 - Literate programming and configuration from original source files
 - Publishing/exporting transcluded Org documents
 - ... and more!
+
+** Adding Denote Link Support
+
+Kudos to Jabbo (Stefan Thesing) for putting this together, as found on this GitHub issue:
+
+https://github.com/nobiot/org-transclusion/issues/160#issuecomment-1377714791
+
+#+begin_src emacs-lisp
+
+  (defun denote-org-transclusion-add (link plist)
+    (when (string= "denote" (org-element-property :type link))
+      (let* ((denote-full (org-element-property :path link))     ;; get denote id from denote:<denote-full> link
+              (denote-parts (string-split denote-full "::"))
+              (file-path (denote-get-path-by-id (car denote-parts)))     ;; path resolved by the id
+              (new-link (with-temp-buffer                       ;; create a [[file:/path/to/denote/note]] org link
+                          (insert "file:")                      ;; and store it in 'new-link' variable
+                          (insert file-path)
+                          (when (cadr denote-parts)
+                            (insert "::" (cadr denote-parts)))
+                          (beginning-of-buffer)
+                          (org-element-link-parser))))
+        (org-transclusion-add-org-file new-link plist))))
+
+  (cl-pushnew 'denote-org-transclusion-add org-transclusion-add-functions)
+
+#+end_src
+
+* Discuss on the forum!
+
+You can discuss this stream on the forum on this thread (thanks, Ashraz!):
+
+https://forum.systemcrafters.net/t/assembling-org-mode-files-with-transclusion-system-crafters-live/1570
