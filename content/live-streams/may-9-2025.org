@@ -15,5 +15,9 @@
 
 In this stream, we'll try to build the basic game engine logic for the Goblin MUD so that we can have a player start walking around in the game world and interact with objects.
 
+You can find the source code here:
+
+https://codeberg.org/SystemCrafters/goblin-mud
+
 By the end of the stream, we had a mostly-working session management setup so that a new session gets created any time a user visits the page.  Sessions are meant to be ephemeral
 for now, but we may add persistence later.
