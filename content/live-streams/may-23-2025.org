@@ -1,0 +1,24 @@
+#+title: Catching Up on Emacs News!
+#+subtitle: System Crafters Live - May 23, 2025
+#+date: [2025-05-23 Fri]
+#+video: zi99nFfNT-k
+
+* News
+
+- The Spring Lisp Game Jam is finished!  Check out the entries:
+
+  https://itch.io/jam/spring-lisp-game-jam-2025/entries
+
+- Check out Goblinville by the Spritely Institute:
+
+  https://davexunit.itch.io/goblinville
+
+- Guix is almost finished moving all development to Codeberg
+
+  https://guix.gnu.org/blog/2025/migrating-to-codeberg/
+
+* Emacs News
+
+Let's scroll through the latest news and see if there's anything worth trying out!
+
+https://sachachua.com/blog/category/emacs-news/
