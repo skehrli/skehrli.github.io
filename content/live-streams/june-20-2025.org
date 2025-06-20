@@ -1,0 +1,28 @@
+#+title: What's Special About 'M-x shell' in Emacs?
+#+subtitle: System Crafters Live - June 20, 2025
+#+date: [2025-06-20 Fri]
+#+video: xqf6exp7wlI
+
+* News
+
+- Read Andrew Tropin's article about improving Guile stack traces:
+
+  https://trop.in/blog/actually-useful-stack-traces
+
+* Investigating =M-x shell=
+
+knighthk inspired today's stream!
+
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Shell-Mode.html
+- https://github.com/emacs-straight/multishell
+
+#+begin_src emacs-lisp
+
+  ;; Try this with ls --hyperlink
+  (add-hook 'comint-output-filter-functions 'comint-osc-process-output)
+
+#+end_src
+
+History search works like this (I think?):
+
+=M-r= to start searching for a regexp in the input history, then =C-s= and =C-r= to search forward and backward.  This works even for arguments to commands, like file names.
