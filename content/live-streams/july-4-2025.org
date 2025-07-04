@@ -1,0 +1,19 @@
+#+title: Efficient Multi-Project Hacking in Emacs
+#+subtitle: System Crafters Live - July 4, 2025
+#+date: [2025-07-04 Fri]
+#+video: Ta2bR6fNwBQ
+
+* News
+
+- I got a new keyboard!
+
+* Working with multiple project in Emacs
+
+Today I want to try and come up with a workflow for efficiently hacking in multiple projects at the same time in Emacs.
+
+- Running project commands, both with =project-compile= and =project(-async)-shell-command=
+- Finding files and directories in the project
+- Looking at open project buffers with =ibuffer= (=project-list-buffers=)
+- Possibly =direnv=
+
+... and more!
