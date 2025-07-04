@@ -13,7 +13,75 @@ Today I want to try and come up with a workflow for efficiently hacking in multi
 
 - Running project commands, both with =project-compile= and =project(-async)-shell-command=
 - Finding files and directories in the project
+- Searching across the project with grep/rg
 - Looking at open project buffers with =ibuffer= (=project-list-buffers=)
-- Possibly =direnv=
+- Possibly using =direnv= or =dir-local= configurations
 
 ... and more!
+
+* What is the ideal workflow for multiple projects
+
+- No need for multiple tabs or frames
+- Really easy to jump between projects, especially to specific files
+- Easy to switch between buffers for the same project
+
+* Customizations
+
+#+begin_src emacs-lisp
+
+  (defun my/project-compilation-buffer-name-function (name-of-mode)
+    (format "*compilation: %s*" (project-name (project-current))))
+
+  ;; Customize compilation buffer names using the project name
+  (setq project-compilation-buffer-name-function #'my/project-compilation-buffer-name-function)
+
+  (defun my/project-switch-to-buffer (&optional all-buffers)
+    (interactive "P")
+    (if (or (not (project-current))
+            all-buffers)
+        (call-interactively #'switch-to-buffer)
+      (call-interactively #'project-switch-to-buffer)))
+
+  ;; Use our custom buffer switching function
+  (keymap-global-set "C-x b" #'my/project-switch-to-buffer)
+
+  ;; Allow all keymap keys to be used when switching project
+  (setq project-switch-use-entire-map t)
+
+#+end_src
+
+To automatically index all projects under a folder path:
+
+#+begin_src emacs-lisp
+
+  (project-remember-projects-under "~/Projects/Code" t)
+
+#+end_src
+
+* The default keymap for project.el
+
+Key            Binding
+
+c-x p C-b      project-list-buffers
+C-x p !	 project-shell-command
+C-x p &	 project-async-shell-command
+C-x p D	 project-dired
+C-x p F	 project-or-external-find-file
+C-x p G	 project-or-external-find-regexp
+C-x p b	 project-switch-to-buffer
+C-x p c	 project-compile
+C-x p d	 project-find-dir
+C-x p e	 project-eshell
+C-x p f	 project-find-file
+C-x p g	 project-find-regexp
+C-x p k	 project-kill-buffers
+C-x p o	 project-any-command
+C-x p p	 project-switch-project
+C-x p r	 project-query-replace-regexp
+C-x p s	 project-shell
+C-x p v	 project-vc-dir
+C-x p x	 project-execute-extended-command
+
+* Other Packages
+
+- https://github.com/purplg/treebundel
