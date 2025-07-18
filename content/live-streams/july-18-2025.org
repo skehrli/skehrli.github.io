@@ -1,0 +1,92 @@
+#+title: Is the Default Emacs Completion UI Good?
+#+subtitle: System Crafters Live - July 18, 2025
+#+date: [2025-07-18 Fri]
+#+video: ze1J7MG0sFg
+
+* News
+
+Glenn has created =crafterbin= which is effectively a hosted 0x0.st instance for the SC community and also provided an Emacs package for uploading files to it!
+
+- https://crafterbin.glennstack.dev
+- https://github.com/glenneth1/crafterbin.el
+
+Foot has a new release out:
+
+- https://codeberg.org/dnkl/foot/releases/tag/1.23.0
+
+* Let's Explore Emacs Default Completion UI
+
+We'll look at Completion Options section of the Emacs manual:
+
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Completion-Options.html
+
+We'll also look at the Completion Commands section:
+
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Completion-Commands.html
+
+- Turn off the help text to save space
+- Control the max height of the completion window
+- =completion-preview-mode= (=global-completion-preview-mode=)
+- =completions-detailed=
+
+It appears that the default behavior is to only show completion candidates when you press TAB or SPC or at any time by pressing ?.
+
+Suggestion from pkal: Use =M-x apropos-user-option= to search for customization variables containing particular text like =completion.*= (even in docstrings!).  Maybe bind to =C-h u= ?
+
+* The final configuration
+
+#+begin_src emacs-lisp
+
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (scroll-bar-mode 0)
+
+  (load-theme 'modus-vivendi-tinted t)
+
+  (repeat-mode 1)
+
+  (set-face-attribute 'default nil
+                      :font "JetBrains Mono"
+                      :weight 'normal
+                      :height 170)
+
+  ;;; Completions Configuration
+
+  (setopt read-buffer-completion-ignore-case t
+          read-file-name-completion-ignore-case t
+
+          ;; This *may* need to be set to 'always just so that you don't
+          ;; miss other possible good completions that match the input
+          ;; string.
+          completion-auto-help t
+
+          ;; Move focus to the completions window after hitting tab
+          ;; twice.
+          completion-auto-select 'second-tab
+
+          ;; If there are 3 or less completion candidates, don't pop up
+          ;; a window, just cycle through them.
+          completion-cycle-threshold 3
+
+          ;; Cycle through completion options vertically, not
+          ;; horizontally.
+          completions-format 'vertical
+
+          ;; Sort recently used completions first.
+          completions-sort 'historical
+
+          ;; Only show up to 10 lines in the completions window.
+          completions-max-height 10
+
+          ;; Don't show the unneeded help string at the top of the
+          ;; completions buffer.
+          completion-show-help nil
+
+          ;; Add the 'initials' completion style to the default list.
+          completion-styles '(basic partial-completion initials))
+
+  ;; Consider setting `completion-category-overrides` to customize
+  ;; individual minibuffer prompts with different completion-styles,
+  ;; sorting, etc.
+
+#+end_src
