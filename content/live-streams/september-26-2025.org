@@ -1,0 +1,15 @@
+#+title: Scheme Web Development with GNU Artanis
+#+subtitle: System Crafters Live - September 26, 2025
+#+date: [2025-09-26 Fri]
+#+video: dwJsaYGBKyc
+
+* News
+
+- An update on the port of Shepherd to Spritely Goblins!
+
+  https://spritely.institute/news/shepherd-goblins-update.html
+
+* A web framework for Guile Scheme
+
+Homepage: https://artanis.dev/
+Manual: https://www.gnu.org/software/artanis/manual/
