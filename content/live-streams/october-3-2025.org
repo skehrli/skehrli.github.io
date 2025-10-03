@@ -1,0 +1,26 @@
+#+title: Playing Rogue-likes in GNU Guix
+#+subtitle: System Crafters Live - October 3, 2025
+#+date: [2025-10-03 Fri]
+#+video: 9xPFlFbk4fg
+
+* News
+
+- The Guix project needs funding support!
+
+  https://guix.gnu.org/en/blog/2025/fundraising-campaign-to-sustain-gnu-guix/
+  https://guix.gnu.org/en/donate/
+
+- The Autumn Lisp Game Jam starts on October 31st!
+
+  https://itch.io/jam/autumn-lisp-game-jam-2025
+  https://itch.io/jam/autumn-lisp-game-jam-2025/topic/5380632/hoot-example-project
+
+- The Roguelike Celebration is October 25-26!
+
+  https://www.roguelike.club/
+
+* Playing Rogue-likes in Guix
+
+- Nethack (nethack)
+- Dungeon Crawl Stone Soup (crawl, crawl-tiles)
+- Harmonist (harmonist-sdl)
