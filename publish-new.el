@@ -62,26 +62,26 @@
   "The URL for the site being generated.")
 
 (defun dw/embed-list-form ()
-  `(div (@ (class "list-form center"))
-        (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
-        (form (@ (method "POST")
-                 (action "https://www.simplelists.com/subscribe.php"))
-              (input (@ (type "hidden") (name "format") (value "text")))
-              (input (@ (type "hidden") (name "action") (value "subscribe")))
-              (input (@ (type "hidden") (name "list") (value "news@lists.systemcrafters.net")))
-              (div (@ (class "list-form-message"))
-                   "Stay up to date with the latest System Crafters news and updates!  Read the "
-                   (a (@ (href "/newsletter/")) "Newsletter")
-                   " page for more information.")
-              (div (@ (class "row"))
-                   (div (@ (class "column"))
-                        (div (@ (class "row center list-form-label")) "Name (optional)")
-                        (div (@ (class "row")) (input (@ (type "text") (name "name")))))
-                   (div (@ (class "column"))
-                        (div (@ (class "row center list-form-label")) "Email Address")
-                        (div (@ (class "row")) (input (@ (type "text") (name "email"))))))
-              (div nil
-                   (input (@ (type "submit") (value "Subscribe!")))))))
+  `(div (@ (class "list-form center"))))
+        ; (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
+        ; (form (@ (method "POST")
+        ;          (action "https://www.simplelists.com/subscribe.php"))
+        ;       (input (@ (type "hidden") (name "format") (value "text")))
+        ;       (input (@ (type "hidden") (name "action") (value "subscribe")))
+        ;       (input (@ (type "hidden") (name "list") (value "news@lists.systemcrafters.net")))
+        ;       (div (@ (class "list-form-message"))
+        ;            "Stay up to date with the latest System Crafters news and updates!  Read the "
+        ;            (a (@ (href "/newsletter/")) "Newsletter")
+        ;            " page for more information.")
+        ;       (div (@ (class "row"))
+        ;            (div (@ (class "column"))
+        ;                 (div (@ (class "row center list-form-label")) "Name (optional)")
+        ;                 (div (@ (class "row")) (input (@ (type "text") (name "name")))))
+        ;            (div (@ (class "column"))
+        ;                 (div (@ (class "row center list-form-label")) "Email Address")
+        ;                 (div (@ (class "row")) (input (@ (type "text") (name "email"))))))
+        ;       (div nil
+        ;            (input (@ (type "submit") (value "Subscribe!")))))))
 
 (org-link-set-parameters
  "yt"
@@ -106,12 +106,14 @@
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
-                                (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
-                                (a (@ (class "nav-link") (href "/news/")) "News") " "
-                                (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
-                                (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
+                                (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
+                                ; (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
+                                ; (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
+                                ; (a (@ (class "nav-link") (href "/news/")) "News") " "
+                                ; (a (@ (class "nav-link") (href "/community/")) "Community") " "
+                                ; (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
+                                ; (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
+                               ))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
