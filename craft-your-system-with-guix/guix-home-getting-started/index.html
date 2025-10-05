@@ -1,0 +1,343 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Getting Started with Guix Home - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Getting Started with Guix Home</h1><p class="site-post-meta center"></p><div class="video">  <iframe src="https://www.youtube.com/embed/XRL3J6rfb3w" allowfullscreen></iframe></div><div id="content">
+<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-org7fac603">
+<p>
+Don&rsquo;t you hate it when you spend a lot of time configuring the tools you use for your personal workflow on Linux and then later have to figure out how to replicate it all on another machine?
+</p>
+
+<p>
+How about when you install an update to your window manager or some other program and you can&rsquo;t seem to log back in to your desktop environment?
+</p>
+
+<p>
+In this video I&rsquo;m going to show you the quickest way to start using Guix Home to manage the chaos of your personal computing configuration.  I&rsquo;ll explain a little bit about how it works and then I&rsquo;ll walk you through a basic <code>home-environment</code> configuration so that you can get started with it quickly.
+</p>
+
+<p>
+Let&rsquo;s get started!
+</p>
+</div>
+
+<h2><a id="understanding-guix-home" class="anchor" href="#understanding-guix-home">¶</a>Understanding Guix Home</h2><div class="outline-text-2" id="text-org0932736">
+<p>
+Guix Home is a feature of GNU Guix which makes it possible to install and apply configurations for the tools you use in your day to day computing workflow.
+</p>
+
+<p>
+It uses the same configuration model as Guix System but applied to your <code>$HOME</code> folder instead of the entire system.
+</p>
+
+<p>
+Here&rsquo;s an example of a basic <code>home-environment</code> configuration file named <code>home-config.scm</code> which installs a couple of programs and configures Bash with a few useful settings:
+</p>
+
+<pre>(use-modules (gnu)
+             (gnu home)
+             (gnu home services shells))
+
+(home-environment
+ (packages (specifications-&gt;packages
+            (list <span class="org-string">"git"</span>
+                  <span class="org-string">"emacs-no-x-toolkit"</span>)))
+
+ (services (list (service home-bash-service-type
+                          (home-bash-configuration
+                           (environment-variables '((<span class="org-string">"PS1"</span> . <span class="org-string">"\\[\\e[1;32m\\]\\u \\[\\e[1;34m\\]\\w \\[\\e[0m\\]&#955; "</span>)
+                                                    (<span class="org-string">"EDITOR"</span> . <span class="org-string">"emacsclient"</span>)))
+                           (aliases '((<span class="org-string">"gs"</span> . <span class="org-string">"git status"</span>))))))))</pre>
+
+<p>
+Let&rsquo;s walk through this line by line:
+</p>
+
+<p>
+The <code>use-modules</code> expression imports a number of modules that provide packages and services that we&rsquo;ll use in this home configuration.  The Guix manual pages will tell you which module you need to import to use each service type.
+</p>
+
+<p>
+<code>home-environment</code> is the actual configuration expression that gets evaluated when <code>guix home</code> reads this file.  You will most often deal with the two primary fields, <code>packages</code> and <code>services</code>.
+</p>
+
+<p>
+The <code>packages</code> field expects a list of packages for software to be installed in your home folder.  We&rsquo;re using the <code>specifications-&gt;packages</code> procedure in this case to pass a list of strings representing Guix packages so that it returns the corresponding package definitions.  We&rsquo;ll talk more about this in a later video!
+</p>
+
+<p>
+The <code>services</code> field expects a list of home services with their associated configurations.  In this case, we&rsquo;re including the <code>home-bash-service-type</code> which accepts a <code>home-bash-configuration</code> to customize various aspects of Bash across its own configuration files.
+</p>
+
+<p>
+The <code>home-bash-configuration</code> expression is used here to set a couple of <code>environment-variables</code> and <code>aliases</code> in the resulting <code>~/.bash_profile</code> and <code>~/.bashrc</code> files.  More details and configuration fields can be found in <a href="https://guix.gnu.org/manual/devel/en/html_node/Shells-Home-Services.html#home_002dbash_002dconfiguration">the Guix manual</a>.
+</p>
+</div>
+
+<h3><a id="what-is-a-service" class="anchor" href="#what-is-a-service">¶</a>What is a service?</h3><div class="outline-text-3" id="text-org0e5f4b5">
+<p>
+A quick side note on Guix services:
+</p>
+
+<p>
+A &ldquo;service&rdquo; in Guix is not simply a program that runs in the background like in most Linux systems.  It is actually the mechanism for applying a number of things to your system or home configuration:
+</p>
+
+<ul class="org-ul">
+<li>Placing configuration files needed by the associated program</li>
+<li>Installing packages to enable the configuration to operate</li>
+<li>Creating special user accounts or other system-level configuration</li>
+<li>Optionally configuring background services to run at the system or user level</li>
+</ul>
+
+<p>
+We&rsquo;ll cover services in more detail in a future video, including writing your own home services!
+</p>
+</div>
+
+<h2><a id="testing-the-configuration" class="anchor" href="#testing-the-configuration">¶</a>Testing the Configuration</h2><div class="outline-text-2" id="text-org5df9b93">
+<p>
+Now that we&rsquo;ve got this configuration ready, it&rsquo;d be great to test it out without breaking our current home folder setup.  Luckily Guix Home provides us with the <code>guix home container</code> command to see the final result configured in a temporary container environment!
+</p>
+
+<p>
+Let&rsquo;s test out this configuration:
+</p>
+
+<pre>guix home container ~/dotfiles/config/home/home-config.scm</pre>
+
+<p>
+Once the new configuration is built, we will immediately be dropped into a Bash shell in the container environment.  The custom Bash prompt and aliases we configured are already active and <code>emacs</code> is available on the <code>$PATH</code>.
+</p>
+
+<p>
+If we run a quick <code>ls</code> command, we&rsquo;ll be able to see the <code>.bash_profile</code> and <code>.bashrc</code> files that were generated for us by <code>home-bash-profile-service</code>:
+</p>
+
+<pre>crafter ~ &#955; ls -al
+total 0
+drwxr-xr-x 5 crafter users 180 Nov  1 09:19 ./
+drwxr-xr-x 3 crafter users  60 Nov  1 09:19 ../
+lrwxrwxrwx 1 crafter users  56 Nov  1 09:19 .bash_profile -&gt; /gnu/store/g779bp3xz2ipyy2pld1vxkdi6vizs39c-bash_profile
+lrwxrwxrwx 1 crafter users  50 Nov  1 09:19 .bashrc -&gt; /gnu/store/5dvm2bfwfwan5hsaxl1icqkmbf0wmjf0-bashrc
+drwxr-xr-x 2 crafter users  40 Nov  1 09:19 .cache/
+drwxr-xr-x 3 crafter users  60 Nov  1 09:19 .config/
+lrwxrwxrwx 1 crafter users  48 Nov  1 09:19 .guix-home -&gt; /gnu/store/0jg05s4gxf5ynqrrqkc75w3hr0qvwi2k-home
+drwxr-xr-x 4 crafter users  80 Nov  1 09:19 .local/
+lrwxrwxrwx 1 crafter users  57 Nov  1 09:19 .profile -&gt; /gnu/store/nqribhmgwcmd8fgblwkcsi1x4wsy2m1h-shell-profile</pre>
+
+<p>
+These generated files are actually symbolic links into the <code>/gnu/store</code> path which is where Guix keeps all of the configuration files it generates before linking them into your <code>$HOME</code> folder.  We&rsquo;ll talk more about this a bit later in the video.
+</p>
+</div>
+
+<h2><a id="applying-the-configuration" class="anchor" href="#applying-the-configuration">¶</a>Applying the Configuration</h2><div class="outline-text-2" id="text-org931f72e">
+<p>
+Once you&rsquo;ve inspected the <code>$HOME</code> folder inside of the container and tested that the appropriate programs are installed, it&rsquo;s now time to apply the configuration to your actual home folder!
+</p>
+
+<p>
+To do this, we use the <code>guix home reconfigure</code> command:
+</p>
+
+<pre>guix home reconfigure ~/dotfiles/config/home/home-config.scm</pre>
+
+<p>
+After this command completes, your home folder will be updated with the result of building your <code>home-environment</code> configuration!
+</p>
+
+<p>
+But wait, what if <code>guix home</code> had to overwrite files that already existed in your <code>$HOME</code> folder like Bash configuration files?
+</p>
+
+<p>
+Don&rsquo;t worry, if any existing configuration files get replaced, they will be stashed away in one of the <code>&lt;timestamp&gt;-guix-home-legacy-configs-backup</code> folders that get created in your <code>$HOME</code> folder.
+</p>
+
+<pre>crafter ~ &#955; ls -al 1730454615-guix-home-legacy-configs-backup/
+total 16
+drwxr-xr-x 2 crafter users 4096 Nov  1 11:50 ./
+drwx------ 8 crafter users 4096 Nov  1 12:48 ../
+-rw-r--r-- 1 crafter users  447 Nov  1 11:02 .bash_profile
+-rw-r--r-- 1 crafter users  719 Nov  1 11:02 .bashrc</pre>
+
+<p>
+This gives you an opportunity to back these old files up or figure out how to integrate the needed parts into your Guix Home configuration so that they get applied in the future.
+</p>
+
+<p>
+These folders are not needed by Guix Home, they just contain any files that had to be replaced with your new configuration.  If you don&rsquo;t need the replaced files anymore, you can just delete these folders to clear away the cruft.
+</p>
+</div>
+
+<h2><a id="migrating-your-existing-configuration" class="anchor" href="#migrating-your-existing-configuration">¶</a>Migrating Your Existing Configuration</h2><div class="outline-text-2" id="text-orga1761f4">
+<p>
+Now you&rsquo;re probably thinking &ldquo;well this looks great, but what about all of the configuration files that I&rsquo;ve hand-crafted over the years?&rdquo;
+</p>
+
+<p>
+Luckily, Guix Home provides a solution for integrating your existing configuration files into your new <code>home-environment</code> configuration, the <code>home-dotfiles-service-type</code>.  You&rsquo;ll need to make sure you&rsquo;re up to date with <code>guix pull</code> to use it!
+</p>
+
+<p>
+This service accepts a list of <code>directories</code>, each of which containing a folder structure that should be symbolically linked directly into your <code>$HOME</code> folder.  For example, if you give it a folder containing a subpath of <code>.emacs.d/init.el</code>, this will be linked directly into your home folder as <code>~/.emacs.d/init.el</code>.
+</p>
+
+<p>
+<a href="https://guix.gnu.org/manual/devel/en/html_node/Essential-Home-Services.html#index-home_002dfiles_002dservice_002dtype">The Guix manual</a> provides more details and examples about how the folder symlinking works including additional useful options.
+</p>
+
+<p>
+Here&rsquo;s an updated configuration that uses the <code>home-dotfiles-service-type</code>:
+</p>
+
+<pre>(use-modules (gnu)
+             (gnu home)
+             (gnu home services dotfiles)
+             (gnu home services shells))
+
+(home-environment
+ (packages (specifications-&gt;packages
+            (list <span class="org-string">"git"</span>
+                  <span class="org-string">"emacs-no-x-toolkit"</span>)))
+
+ (services (list (service home-bash-service-type
+                          (home-bash-configuration
+                           (environment-variables '((<span class="org-string">"PS1"</span> . <span class="org-string">"\\[\\e[1;32m\\]\\u \\[\\e[1;34m\\]\\w \\[\\e[0m\\]&#955; "</span>)
+                                                    (<span class="org-string">"EDITOR"</span> . <span class="org-string">"emacsclient"</span>)))
+                           (aliases '((<span class="org-string">"gs"</span> . <span class="org-string">"git status"</span>)))))
+
+                 (service home-dotfiles-service-type
+                          (home-dotfiles-configuration
+                           (directories '(<span class="org-string">"../../files"</span>)))))))</pre>
+
+<p>
+An important details is that the paths you pass to <code>directories</code> are considered to be relative to the path of the home configuration file!  In this case, our config file is located at <code>~/dotfiles/config/home/home-config.scm</code> and the <code>files</code> folder is at <code>~/dotfiles/files</code> so the relative path becomes <code>../../files</code>.
+</p>
+
+<p>
+After we apply this configuration with <code>guix home reconfigure</code>, we can see the Emacs and Sway configurations linked into the home folder:
+</p>
+
+<pre>crafter ~ &#955; ls -al ~/.emacs.d/
+total 16
+drwx------ 3 crafter users 4096 Nov  3 14:18 ./
+drwx------ 8 crafter users 4096 Nov  3 14:18 ../
+drwx------ 2 crafter users 4096 Nov  1 12:51 auto-save-list/
+lrwxrwxrwx 1 crafter users   74 Nov  3 14:18 init.el -&gt; /gnu/store/y6i4ibz1cy5ns1jnr1wfqisl8j53037h-home-dotfiles--emacs-d-init-el
+
+crafter ~ &#955; ls -al ~/.config/sway/
+total 12
+drwxr-xr-x 2 crafter users 4096 Nov  3 14:18 ./
+drwxr-xr-x 7 crafter users 4096 Nov  3 14:18 ../
+lrwxrwxrwx 1 crafter users   77 Nov  3 14:18 config -&gt; /gnu/store/spl92skqqjx94xj80m3mir2gba9qdpsw-home-dotfiles--config-sway-config</pre>
+</div>
+
+<h3><a id="why-canrsquot-i-edit-the-files" class="anchor" href="#why-canrsquot-i-edit-the-files">¶</a>Why can&rsquo;t I edit the files?</h3><div class="outline-text-3" id="text-org89017fb">
+<p>
+One curious thing that happens when you use <code>home-dotfiles-service-type</code> is that the symlinked files are marked as <i>read only</i>!
+</p>
+
+<p>
+This is because Guix is taking your files and copying them into the &ldquo;store&rdquo; where all files meant to be <i>immutable</i>, meaning they should not be edited to preserve the current state of the system.
+</p>
+
+<p>
+This is actually a good thing!  It&rsquo;s how Guix provides you with stability guarantees because random configuration changes won&rsquo;t break your system unless you use <code>guix home reconfigure</code> to apply the new changes.
+</p>
+
+<p>
+You can sometimes get around this in programs like Emacs which enable you to re-evaluate sections of your configuration without reloading the entire configuration file.
+</p>
+</div>
+
+<h2><a id="rolling-it-back" class="anchor" href="#rolling-it-back">¶</a>Rolling it Back!</h2><div class="outline-text-2" id="text-orgc1d9a95">
+<p>
+One of the greatest benefits of using Guix Home to manage your <code>$HOME</code> folder is that you can quickly fix your configuration when it breaks!
+</p>
+
+<p>
+If you realize that there&rsquo;s some problem with your configuration after you apply it, you can always roll it back to the previous generation using the <code>guix home roll-back</code> command:
+</p>
+
+<pre>guix home roll-back</pre>
+
+<p>
+Not only will this put your configuration files back the way they were before the last time you ran <code>guix home reconfigure</code>, it will also downgrade any programs back to the versions you had installed at the time.  This can save you from a huge headache if something goes wrong!
+</p>
+
+<p>
+Guix Home actually stores many of the previous &ldquo;generations&rdquo; (builds) of your configuration so you can even go back further in time when things really go wrong.
+</p>
+
+<p>
+If you&rsquo;d like to see all of the previous &ldquo;generations&rdquo; that you can roll back to, check out the <code>guix home list-generations</code> command:
+</p>
+
+<pre>crafter ~ &#955; guix home list-generations
+Generation 1    Nov 01 2024 11:19:16
+  file name: /var/guix/profiles/per-user/crafter/guix-home-1-link
+  canonical file name: /gnu/store/0jg05s4gxf5ynqrrqkc75w3hr0qvwi2k-home
+  channels:
+    guix:
+      repository URL: https://git.savannah.gnu.org/git/guix.git
+      branch: master
+      commit: e85f52e826b0701c3dcf9acf9d81e5ae57aec8f9
+  configuration file: /gnu/store/hs82gqczyd5qms3nkcn8874kbchxnchj-configuration.scm
+Generation 2    Nov 01 2024 11:54:03    (current)
+  file name: /var/guix/profiles/per-user/crafter/guix-home-2-link
+  canonical file name: /gnu/store/alhvq73niq128l6lbaxalw89abfyqmng-home
+  channels:
+    guix:
+      repository URL: https://git.savannah.gnu.org/git/guix.git
+      branch: master
+      commit: e85f52e826b0701c3dcf9acf9d81e5ae57aec8f9
+  configuration file: /gnu/store/70r2if11ffgi5sd7dby4wmsqhlz5i79w-configuration.scm</pre>
+
+<p>
+You can switch to a specific generation using the <code>guix home switch-generation</code> command, passing it the desired generation number:
+</p>
+
+<pre>crafter ~ &#955; guix home switch-generation 1
+switched from generation 2 to 1
+WARNING: (guile-user): imported module (guix build utils) overrides core binding <span class="org-sh-quoted-exec">`delete'
+Cleaning up symlinks from previous home at /gnu/store/alhvq73niq128l6lbaxalw89abfyqmng-home.
+
+Removing /home/crafter/.profile... done
+Removing /home/crafter/.bash_profile... done
+Removing /home/crafter/.bashrc... done
+Removing /home/crafter/.config/fontconfig/fonts.conf... done
+Removed /home/crafter/.config/fontconfig.
+Removing /home/crafter/.config/sway/config... done
+Removed /home/crafter/.config/sway.
+Skipping /home/crafter/.config (not an empty directory)... done
+Removing /home/crafter/.emacs.d/init.el... done
+Skipping /home/crafter/.emacs.d (not an empty directory)... done
+Cleanup finished.
+
+Symlinking /home/crafter/.profile -&gt; /gnu/store/nqribhmgwcmd8fgblwkcsi1x4wsy2m1h-shell-profile... done
+Symlinking /home/crafter/.bash_profile -&gt; /gnu/store/g779bp3xz2ipyy2pld1vxkdi6vizs39c-bash_profile... done
+Symlinking /home/crafter/.bashrc -&gt; /gnu/store/5dvm2bfwfwan5hsaxl1icqkmbf0wmjf0-bashrc... done
+Symlinking /home/crafter/.config/fontconfig/fonts.conf -&gt; /gnu/store/waz5zaijm4sklnwksk33x6p0p98p24f8-fonts.conf... done
+ done
+Finished updating symlinks.
+
+Comparing /gnu/store/alhvq73niq128l6lbaxalw89abfyqmng-home/profile/share/fonts and
+          /gnu/store/0jg05s4gxf5ynqrrqkc75w3hr0qvwi2k-home/profile/share/fonts... done (same)
+Evaluating on-change gexps.
+
+On-change gexps evaluation finished.
+</span></pre>
+
+<p>
+This will put us back to the state of your configuration before we linked our existing configuration files into the <code>$HOME</code> folder!
+</p>
+</div>
+
+<h2><a id="conclusion" class="anchor" href="#conclusion">¶</a>Conclusion</h2><div class="outline-text-2" id="text-org6f78de9">
+<p>
+That&rsquo;s it for our introductory look at how Guix Home can help you manage the chaos of your personal computing configuration!
+</p>
+
+<p>
+In future videos I&rsquo;ll show you some other useful home services that can help you craft an awesome computing environment with all the benefits of Guix Home!
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

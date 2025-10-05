@@ -1,0 +1,119 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>PreScheme: Low-Level Scheme Programming - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">PreScheme: Low-Level Scheme Programming</h1><p class="site-post-meta center">August 16, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/QqKuHylIqBs" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-orge13b616">
+<ul class="org-ul">
+<li><p>
+Reminder about the EmacsConf 2024 Call for Participation:
+</p>
+
+<p>
+The conference will be December 7 and 8 this year:
+</p>
+
+<p>
+<a href="https://emacsconf.org/2024/cfp/">https://emacsconf.org/2024/cfp/</a>
+</p>
+
+<p>
+If you have an Emacs-related topic you&rsquo;re excited about, consider submitting a proposal!
+</p></li>
+
+<li>Next week: New System Crafters video on workflows for managing many tasks with Org agenda bulk actions!</li>
+</ul>
+</div>
+
+<h2><a id="taking-a-look-at-prescheme" class="anchor" href="#taking-a-look-at-prescheme">¶</a>Taking a Look at PreScheme</h2><div class="outline-text-2" id="text-org78c76d5">
+<ul class="org-ul">
+<li><a href="https://prescheme.org/">https://prescheme.org/</a></li>
+<li><a href="https://prescheme.org/posts/announcing-the-pre-scheme-restoration.html">https://prescheme.org/posts/announcing-the-pre-scheme-restoration.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scheme_48">https://en.wikipedia.org/wiki/Scheme_48</a></li>
+<li><a href="https://s48.org/">https://s48.org/</a></li>
+</ul>
+
+<p>
+We&rsquo;ll experiment with PreScheme by referring to the Scheme48 manual:
+</p>
+
+<p>
+<a href="https://tailcall.au/s48-refman/scheme48.html">https://tailcall.au/s48-refman/scheme48.html</a>
+</p>
+
+<p>
+A good starting point:
+</p>
+
+<p>
+<a href="https://tailcall.au/s48-refman/scheme48.html#Example-Pre_002dScheme-compiler-usage">https://tailcall.au/s48-refman/scheme48.html#Example-Pre_002dScheme-compiler-usage</a>
+</p>
+
+<p>
+C function interface:
+</p>
+
+<p>
+<a href="https://tailcall.au/s48-refman/scheme48.html#Pre_002dScheme-access-to-C-functions-and-macros">https://tailcall.au/s48-refman/scheme48.html#Pre_002dScheme-access-to-C-functions-and-macros</a>
+</p>
+
+<p>
+Can we write a small program with Raylib using PreScheme?
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.raylib.com/">https://www.raylib.com/</a></li>
+<li><a href="https://codeberg.org/FluxHarmonic/flux-chibi/src/branch/master/lib/raylib.stub">https://codeberg.org/FluxHarmonic/flux-chibi/src/branch/master/lib/raylib.stub</a></li>
+</ul>
+</div>
+
+<h2><a id="the-final-code" class="anchor" href="#the-final-code">¶</a>The final code</h2><div class="outline-text-2" id="text-org5357e16">
+<p>
+Not fully working, but close!
+</p>
+
+<p>
+<b>game.scm:</b>
+</p>
+
+<pre>(<span class="org-keyword">define</span> <span class="org-function-name">init-window</span> (external <span class="org-string">"InitWindow"</span> (=&gt; (integer integer (^ char)) null)))
+(<span class="org-keyword">define</span> <span class="org-function-name">set-target-fps</span> (external <span class="org-string">"SetTargetFps"</span> (=&gt; (integer) null)))
+(<span class="org-keyword">define</span> <span class="org-function-name">begin-drawing</span> (external <span class="org-string">"BeginDrawing"</span> (=&gt; () null)))
+(<span class="org-keyword">define</span> <span class="org-function-name">end-drawing</span> (external <span class="org-string">"EndDrawing"</span> (=&gt; () null)))
+(<span class="org-keyword">define</span> <span class="org-function-name">close-window</span> (external <span class="org-string">"CloseWindow"</span> (=&gt; () null)))
+(<span class="org-keyword">define</span> <span class="org-function-name">window-should-close?</span> (external <span class="org-string">"WindowShouldClose"</span> (=&gt; () boolean)))
+
+(<span class="org-keyword">define-record-type</span> color <span class="org-type">&lt;color&gt;</span>
+                    (make-color r g b a)
+                    (r char color-r)
+                    (g char color-g)
+                    (b char color-b)
+                    (a char color-a))
+
+(<span class="org-keyword">define</span> (<span class="org-function-name">main</span>)
+  (init-window 1024 768 <span class="org-string">"Hello from PreScheme!"</span>)
+  (<span class="org-keyword">let</span> <span class="org-function-name">loop</span> ()
+    (<span class="org-keyword">if</span> (eq? (window-should-close?) #f)
+        (<span class="org-keyword">begin</span>
+          (begin-drawing)
+
+          (end-drawing)
+          (loop))
+        0)))</pre>
+
+<p>
+<b>packages.scm:</b>
+</p>
+
+<pre>(define-structure pstest (<span class="org-keyword">export</span> main)
+  (open prescheme
+        ps-record-types)
+  (files game))</pre>
+
+<p>
+<b>compile.scm:</b>
+</p>
+
+<pre>(prescheme-compiler 'pstest '(<span class="org-string">"packages.scm"</span>)
+                    'pstest-init
+                    <span class="org-string">"main.c"</span>
+                    '(header <span class="org-string">"#include &lt;raylib.h&gt;"</span>))</pre>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

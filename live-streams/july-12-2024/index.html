@@ -1,0 +1,125 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Automating Org Mode Tasks with Emacs Lisp - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Automating Org Mode Tasks with Emacs Lisp</h1><p class="site-post-meta center">July 12, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/25HBEqIPoH8" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org460f2d7">
+<ul class="org-ul">
+<li><p>
+Reminder about the EmacsConf 2024 Call for Participation:
+</p>
+
+<p>
+The conference will be December 7 and 8 this year:
+</p>
+
+<p>
+<a href="https://emacsconf.org/2024/cfp/">https://emacsconf.org/2024/cfp/</a>
+</p>
+
+<p>
+If you have an Emacs-related topic you&rsquo;re excited about, consider submitting a proposal!
+</p></li>
+</ul>
+</div>
+
+<h2><a id="letrsquos-hack-on-org-mode-files" class="anchor" href="#letrsquos-hack-on-org-mode-files">¶</a>Let&rsquo;s Hack on Org Mode Files!</h2><div class="outline-text-2" id="text-orgea0885c">
+<p>
+This week I made a post on socials asking Emacs users how much their life would be improved by understanding how to write Emacs Lisp code at an intermediate level:
+</p>
+
+<p>
+<a href="https://fosstodon.org/@daviwil/112756516386132987">https://fosstodon.org/@daviwil/112756516386132987</a>
+</p>
+
+<p>
+This post generated quite a lot of responses and discussion!  One recurring theme I saw was the desire to automate Org Mode tasks with Emacs Lisp.
+</p>
+
+<p>
+Let&rsquo;s learn a bit about how we might do that by hacking on a few useful tasks:
+</p>
+
+<ul class="org-ul">
+<li>Looping over all TODO items in a file</li>
+<li>Refiling all DONE tasks to another file</li>
+<li>Sorting all TODO items under a heading based on their task state</li>
+<li>Scraping Org Agenda items to extract details</li>
+<li>Exporting clocked task data to another format</li>
+<li>What else?</li>
+</ul>
+</div>
+
+<h3><a id="useful-functions" class="anchor" href="#useful-functions">¶</a>Useful Functions</h3><div class="outline-text-3" id="text-org44461e7">
+<ul class="org-ul">
+<li><code>org-map-entries</code>: Loops over all headings in an org document, including filtering, etc</li>
+<li><code>org-entry-get</code>: Gets the value of a property of a given entry</li>
+</ul>
+</div>
+
+<h3><a id="existing-code-for-agenda-scraping" class="anchor" href="#existing-code-for-agenda-scraping">¶</a>Existing Code for Agenda Scraping</h3><div class="outline-text-3" id="text-orga80cfa5">
+<pre>(<span class="org-keyword">defun</span> <span class="org-function-name">dw/get-schedule-entries</span> ()
+  <span class="org-doc">"Get all daily agenda entries with the category 'Schedule'."</span>
+  (<span class="org-keyword">let</span> ((entries '()))
+    (<span class="org-keyword">save-window-excursion</span>
+      (org-agenda nil <span class="org-string">"a"</span>)
+      (goto-char (point-min))
+      (<span class="org-keyword">while</span> (org-agenda-next-item 1)
+        (<span class="org-keyword">when</span> (string= (get-text-property (point) 'org-category)
+                       <span class="org-string">"Schedule"</span>)
+          (<span class="org-keyword">push</span> entry entries))))
+      entries))</pre>
+
+<p>
+Extracting details about the agenda item at point:
+</p>
+
+<pre>(get-text-property (point) 'time) <span class="org-comment-delimiter">;; </span><span class="org-comment">14:00-16:00
+</span>(get-text-property (point) 'time-of-day) <span class="org-comment-delimiter">;; </span><span class="org-comment">1400
+</span>(get-text-property (point) 'duration) <span class="org-comment-delimiter">;; </span><span class="org-comment">120.0 or nil if no range
+</span>
+(<span class="org-keyword">let*</span> ((time-of-day (get-text-property (point) 'time-of-day))
+       (hour (/ time-of-day 100))
+       (min (% time-of-day 100))
+       (current-time (decode-time))
+       (current-hour (nth 2 current-time))
+       (current-min (nth 1 current-time)))
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">do comparison here
+</span>  )</pre>
+</div>
+
+<h3><a id="the-final-code" class="anchor" href="#the-final-code">¶</a>The final code</h3><div class="outline-text-3" id="text-orga46be81">
+<pre><span class="org-comment-delimiter">;; </span><span class="org-comment">-*- lexical-binding: t; -*-
+</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(with-current-buffer "Tasks.org"
+</span><span class="org-comment-delimiter">;;   </span><span class="org-comment">(org-map-entries (lambda ()
+</span><span class="org-comment-delimiter">;;                      </span><span class="org-comment">(org-entry-get nil "TODO"))
+</span><span class="org-comment-delimiter">;;                    </span><span class="org-comment">"+TODO=\"DONE\""))
+</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">my/refile-heading-to-file-heading</span> (file heading)
+  (<span class="org-keyword">let</span> ((pos (<span class="org-keyword">save-excursion</span>
+               (find-file-noselect file)
+               (org-find-exact-headline-in-buffer heading))))
+    (org-refile nil nil (list heading file nil pos))))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">my/refile-done-tasks-to-archive</span> ()
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((archive-file-name
+         (format <span class="org-string">"%s_archive.org"</span>
+                 (file-name-sans-extension (buffer-file-name)))))
+    (org-map-entries (<span class="org-keyword">lambda</span> ()
+                       (my/refile-heading-to-file-heading
+                        archive-file-name
+                        <span class="org-string">"Archived Tasks"</span>))
+                     <span class="org-string">"+TODO=\"DONE\""</span>)))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-move-done-tasks-to-bottom</span> ()
+  <span class="org-doc">"Sort all tasks in the topmost heading by TODO state."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">save-excursion</span>
+    (<span class="org-keyword">while</span> (org-up-heading-safe))
+    (org-sort-entries nil ?o))
+
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">Reset the view of TODO items
+</span>  (org-overview)
+  (org-show-entry)
+  (org-show-children))</pre>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

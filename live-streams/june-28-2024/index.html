@@ -1,0 +1,94 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Creating a Video With Scheme - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Creating a Video With Scheme</h1><p class="site-post-meta center">June 28, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/VKmQpJf-Y7M" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org7ddcd22">
+<ul class="org-ul">
+<li><p>
+New Emacs 29 and Org Mode Releases
+</p>
+
+<p>
+Last weekend there were releases for both Emacs 29 and Org Mode to address a critical security vulerability when previewing Org file attachments in e-mails!
+</p>
+
+<p>
+<a href="https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00695.html">https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00695.html</a>
+<a href="https://list.orgmode.org/87sex5gdqc.fsf@localhost/T/#u">https://list.orgmode.org/87sex5gdqc.fsf@localhost/T/#u</a>
+</p></li>
+
+<li><p>
+Emacs 30 Release is Underway
+</p>
+
+<p>
+<a href="https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00746.html">https://lists.gnu.org/archive/html/emacs-devel/2024-06/msg00746.html</a>
+</p>
+
+<p>
+First pretest release should happen in around a month, so help flush out any remaining bugs by building a copy yourself or use <code>emacs-next</code> / <code>emacs-next-pgtk</code> packages on Guix!
+</p>
+
+<p>
+One interesting inclusion: <code>which-key</code>
+</p>
+
+<p>
+<a href="https://github.com/emacs-mirror/emacs/commit/fa4203300fde6820a017bf1089652fb95759d68c">https://github.com/emacs-mirror/emacs/commit/fa4203300fde6820a017bf1089652fb95759d68c</a>
+</p></li>
+
+<li><p>
+Guile Scheme 3.0.10 was released!
+</p>
+
+<p>
+<a href="https://lists.gnu.org/archive/html/guile-devel/2024-06/msg00039.html">https://lists.gnu.org/archive/html/guile-devel/2024-06/msg00039.html</a>
+</p></li>
+</ul>
+</div>
+
+<h2><a id="hacking-the-mlt-framework-with-guile" class="anchor" href="#hacking-the-mlt-framework-with-guile">¶</a>Hacking the MLT Framework with Guile</h2><div class="outline-text-2" id="text-org7115496">
+<p>
+Before this week got completely lost to the events of life, I was actively working on a new video for the channel.
+</p>
+
+<p>
+However, I didn&rsquo;t really want to settle with the typical old format of me just talking over a screencast in realtime.  I&rsquo;d like to increase the quality of the videos and make them more impactful through good editing.
+</p>
+
+<p>
+This lead me on a bit of an oddysey both through the current set of Linux video editors (because Blender has unexpected limitations), leading me to once again try to write my own editor or video creation toolkit using Scheme.
+</p>
+
+<p>
+The two options were <code>libav</code> which powers <code>ffmpeg</code> or a library I&rsquo;ve been looking at for a while but never tried called the MLT Framework:
+</p>
+
+<p>
+<a href="https://www.mltframework.org/">https://www.mltframework.org/</a>
+</p>
+
+<p>
+This library is really interesting because it has a really simple C interface and internal data representation, making it easy to write my own Guile library on top using the dynamic FFI feature.
+</p>
+
+<p>
+Ultimately I ended up making a short video using the Shotcut editor (built with MLT), but now that I&rsquo;ve learned the capabilities of MLT better through Shotcut, I think it&rsquo;s time to try and replicate that video with the library that I&rsquo;ve been working on.
+</p>
+
+<p>
+Let&rsquo;s see what we can do!
+</p>
+
+<p>
+Here&rsquo;s the code: <a href="https://codeberg.org/daviwil/melted-scheme">https://codeberg.org/daviwil/melted-scheme</a>
+</p>
+</div>
+
+<h3><a id="resources" class="anchor" href="#resources">¶</a>Resources</h3><div class="outline-text-3" id="text-org17c735d">
+<ul class="org-ul">
+<li>The best resource: <a href="https://www.mltframework.org/docs/framework/">https://www.mltframework.org/docs/framework/</a></li>
+<li><a href="https://www.mltframework.org/docs/">https://www.mltframework.org/docs/</a></li>
+<li><a href="https://www.mltframework.org/plugins/PluginsFilters/">https://www.mltframework.org/plugins/PluginsFilters/</a></li>
+<li><a href="https://www.mltframework.org/docs/previewscaling/">https://www.mltframework.org/docs/previewscaling/</a></li>
+</ul>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

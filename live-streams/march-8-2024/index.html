@@ -1,0 +1,62 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Code Dive: Project.el in Emacs - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Code Dive: Project.el in Emacs</h1><p class="site-post-meta center">March  8, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/O6hMwJfaXV8" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org27353bd">
+<ul class="org-ul">
+<li><p>
+Registration is still open for the next &ldquo;Hands-On Guile Scheme for Beginners&rdquo; iteration!
+</p>
+
+<p>
+There are a number of improvements to the course this time, so check out the site even if you&rsquo;ve looked at it before:
+</p>
+
+<p>
+<a href="https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/">https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/</a>
+</p>
+
+<p>
+<b>Special Announcement:</b> A member of the community is looking to sponsor a spot at the course for anyone who is really motivated to learn Scheme but can&rsquo;t afford to pay for a course right now (student, early career, etc).  If you are interested, please reach out to me via e-mail!
+</p></li>
+
+<li><p>
+Check out this week&rsquo;s SC Newsletter:
+</p>
+
+<p>
+<a href="https://systemcrafters.net/newsletter/sc-news-008">https://systemcrafters.net/newsletter/sc-news-008</a>
+</p>
+
+<p>
+Sign up here: <a href="https://systemcrafters.net/newsletter/">https://systemcrafters.net/newsletter/</a>
+</p></li>
+</ul>
+</div>
+
+<h2><a id="letrsquos-dive-into-the-code" class="anchor" href="#letrsquos-dive-into-the-code">¶</a>Let&rsquo;s dive into the code!</h2><div class="outline-text-2" id="text-orgc1096c8">
+<p>
+I&rsquo;m going to experiment with a new model for the weekly streams!
+</p>
+
+<p>
+I have a few different show concepts in mind that I will attempt to rotate over the course of 4 or 5 weeks so that we always have something interesting to come back to.
+</p>
+
+<p>
+This week is our first &ldquo;episode&rdquo; of <b>Code Dive</b>, a stream segment where we dive deep into the code of a package, program, or library to discover interesting patterns and see how we might use these insights for our own projects!
+</p>
+
+<p>
+This week we&rsquo;ll take a look at the built-in <code>project.el</code> package in Emacs to see what interesting things we can learn from it.
+</p>
+
+<pre>(<span class="org-keyword">defun</span> <span class="org-function-name">my/project-prompter</span> ()
+  (read-file-name <span class="org-string">"Select a project folder:"</span>
+                  <span class="org-string">"/home/daviwil/Projects/Code/"</span>
+                  nil
+                  nil
+                  nil
+                  #'file-directory-p))
+
+(<span class="org-keyword">setq</span> project-prompter #'my/project-prompter)</pre>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

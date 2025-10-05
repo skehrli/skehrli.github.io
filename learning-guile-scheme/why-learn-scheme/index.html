@@ -1,0 +1,250 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:03 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>5 Reasons to Learn Scheme in 2024 - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">5 Reasons to Learn Scheme in 2024</h1><p class="site-post-meta center"></p><div class="video">  <iframe src="https://www.youtube.com/embed/3eXK9YZ0NjU" allowfullscreen></iframe></div><div id="content">
+<h2><a id="what-is-scheme" class="anchor" href="#what-is-scheme">¶</a>What is Scheme?</h2><div class="outline-text-2" id="text-orga96222a">
+<p>
+Scheme is a minimal yet incredibly powerful member of the Lisp family of languages.
+</p>
+
+<p>
+Because it&rsquo;s a Lisp, it shares the same parenthesis-oriented syntax as other Lisp languages, but it&rsquo;s quite unique compared to Common Lisp or Clojure for example.
+</p>
+
+<p>
+In this video, I&rsquo;m going to give you 5 reasons why I think it&rsquo;s worth your time to learn Scheme this year.
+</p>
+
+<p>
+If after the video you&rsquo;re interested to learn it, I&rsquo;m running a 4 week live instructional course called &ldquo;Hands-On Guile Scheme for Beginners&rdquo; starting in February.  You can find a link with more details in the description and show notes below:
+</p>
+
+<p>
+<a href="https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/">https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/</a>
+</p>
+
+<p>
+I&rsquo;ll also be making more advanced courses this year about Guile Scheme and other topics, so if you want to be notified about those you can sign up for my newsletter, the link can also be found in the description:
+</p>
+
+<p>
+<a href="https://systemcrafters.net/newsletter/">https://systemcrafters.net/newsletter/</a>
+</p>
+
+<p>
+Now let&rsquo;s talk about Scheme!
+</p>
+</div>
+
+<h2><a id="1-you-will-deepen-your-programming-knowledge" class="anchor" href="#1-you-will-deepen-your-programming-knowledge">¶</a>1. You will deepen your programming knowledge</h2><div class="outline-text-2" id="text-orgaffdfb0">
+<p>
+Scheme is a great language both for beginners and for intermediate to advanced programmers.
+</p>
+
+<p>
+This is because its core language design provides a small set of features that work together to help you build well-crafted, functional programs.
+</p>
+
+<p>
+For beginners there&rsquo;s less to learn at first, and the focus on the fundamentals of computation and data structures helps to build a solid foundation for writing good code.
+</p>
+
+<p>
+For advanced programmers, there are a few powerful features of the language that will really expand your mind and give you the tools to write code that just isn&rsquo;t possible in other languages.  More on that in a bit.
+</p>
+</div>
+
+<h3><a id="functional-programming" class="anchor" href="#functional-programming">¶</a>Functional Programming</h3><div class="outline-text-3" id="text-org2d595a0">
+<p>
+Scheme is centered around functional programming, where the function is the core unit of abstraction.  It&rsquo;s a great first language to learn functional programming because it isn&rsquo;t as strict about everything being &ldquo;pure functional&rdquo; with immutable data structures like in other languages.
+</p>
+
+<p>
+Where other languages like Java or C++ use classes as the central aspect of your code, Scheme programs use functions that encapsulate their own information and pass them to other functions to compose more sophisticated behavior.
+</p>
+
+<p>
+Scheme also promotes recursion as a key aspect for algorithm design.  It&rsquo;s easy to create recursive blocks of code anywhere, without defining a function, to produce elegant algorithms for any kind of iteration even if the data source doesn&rsquo;t have a predetermined length.
+</p>
+</div>
+
+<h2><a id="2-incredibly-powerful-features" class="anchor" href="#2-incredibly-powerful-features">¶</a>2. Incredibly powerful features</h2><div class="outline-text-2" id="text-org1b6de14">
+<p>
+While keeping a pretty minimal core language, Scheme actually provides a few powerful features that aren&rsquo;t available in many other languages:
+</p>
+</div>
+
+<h3><a id="efficient-recursion" class="anchor" href="#efficient-recursion">¶</a>Efficient Recursion</h3><div class="outline-text-3" id="text-org4a012bb">
+<p>
+I mentioned before that Scheme often uses recursion to implement algorithms.  In some languages, recursion can be troublesome because when a function calls itself many times, it may exceed the number of function calls that the &ldquo;call stack&rdquo; can handle, leading to errors.
+</p>
+
+<p>
+Scheme implementations provide a feature called &ldquo;tail call optimization&rdquo; which can help you avoid this problem by enabling recursive algorithms to seem more like plain loops to the compiler.
+</p>
+
+<p>
+When you become comfortable writing Scheme code you will find many ways to use this feature, even outside of recursive loops.
+</p>
+</div>
+
+<h3><a id="ldquohygenicrdquo-macros" class="anchor" href="#ldquohygenicrdquo-macros">¶</a>&ldquo;Hygenic&rdquo; Macros</h3><div class="outline-text-3" id="text-org2ea9c49">
+<p>
+One of the first things you will hear about Lisp languages is the ability to write macros, or basically functions that can produce new code when they are called.
+</p>
+
+<p>
+Lisps that provide a macro capability usually expose it as a simple code templating facility using a feature called &ldquo;backquoting&rdquo;.  This is just syntactic sugar for creating lists and the compiler can take that list and turn it into executable code at compile time.
+</p>
+
+<p>
+The trouble with this approach is that the macro author has to be much more careful not to make a mistake when writing a macro because it&rsquo;s very easy to introduce bugs that can affect program behavior in surprising ways.
+</p>
+
+<p>
+Scheme has a different macro design which enables you to give more information to the compiler about how the macro will be used, making it possible for the compiler to manage the environment of the generated code more effectively.
+</p>
+
+<p>
+This means that not only will you have less bugs due to your macros, you will usually also get better error messages when you write code using that macro.
+</p>
+</div>
+
+<h3><a id="continuations" class="anchor" href="#continuations">¶</a>Continuations</h3><div class="outline-text-3" id="text-org83f5ab6">
+<p>
+First-class continuations are an advanced &ldquo;control flow&rdquo; feature of Scheme and one of the most unique things about the language.  &ldquo;First-class&rdquo; in this case means that the language provides this as a tool for you to use, not purely as a compiler implementation detail.
+</p>
+
+<p>
+I mentioned the idea of a &ldquo;call stack&rdquo; before.  Typically when a program starts, the code calls a series of functions which creates a &ldquo;stack&rdquo; of calls which eventually returns back to the original location where the program started.
+</p>
+
+<p>
+In Scheme programs, it is possible to store the entire call stack and replace it with another one while the program is running.  This stored call stack is called a &ldquo;continuation&rdquo; and it is represented as a function that restores the call stack and resumes execution of the code there.
+</p>
+
+<p>
+With continuations, it is possible to implement many advanced language features:
+</p>
+
+<ul class="org-ul">
+<li>Try/catch style exceptions</li>
+<li>Early returns in recursive search algorithms</li>
+<li>Cooperative multitasking and coroutines</li>
+<li>Go-style channels</li>
+<li>Actor model</li>
+</ul>
+
+<p>
+Your brain might hurt while learning to use continuations, but that&rsquo;s good!
+</p>
+</div>
+
+<h2><a id="3-wide-variety-of-scheme-implementations" class="anchor" href="#3-wide-variety-of-scheme-implementations">¶</a>3. Wide variety of Scheme implementations</h2><div class="outline-text-2" id="text-org44e0b6c">
+<p>
+Scheme is not a single language implementation, it is a language specification with many implementations.
+</p>
+
+<p>
+The core language is described by the R*RS series of specifications, each a more refined version of the last.  The most recent is R7RS-small which was finalized in 2013.  This document is well worth reading if you are interested in the language:
+</p>
+
+<p>
+<a href="https://small.r7rs.org/attachment/r7rs.pdf">https://small.r7rs.org/attachment/r7rs.pdf</a>
+</p>
+
+<p>
+There are Scheme implementations for many use cases, all with their own slight differences:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.gnu.org/software/guile/">Guile</a>: Used for program extensibility and application development in the GNU ecosystem</li>
+<li><a href="https://racket-lang.org/">Racket</a>: More than a Scheme; a rich language-building toolkit</li>
+<li><a href="https://cisco.github.io/ChezScheme/">Chez</a>: Industrial-grade Scheme with a cutting edge implementation</li>
+<li><a href="http://gambitscheme.org/">Gambit</a>: A Scheme-to-C compiler making it possible to write Scheme code to be deployed almost anywhere</li>
+<li><a href="https://scheme.fail/">Loko</a>: Write Scheme that compiles to &ldquo;bare metal&rdquo;</li>
+<li><a href="http://synthcode.com/scheme/chibi">Chibi</a>: Embeds directly into C applications to provide Scheme-based scripting</li>
+</ul>
+
+<p>
+&#x2026;and <a href="https://get.scheme.org/">many more</a>!
+</p>
+
+<p>
+For the purpose of this channel, we focus mainly on <b>Guile Scheme</b> which I find to be the most practical and versatile for personal projects.
+</p>
+</div>
+
+<h2><a id="4-you-can-write-any-kind-of-application-with-it" class="anchor" href="#4-you-can-write-any-kind-of-application-with-it">¶</a>4. You can write any kind of application with it</h2><div class="outline-text-2" id="text-orgcdacd9c">
+<p>
+Scheme is not just an &ldquo;academic language&rdquo;!
+</p>
+
+<p>
+Just like many other popular languages, there are a wealth of Scheme libraries that make it possible to write pretty much any kind of application you want:
+</p>
+
+<ul class="org-ul">
+<li>Terminal apps</li>
+<li>UI apps with GTK, QT, and more</li>
+<li>Web servers and clients</li>
+<li>Games</li>
+<li>Mobile apps (<a href="http://www.lambdanative.org/">LambdaNative</a>)</li>
+</ul>
+
+<p>
+You can even interface directly with low-level code using implementations like Guile Scheme which provide a runtime foreign-function interface (the ability to call C libraries directly).
+</p>
+
+<p>
+With the development of <a href="https://spritely.institute/news/guile-hoot-v010-released.html">Guile Hoot</a> by the <a href="https://spritely.institute">Spritely Institute</a>, you can now compile Scheme applications to WebAssembly to run in stable versions of Chrome and Firefox!  Hoot places Scheme at the forefront of current WebAssembly compilers with its support for host-managed GC and tail call optimization, so it&rsquo;s worth checking out.
+</p>
+</div>
+
+<h2><a id="5-you-will-get-the-full-benefit-of-gnu-guix" class="anchor" href="#5-you-will-get-the-full-benefit-of-gnu-guix">¶</a>5. You will get the full benefit of GNU Guix</h2><div class="outline-text-2" id="text-org91c1d8a">
+<p>
+Learning Scheme will make it possible for you to master GNU Guix because you will be able to dive into the code and understand how everything works.
+</p>
+
+<p>
+Basic Scheme knowledge will certainly make it easier to write system configurations and basic package definitions, but you&rsquo;ll benefit from more experience working with the language to go further and write service definitions and other customizations.  GNU Guix is a great practical way to use Scheme!
+</p>
+
+<p>
+If you haven&rsquo;t heard of GNU Guix before, I&rsquo;ve made a number of videos on this channel about it including one called &ldquo;5 Reasons to Try Guix in 2022&rdquo; (still relevant in 2024 :)
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=7ZdMRLPZhFs">https://www.youtube.com/watch?v=7ZdMRLPZhFs</a>
+</p>
+</div>
+
+<h2><a id="let-me-know-your-thoughts" class="anchor" href="#let-me-know-your-thoughts">¶</a>Let me know your thoughts!</h2><div class="outline-text-2" id="text-orge328575">
+<p>
+Now that I&rsquo;ve given you my 5 reasons why you should learn Scheme this year, I want to hear from you!
+</p>
+
+<p>
+Let me know in the comments below:
+</p>
+
+<ul class="org-ul">
+<li>Have you tried Scheme before?  How did it go?</li>
+<li>If you haven&rsquo;t tried Scheme yet, why not?</li>
+</ul>
+
+<p>
+Don&rsquo;t forget about the Hands-On Guile Scheme Beginners course that I&rsquo;ll be running in February, the link is in the show notes and the description below.
+</p>
+
+<p>
+<a href="https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/">https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/</a>
+</p>
+
+<p>
+And for general learning resources about Scheme, check out the official Scheme community site:
+</p>
+
+<p>
+<a href="https://www.scheme.org/">https://www.scheme.org/</a>
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

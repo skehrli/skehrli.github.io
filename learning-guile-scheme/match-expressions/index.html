@@ -1,0 +1,189 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:03 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>A Primer on Guile Match Expressions - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">A Primer on Guile Match Expressions</h1><p class="site-post-meta center"></p><div class="video">  <iframe src="https://www.youtube.com/embed/pxu7m2oCmyA" allowfullscreen></iframe></div><div id="content">
+<h2><a id="notes" class="anchor" href="#notes">¶</a>Notes</h2><div class="outline-text-2" id="text-orgf3241bc">
+<ul class="org-ul">
+<li>Match expressions are useful for destructuring information</li>
+<li>The <code>match</code> expression is not standard in Scheme, it&rsquo;s based on a <a href="https://3e8.org/pub/scheme/doc/match.pdf">paper</a> by Andrew K. Wright</li>
+<li>The <code>(ice-9 match)</code> <a href="https://www.gnu.org/software/guile/manual/html_node/Pattern-Matching.html">module in Guile</a> is based on a <code>match</code> implementation by Alex Shinn</li>
+</ul>
+</div>
+
+<h2><a id="examples" class="anchor" href="#examples">¶</a>Examples</h2><h3><a id="codematchcode" class="anchor" href="#codematchcode">¶</a><code>match</code></h3><div class="outline-text-3" id="text-org06a8b29">
+<pre>(use-modules (ice-9 match))
+
+(match '(1 2 3)
+  ((x y z)
+   (format #f <span class="org-string">"y is ~a"</span> y)))
+
+(match '(1 (2 3) 4)
+  ((x (y z) foo)
+   (format #f <span class="org-string">"z is ~a"</span> z)))
+
+(match '(1 2 3)
+  ((1 y z)
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(3 2 1)
+  ((1 y z)
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(3 2 1)
+  ((1 y z)
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  ((a b) <span class="org-comment-delimiter">;; </span><span class="org-comment">List length does not match!
+</span>   (format #f <span class="org-string">"b is ~a"</span> b))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(3 2 1)
+  ((1 y z)
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  ((a b c)
+   (format #f <span class="org-string">"b is ~a"</span> b))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(3 2 1)
+  ((<span class="org-keyword">or</span> (1 y z)
+       (x y z))
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(3 2 1)
+  ((<span class="org-keyword">and</span> (1 y z)
+        (x y z))
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(1 2 3)
+  ((<span class="org-keyword">and</span> (1 y z)
+        (x y z))
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match '(1 2 3)
+  ((first . rest)
+   (format #f <span class="org-string">"First item is ~a and rest is ~a."</span> first rest))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(<span class="org-keyword">let</span> <span class="org-function-name">loop</span> ((items '(1 2 3 4 5))
+           (strings '()))
+  (match items
+    ((item . rest)
+     (loop rest
+           (cons (format #f <span class="org-string">"Item ~a"</span> item)
+                 strings)))
+    (() (reverse strings))))
+
+(<span class="org-keyword">let</span> <span class="org-function-name">loop</span> ((items '(1 2 3 4 5))
+           (strings '()))
+  (<span class="org-keyword">if</span> (pair? items)
+      (loop (cdr items)
+            (cons (format #f <span class="org-string">"Item ~a"</span> (car items))
+                  strings))
+      (reverse strings)))
+
+(match '(1 2 3)
+  ((numbers ...)
+   (format #f <span class="org-string">"Here are some numbers: ~a"</span> numbers))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(match #(1 2 3)
+  ((x y z)
+   <span class="org-string">"It's a list!"</span>)
+  (#(x y z)
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(use-modules (srfi srfi-9))
+
+(<span class="org-keyword">define-record-type</span> person
+  (make-person name age hometown)
+  person?
+  (name person-name)
+  (age person-age)
+  (hometown person-hometown))
+
+(match (make-person <span class="org-string">"David"</span> 132 <span class="org-string">"Mars"</span>)
+  (($ person name age hometown)
+   (format #f <span class="org-string">"~a is ~a and from ~a."</span> name age hometown))
+  (_ <span class="org-string">"Not a record of 'person'!"</span>))
+
+(match (make-person <span class="org-string">"David"</span> 132 <span class="org-string">"Mars"</span>)
+  ((= person-age 50)
+   <span class="org-string">"The person is 50 years old."</span>)
+  (_ <span class="org-string">"Not 50 years old!"</span>))
+
+(match (make-person <span class="org-string">"David"</span> 50 <span class="org-string">"Mars"</span>)
+  ((= person-age 50)
+   <span class="org-string">"The person is 50 years old."</span>)
+  (_ <span class="org-string">"Not 50 years old!"</span>))
+
+(match (make-person <span class="org-string">"David"</span> 50 <span class="org-string">"Mars"</span>)
+  ((? person? person)
+   (format #f <span class="org-string">"The person is ~a years old."</span> (person-age person)))
+  (_ <span class="org-string">"Not 50 years old!"</span>))</pre>
+</div>
+
+<h3><a id="codematch-lambdacode-and-codematch-lambdacode" class="anchor" href="#codematch-lambdacode-and-codematch-lambdacode">¶</a><code>match-lambda</code> and <code>match-lambda*</code></h3><div class="outline-text-3" id="text-orge7f142a">
+<pre>(match '(1 2 3)
+  ((<span class="org-keyword">and</span> (1 y z)
+        (x y z))
+   (format #f <span class="org-string">"y is ~a"</span> y))
+  (_ <span class="org-string">"Did not match!"</span>))
+
+(<span class="org-keyword">define</span> <span class="org-function-name">match-numbers</span>
+  (match-lambda
+    ((<span class="org-keyword">and</span> (1 y z)
+          (x y z))
+     (format #f <span class="org-string">"y is ~a"</span> y))
+    (_ <span class="org-string">"Did not match!"</span>)))
+
+(match-numbers '(1 2 3))
+(match-numbers '(3 2 1))
+
+(<span class="org-keyword">define</span> <span class="org-function-name">match-numbers*</span>
+  (match-lambda*
+    ((<span class="org-keyword">and</span> (1 y z)
+          (x y z))
+     (format #f <span class="org-string">"y is ~a"</span> y))
+    (_ <span class="org-string">"Did not match!"</span>)))
+
+(match-numbers* 1 2 3)
+(match-numbers* 3 2 1)</pre>
+</div>
+
+<h3><a id="codematch-letcode" class="anchor" href="#codematch-letcode">¶</a><code>match-let</code></h3><div class="outline-text-3" id="text-org153a8d7">
+<pre>(<span class="org-keyword">define</span> <span class="org-function-name">my-values</span> '(1 (1 2) 3))
+
+(match-let (((x y z) my-values))
+   (format #f <span class="org-string">"y is ~a"</span> y))
+
+(match-let (((x (a b) z) my-values))
+   (format #f <span class="org-string">"b is ~a"</span> b))
+
+(match-let* (((x y z) my-values)
+             ((a b) y))
+   (format #f <span class="org-string">"b is ~a"</span> b))
+
+(match-let loop (((<span class="org-keyword">or</span> (item . rest)
+                      _)
+                  '(1 2 3 4 5))
+                 (strings '()))
+  (<span class="org-keyword">if</span> (null? item)
+      strings
+      (loop rest
+            (cons (format #f <span class="org-string">"Item ~a"</span> item)
+                  strings))))</pre>
+
+<p>
+Also <code>match-let*</code> and <code>match-letrec</code>
+</p>
+</div>
+
+<h2><a id="community-contributed-examples" class="anchor" href="#community-contributed-examples">¶</a>Community-Contributed Examples</h2><div class="outline-text-2" id="text-org3c7b549">
+<p>
+Contribute your own examples by submitting a pull request to the repository on Codeberg!
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

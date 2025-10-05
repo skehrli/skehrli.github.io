@@ -1,0 +1,155 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Accounting in Emacs with Ledger Mode - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Accounting in Emacs with Ledger Mode</h1><p class="site-post-meta center">April 11, 2025</p><div class="video">  <iframe src="https://www.youtube.com/embed/iBCBDtVm_hg" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-orgdf1b49b">
+<ul class="org-ul">
+<li><p>
+The Spring Lisp Game Jam is almost here!  May 9th - May 19th
+</p>
+
+<p>
+<a href="https://itch.io/jam/spring-lisp-game-jam-2025">https://itch.io/jam/spring-lisp-game-jam-2025</a>
+</p></li>
+
+<li><p>
+New Guix Course in Development
+</p>
+
+<p>
+System Crafters Guild members at 15/mo and above will have early access to in-development course material while I&rsquo;m working on it (on the Forum).
+</p>
+
+<p>
+Join the Guild here:  <a href="https://systemcrafters.store">https://systemcrafters.store</a>
+</p></li>
+</ul>
+</div>
+
+<h2><a id="plain-text-accounting-in-emacs" class="anchor" href="#plain-text-accounting-in-emacs">¶</a>Plain-Text Accounting in Emacs</h2><div class="outline-text-2" id="text-orgeede614">
+<ul class="org-ul">
+<li><a href="https://ledger-cli.org/">https://ledger-cli.org/</a></li>
+<li><a href="https://hledger.org/">https://hledger.org/</a></li>
+<li><a href="https://plaintextaccounting.org">https://plaintextaccounting.org</a></li>
+</ul>
+
+<p>
+From the manual:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://ledger-cli.org/doc/ledger3.html#Emacs-org-Mode">https://ledger-cli.org/doc/ledger3.html#Emacs-org-Mode</a></li>
+</ul>
+
+<pre>(<span class="org-keyword">use-package</span> ledger
+  <span class="org-builtin">:ensure</span> nil
+  <span class="org-builtin">:config</span>
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((ledger . t))))</pre>
+</div>
+
+<h2><a id="plain-ledger-file" class="anchor" href="#plain-ledger-file">¶</a>Plain Ledger File</h2><div class="outline-text-2" id="text-org66c08c2">
+<pre>account Expenses
+account Expenses:Groceries
+account Expenses:Utilities
+account Expenses:Fast Food
+account Expenses:Monster
+account Assets:Checking
+account Assets:Savings
+account Liabilities:Credit Card
+account Savings:New Computer
+account Income:Salary
+
+2024/04/01 * Opening Balances
+    Assets:Checking                             $750
+    Assets:Savings                             $1000
+    Equity:Opening Balances
+
+2025/04/11 * Monster from Kiosk
+    Expenses:Monster                           $2.00
+    Assets:Checking
+
+2025/04/11 * The Job
+    Assets:Checking                             $500
+    Income:Salary
+
+2025/04/11 * New Computer Savings
+    Savings:New Computer                        $250
+    Assets:Checking
+
+2025/04/15 * Dinner at McDonalds
+    Expenses:Fast Food                           $82
+    Liabilities:Credit Card
+
+2025/04/19 * Monster from Kiosk
+    Expenses:Monster                              $2
+    Liabilities:Credit Card
+
+2025/04/20 * Pay Credit Card
+    Liabilities:Credit Card                      $82
+    Assets:Checking</pre>
+</div>
+
+<h2><a id="example-org-ledger" class="anchor" href="#example-org-ledger">¶</a>Example Org Ledger</h2><h3><a id="accounts" class="anchor" href="#accounts">¶</a>Accounts</h3><div class="outline-text-3" id="text-org041fd1e">
+<pre>account Expenses
+account Expenses:Groceries
+account Expenses:Utilities
+account Expenses:Fast Food
+account Expenses:Monster
+account Assets:Checking
+account Assets:Savings
+account Liabilities:Credit Card
+account Savings:New Computer
+account Income:Salary</pre>
+</div>
+
+<h3><a id="2025" class="anchor" href="#2025">¶</a>2025</h3><h4><a id="opening-balances" class="anchor" href="#opening-balances">¶</a>Opening Balances</h4><div class="outline-text-4" id="text-org18f8d46">
+<pre>2025/01/01 * Opening Balances
+    Assets:Checking                             $750
+    Assets:Savings                             $1000
+    Equity:Opening Balances</pre>
+</div>
+
+<h4><a id="april" class="anchor" href="#april">¶</a>April</h4><div class="outline-text-4" id="text-org7eb4b77">
+<pre>2025/04/11 * Monster from Kiosk
+    Expenses:Monster                           $2.00
+    Assets:Checking
+
+2025/04/11 * The Job
+    Assets:Checking                             $500
+    Income:Salary
+
+2025/04/11 * New Computer Savings
+    Savings:New Computer                        $250
+    Assets:Checking
+
+2025/04/15 * Dinner at McDonalds
+    Expenses:Fast Food                           $82
+    Liabilities:Credit Card
+
+2025/04/19 * Monster from Kiosk
+    Expenses:Monster                              $2
+    Liabilities:Credit Card
+
+2025/04/20 * Pay Credit Card
+    Liabilities:Credit Card                      $82
+    Assets:Checking</pre>
+</div>
+
+<h4><a id="reports" class="anchor" href="#reports">¶</a>Reports</h4><div class="outline-text-4" id="text-org6418200">
+<pre>&lt;&lt;accounts&gt;&gt;
+&lt;&lt;balance&gt;&gt;
+&lt;&lt;april&gt;&gt;</pre>
+
+<pre class="example">
+             $166.00  Assets:Checking
+              $86.00  Expenses
+              $82.00    Fast Food
+               $4.00    Monster
+            $-500.00  Income:Salary
+              $-2.00  Liabilities:Credit Card
+             $250.00  Savings:New Computer
+--------------------
+                   0
+</pre>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

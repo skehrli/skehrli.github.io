@@ -1,0 +1,205 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Never Miss a Task Again: Tagging Org Mode TODOs by Context - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Never Miss a Task Again: Tagging Org Mode TODOs by Context</h1><p class="site-post-meta center"></p><div class="video">  <iframe src="https://www.youtube.com/embed/GP8uOU6SSyk" allowfullscreen></iframe></div><div id="content">
+<h2><a id="intro" class="anchor" href="#intro">¶</a>Intro</h2><div class="outline-text-2" id="text-org9693099">
+<p>
+Org Mode provides you with a number of useful tools for managing tasks and projects all from the comfort of Emacs.  However, it doesn&rsquo;t really tell you how to use these features together to create an effective productivity workflow.
+</p>
+
+<p>
+Over the past year, I&rsquo;ve been developing a strategy for assigning tags to TODO items in a way that ensures that I focus only on the tasks that matter right now.  Today, I&rsquo;m going to teach you how to do it too!
+</p>
+</div>
+
+<h2><a id="the-problem" class="anchor" href="#the-problem">¶</a>The Problem</h2><div class="outline-text-2" id="text-orgab1a0f7">
+<p>
+Org Mode gives you the ability to mark any heading as a TODO item.  These TODO items are a great way to keep a list of tasks for a project that you track in a specific Org file.
+</p>
+
+<p>
+Typically what happens is that you create a few different Org files for your active projects or interests, fill them with a bunch of TODO items, and then forget to look at half of them.
+</p>
+
+<p>
+The Org Agenda can help with this because it enables you to generate a view containing all TODO items across a number of Org files, but that can be pretty overwhelming and distracting when your task lists grow larger.
+</p>
+
+<p>
+Luckily Org Mode offers a possible solution to this problem: adding tags to TODO items.  Instead of looking at a huge list of TODO items, you can how have the Org Agenda filter those items down to a specific tag or a list of tags.
+</p>
+
+<p>
+This works great, but to get the most out of tags and agenda views, you&rsquo;ll have to spend some time designing a set of tags that will ensure you find the list of tasks that matter most for whatever you should be doing right now.
+</p>
+</div>
+
+<h2><a id="designing-context-tags" class="anchor" href="#designing-context-tags">¶</a>Designing Context Tags</h2><div class="outline-text-2" id="text-org16e1f26">
+<p>
+My solution to this problem is to define context tags for the <b>places</b>, <b>devices</b>, and <b>activities</b> that are relevant to your day to day life so that they can be the anchor for the tasks that relate to a set of contexts.
+</p>
+</div>
+
+<h3><a id="places" class="anchor" href="#places">¶</a>Places</h3><div class="outline-text-3" id="text-orgfaa7100">
+<p>
+For example, the context tags for places could be <code>@home</code> or <code>@work</code>, but it also might be <code>@pharmacy</code>, <code>@school</code>, <code>@grocery</code>, or others depending on where you are on a daily basis.
+</p>
+
+<p>
+The key here is to come up with a list of places where you often need to remember to do something.  That way you can filter down your list of TODOs based on a place where you are right now or where you might be headed soon.
+</p>
+</div>
+
+<h3><a id="devices" class="anchor" href="#devices">¶</a>Devices</h3><div class="outline-text-3" id="text-org0292354">
+<p>
+There are also tasks that might be done most effectively using a specific device, like a <code>@computer</code> or smart <code>@phone</code>.
+</p>
+
+<p>
+Imagine that you&rsquo;re waiting somewhere without a computer in front of you, but you have your smart phone handy.  Wouldn&rsquo;t it be nice if you knew which tasks you could take care of when you would otherwise be unproductive?
+</p>
+
+<p>
+You may be wondering why I would include &ldquo;computer&rdquo; in this list since many kinds of actions can be performed with a computer.  In my experience, there are times when I&rsquo;m not sure what to do next but I can look at my list of &ldquo;computer&rdquo; tasks and find some things I would have forgotten to do otherwise.
+</p>
+
+<p>
+You can also extend this to more specific computers like <code>@server</code> or <code>@laptop</code>, any device that may have tasks that can be done most effectively using that device.
+</p>
+</div>
+
+<h3><a id="activities" class="anchor" href="#activities">¶</a>Activities</h3><div class="outline-text-3" id="text-orgdd25273">
+<p>
+For me, the most effective type of context tag is for the activities that I do on a regular basis.
+</p>
+
+<p>
+For example, I regularly spend time writing, programming, working on creative projects like graphics or video, or even more broad activities like planning my day or running errands.
+</p>
+
+<p>
+If I tag all the tasks related to a particular activity, I can very easily find all of the TODO items that I might want to remember when it&rsquo;s time for that activity.
+</p>
+
+<p>
+Instead of thinking &ldquo;I&rsquo;ll work on Project X today&rdquo;, you can instead sit down for programming time and take a look at what tasks might be the best fit for the time you have available.  This can really help you balance your time across projects and activties more effectively.
+</p>
+
+<p>
+Here are some activity tags that might be helpful:
+</p>
+
+<ul class="org-ul">
+<li><code>@programming</code></li>
+<li><code>@writing</code></li>
+<li><code>@creative</code></li>
+<li><code>@email</code></li>
+<li><code>@calls</code></li>
+<li><code>@errands</code></li>
+</ul>
+</div>
+
+<h2><a id="configuring-org-mode-tags" class="anchor" href="#configuring-org-mode-tags">¶</a>Configuring Org Mode Tags</h2><div class="outline-text-2" id="text-orga0a81f3">
+<p>
+Now that we&rsquo;ve thought about context tags, let&rsquo;s take a look at how you would tell Org Mode about the tags you&rsquo;ve designed so that they can be applied very efficiently when you create new tasks.
+</p>
+
+<p>
+The key variable for this is <code>org-tag-alist</code>: it lets you define the list of tags along with a quick key binding for each tag to make them easy to assign.
+</p>
+
+<p>
+This list can contain a simple series of strings that represent each tag, but it&rsquo;s actually more efficient to assign a selection key so that you can choose that tag by pressing a single letter on the keyboard.
+</p>
+
+<p>
+You can do this by using a &ldquo;pair&rdquo; for each entry with the left side as the name of the tag and the right side as the hot key to use to quickly select that tag.
+</p>
+
+<p>
+Note that the &ldquo;@&rdquo; prefix that I use in the tag names is not special nor required, it is just a convention I use for the names of context tags because it sounds like &ldquo;at home&rdquo;, &ldquo;at computer&rdquo;, etc.
+</p>
+
+<p>
+Here&rsquo;s an example <code>org-tag-alist</code> setting from the tags we&rsquo;ve come up with so far:
+</p>
+
+<pre>(<span class="org-keyword">setq</span> org-tag-alist
+      '(<span class="org-comment-delimiter">;; </span><span class="org-comment">Places
+</span>        (<span class="org-string">"@home"</span> . ?H)
+        (<span class="org-string">"@work"</span> . ?W)
+
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">Devices
+</span>        (<span class="org-string">"@computer"</span> . ?C)
+        (<span class="org-string">"@phone"</span> . ?P)
+
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">Activities
+</span>        (<span class="org-string">"@planning"</span> . ?n)
+        (<span class="org-string">"@programming"</span> . ?p)
+        (<span class="org-string">"@writing"</span> . ?w)
+        (<span class="org-string">"@creative"</span> . ?c)
+        (<span class="org-string">"@email"</span> . ?e)
+        (<span class="org-string">"@calls"</span> . ?a)
+        (<span class="org-string">"@errands"</span> . ?r))</pre>
+
+<p>
+Once we&rsquo;ve set up our <code>org-tags-alist</code>, we will now be prompted with those tags when we try to set tags on a new task or filter
+</p>
+
+<p>
+All of your tasks should be tagged!  This is how you will remember to do them when the time is right.  In another video, I&rsquo;ll show you how to define a custom agenda view which will give you the list of untagged tasks so that none fall through the cracks.
+</p>
+</div>
+
+<h2><a id="using-the-agenda-view" class="anchor" href="#using-the-agenda-view">¶</a>Using the Agenda View</h2><div class="outline-text-2" id="text-org045bba8">
+<p>
+The Org Agenda provides a unified view for headings of different types across your Org files.  You will need to set the <code>org-agenda-files</code> variable to a list of strings representing the paths to the Org files that you want to include in the agenda view, like this:
+</p>
+
+<pre>(<span class="org-keyword">setq</span> org-agenda-files '(<span class="org-string">"~/tmp/org-video/Notes/Personal.org"</span>
+                         <span class="org-string">"~/tmp/org-video/Notes/Projects.org"</span>
+                         <span class="org-string">"~/tmp/org-video/Notes/Work.org"</span>))</pre>
+
+<p>
+Once you have this variable configured, you can use <code>M-x org-agenda</code> to launch the Org Agenda view to see all of your TODO items across all of the agenda files.  There are many pre-configured agenda views, but we will press <code>t</code> to pick the TODO view.
+</p>
+
+<p>
+You can filter it down to only the tasks that are relevant to your current context by pressing the <code>/</code> key and then typing in the name of the tag you want to filter by.  You can also use TAB to complete the names of tags you configured in <code>org-tag-alist</code>!
+</p>
+
+<p>
+I&rsquo;ll go into more detail on the agenda view in future videos.
+</p>
+</div>
+
+<h2><a id="efficiently-tagging-tasks" class="anchor" href="#efficiently-tagging-tasks">¶</a>Efficiently Tagging Tasks</h2><div class="outline-text-2" id="text-orgbbb30e4">
+<p>
+Now that you know how to filter TODO items by their tags, let&rsquo;s learn how to quickly add and change tags that are assigned to a TODO item.
+</p>
+
+<p>
+To create a new TODO item in an Org buffer, you can press <code>M-S-RET</code> (<code>Alt+Shift+Enter</code>) to create a new TODO heading.  You can then press <code>C-c C-q</code> to set the tags on the current TODO item under the cursor.
+</p>
+
+<p>
+This popup prompt will present you with all of the tags you&rsquo;ve configured in <code>org-tag-alist</code> and you can use the hotkeys we configured (the configured <code>?</code> key for each tag) to select the tags to apply to that item.  You can also edit and clear tags using the keys presented in the prompt.
+</p>
+
+<p>
+You should now be able to quickly add and tag new TODO items so that they show up in your filtered agenda views for each context!
+</p>
+</div>
+
+<h2><a id="conclusion" class="anchor" href="#conclusion">¶</a>Conclusion</h2><div class="outline-text-2" id="text-orgbe3b993">
+<p>
+You can download the example Org files and configuration that we looked at in today&rsquo;s video by clicking on this link in the show notes:
+</p>
+
+<p>
+<a href="https://systemcrafters.net/files/org-context-tags.zip">https://systemcrafters.net/files/org-context-tags.zip</a>
+</p>
+
+<p>
+Until next time, Happy Hacking!
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

@@ -1,0 +1,303 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Crafter Hours Development Log - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Crafter Hours Development Log</h1><p class="site-post-meta center"></p><div id="content">
+<h2><a id="2025" class="anchor" href="#2025">¶</a>2025</h2><h3><a id="january" class="anchor" href="#january">¶</a>January</h3><h4><a id="wednesday-january-8-2025" class="anchor" href="#wednesday-january-8-2025">¶</a>Wednesday, January 8 2025</h4><div class="outline-text-4" id="text-orga02d2e2">
+<p>
+<a href="https://www.youtube.com/live/jpYROJ9_W2E">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/cba0d95247f67420ccbd1998ab2145d39badd0cb">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Set up basic HTTP server with Guile Fibers</li>
+<li>Established basic route handlers</li>
+<li>Basic page rendering with SXML</li>
+<li>Created record type for the <code>package</code> model</li>
+</ul>
+</div>
+
+<h4><a id="monday-january-13-2025" class="anchor" href="#monday-january-13-2025">¶</a>Monday, January 13 2025</h4><div class="outline-text-4" id="text-orge544af4">
+<p>
+<a href="https://www.youtube.com/live/wEEXc4gZJyk">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/f66a10d44cb93ad52d2279e0cf036f396d113366">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Created a basic sqlite schema for the <code>package</code> model</li>
+<li>Implemented basic CRUD operations for <code>package</code></li>
+<li>Split out <code>package</code> model into its own module</li>
+<li>Updated the <code>package</code> list and detail pages to load from the database</li>
+<li>Attempted to set up a coop REPL server to no avail</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-january-15-2025" class="anchor" href="#wednesday-january-15-2025">¶</a>Wednesday, January 15 2025</h4><div class="outline-text-4" id="text-orga70a166">
+<p>
+<a href="https://www.youtube.com/live/bRfMbUlUT3Y?si=C9ft01FlsCXZomvo">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/4212d96f828659e9a695a2f337eae66bf5bd5e21">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Figure out how ELPA repositories expose their package information</li>
+<li>Download the <code>archive-contents</code> file and process the contents, determine structure</li>
+<li>Insert initial package details into our sqlite database</li>
+<li>Update package details page to display version and description</li>
+</ul>
+</div>
+
+<h4><a id="monday-january-20-2025" class="anchor" href="#monday-january-20-2025">¶</a>Monday, January 20 2025</h4><div class="outline-text-4" id="text-org45b8d3b">
+<p>
+<a href="https://youtube.com/live/3LM9eKd879s">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/239721c4d656ce9ca7a210c8b9ab1877bb7d4a7c">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Fleshed out data model to add <code>package-author</code> and <code>package-source</code></li>
+<li>Revamped SQL schemas to add tables for <code>package_author</code>, <code>package_authors</code> (relation table), and <code>package_source</code></li>
+<li>Updated <code>insert-package!</code> procedure to update package and related tables with information from package metadata</li>
+<li>Attempted to update code to import package archives but failed due to technicalities</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-january-22-2025" class="anchor" href="#wednesday-january-22-2025">¶</a>Wednesday, January 22 2025</h4><div class="outline-text-4" id="text-org747d32c">
+<p>
+<a href="https://www.youtube.com/watch?v=LnptdEe5E14">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/fdecf5124b9217764b7d4e6d7055b181e9ae6976">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Integrated trev&rsquo;s fixes for syncing package archives</li>
+<li>Split out database population into a Scheme script <code>sync-archives</code></li>
+<li>Split out server startup to a script <code>start-server</code></li>
+<li>Split server handling into the <code>(site server)</code> module</li>
+<li>Split current view templating into <code>(site views *)</code> modules</li>
+<li>Established basic <code>(site db)</code> module to abstract database handling</li>
+<li>Integrated existing <code>scss-&gt;css</code> code to generate a cached stylesheet for all pages</li>
+</ul>
+</div>
+
+<h4><a id="monday-january-27-2025" class="anchor" href="#monday-january-27-2025">¶</a>Monday, January 27 2025</h4><div class="outline-text-4" id="text-org4bc421e">
+<p>
+<a href="https://youtube.com/live/BSdnYoxmoyc">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/04f39847c5c9ae13ef5a5044fc9927cf61c24a03">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Set up a REPL-driven workflow for live UI development</li>
+<li>Add routes and views to show all keywords and packages by keyword</li>
+<li>Add SQL queries for keyword IDs by name and packages by keyword</li>
+<li>Improve the site CSS somewhat to make it more readable</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-january-29-2025" class="anchor" href="#wednesday-january-29-2025">¶</a>Wednesday, January 29 2025</h4><div class="outline-text-4" id="text-org6ad27f8">
+<p>
+<a href="https://youtube.com/live/5FAnjs300UA">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/efc91aa55d83297678ca2887cc34b749a3dcd07b">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Created basic routes, views, and schema for the user type</li>
+<li>Create route and form for user login (no cookies yet)</li>
+<li>Created the schema for package tips</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-february-5-2025" class="anchor" href="#wednesday-february-5-2025">¶</a>Wednesday, February 5 2025</h4><div class="outline-text-4" id="text-orgd8737fd">
+<p>
+<a href="https://youtube.com/live/6FOF7sf6wUc">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/commit/8cfa6b35bcbe7a4e2954bed6802940de1abb16d7">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Draft out basic package tip authoring experience with Datastar (no users, no SQL)</li>
+<li>Write a basic Datastar SSE library</li>
+</ul>
+</div>
+
+<h4><a id="monday-february-10-2025" class="anchor" href="#monday-february-10-2025">¶</a>Monday, February 10 2025</h4><div class="outline-text-4" id="text-org3e0c77a">
+<p>
+<a href="https://youtube.com/live/ZkGszUeigB8">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/commit/7bc9cbc6b766096097cae36d1cebdd20be398a20">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Implemented a full login/logout flow with Datastar</li>
+<li>Used jwt tokens to store session details</li>
+<li>Added an <code>authenticated</code> wrapper for abstracting session checks in handlers</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-february-12-2025" class="anchor" href="#wednesday-february-12-2025">¶</a>Wednesday, February 12 2025</h4><div class="outline-text-4" id="text-org337034c">
+<p>
+<a href="https://youtube.com/live/6ZnwyYL-WAo">Stream Recording</a> (<a href="https://youtube.com/live/ZRxElXBzmPg">Part 2</a>) ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/commit/afe63b589722f449b4b1f9b1c4b26e68f021f06b">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Finished tip authoring experience with DB interaction</li>
+<li>Added link to tip author profile</li>
+<li>Added initial Markdown formatting for tip text</li>
+<li>Added basic tip voting (not backed by DB yet)</li>
+</ul>
+</div>
+
+<h4><a id="monday-february-17-2025" class="anchor" href="#monday-february-17-2025">¶</a>Monday, February 17 2025</h4><div class="outline-text-4" id="text-orgcf10edb">
+<p>
+<a href="https://youtube.com/live/oaVFge_bZlM">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/117470abea3c89b519236f72f802bde2cd50f874">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Created a DB schema update framework</li>
+<li>Created a table to store applied migrations</li>
+<li>Wrote unit tests to verify that the framework works</li>
+<li>Moved current table initialization queries to first migration</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-february-19-2025" class="anchor" href="#wednesday-february-19-2025">¶</a>Wednesday, February 19 2025</h4><div class="outline-text-4" id="text-orgef9f87b">
+<p>
+<a href="https://youtube.com/live/G4mnWTcQFWY">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/17e9f7f4bfad1a95e8da94780b04e5b9ba5bab9d">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Prepared the site for deployment with Guix</li>
+<li>Packaged the current site code in Guix</li>
+<li>Set up a basic server configuration</li>
+<li>Set up a Shepherd service to run the Guile app</li>
+<li>Set up an nginx reverse proxy for hosting the site</li>
+<li>Set up a place to host the database file (under /var/db)</li>
+</ul>
+</div>
+
+<h4><a id="monday-february-24-2025" class="anchor" href="#monday-february-24-2025">¶</a>Monday, February 24 2025</h4><div class="outline-text-4" id="text-org255efaf">
+<p>
+<a href="https://youtube.com/live/egbznOiUzYI">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/97c8fb0c096025a6c724c8140c65dcccdf4df9dc">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Finished password salting algoritm</li>
+<li>Discussed how to handle session token secret, deferred until certbot is set up</li>
+<li>Figured out stable package ID strategy</li>
+<li>Designed the first-pass package sync/update strategy (with disambiguation)</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-february-26-2025" class="anchor" href="#wednesday-february-26-2025">¶</a>Wednesday, February 26 2025</h4><div class="outline-text-4" id="text-org7e80151">
+<p>
+<a href="https://youtube.com/live/lVzk-yZhJiU">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/server-configurations/src/commit/f6524b317ad6f8e8bb4756d159bcfcfc287e3f1e">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Deployed a staging build of the site to a VPS</li>
+<li>Set up certbot to auto-provision a certificate for HTTPS</li>
+<li>Set up the new <a href="https://codeberg.org/SystemCrafters/server-configurations">server-configurations</a> repository</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-march-5-2025" class="anchor" href="#wednesday-march-5-2025">¶</a>Wednesday, March 5 2025</h4><div class="outline-text-4" id="text-orgf60d481">
+<p>
+<a href="https://youtube.com/live/oLk4lvLYKBs">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/4acc213830869b9664bfbc6630bdf7c3a544be7d">Project Code</a> ⋅ <a href="https://codeberg.org/SystemCrafters/server-configurations/src/commit/adc01fc2b6f69d6ea477578473112caa5bdb1349">Server Configuration</a>
+</p>
+
+<ul class="org-ul">
+<li>Converted emacspackages.com repo into a Guix channel</li>
+<li>Updated server-configurations repository to use the new channel</li>
+<li>Ensured that the database is working after running sync-archives.scm manually</li>
+<li>Created a one-shot Shepherd service that runs sync-archives.scm to populate the DB</li>
+<li>Cleaned the manual <code>GUILE_LOAD_PATH</code> manipulation in script files</li>
+</ul>
+</div>
+
+<h4><a id="monday-march-10-2025" class="anchor" href="#monday-march-10-2025">¶</a>Monday, March 10 2025</h4><div class="outline-text-4" id="text-org2beea94">
+<p>
+<a href="https://youtube.com/live/cASKPWF95UE">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/e12f39f1958aa2fc1ab46d22cde1ab305040f7f5">Project Code</a> ⋅ <a href="https://codeberg.org/SystemCrafters/server-configurations/src/commit/64ae26e2829d9c2d7bc334d137e68b6e6aa02b19">Server Configuration</a>
+</p>
+
+<ul class="org-ul">
+<li>Figured out why the site is down</li>
+<li>Made sure initial data sync is working correctly</li>
+<li>Made sure there are no lingering issues from the channel conversion</li>
+</ul>
+</div>
+
+<h4><a id="monday-march-17-2025" class="anchor" href="#monday-march-17-2025">¶</a>Monday, March 17 2025</h4><div class="outline-text-4" id="text-org3cc1fcb">
+<p>
+<a href="https://youtube.com/live/iVAHuVZM9EY">Stream Recording</a> ⋅ <a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/009df50c940964d47d3ec7fda52c2e12875fe4e9">Project Code</a>
+</p>
+
+<ul class="org-ul">
+<li>Implemented the user registration page</li>
+<li>Created a basic framework for forms with validation</li>
+</ul>
+</div>
+
+<h4><a id="wednesday-march-19-2025" class="anchor" href="#wednesday-march-19-2025">¶</a>Wednesday, March 19 2025</h4><ul><li>Links<div class="outline-text-5" id="text-orgf79840b">
+<ul class="org-ul">
+<li><a href="https://youtube.com/live/XFyGylqEz3Q">Stream Recording</a></li>
+<li><a href="https://codeberg.org/SystemCrafters/emacspackages.com/src/commit/ea6a8dc8ddbc5aed0fc5fca3d577553459845733">emacspackages.com</a></li>
+<li><a href="https://codeberg.org/SystemCrafters/guile-webframe/src/commit/9cc366d7d414400ee32b5090b0d88ffcc6330feb">guile-webframe</a></li>
+<li><a href="https://codeberg.org/SystemCrafters/server-configurations/src/commit/16c84df11cb3ffcf9694fd73a5a9e74555491b63">server-configurations</a></li>
+</ul>
+</div>
+</li>
+
+<li>Progress<div class="outline-text-5" id="text-org8a716ee">
+<ul class="org-ul">
+<li>Finished up validation on user registration page</li>
+<li>Prevented sync of archives if DB already exists</li>
+<li>Create <code>guile-webframe</code> repo to host reusable web library code (css and datastar for now)</li>
+<li>Packaged the libraries with Guix and used them in the project for dev and deployment</li>
+</ul>
+</div>
+</li></ul>
+
+<h4><a id="monday-march-31-2025" class="anchor" href="#monday-march-31-2025">¶</a>Monday, March 31 2025</h4><ul><li>Agenda<div class="outline-text-5" id="text-org49b9ae6">
+<ul class="org-ul">
+<li>Give a run-through of the systemcrafters.net deployment and packaging</li>
+<li>Figure out why I can&rsquo;t deploy to the server anymore (roll back the server config?)</li>
+<li>Make sure that both sites can run at the same time</li>
+<li>Maybe start working on some of the new SC site backend</li>
+</ul>
+</div>
+</li></ul>
+
+<h4><a id="next-time" class="anchor" href="#next-time">¶</a>Next Time</h4><div class="outline-text-4" id="text-org4a3b973">
+<ul class="org-ul">
+<li>Move over more library code to guile-webframe
+<ul class="org-ul">
+<li>form validation (or larger UI framework?)</li>
+<li>database migration</li>
+<li>logger</li>
+<li>site backend utils (session, password, etc)</li>
+</ul></li>
+<li>Delete the existing database one last time</li>
+<li>Provide an interface for a user to pick which packages they use</li>
+<li>Ensure tip creation requests are being authenticated</li>
+<li>Ensure that DB migrations are being applied by sync-archives with existing DB</li>
+</ul>
+</div>
+
+<h4><a id="soon" class="anchor" href="#soon">¶</a>Soon</h4><div class="outline-text-4" id="text-orga994b05">
+<ul class="org-ul">
+<li>Switch to PostgreSQL</li>
+<li>Implement package repo data sync/merge?</li>
+</ul>
+</div>
+
+<h4><a id="backlog" class="anchor" href="#backlog">¶</a>Backlog</h4><div class="outline-text-4" id="text-org902ea3e">
+<ul class="org-ul">
+<li>Add migrations for:
+<ul class="org-ul">
+<li>Tip votes</li>
+<li>Vote count per tip</li>
+<li>Add a link to user&rsquo;s Emacs config repo in profile</li>
+<li>Adding the &ldquo;I use this&rdquo; mapping for packages</li>
+</ul></li>
+<li>Add author details page to list which packages they wrote/maintained</li>
+<li>Implement proper session expiration</li>
+<li>Load session token secret from an environment variable, etc</li>
+<li>Improve the internal API for generating reponses with page bodies</li>
+<li>Flesh out CSS for all pages</li>
+<li>Finish porting ELPA, NonGNU ELPA, and MELPA package details into our database</li>
+<li>Search for packages by name on the site</li>
+<li>Improve package details page to display all information</li>
+<li>Package listing page should use a table with columns</li>
+<li>Define the strategy for periodically updating package details (upserts?)</li>
+<li>Store the last updated time for a package record</li>
+<li>Make sure to log the source of the package (elpa, nongnu-elpa, melpa, melpa-stable)</li>
+<li>Deduplicate package information if they share the same name?</li>
+<li>Sort package listing alphabetically?  (query parameter?)</li>
+<li>Need a way to represent package dependencies across package sources but tie them together at the higher level of packages</li>
+<li>Consider changing ID strategy for packages to not use an auto-incremented, numeric ID</li>
+</ul>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

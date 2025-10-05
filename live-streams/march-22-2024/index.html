@@ -1,0 +1,204 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Improving the Guile Ecosystem - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Improving the Guile Ecosystem</h1><p class="site-post-meta center">March 22, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/P4wA8l7S_i8" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org83a8cba">
+<ul class="org-ul">
+<li>Benoit has created an &ldquo;Awesome&rdquo; list on the forum!
+<a href="https://forum.systemcrafters.net/t/awesome-crafting-links-from-the-community/446/">https://forum.systemcrafters.net/t/awesome-crafting-links-from-the-community/446/</a></li>
+
+<li>Glenneth has announced Guile-Stash!
+<a href="https://forum.systemcrafters.net/t/new-project-guile-stash/438/">https://forum.systemcrafters.net/t/new-project-guile-stash/438/</a></li>
+</ul>
+</div>
+
+<h2><a id="guile-is-great--it-can-be-better" class="anchor" href="#guile-is-great--it-can-be-better">¶</a>Guile is great!  It can be better!</h2><div class="outline-text-2" id="text-orge53e5ca">
+<p>
+I think Scheme is a fantastic programming language.  It is minimal yet powerful and practical enough for both personal hacking and larger projects.
+</p>
+
+<p>
+Guile is a great Scheme implementation with a lot of practical value, but why don&rsquo;t more people use it?
+</p>
+
+<p>
+On a technical level, Guile is improving every year.  There&rsquo;s a ton of work going into the compiler (<a href="https://spritely.institute/hoot/">Hoot</a>) and garbage collector (<a href="https://github.com/wingo/whippet">whippet</a>) right now which will help Guile reach more platforms and run much more efficiently.
+</p>
+
+<p>
+Here are some thoughts I have, in no particular order, on how we can all help Guile Scheme become a more compelling choice for programmers who want to try Scheme out for new projects:
+</p>
+</div>
+
+<h3><a id="better-developer-tools" class="anchor" href="#better-developer-tools">¶</a>Better Developer Tools</h3><div class="outline-text-3" id="text-org06142cb">
+<ul class="org-ul">
+<li>Editor integration and tooling</li>
+<li>Unit testing frameworks</li>
+<li>Linters</li>
+<li>Debugging tools</li>
+<li>Performance measurement tools</li>
+</ul>
+
+<p>
+Use and contribute to Andrew Tropin&rsquo;s Ares RS and Arei IDE projects:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://git.sr.ht/~abcdw/guile-ares-rs">https://git.sr.ht/~abcdw/guile-ares-rs</a></li>
+<li><a href="https://git.sr.ht/~abcdw/emacs-arei">https://git.sr.ht/~abcdw/emacs-arei</a></li>
+</ul>
+</div>
+
+<h3><a id="better-compiler-errors" class="anchor" href="#better-compiler-errors">¶</a>Better Compiler Errors</h3><div class="outline-text-3" id="text-orge85f55b">
+<p>
+This is a must for helping new people become comfortable using the language and tools.
+</p>
+</div>
+
+<h3><a id="an-improved-manual" class="anchor" href="#an-improved-manual">¶</a>An Improved Manual</h3><div class="outline-text-3" id="text-org97e5084">
+<p>
+This has a direct impact on the adoption of not only Guile, but Guix as well!
+</p>
+</div>
+
+<h3><a id="cross-platform-dependency-manager" class="anchor" href="#cross-platform-dependency-manager">¶</a>Cross-platform Dependency Manager</h3><div class="outline-text-3" id="text-org0cf696c">
+<p>
+Guix is not cross platform, but it is the best Guile package manager and build tool.
+</p>
+
+<p>
+Guildhall was a solution for this but it is no longer used: <a href="https://github.com/guildhall/">https://github.com/guildhall/</a>
+</p>
+
+<p>
+Perhaps something more lightweight could be created?
+</p>
+</div>
+
+<h3><a id="better-windows-support" class="anchor" href="#better-windows-support">¶</a>Better Windows Support</h3><div class="outline-text-3" id="text-org4e65ac5">
+<p>
+This may be improving soon!  But, there is probably more work to do to ensure that cross-platform applications work well on Windows (including using community Guile libraries).
+</p>
+</div>
+
+<h3><a id="standardized-guile-library-documentation" class="anchor" href="#standardized-guile-library-documentation">¶</a>Standardized Guile Library Documentation</h3><div class="outline-text-3" id="text-org4d3f5c2">
+<p>
+Info/texinfo, etc, could be considered a solution for this, but is there a good way to generate Guile library documentation directly from the source?
+</p>
+
+<p>
+Does Guix have a solution for this already?
+</p>
+
+<p>
+There could be a centralized documentation site for Guile libraries like Rust&rsquo;s own <a href="https://docs.rs">docs.rs</a>.
+</p>
+</div>
+
+<h3><a id="more-community-libraries" class="anchor" href="#more-community-libraries">¶</a>More Community Libraries</h3><div class="outline-text-3" id="text-org0c2f7a4">
+<p>
+Cover more interesting use cases.  Provide FFI wrappers for important C libraries, like ffmpeg, etc.
+</p>
+
+<p>
+Someone should implement an Org Mode parser for Guile!  Haunt, the static site generator for Guile, could really use it!  <a href="https://wingolog.org/projects/guile-present/">Guile Present</a> may have a starting point for an Org Mode parser.
+</p>
+
+<p>
+Existing list of libraries: <a href="https://www.gnu.org/software/guile/libraries/">https://www.gnu.org/software/guile/libraries/</a>
+</p>
+</div>
+
+<h3><a id="alias-codeice-9code-to-codeguilecode" class="anchor" href="#alias-codeice-9code-to-codeguilecode">¶</a>Alias <code>ice-9</code> to <code>guile</code></h3><div class="outline-text-3" id="text-org3c09d86">
+<p>
+This may not be possible due to Scheme standard naming conventions, but it would be nice if there was a more user-friendly name that made it obvious that these are Guile-specific libraries that are built-in.
+</p>
+</div>
+
+<h3><a id="streamlined-application-deployment" class="anchor" href="#streamlined-application-deployment">¶</a>Streamlined Application Deployment</h3><div class="outline-text-3" id="text-orga88d5f6">
+<p>
+Right now, you can package a Guile application using <code>guix pack</code> but this really only works on Linuxes.
+</p>
+
+<p>
+What about Windows or macOS?
+</p>
+
+<p>
+Is there a way to create statically linked Guile applications containing pre-compiled Scheme code (.go files)?
+</p>
+
+<p>
+Maybe not fully statically linked, there could be dynamic C libraries, but the Guile code would all be linked in one program.
+</p>
+
+<p>
+You can compile a C application using libguile, possibly even statically linked, to make an application that contains Guile.  But, can you embed .go files in it?
+</p>
+
+<p>
+There may be some interesting pointers found in the Chickadee implementation of <a href="https://files.dthompson.us/docs/chickadee/latest/Invoking-chickadee-bundle.html">chickadee bundle</a>.
+</p>
+</div>
+
+<h3><a id="more-flagship-projects" class="anchor" href="#more-flagship-projects">¶</a>More Flagship Projects</h3><div class="outline-text-3" id="text-org72d3244">
+<p>
+GNU Guix is a good example of a flagship project.
+</p>
+
+<p>
+dwl-guile could be an example of this if it becomes more well known.
+</p>
+
+<p>
+Zrythm could also be a flagship project because it enables scripting with Guile.
+</p>
+
+<p>
+GNU Shepherd and mcron could also be considered flagship projects.
+</p>
+
+<p>
+We need more flagship apps like:
+</p>
+
+<ul class="org-ul">
+<li>Games</li>
+<li>Tools, either command line or graphical</li>
+<li>Window managers, or desktop environment style tools</li>
+<li>Hackable common programs like web browsers or editors</li>
+<li>Media creation apps (graphics, audio, video, etc)</li>
+<li>A code forge written in Guile (Gitile is one example)</li>
+</ul>
+</div>
+
+<h3><a id="a-larger-more-visible-community" class="anchor" href="#a-larger-more-visible-community">¶</a>A Larger, More Visible Community</h3><div class="outline-text-3" id="text-org06a6784">
+<p>
+There isn&rsquo;t a lot of Guile activity on the &ldquo;public internet&rdquo;.  A lot of discussion happens on mailing lists which most people avoid like the plague.
+</p>
+
+<p>
+And there isn&rsquo;t really much promotion of Guile happening on social media, YouTube, etc.
+</p>
+
+<p>
+What we need is more people talking about Guile, teaching Guile, sharing projects written with Guile, on various social medias including video platforms.
+</p>
+
+<p>
+This also requires people creating projects with Guile who are excited to talk about them!
+</p>
+</div>
+
+<h2><a id="discuss-on-the-forum" class="anchor" href="#discuss-on-the-forum">¶</a>Discuss on the Forum!</h2><div class="outline-text-2" id="text-orgac4eb08">
+<p>
+cow_2001 has already created a thread for discussing Guile library ideas:
+</p>
+
+<p>
+<a href="https://forum.systemcrafters.net/t/guile-libraries-ideas/494">https://forum.systemcrafters.net/t/guile-libraries-ideas/494</a>
+</p>
+
+<p>
+Come create your own threads about the kinds of projects or improvements you&rsquo;d like to see in Guile!
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

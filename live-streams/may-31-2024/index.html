@@ -1,0 +1,185 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Exporting Org Mode Files&#x2026;  to Scheme? - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Exporting Org Mode Files&#x2026;  to Scheme?</h1><p class="site-post-meta center">May 31, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/CcBqZiwgDj8" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org52cc129">
+<ul class="org-ul">
+<li><p>
+Hands-On Guile Scheme for Beginners, June Edition is open for registration!
+</p>
+
+<p>
+<a href="https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/">https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/</a>
+</p>
+
+<p>
+The early registration discount ends on Monday at 6AM UTC!
+</p></li>
+
+<li><p>
+Spring Lisp Game Jam 2024 is finished!
+</p>
+
+<p>
+<a href="https://itch.io/jam/spring-lisp-game-jam-2024">https://itch.io/jam/spring-lisp-game-jam-2024</a>
+</p>
+
+<p>
+Lots of excellent submissions, including a few from SC community folks!
+<a href="https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684">https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684</a>
+</p></li>
+
+<li><p>
+My talk at the London Guix meetup this week can be watched here:
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=oINCgds-8kA">https://www.youtube.com/watch?v=oINCgds-8kA</a>
+</p>
+
+<p>
+Also check out the interview with Ludovic Courtes!
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=339dRDf4c6E">https://www.youtube.com/watch?v=339dRDf4c6E</a>
+</p></li>
+</ul>
+</div>
+
+<h2><a id="rewriting-the-course-in-scheme" class="anchor" href="#rewriting-the-course-in-scheme">¶</a>Rewriting the Course in Scheme</h2><div class="outline-text-2" id="text-orgcc463a8">
+<p>
+Today I&rsquo;m going to engage in a bizarre experiment: converting all of the Org Mode files that I wrote for my Guile Beginners course into Scheme files that can be used with the <a href="https://www.nongnu.org/skribilo/">Skribilo</a> document production tool.
+</p>
+
+<p>
+Why?
+</p>
+
+<ul class="org-ul">
+<li>Creating custom markup to automate certain tasks</li>
+<li>Potentially easier to cross-reference and build indexes</li>
+<li>Can customize the output of the course material per-iteration and per-participant</li>
+<li>To have fun writing more Scheme!</li>
+</ul>
+
+<p>
+I don&rsquo;t know if I will stick with this approach, but I did want to give it a fair shot to see if it can speed up the process of developing and delivering educational material.
+</p>
+
+<p>
+Here is the code we wrote:
+</p>
+
+<pre>(<span class="org-keyword">require</span> '<span class="org-constant">ox</span>)
+(<span class="org-keyword">require</span> '<span class="org-constant">ox-publish</span>)
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-bold</span> (_bold contents _info)
+  (format <span class="org-string">",(bold [%s])"</span> contents))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-italic</span> (_italic contents _info)
+  (format <span class="org-string">",(emph [%s])"</span> contents))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-code</span> (code _contents info)
+  (format <span class="org-string">",(kbd [%s])"</span> (org-element-property <span class="org-builtin">:value</span> code)))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-verbatim</span> (verbatim contents _info)
+  (format <span class="org-string">",(code [%s])"</span>
+          (org-element-property <span class="org-builtin">:value</span> verbatim)))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-headline</span> (headline contents info)
+  (message <span class="org-string">"LEVEL IS %d"</span> (org-export-get-relative-level headline info))
+  (format <span class="org-string">"(section :title [%s]\n  %s)"</span>
+          (car (org-element-property <span class="org-builtin">:title</span> headline))
+          contents))
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(pcase (org-export-get-relative-level headline info)
+</span><span class="org-comment-delimiter">;;   </span><span class="org-comment">((0) "section"))
+</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-src-block</span> (src-block _contents info)
+  (<span class="org-keyword">let</span> ((code (org-export-unravel-code src-block))
+        (language (org-element-property <span class="org-builtin">:language</span> src-block)))
+    (<span class="org-keyword">pcase</span> language
+      (<span class="org-string">"scheme"</span> (format <span class="org-string">"(scm [\n%s\n])"</span> (car code)))
+      (_ (format <span class="org-string">"(frame :width 50. (prog (source :language %s [%s])))"</span>
+                 language
+                 (car code))))))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-link</span> (link desc info)
+  (format <span class="org-string">",(ref :url %a :text %s)"</span>
+          (org-element-property <span class="org-builtin">:raw-link</span> link)
+          desc))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-section</span> (section contents info)
+  contents)
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-paragraph</span> (paragraph contents info)
+  (format <span class="org-string">"(p [%s])"</span> (string-trim-right contents)))
+
+(org-export-define-backend
+    'skribe
+  '((bold . org-skribe-bold)
+    <span class="org-comment-delimiter">;;</span><span class="org-comment">(center-block . org-skribe-center-block)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(clock . org-skribe-clock)
+</span>    (code . org-skribe-code)
+    <span class="org-comment-delimiter">;;</span><span class="org-comment">(drawer . org-skribe-drawer)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(dynamic-block . org-skribe-dynamic-block)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(entity . org-skribe-entity)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(example-block . org-skribe-example-block)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(export-block . org-skribe-export-block)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(export-snippet . org-skribe-export-snippet)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(fixed-width . org-skribe-fixed-width)
+</span>    <span class="org-comment-delimiter">;;</span><span class="org-comment">(footnote-reference . org-skribe-footnote-reference)
+</span>    (headline . org-skribe-headline)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(horizontal-rule . org-skribe-horizontal-rule)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(inline-src-block . org-skribe-inline-src-block)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(inlinetask . org-skribe-inlinetask)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(inner-template . org-skribe-inner-template)
+</span>    (italic . org-skribe-italic)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(item . org-skribe-item)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(keyword . org-skribe-keyword)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(latex-environment . org-skribe-latex-environment)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(latex-fragment . org-skribe-latex-fragment)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(line-break . org-skribe-line-break)
+</span>    (link . org-skribe-link)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(node-property . org-skribe-node-property)
+</span>    (paragraph . org-skribe-paragraph)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(plain-list . org-skribe-plain-list)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(plain-text . org-skribe-plain-text)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(planning . org-skribe-planning)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(property-drawer . org-skribe-property-drawer)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(quote-block . org-skribe-quote-block)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(radio-target . org-skribe-radio-target)
+</span>    (section . org-skribe-section)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(special-block . org-skribe-special-block)
+</span>    (src-block . org-skribe-src-block)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(statistics-cookie . org-skribe-statistics-cookie)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(strike-through . org-skribe-strike-through)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(subscript . org-skribe-subscript)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(superscript . org-skribe-superscript)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(table . org-skribe-table)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(table-cell . org-skribe-table-cell)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(table-row . org-skribe-table-row)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(target . org-skribe-target)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(template . org-skribe-template)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(timestamp . org-skribe-timestamp)
+</span>    <span class="org-comment-delimiter">;; </span><span class="org-comment">(underline . org-skribe-underline)
+</span>    (verbatim . org-skribe-verbatim)
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">(verse-block . org-skribe-verse-block)
+</span>    ))
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(setq org-publish-project-alist
+</span><span class="org-comment-delimiter">;;       </span><span class="org-comment">(list '("org-to-skb:main"
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:base-directory "./chapter-1"
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:base-extension "org"
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:publishing-directory "./skb-output"
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:publishing-function org-html-publish-to-html
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:with-title nil
+</span><span class="org-comment-delimiter">;;               </span><span class="org-comment">:with-timestamps nil)
+</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-skribe-export-to-skb</span>
+    (<span class="org-type">&amp;optional</span> async subtreep visible-only body-only ext-plist)
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((file (org-export-output-file-name <span class="org-string">".skb"</span> subtreep)))
+    (org-export-to-file 'skribe file
+      async subtreep visible-only body-only ext-plist)))</pre>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

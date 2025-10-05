@@ -1,0 +1,73 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Gnus for Noobs: Mail and News in Emacs - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Gnus for Noobs: Mail and News in Emacs</h1><p class="site-post-meta center">March 28, 2025</p><div class="video">  <iframe src="https://www.youtube.com/embed/I1H1GuPvhCc" allowfullscreen></iframe></div><div id="content"><p>
+<a href="https://forum.systemcrafters.net/t/gnus-for-noobs-mail-and-news-in-emacs-system-crafters-live/1516">Discuss this stream on the forum!</a>
+</p>
+
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-orgd6e22e4">
+<ul class="org-ul">
+<li><p>
+Lionyx blog post about the emacs-solo stream:
+</p>
+
+<p>
+<a href="https://www.rahuljuliato.com/posts/emacs-solo-demo">https://www.rahuljuliato.com/posts/emacs-solo-demo</a>
+</p></li>
+
+<li><p>
+Check out Paul (Giacomo / fishinthecalculator) talk about hosting Forgejo in Guix using OCI containers!
+</p>
+
+<p>
+Video is not up yet but will be at <a href="https://www.youtube.com/@guix.social-rv9rg">https://www.youtube.com/@guix.social-rv9rg</a>
+</p></li>
+
+<li><p>
+New Guix Course in Development
+</p>
+
+<p>
+System Crafters Guild members at 15/mo and above will have early access to in-development course material while I&rsquo;m working on it (on the Forum).
+</p>
+
+<p>
+Join the Guild here:  <a href="https://systemcrafters.store">https://systemcrafters.store</a>
+</p></li>
+</ul>
+</div>
+
+<h2><a id="letrsquos-learn-gnus" class="anchor" href="#letrsquos-learn-gnus">¶</a>Let&rsquo;s Learn Gnus!</h2><div class="outline-text-2" id="text-org42fa2c6">
+<p>
+Here are some notes from the stream:
+</p>
+
+<pre>(<span class="org-keyword">setq</span> gnus-select-method '(nnnil <span class="org-string">""</span>))
+
+(<span class="org-keyword">setq</span> gnus-secondary-select-methods
+      '((nnimap <span class="org-string">"imap.myserver.com"</span>)
+        (nntp <span class="org-string">"gwene"</span> (nntp-address <span class="org-string">"news.gwene.org"</span>))
+        (nnatom <span class="org-string">"xkcd.com/atom.xml"</span>)
+        (nntp <span class="org-string">"news.yhetil.org"</span>)))
+
+(<span class="org-keyword">setq</span> nnmail-split-methods
+      '((<span class="org-string">"mail.guix-days"</span> <span class="org-string">"^Subject:.*Guix Days"</span>)))
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Turn on adaptive scoring
+</span>(<span class="org-keyword">setq</span> gnus-use-adaptive-scoring t)
+
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Start the daemon to automatically check email
+</span>(gnus-demon-add-rescan)
+(gnus-demon-init)</pre>
+
+<p>
+Once you have this set up, you can run <code>M-x gnus</code> and then press <code>^</code> (caret) to see the entire list of news groups for the subscribed RSS feeds.  Press <code>u</code> to subscribe to any feed to see it on your main groups screen.
+</p>
+
+<p>
+Use <code>M-g</code> to refresh groups.
+</p>
+
+<p>
+To reply to a newsgroup (or mailing list via nntp) message, use <code>f</code>.
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

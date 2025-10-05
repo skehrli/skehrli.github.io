@@ -1,0 +1,240 @@
+<!-- Generated from 2ba9cb1 on 2025-10-05 @ 18:02 with Emacs 27.2 (Org mode 9.4.4) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Writing Manuals with Texinfo in Emacs - System Crafters</title></head><body><header class="site-header"><div class="container"><div class="site-title"><img class="logo" src="/img/sc_logo.png" alt="System Crafters"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/guides/">Guides</a> <a class="nav-link" href="/courses/">Courses</a> <a class="nav-link" href="/news/">News</a> <a class="nav-link" href="/community/">Community</a> <a class="nav-link" href="https://systemcrafters.store?utm_source=sc-site-nav">Store</a> <a class="nav-link" href="/how-to-help/">How to Help</a></nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">Writing Manuals with Texinfo in Emacs</h1><p class="site-post-meta center">January 26, 2024</p><div class="video">  <iframe src="https://www.youtube.com/embed/" allowfullscreen></iframe></div><div id="content">
+<h2><a id="news" class="anchor" href="#news">¶</a>News</h2><div class="outline-text-2" id="text-org5e575dd">
+<ul class="org-ul">
+<li><p>
+The &ldquo;Hands On Guile Scheme for Beginners&rdquo; course is a little over a week away!
+</p>
+
+<p>
+<a href="https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/">https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/</a>
+</p>
+
+<p>
+The next iteration should happen in March or April, sign up for the newsletter to be notified!
+</p>
+
+<p>
+<a href="https://systemcrafters.net/newsletter/">https://systemcrafters.net/newsletter/</a>
+</p>
+
+<p>
+Also, feel free to send me an e-mail directly if you&rsquo;re interested or have questions about it.
+</p></li>
+
+<li><p>
+Check out Sacha Chua&rsquo;s next live stream!
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=x81McHcnUMs">https://www.youtube.com/watch?v=x81McHcnUMs</a>
+</p></li>
+
+<li><p>
+Gavin Freeborn has a new video out about Emacs:
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=6oeE52bIFyE">https://www.youtube.com/watch?v=6oeE52bIFyE</a>
+</p></li>
+</ul>
+</div>
+
+
+<h2><a id="learning-texinfo" class="anchor" href="#learning-texinfo">¶</a>Learning Texinfo</h2><div class="outline-text-2" id="text-org9816275">
+<ul class="org-ul">
+<li>Learn a bit about Texinfo</li>
+<li>Start writing an example book or manual</li>
+<li>Attempt to export the manual to different formats (HTML, PDF, ePUB, .info)</li>
+<li>Take a look at Org Mode&rsquo;s Texinfo export backend</li>
+</ul>
+
+<p>
+In Guix, run this command to enter a shell that makes it easy to run Texinfo!
+</p>
+
+<pre>guix shell texinfo texlive-scheme-small texlive-texinfo</pre>
+
+<p>
+Add this to your Emacs configuration to automatically load <code>.info</code> files in the Info viewer:
+</p>
+
+<pre><span class="org-comment-delimiter">;; </span><span class="org-comment">Load the info system for info files
+</span>(add-to-list 'auto-mode-alist '(<span class="org-string">"\\.info\\'"</span> . Info-on-current-buffer))</pre>
+
+<p>
+Alternatively, you can use the <code>C-u C-h i</code> key binding to be prompted for an info file to load.  (Or <code>C-u M-x info</code>)
+</p>
+</div>
+
+<h3><a id="generating-texinfo-output-files" class="anchor" href="#generating-texinfo-output-files">¶</a>Generating Texinfo Output Files</h3><div class="outline-text-3" id="text-org82b0684">
+<pre>makeinfo -D <span class="org-string">'VERSION 6.6.6'</span> -D <span class="org-string">'UPDATED Jan 26, 2024'</span> mymanual.texinfo
+makeinfo --html --no-split mymanual.texinfo
+makeinfo --pdf mymanual.texinfo</pre>
+</div>
+
+
+<h3><a id="document-contents" class="anchor" href="#document-contents">¶</a>Document Contents</h3><div class="outline-text-3" id="text-orgfe4a1ca">
+<p>
+#+begin_src texinfo
+</p>
+
+<p>
+\input texinfo
+@settitle Sample Manual 1.0
+</p>
+
+<p>
+@copying
+This is a short example of a complete Texinfo file.
+</p>
+
+<p>
+Copyright @copyright{} 2016 Free Software Foundation, Inc.
+@end copying
+</p>
+
+<p>
+@titlepage
+@title Sample Title
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+</p>
+
+<p>
+@contents
+</p>
+
+<p>
+@node Top
+@top System Crafters IRC Manual
+</p>
+
+<p>
+This manual is for System Crafters IRC
+(version @value{VERSION}, @value{UPDATED}).
+</p>
+
+<p>
+@menu
+</p>
+</div>
+<h2><a id="how-to-join----where-to-find-the-system-crafters-irc" class="anchor" href="#how-to-join----where-to-find-the-system-crafters-irc">¶</a>How to Join::    Where to find the System Crafters IRC.</h2>
+<h2><a id="clients-to-use--suggested-irc-clients" class="anchor" href="#clients-to-use--suggested-irc-clients">¶</a>Clients to Use::  Suggested IRC Clients</h2>
+<h2><a id="concept-index------------concept-index" class="anchor" href="#concept-index------------concept-index">¶</a>Concept Index::            Concept index.</h2>
+<h2><a id="programming-index--------programming-index" class="anchor" href="#programming-index--------programming-index">¶</a>Programming Index::        Programming index.</h2><div class="outline-text-2" id="text-orgabb2f73">
+<p>
+@end menu
+</p>
+
+
+<p>
+@node How to Join
+@chapter How to Join
+</p>
+
+<p>
+@cindex chapter, first
+@cindex index entry, another
+@findex hello-world
+This is the first chapter.
+</p>
+
+<p>
+Here is a numbered list.
+</p>
+
+<p>
+@enumerate
+@item
+This is the first item.
+</p>
+
+<p>
+@item
+This is the second item.
+@end enumerate
+</p>
+
+
+<p>
+@node First Section
+@section First Section
+</p>
+
+<p>
+First section of first chapter.
+</p>
+
+<p>
+@node Second Section
+@section Second Section
+</p>
+
+<p>
+Second section of first chapter.
+</p>
+
+<p>
+@node Clients to Use
+@chapter Clients to Use
+</p>
+
+<p>
+@lisp
+(use-modules (guix inferior) (guix channels)
+             (srfi srfi-1))   ;for &rsquo;first&rsquo;
+</p>
+
+<p>
+(define channels
+  ;; This is the old revision from which we want to
+  ;; extract guile-json.
+  (list (channel
+         (name &rsquo;guix)
+         (url &ldquo;<a href="https://git.savannah.gnu.org/git/guix.git">https://git.savannah.gnu.org/git/guix.git</a>&rdquo;)
+         (commit
+          &ldquo;65956ad3526ba09e1f7a40722c96c6ef7c0936fe&rdquo;))))
+</p>
+
+<p>
+(define inferior
+  ;; An inferior representing the above revision.
+  (inferior-for-channels channels))
+</p>
+
+<p>
+;; Now create a manifest with the current &ldquo;guile&rdquo; package
+;; and the old &ldquo;guile-json&rdquo; package.
+(packages-&gt;manifest
+ (list (first (lookup-inferior-packages inferior &ldquo;guile-json&rdquo;))
+       (specification-&gt;package &ldquo;guile&rdquo;)))
+@end lisp
+</p>
+
+<p>
+@node Concept Index
+@unnumbered Concept Index
+</p>
+
+<p>
+@printindex cp
+</p>
+
+<p>
+@node Programming Index
+@unnumbered Programming Index
+@printindex fn
+</p>
+
+<p>
+@bye
+</p>
+
+<p>
+#+end_src
+</p>
+</div>
+</div></div><div class="list-form center"><div class="list-form-title">Subscribe to the System Crafters Newsletter!</div><form method="POST" action="https://www.simplelists.com/subscribe.php"><input type="hidden" name="format" value="text"/><input type="hidden" name="action" value="subscribe"/><input type="hidden" name="list" value="news@lists.systemcrafters.net"/><div class="list-form-message">Stay up to date with the latest System Crafters news and updates!  Read the <a href="/newsletter/">Newsletter</a> page for more information.</div><div class="row"><div class="column"><div class="row center list-form-label">Name (optional)</div><div class="row"><input type="text" name="name"/></div></div><div class="column"><div class="row center list-form-label">Email Address</div><div class="row"><input type="text" name="email"/></div></div></div><div><input type="submit" value="Subscribe!"/></div></form></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><div class="site-footer-line"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/credits/">Credits</a> · <a href="/rss/">RSS Feeds</a> · <a rel="me" href="https://fosstodon.org/@daviwil">Fediverse</a></div><div class="site-footer-line">© 2021-2024 · System Crafters LLC</div></div><div class="column align-right"><p><a href="https://codeberg.org/SystemCrafters/systemcrafters.net"><img src="/img/codeberg.png" style="width: 120px" alt="Contribute on Codeberg"/></a></p></div></div></div></footer></body></html>

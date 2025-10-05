@@ -126,6 +126,11 @@ body {
   /* calendar-weekend-header */
   color: #676e95;
 }
+.org-center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
 .org-child-frame-border {
 }
 .org-comint-highlight-input {

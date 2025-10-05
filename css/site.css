@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/jost');
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+
 /*
  * Globals
  */
@@ -7,12 +10,12 @@
 }
 
 html {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 767px) {
   html {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .logo {
@@ -32,14 +35,18 @@ html {
   }
 
   .newsletter-text {
-    font-size: 0.65rem;
+    font-size: 0.42em;
+  }
+
+  blockquote {
+    margin: 1rem 0rem;
   }
 }
 
 /* sm */
 @media screen and (min-width: 768px) {
   html {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .logo {
@@ -77,18 +84,26 @@ html {
   }
 
   .newsletter-text {
-    font-size: 1.2rem;
+    font-size: 0.9em;
+  }
+
+  blockquote {
+    margin: 1rem 2rem;
   }
 }
 
 /* md */
 @media screen and (min-width: 992px) {
   html {
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .logo {
     max-width: 300px;
+  }
+
+  blockquote {
+    margin: 1rem 4rem;
   }
 }
 
@@ -101,9 +116,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Iosevka Aile Web", sans-serif;
-  font-weight: 300;
-  font-size: 1.3rem;
+  font-family: "Jost*", sans-serif;
   line-height: 1.5;
   color: #eeffff;
   background-color: #292d3e;
@@ -115,11 +128,30 @@ p {
 }
 
 b {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 blockquote {
+  background-color: #232635;
   font-style: italic;
+  border: 1px solid;
+  border-radius: 4px;
+  border-image: linear-gradient(45deg, #f78c6c, rgb(250,224,66)) 1;
+  padding: 1.4rem 1.4rem 0.4rem 1.4rem;
+}
+
+blockquote p {
+  margin-bottom: 0.6rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  border-left: 3px solid #89aaeb;
+  margin: 10px 40px;
+  padding-left: 10px;
 }
 
 .container {
@@ -135,15 +167,35 @@ blockquote {
   justify-content: center;
 }
 
+.subnav {
+  background-color: #232635;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-top: 0.05rem solid #c3e88d;
+  border-bottom: 0.05rem solid #c3e88d;
+}
+
+.subnav a {  /* margin-top: 2rem; */
+  /* margin-bottom: 2rem; */
+
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Iosevka Aile Web", sans-serif;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-top: 1.3rem;
   margin-bottom: 0.5rem;
   color: #eeffff;
@@ -151,22 +203,26 @@ h6 {
 
 h1 {
   color: #89aaeb;
+  font-size: 1.3rem;
 }
 
 h2 {
   color: #c3e88d;
+  line-height: 1.2;
 }
 
 h3 {
-  color: #c792ea;
+  /* color: #c792ea; */
+  line-height: 1.1;
+  color: #c3e88d;
 }
 
 h4 {
+  line-height: 1.0;
   color: #c3e88d;
 }
 
 a {
-  /* color: #c3e88d; */
   color: #82aaff;
 }
 
@@ -198,7 +254,6 @@ kbd {
 }
 
 pre {
-  font-family: "JetBrains Mono", monospace;
   background-color: #232635;
   padding: 1em;
   overflow-x: scroll;
@@ -208,28 +263,22 @@ code {
   color: #c3e88d;
 }
 
-pre,
-code {
+pre, code {
+  font-size: 0.75em;
   font-family: "JetBrains Mono", monospace;
-  font-weight: 200;
-  font-size: 1rem;
 }
 
 strong {
   font-weight: 700;
 }
 
-/*
- * Override Bootstrap's default container.
- */
-
 .container {
-  max-width: 60rem;
+  max-width: 45rem;
 }
 
-/*
- * Masthead for nav
- */
+.content {
+  margin-top:
+}
 
 .site-masthead {
   margin-bottom: 0.5rem;
@@ -252,8 +301,8 @@ strong {
 .nav-link {
   position: relative;
   padding: 0rem;
-  font-size: 1.3rem;
-  margin: 0.5rem 1.25rem 0.5rem 0rem;
+  font-size: 1.1rem;
+  margin: 0.4rem 0.8rem 0.4rem 0rem;
   font-weight: bold;
   color: #cdddeb;
 }
@@ -282,15 +331,14 @@ strong {
  */
 
 .site-header {
-  font-family: "Iosevka Aile Web", sans-serif;
   font-weight: bold;
   background-image: url("/img/header_bg.png");
   background-size: cover;
 }
 
 .site-title {
-  margin-bottom: 0;
-  font-size: 3rem;
+  margin-bottom: 0rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #82aaff;
 }
@@ -314,13 +362,11 @@ strong {
 }
 
 .site-post-title {
-  margin-bottom: 0.75rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .site-post-meta {
-  margin-bottom: 1.25rem;
-  color: #999;
+  color: #AAA;
 }
 
 .site-post-tags {
@@ -338,7 +384,7 @@ strong {
   padding: 1.3rem 0;
   margin-top: 1rem;
   color: #cdddeb;
-  font-size: 1rem;
+  font-size: 0.8rem;
   background-color: #232635;
   border-top: 0.05rem solid #c3e88d;
 }
@@ -349,6 +395,10 @@ strong {
 
 .site-footer-right {
   text-align: right;
+}
+
+.site-footer-line {
+ margin-bottom: 0.4rem;
 }
 
 .video {
@@ -364,6 +414,14 @@ strong {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+hr {
+  border-bottom: 0.05rem solid #c3e88d;
 }
 
 .video::after {
@@ -391,6 +449,10 @@ strong {
   background-color: #232635;
 }
 
+.cta p {
+  margin: 5px;
+}
+
 .stream-time {
   width: 80%;
   padding: 1rem;
@@ -402,7 +464,7 @@ strong {
 }
 
 .list-form {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 1rem;
   margin-bottom: 1rem;
   border: 1px solid #c3e88d;
@@ -411,9 +473,8 @@ strong {
 }
 
 .list-form-title {
-  font-family: "Iosevka Aile Web", sans-serif;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
   color: #c3e88d;
 }
@@ -425,7 +486,7 @@ strong {
 
 .list-form input[type="text"] {
   width: 100%;
-  padding: 10px 10px;
+  padding: 7px 7px;
   margin: 8px 0;
   box-sizing: border-box;
   border: 1px solid #c3e88d;
@@ -446,4 +507,18 @@ strong {
 }
 
 .newsletter-text {
+}
+
+.register-button {
+  width: 60%;
+  padding: 10px 10px;
+  border: 1px solid #89aaeb;
+  border-radius: 4px;
+  background-color: #89aaeb;
+  color: #232635;
+}
+
+a:hover.register-button,
+a:focus.register-button {
+  color: #232635;
 }
