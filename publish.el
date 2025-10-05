@@ -135,10 +135,12 @@
      (dw/embed-video path))))
 
 (defun dw/site-header ()
-  (list `(header (@ (class "site-header"))
-                 (div (@ (class "container"))
-                      (div (@ (class "site-title"))
-                           "Sascha Kehrli"))
+  (list
+   `(header (@ (class "site-header"))
+            (div (@ (class "container"))
+                 (div (@ (class "site-title")
+                         (style "text-align:center;"))
+                      "Sascha Kehrli"))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
