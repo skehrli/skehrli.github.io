@@ -101,26 +101,26 @@
   "The URL for the site being generated.")
 
 (defun dw/embed-list-form ()
-  `(div (@ (class "list-form center"))
-        (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
-        (form (@ (method "POST")
-                 (action "https://www.simplelists.com/subscribe.php"))
-              (input (@ (type "hidden") (name "format") (value "text")))
-              (input (@ (type "hidden") (name "action") (value "subscribe")))
-              (input (@ (type "hidden") (name "list") (value "news@lists.systemcrafters.net")))
-              (div (@ (class "list-form-message"))
-                   "Stay up to date with the latest System Crafters news and updates!  Read the "
-                   (a (@ (href "/newsletter/")) "Newsletter")
-                   " page for more information.")
-              (div (@ (class "row"))
-                   (div (@ (class "column"))
-                        (div (@ (class "row center list-form-label")) "Name (optional)")
-                        (div (@ (class "row")) (input (@ (type "text") (name "name")))))
-                   (div (@ (class "column"))
-                        (div (@ (class "row center list-form-label")) "Email Address")
-                        (div (@ (class "row")) (input (@ (type "text") (name "email"))))))
-              (div nil
-                   (input (@ (type "submit") (value "Subscribe!")))))))
+  `(div (@ (class "list-form center"))))
+        ; (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
+        ; (form (@ (method "POST")
+        ;          (action "https://www.simplelists.com/subscribe.php"))
+        ;       (input (@ (type "hidden") (name "format") (value "text")))
+        ;       (input (@ (type "hidden") (name "action") (value "subscribe")))
+        ;       (input (@ (type "hidden") (name "list") (value "news@lists.systemcrafters.net")))
+        ;       (div (@ (class "list-form-message"))
+        ;            "Stay up to date with the latest System Crafters news and updates!  Read the "
+        ;            (a (@ (href "/newsletter/")) "Newsletter")
+        ;            " page for more information.")
+        ;       (div (@ (class "row"))
+        ;            (div (@ (class "column"))
+        ;                 (div (@ (class "row center list-form-label")) "Name (optional)")
+        ;                 (div (@ (class "row")) (input (@ (type "text") (name "name")))))
+        ;            (div (@ (class "column"))
+        ;                 (div (@ (class "row center list-form-label")) "Email Address")
+        ;                 (div (@ (class "row")) (input (@ (type "text") (name "email"))))))
+        ;       (div nil
+        ;            (input (@ (type "submit") (value "Subscribe!")))))))
 
 (org-link-set-parameters
  "yt"
@@ -138,40 +138,39 @@
   (list `(header (@ (class "site-header"))
                  (div (@ (class "container"))
                       (div (@ (class "site-title"))
-                           (img (@ (class "logo")
-                                   (src ,(concat dw/site-url "/img/sc_logo.png"))
-                                   (alt "System Crafters")))))
+                           "Sascha Kehrli"))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
-                                (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
-                                (a (@ (class "nav-link") (href "/news/")) "News") " "
-                                (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
-                                (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
+                                (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
+                                ; (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
+                                ; (a (@ (class "nav-link") (href "/news/")) "News") " "
+                                ; (a (@ (class "nav-link") (href "/community/")) "Community") " "
+                                ; (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
+                                ; (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
+      ))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
-                           (div (@ (class "column"))
-                                (div (@ (class "site-footer-line"))
-                                     (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
-                                     " · "
-                                     (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
-                                     " · "
-                                     (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
-                                     " · "
-                                     (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                                (div (@ (class "site-footer-line"))
-                                     "© 2021-2024 · System Crafters LLC"))
-                           (div (@ (class "column align-right"))
-                                (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
-                                      (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
-                                              (style "width: 120px")
-                                              (alt "Contribute on Codeberg")))))))))))
+                           (div (@ (class "column"))))))))
+                           ;      (div (@ (class "site-footer-line"))
+                           ;           (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
+                           ;           " · "
+                           ;           (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
+                           ;           " · "
+                           ;           (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
+                           ;           " · "
+                           ;           (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
+                           ;      (div (@ (class "site-footer-line"))
+                           ;           "© 2021-2024 · System Crafters LLC"))
+                           ; (div (@ (class "column align-right"))
+                           ;      (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
+                           ;            (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
+                           ;                    (style "width: 120px")
+                           ;                    (alt "Contribute on Codeberg")))))))))))
 
 (defun get-article-output-path (org-file pub-dir)
   (let ((article-dir (concat pub-dir
@@ -240,9 +239,11 @@
                            ,(when pre-content pre-content)
                            (div (@ (id "content"))
                                 ,content))
-                      ,(dw/embed-list-form))
-                 ,@(unless exclude-footer
-                     (dw/site-footer)))))))
+                      ; ,(dw/embed-list-form)
+                      )
+                 ; ,@(unless exclude-footer
+                 ;     (dw/site-footer))
+                    )))))
 
 (defun dw/org-html-template (contents info)
   (dw/generate-page (org-export-data (plist-get info :title) info)
@@ -456,74 +457,89 @@ holding contextual information."
       webfeeder-date-function #'dw/rss-extract-date)
 
 (setq org-publish-project-alist
-      (list '("systemcrafters:main"
+      (list '("skehrli:main"
               :base-directory "./content"
               :base-extension "org"
               :publishing-directory "./public"
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:faq"
-              :base-directory "./content/faq"
-              :base-extension "org"
-              :publishing-directory "./public/faq"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:courses"
-              :base-directory "./content/courses"
-              :base-extension "org"
-              :recursive t
-              :publishing-directory "./public/courses"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:assets"
+            ; '("systemcrafters:faq"
+            ;   :base-directory "./content/faq"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./public/faq"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:courses"
+            ;   :base-directory "./content/courses"
+            ;   :base-extension "org"
+            ;   :recursive t
+            ;   :publishing-directory "./public/courses"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            '("skehrli:assets"
               :base-directory "./assets"
               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|zip"
               :publishing-directory "./public"
               :recursive t
               :publishing-function org-publish-attachment)
-            '("systemcrafters:live-streams"
-              :base-directory "./content/live-streams"
+            '("skehrli:Posts"
+              :base-directory "./content/posts"
               :base-extension "org"
-              :publishing-directory "./public/live-streams"
+              :publishing-directory "./public/posts"
               :publishing-function org-html-publish-to-html
               :auto-sitemap t
-              :sitemap-filename "../live-streams.org"
-              :sitemap-title "Live Streams"
-              :sitemap-format-entry dw/format-live-stream-entry
-              :sitemap-style list
-              :sitemap-sort-files anti-chronologically
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:news"
-              :base-directory "./content/news"
-              :base-extension "org"
-              :publishing-directory "./public/news"
-              :publishing-function org-html-publish-to-html
-              :auto-sitemap t
-              :sitemap-filename "../news.org"
-              :sitemap-title "System Crafters News"
+              :sitemap-filename "../posts.org"
+              :sitemap-title "Posts"
               :sitemap-format-entry dw/format-news-entry
               :sitemap-style list
               ;; :sitemap-function dw/news-sitemap
               :sitemap-sort-files anti-chronologically
               :with-title nil
               :with-timestamps nil)
-            '("systemcrafters:newsletter"
-              :base-directory "./content/newsletter"
-              :base-extension "txt"
-              :publishing-directory "./public/newsletter"
-              :publishing-function dw/publish-newsletter-page)
-            '("systemcrafters:videos"
-              :base-directory "./content/videos"
-              :base-extension "org"
-              :recursive t
-              :publishing-directory "./public"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)))
+            ; '("systemcrafters:live-streams"
+            ;   :base-directory "./content/live-streams"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./public/live-streams"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :auto-sitemap t
+            ;   :sitemap-filename "../live-streams.org"
+            ;   :sitemap-title "Live Streams"
+            ;   :sitemap-format-entry dw/format-live-stream-entry
+            ;   :sitemap-style list
+            ;   :sitemap-sort-files anti-chronologically
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:news"
+            ;   :base-directory "./content/news"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./public/news"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :auto-sitemap t
+            ;   :sitemap-filename "../news.org"
+            ;   :sitemap-title "System Crafters News"
+            ;   :sitemap-format-entry dw/format-news-entry
+            ;   :sitemap-style list
+            ;   ;; :sitemap-function dw/news-sitemap
+            ;   :sitemap-sort-files anti-chronologically
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:newsletter"
+            ;   :base-directory "./content/newsletter"
+            ;   :base-extension "txt"
+            ;   :publishing-directory "./public/newsletter"
+            ;   :publishing-function dw/publish-newsletter-page)
+            ; '("systemcrafters:videos"
+            ;   :base-directory "./content/videos"
+            ;   :base-extension "org"
+            ;   :recursive t
+            ;   :publishing-directory "./public"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+              ))
 
 ;; TODO: Generate a _redirects file instead once Codeberg Pages releases a new version
 (defun dw/generate-redirects (redirects)
