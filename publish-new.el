@@ -119,22 +119,22 @@
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
-                           (div (@ (class "column"))
-                                (div (@ (class "site-footer-line"))
-                                     (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
-                                     " · "
-                                     (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
-                                     " · "
-                                     (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
-                                     " · "
-                                     (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                                (div (@ (class "site-footer-line"))
-                                     "© 2021-2024 · System Crafters LLC"))
-                           (div (@ (class "column align-right"))
-                                (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
-                                      (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
-                                              (style "width: 120px")
-                                              (alt "Contribute on Codeberg")))))))))))
+                           (div (@ (class "column"))))))))
+                           ;      (div (@ (class "site-footer-line"))
+                           ;           (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
+                           ;           " · "
+                           ;           (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
+                           ;           " · "
+                           ;           (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
+                           ;           " · "
+                           ;           (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
+                           ;      (div (@ (class "site-footer-line"))
+                           ;           "© 2021-2024 · System Crafters LLC"))
+                           ; (div (@ (class "column align-right"))
+                           ;      (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
+                           ;            (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
+                           ;                    (style "width: 120px")
+                           ;                    (alt "Contribute on Codeberg")))))))))))
 
 (defun get-article-output-path (org-file pub-dir)
   (let ((article-dir (concat pub-dir
@@ -298,31 +298,6 @@ holding contextual information."
                       plist
                       pub-dir))
 
-(defun dw/publish-newsletter-page (plist filename pub-dir)
-  "Publish a newsletter .txt file to a simple HTML page."
-  (let* ((issue-name (file-name-sans-extension
-                      (file-name-nondirectory filename)))
-         (output-file (expand-file-name
-                       (concat issue-name ".html")
-                       pub-dir))
-         (contents (with-temp-buffer
-                     (insert-file-contents filename)
-                     (buffer-string))))
-    (with-temp-file output-file
-      (insert
-       (dw/generate-page
-        (concat "Issue "
-                (nth 2 (split-string issue-name "-")))
-        (format "<pre class=\"newsletter-text\">%s</pre>"
-                (replace-regexp-in-string
-                 "\\(http\\|https\\)://[^ \t\n\r<>\"']*[^ \t\n\r<>\".,;!?']"
-                 (lambda (match)
-                   (format "<a href=\"%s\">%s</a>" match match))
-                 contents))
-        '()
-        :exclude-header t
-        :exclude-footer t)))))
-
 (setq org-publish-use-timestamps-flag t
       org-publish-timestamp-directory "./.org-cache/"
       org-export-with-section-numbers nil
@@ -398,68 +373,70 @@ holding contextual information."
       webfeeder-date-function #'dw/rss-extract-date)
 
 (setq org-publish-project-alist
-      (list '("systemcrafters:main"
-              :base-directory "./content"
-              :base-extension "org"
-              :publishing-directory "./org-output"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:faq"
-              :base-directory "./content/faq"
-              :base-extension "org"
-              :publishing-directory "./org-output/faq"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:courses"
-              :base-directory "./content/courses"
-              :base-extension "org"
-              :recursive t
-              :publishing-directory "./org-output/courses"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:live-streams"
-              :base-directory "./content/live-streams"
-              :base-extension "org"
-              :publishing-directory "./org-output/live-streams"
-              :publishing-function org-html-publish-to-html
-              :auto-sitemap t
-              :sitemap-filename "../live-streams.org"
-              :sitemap-title "Live Streams"
-              :sitemap-format-entry dw/format-live-stream-entry
-              :sitemap-style list
-              :sitemap-sort-files anti-chronologically
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:news"
-              :base-directory "./content/news"
-              :base-extension "org"
-              :publishing-directory "./org-output/news"
-              :publishing-function org-html-publish-to-html
-              :auto-sitemap t
-              :sitemap-filename "../news.org"
-              :sitemap-title "System Crafters News"
-              :sitemap-format-entry dw/format-news-entry
-              :sitemap-style list
-              ;; :sitemap-function dw/news-sitemap
-              :sitemap-sort-files anti-chronologically
-              :with-title nil
-              :with-timestamps nil)
-            '("systemcrafters:newsletter"
-              :base-directory "./content/newsletter"
-              :base-extension "txt"
-              :publishing-directory "./org-output/newsletter"
-              :publishing-function dw/publish-newsletter-page)
-            '("systemcrafters:videos"
-              :base-directory "./content/videos"
-              :base-extension "org"
-              :recursive t
-              :publishing-directory "./org-output"
-              :publishing-function org-html-publish-to-html
-              :with-title nil
-              :with-timestamps nil)))
+      (list
+            ; '("systemcrafters:main"
+            ;   :base-directory "./content"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./org-output"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:faq"
+            ;   :base-directory "./content/faq"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./org-output/faq"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:courses"
+            ;   :base-directory "./content/courses"
+            ;   :base-extension "org"
+            ;   :recursive t
+            ;   :publishing-directory "./org-output/courses"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:live-streams"
+            ;   :base-directory "./content/live-streams"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./org-output/live-streams"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :auto-sitemap t
+            ;   :sitemap-filename "../live-streams.org"
+            ;   :sitemap-title "Live Streams"
+            ;   :sitemap-format-entry dw/format-live-stream-entry
+            ;   :sitemap-style list
+            ;   :sitemap-sort-files anti-chronologically
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:news"
+            ;   :base-directory "./content/news"
+            ;   :base-extension "org"
+            ;   :publishing-directory "./org-output/news"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :auto-sitemap t
+            ;   :sitemap-filename "../news.org"
+            ;   :sitemap-title "System Crafters News"
+            ;   :sitemap-format-entry dw/format-news-entry
+            ;   :sitemap-style list
+            ;   ;; :sitemap-function dw/news-sitemap
+            ;   :sitemap-sort-files anti-chronologically
+            ;   :with-title nil
+            ;   :with-timestamps nil)
+            ; '("systemcrafters:newsletter"
+            ;   :base-directory "./content/newsletter"
+            ;   :base-extension "txt"
+            ;   :publishing-directory "./org-output/newsletter"
+            ;   :publishing-function dw/publish-newsletter-page)
+            ; '("systemcrafters:videos"
+            ;   :base-directory "./content/videos"
+            ;   :base-extension "org"
+            ;   :recursive t
+            ;   :publishing-directory "./org-output"
+            ;   :publishing-function org-html-publish-to-html
+            ;   :with-title nil
+            ;   :with-timestamps nil)))
+            ))
 
 ;; TODO: Generate a _redirects file instead once Codeberg Pages releases a new version
 (defun dw/generate-redirects (redirects)
