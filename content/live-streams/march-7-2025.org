@@ -1,0 +1,65 @@
+#+title: Emulating Howm Notes with Denote and Consult
+#+subtitle: System Crafters Live - March 7, 2025
+#+date: [2025-03-07 Fri]
+#+video: u-eFNq8T8LY
+
+* News
+
+- New Guix Course in Development
+
+  System Crafters Guild members at 15/mo and above will have early access to in-development course material while I'm working on it (on the Forum).
+
+  Join the Guild here:  https://systemcrafters.store
+
+- Read Mickey Petersen's new Mastering Emacs article on using Emacs as a tmux replacement:
+
+  https://www.masteringemacs.org/article/replacing-tmux-gnu-screen-emacs
+
+* Emulating Howm with Denote and Consult
+
+What will we be trying to replicate?
+
+- Searching for notes in most-recent-edit order
+- Searching for notes from today, yesterday, specific date
+- Following search query links
+
+#+begin_src emacs-lisp
+
+  (consult-denote-mode 1)
+
+  (let ((tab (make-hash-table :test 'equal)))
+    (puthash "Foo" "foo.org" tab)
+    (gethash (completing-read "Yes: "  tab) tab))
+
+  (defun denote-howmish-find-file ()
+    (declare (interactive-only t))
+    (interactive)
+    (let* ((sorted-files (sort (mapcar (lambda (file)
+                                         (cons (file-attribute-modification-time
+                                                (file-attributes file))
+                                               file))
+                                       (denote-directory-files))
+                               (lambda (left right)
+                                 (not
+                                  (time-less-p (car left)
+                                               (car right))))))
+           (table (make-hash-table :test 'equal))
+           (options
+            (mapcar (lambda (file)
+                      (puthash (denote-retrieve-title-or-filename (cdr file) 'org)
+                               (cdr file)
+                               table))
+                    sorted-files))
+           (result
+            (consult--read table
+                           :prompt "Note: "
+                           :sort nil
+                           :require-match t
+                           :add-history (thing-at-point 'filename)
+                           :state (consult--file-preview)
+                           :category 'file
+                           :history '(:input consult--find-history))))
+      (when result
+        (find-file (gethash result table)))))
+
+#+end_src

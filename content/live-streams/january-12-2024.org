@@ -1,0 +1,46 @@
+#+title: Comparing Emacs Workspace Packages
+#+subtitle: System Crafters Live - January 12, 2024
+#+date: [2024-01-12 Fri]
+#+video: pqrFAsO0KA4
+
+* News
+
+- New Video: "5 Reasons to Learn Scheme in 2024"
+
+  https://youtu.be/3eXK9YZ0NjU
+
+  The next video will be about setting up Geiser for Guile development in Emacs!
+
+- I just announced my first live course, "Hands-On Guile Scheme for Beginners"!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  I will be putting together more advanced Guile courses and also courses on other topics this year.  Let me know what you'd be interested to see!
+
+- EXWM activity seems to be picking up again!
+
+  https://github.com/ch11ng/exwm/issues/853#issuecomment-1875716233
+
+- SourceHut and Codeberg are the target of a major DDoS
+
+  https://outage.sr.ht/
+
+* Which Emacs workspace package is best for you?
+
+** Beframe
+
+Beframe is a frame-oriented workspace manager by Protesilaos Stavrou.
+
+  -> https://protesilaos.com/emacs/beframe
+
+** Tabspaces
+
+Tabspaces is a workspace manager for =tab-bar-mode= by Colin McClear.
+
+  -> https://github.com/mclear-tools/tabspaces
+
+** Bufler.el
+
+Bufler is an automatic workspace manager by Alphapapa.
+
+  -> https://github.com/alphapapa/bufler.el

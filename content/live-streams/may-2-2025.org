@@ -1,0 +1,73 @@
+#+title: Experimenting With Spritely Goblins
+#+subtitle: System Crafters Live - May 2, 2025
+#+date: [2025-05-02 Fri]
+#+video: rs1xyXquFKE
+
+* News
+
+- The Spring Lisp Game Jam starts next week!  May 9th - May 19th
+
+  https://itch.io/jam/spring-lisp-game-jam-2025
+
+  I'll be working on some kind of web-based MUD with Guile and /possibly/ Goblins.
+
+* Let's Try Goblins!
+
+Today we're going to experiment with Spritely Goblins to learn how it works and see if it would be appropriate to use for a MUD game project that I'm planning to build for the upcoming Spring Lisp Game Jam!
+
+Resources:
+
+- https://spritely.institute/goblins/
+- https://files.spritely.institute/docs/guile-goblins/0.15.1/index.html
+
+Check out using Goblins with Guile Hoot:
+
+- https://spritely.institute/news/spritely-goblins-v0-15-1-released.html
+- https://files.spritely.institute/embeds/goblin-chat-lite/goblin-chat-lite.scm
+
+** The code
+
+Here's the example code we experimented with.  We spent most of the time walking through the Goblins manual!
+
+#+begin_src scheme
+
+  (use-modules (goblins)
+               (goblins vat)
+               (fibers)
+               (fibers conditions)
+               (system repl server))
+
+  (define-actor (^sleeper _bcom)
+    (lambda ()
+      (define sleep-vow
+        (spawn-fibrous-vow (lambda () (sleep 3) #t)))
+      (on sleep-vow
+          (lambda _
+            'awake)
+          #:promise? #t)))
+
+  (define-actor (^hello _bcom)
+    (lambda ()
+      'hello))
+
+  (define a-vat (spawn-vat))
+  (define sleeper
+    (with-vat a-vat
+      (spawn ^sleeper)))
+  (define hello
+    (with-vat a-vat
+      (spawn ^hello)))
+
+  (define b-vat (spawn-vat))
+  (with-vat b-vat
+    (on (<- sleeper)
+        (lambda (response)
+          (pk 'sleeper-said response)))
+    (on (<- hello)
+        (lambda (response)
+          (pk 'hello-said response))))
+
+  ;; Start a REPL, use `geiser-connect' to enter it!
+  (run-server)
+
+#+end_src

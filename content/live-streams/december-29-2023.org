@@ -1,0 +1,59 @@
+#+title: 2023 Retrospective and 2024 Plans
+#+subtitle: System Crafters Live - December 29, 2023
+#+date: [2023-12-29 Fri]
+#+video: BM_xFmfwfRg
+
+* Updates
+
+- Buy Guix merch here!
+
+  https://um4no.creator-spring.com/
+  https://mastodon.online/@luis_felipe
+
+- Gentoo now provides binary package builds:
+
+  https://www.gentoo.org/news/2023/12/29/Gentoo-binary.html
+
+- rde 0.5.0 was just released:
+
+  https://lists.sr.ht/~abcdw/rde-announce/%3C874jg1gtrz.fsf%40trop.in%3E
+
+* 2023 Year in Review
+
+Let's take a look at my year in review and plans for last year and see what we accomplished and what we still want to see happen in 2024:
+
+https://systemcrafters.net/live-streams/december-23-2022/
+
+** Move from Discord to Matrix and IRC
+** The new website
+** The Newsletter
+
+
+* Areas of Focus in 2024
+
+** Improving Guix tutorial coverage
+
+** Write and publish one book
+
+** Integrating Guix and Emacs configurations
+
+** Promoting Guile Scheme and Guile Hoot for personal tool hacking
+
+** Hosting your own services to reduce dependence on proprietary ones
+
+** Focusing on some useful non-Emacs tools
+
+tmux, vim
+
+** Looking at other Linux distributions to find an ideal secondary for servers, workstations, etc
+
+- Debian
+- Alpine
+- Gentoo
+
+** Organize a more focused effort around providing community services
+
+- IRC bouncer
+- XMPP server
+- file sharing (0x0?)
+- Fediverse server?

@@ -1,0 +1,107 @@
+#+title: Crafting Note Taking Extensions for Denote
+#+subtitle: System Crafters Live - June 7, 2024
+#+date: [2024-06-07 Fri]
+#+video: q2l_EShllus
+
+* News
+
+- New Merch and support options on the System Crafters Store!
+
+  https://systemcrafters.store
+
+  Let me know what you'd like to see next!
+
+- Guix is looking for contributors to infrastructure projects:
+
+  https://lists.gnu.org/archive/html/guix-devel/2024-05/msg00183.html
+
+- Hands-On Guile Scheme for Beginners, June Edition starts tomorrow!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+* Crafting Denote Workflow Extensions
+
+- Create topic entries (add category automatically?)
+- Create an entry of a certain kind with starter template, prompt for topic
+- Extract subtree to new note and create link (preserve topic?)
+- Some approach for templating dblocks
+
+** Tag Design
+
+- "pra" "prb" "prc"
+- "ply" "plm" "plw"
+- "kh" "kt" "kp" "kl" "ka" "kap"
+- "kcp" "kca" "kcc"
+- "kra" "krb" "krv"
+- "rn"
+
+** Note Titles
+
+- System Crafters: Update SC website home page (tagged =pra=)
+
+** Workflow Customizations
+
+#+begin_src emacs-lisp
+
+  (defun my/denote-insert-category (category)
+    (save-excursion
+      (beginning-of-buffer)
+      (while (and
+              (< (point) (point-max))
+              (string= "#+"
+                      (buffer-substring-no-properties
+                       (point-at-bol)
+                       (+ (point-at-bol) 2))))
+        (next-line))
+
+      (insert "#+category: " category)
+      (save-buffer)))
+
+  (defun my/denote-create-topic-note ()
+    (interactive)
+    (let* ((topic-files (mapcar (lambda (file)
+                                  (cons (denote-retrieve-front-matter-title-value file 'org)
+                                        file))
+                                (denote-directory-files-matching-regexp "_kt")))
+           (selected-topic (completing-read "Select topic: "
+                                            (mapcar #'car topic-files))))
+
+      (denote (denote-title-prompt (format "%s: " selected-topic))
+              (denote-keywords-prompt))
+
+      ;(my/denote-insert-category selected-topic)
+      ))
+
+  (defun my/denote-extract-subtree ()
+    (interactive)
+    (save-excursion
+      (if-let ((text (org-get-entry))
+               (heading (denote-link-ol-get-heading)))
+          (progn
+            (delete-region (org-entry-beginning-position)
+                           (save-excursion (org-end-of-subtree t) (point)))
+            (denote heading (denote-keywords-prompt) 'org)
+            (insert text)))))
+
+  (defvar my/denote-keywords
+    '(("pra" . "Active Project")
+      ("prb" . "Backlogged Project")
+      ("prc" . "Closed Project")))
+
+  (defun my/denote-custom-affixation (completions)
+    (mapcar (lambda (completion)
+              (list completion
+                    ""
+                    (alist-get completion
+                               my/denote-keywords
+                               nil
+                               nil
+                               #'string=)))
+            completions))
+
+  (defun my/denote-keyword-prompt ()
+    (let ((completion-extra-properties
+           (list :affixation-function
+                 #'my/denote-custom-affixation)))
+      (denote-keywords-prompt)))
+#+end_src

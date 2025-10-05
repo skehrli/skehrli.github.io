@@ -1,0 +1,42 @@
+#+title: Exploring the Guix Universe via Community Channels
+#+subtitle: System Crafters Live - November 1, 2024
+#+date: [2024-11-01 Fri]
+#+video: eMPJZ_9V7Ow
+
+* News
+
+- Next week: Getting Started with Guix Home
+
+  I'll give you an introduction to Guix Home and how to get started with a simple configuration that help you migrate your existing configuration over and leverage its unique benefits!
+
+- New Workshop: "Git Good: From Basics to Beyond in 4 Hours"
+
+  I'll be giving a one-day, 4 hour workshop on December 8 and December 15 that will take you from the basics of Git all the way to advanced techniques like =git rebase=.
+
+  This will be an interactive workshop where I teach you the core concepts of Git and practical techniques for everyday use.  Participants will be given short, hands-on exercises to try while the event goes on so that you can learn quickly and ask questions.
+
+  If you want to learn how to use Git like an experienced hacker, join us here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  More dates may be added if there is enough interest!
+
+* Exploring Community Guix Channels
+
+An index of Guix community channels: https://toys.whereis.みんな/
+
+Channels we looked at:
+
+- https://codeberg.org/akib/guix-channel-emacs-master
+- https://git.sr.ht/~puercopop/glue
+- https://git.sr.ht/~whereiseveryone/guixrus
+- https://github.com/umanwizard/guix-tailscale
+- https://gitlab.inria.fr/guix-hpc/guix-hpc
+- https://git.sr.ht/~abcdw/rde/
+- https://gitlab.com/orang3/small-guix
+- https://github.com/ieugen/bin-guix
+- https://codeberg.org/ieure/atomized-guix.git
+- https://github.com/declantsien/guix-rustup
+- https://codeberg.org/kakafarm/guix-kakafarm-channel
+- https://gitlab.com/guix-gaming-channels/games
+- https://notabug.org/wigust/guix-wigust/

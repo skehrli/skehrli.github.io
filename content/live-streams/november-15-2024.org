@@ -1,0 +1,48 @@
+#+title: Exploring Emacs Completion Styles
+#+subtitle: System Crafters Live - November 15, 2024
+#+date: [2024-11-15 Fri]
+#+video: QNdOBXVdd1Q
+
+* News
+
+- New SC Newsletter Issue #011
+
+  https://systemcrafters.net/newsletter/sc-news-011
+  https://systemcrafters.net/newsletter/
+
+- New Workshop: "Git Good: From Basics to Beyond in 4 Hours"
+
+  I'll be giving a one-day, 4 hour workshop on December 8 and December 15 that will take you from the basics of Git all the way to advanced techniques like =git rebase=.
+
+  This will be an interactive workshop where I teach you the core concepts of Git and practical techniques for everyday use.  Participants will be given short, hands-on exercises to try while the event goes on so that you can learn quickly and ask questions.
+
+  If you want to learn how to use Git like an experienced hacker, join us here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  More dates may be added if there is enough interest!
+
+- Upcoming SC Video: Git Reflog
+
+- Complete the Guix Survey!
+
+  https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/
+
+* Emacs Completion Styles
+
+
+#+begin_src emacs-lisp
+
+  ;; Use the fastest and most restrictive first because the slower
+  ;; options will be consulted only if the faster option yields no
+  ;; results!
+  (setq completion-styles '(initials partial-completion))
+
+  (defun dw/icomplete-setup ()
+    (setq completion-styles '(basic flex)))
+
+  ;; For icomplete it is necessary to use a hook to configure the
+  ;; completion-styles variable correctly!
+  (add-hook 'icomplete-minibuffer-setup-hook #'dw/icomplete-setup)
+
+#+end_src

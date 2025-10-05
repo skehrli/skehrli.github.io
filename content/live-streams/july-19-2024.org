@@ -1,0 +1,39 @@
+#+title: A Fair Trial of Emacs' Version Control Mode
+#+subtitle: System Crafters Live - July 19, 2024
+#+date: [2024-07-19 Fri]
+#+video: k4ls9lM4Fuo
+
+* News
+
+- Reminder about the EmacsConf 2024 Call for Participation:
+
+  The conference will be December 7 and 8 this year:
+
+  https://emacsconf.org/2024/cfp/
+
+  If you have an Emacs-related topic you're excited about, consider submitting a proposal!
+
+
+* Let's Learn vc-mode Better!
+
+** Important Key Bindings
+
+Under ~C-x v~ keymap:
+
+- ~+~ - =vc-update= :: or pull the repo
+- ~P~ - =vc-push= :: push the repo
+- ~v~ - =vc-next-action= :: do what I mean for VC operations on the current buffer or file at point
+
+** Staging Hunks in a File
+
+Follow this nice set of steps by Dr Arne
+
+https://www.draketo.de/software/emacs-tipps#vc-mode-partial
+
+** Reverting Hunks in a File
+
+- C-x v d
+- = for diff (or just run vc-diff)
+- C-c C-r - diff-reverse-direction to reverse the diff
+- Use k to remove any hunks you want to keep
+- Use C-c C-a to apply the reversal of the remaining hunks

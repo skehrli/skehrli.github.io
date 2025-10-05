@@ -1,0 +1,159 @@
+#+title: Exporting Org Mode Files...  to Scheme?
+#+subtitle: System Crafters Live - May 31, 2024
+#+date: [2024-05-31 Fri]
+#+video: CcBqZiwgDj8
+
+* News
+
+- Hands-On Guile Scheme for Beginners, June Edition is open for registration!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  The early registration discount ends on Monday at 6AM UTC!
+
+- Spring Lisp Game Jam 2024 is finished!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+  Lots of excellent submissions, including a few from SC community folks!
+  https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684
+
+- My talk at the London Guix meetup this week can be watched here:
+
+  https://www.youtube.com/watch?v=oINCgds-8kA
+
+  Also check out the interview with Ludovic Courtes!
+
+  https://www.youtube.com/watch?v=339dRDf4c6E
+
+* Rewriting the Course in Scheme
+
+Today I'm going to engage in a bizarre experiment: converting all of the Org Mode files that I wrote for my Guile Beginners course into Scheme files that can be used with the [[https://www.nongnu.org/skribilo/][Skribilo]] document production tool.
+
+Why?
+
+- Creating custom markup to automate certain tasks
+- Potentially easier to cross-reference and build indexes
+- Can customize the output of the course material per-iteration and per-participant
+- To have fun writing more Scheme!
+
+I don't know if I will stick with this approach, but I did want to give it a fair shot to see if it can speed up the process of developing and delivering educational material.
+
+Here is the code we wrote:
+
+#+begin_src emacs-lisp
+
+  (require 'ox)
+  (require 'ox-publish)
+
+  (defun org-skribe-bold (_bold contents _info)
+    (format ",(bold [%s])" contents))
+
+  (defun org-skribe-italic (_italic contents _info)
+    (format ",(emph [%s])" contents))
+
+  (defun org-skribe-code (code _contents info)
+    (format ",(kbd [%s])" (org-element-property :value code)))
+
+  (defun org-skribe-verbatim (verbatim contents _info)
+    (format ",(code [%s])"
+            (org-element-property :value verbatim)))
+
+  (defun org-skribe-headline (headline contents info)
+    (message "LEVEL IS %d" (org-export-get-relative-level headline info))
+    (format "(section :title [%s]\n  %s)"
+            (car (org-element-property :title headline))
+            contents))
+
+  ;; (pcase (org-export-get-relative-level headline info)
+  ;;   ((0) "section"))
+
+  (defun org-skribe-src-block (src-block _contents info)
+    (let ((code (org-export-unravel-code src-block))
+          (language (org-element-property :language src-block)))
+      (pcase language
+        ("scheme" (format "(scm [\n%s\n])" (car code)))
+        (_ (format "(frame :width 50. (prog (source :language %s [%s])))"
+                   language
+                   (car code))))))
+
+  (defun org-skribe-link (link desc info)
+    (format ",(ref :url %a :text %s)"
+            (org-element-property :raw-link link)
+            desc))
+
+  (defun org-skribe-section (section contents info)
+    contents)
+
+  (defun org-skribe-paragraph (paragraph contents info)
+    (format "(p [%s])" (string-trim-right contents)))
+
+  (org-export-define-backend
+      'skribe
+    '((bold . org-skribe-bold)
+      ;;(center-block . org-skribe-center-block)
+      ;;(clock . org-skribe-clock)
+      (code . org-skribe-code)
+      ;;(drawer . org-skribe-drawer)
+      ;;(dynamic-block . org-skribe-dynamic-block)
+      ;;(entity . org-skribe-entity)
+      ;;(example-block . org-skribe-example-block)
+      ;;(export-block . org-skribe-export-block)
+      ;;(export-snippet . org-skribe-export-snippet)
+      ;;(fixed-width . org-skribe-fixed-width)
+      ;;(footnote-reference . org-skribe-footnote-reference)
+      (headline . org-skribe-headline)
+      ;; (horizontal-rule . org-skribe-horizontal-rule)
+      ;; (inline-src-block . org-skribe-inline-src-block)
+      ;; (inlinetask . org-skribe-inlinetask)
+      ;; (inner-template . org-skribe-inner-template)
+      (italic . org-skribe-italic)
+      ;; (item . org-skribe-item)
+      ;; (keyword . org-skribe-keyword)
+      ;; (latex-environment . org-skribe-latex-environment)
+      ;; (latex-fragment . org-skribe-latex-fragment)
+      ;; (line-break . org-skribe-line-break)
+      (link . org-skribe-link)
+      ;; (node-property . org-skribe-node-property)
+      (paragraph . org-skribe-paragraph)
+      ;; (plain-list . org-skribe-plain-list)
+      ;; (plain-text . org-skribe-plain-text)
+      ;; (planning . org-skribe-planning)
+      ;; (property-drawer . org-skribe-property-drawer)
+      ;; (quote-block . org-skribe-quote-block)
+      ;; (radio-target . org-skribe-radio-target)
+      (section . org-skribe-section)
+      ;; (special-block . org-skribe-special-block)
+      (src-block . org-skribe-src-block)
+      ;; (statistics-cookie . org-skribe-statistics-cookie)
+      ;; (strike-through . org-skribe-strike-through)
+      ;; (subscript . org-skribe-subscript)
+      ;; (superscript . org-skribe-superscript)
+      ;; (table . org-skribe-table)
+      ;; (table-cell . org-skribe-table-cell)
+      ;; (table-row . org-skribe-table-row)
+      ;; (target . org-skribe-target)
+      ;; (template . org-skribe-template)
+      ;; (timestamp . org-skribe-timestamp)
+      ;; (underline . org-skribe-underline)
+      (verbatim . org-skribe-verbatim)
+      ;; (verse-block . org-skribe-verse-block)
+      ))
+
+  ;; (setq org-publish-project-alist
+  ;;       (list '("org-to-skb:main"
+  ;;               :base-directory "./chapter-1"
+  ;;               :base-extension "org"
+  ;;               :publishing-directory "./skb-output"
+  ;;               :publishing-function org-html-publish-to-html
+  ;;               :with-title nil
+  ;;               :with-timestamps nil)
+
+  (defun org-skribe-export-to-skb
+      (&optional async subtreep visible-only body-only ext-plist)
+    (interactive)
+    (let ((file (org-export-output-file-name ".skb" subtreep)))
+      (org-export-to-file 'skribe file
+        async subtreep visible-only body-only ext-plist)))
+
+#+end_src

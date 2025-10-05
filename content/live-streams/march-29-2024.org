@@ -1,0 +1,22 @@
+#+title: Evil No More: Kicking the Habit
+#+subtitle: System Crafters Live - March 29, 2024
+#+date: [2024-03-29 Fri]
+#+video: AG_OB3CiPnI
+
+* News
+
+- The Spring Lisp Game Jam is May 17 to 27!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+* Saving Myself from Evil
+
+I'm making a serious attempt to stop using Evil Mode.  Let's discuss the why and how!
+
+I also need to fix some Evil-centric configuration so that I don't totally break everything...
+
+- Buffer switching
+- Dired bindings
+- Org bindings
+- s-expression navigation
+- Smoother navigation bindings (custom prefix?)

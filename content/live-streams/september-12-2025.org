@@ -1,0 +1,20 @@
+#+title: Exploring Omarchy: A More Polished Arch Linux?
+#+subtitle: System Crafters Live - September 12, 2025
+#+date: [2025-09-12 Fri]
+#+video: 6S2PnbQ8LwA
+
+* News
+
+- EmacsConf 2025 Call for Proposals deadline is September 19th!
+
+  The conference will be December 6-7
+  Submit your talk ideas at emacsconf.org/2025/submit/
+
+- Check out a file sharing site written in Guile Scheme by apoorv569
+
+  https://codeberg.org/apoorv569/slate
+
+* Let's Check Out Omarchy@
+
+- https://omarchy.org/
+- https://learn.omacom.io/2/the-omarchy-manual

@@ -1,0 +1,48 @@
+#+title: Strategies for Emacs Window Management
+#+subtitle: System Crafters Live - May 17, 2024
+#+date: [2024-05-17 Fri]
+#+video: KdYvZM2mtI4
+
+* News
+
+- Spring Lisp Game Jam 2024 has begun!
+
+  https://itch.io/jam/spring-lisp-game-jam-2024
+
+  If you've joined, post your project to this forum thread:
+
+  https://forum.systemcrafters.net/t/spring-lisp-game-jam-2024-what-are-you-building/684
+
+  Check out Dave Thompson's Guile Hoot template for the jam:
+
+  https://gitlab.com/spritely/guile-hoot-game-jam-template
+
+  I'll be streaming my work all next week on the System Crafters channel.  I'll also stream for 2 hours each day this weekend starting around 10-11AM UTC
+
+- I'll be speaking at London Guix Meetup on Wednesday, May 29th!
+
+  I'll be sharing my current best practices for using Guix to manage your system configurations and development workflow.
+
+  https://libreplanet.org/wiki/Group:Guix/PatchReviewSessions2024
+
+
+* The Emacs Window Management Almanac
+
+Today we're going to go through Karthik Chikmagalur's excellent new article, "The Emacs Window Management Almanac" to try out the various window management strategies he discusses:
+
+https://karthinks.com/software/emacs-window-management-almanac/
+
+I'm sure we will learn a lot!
+
+#+begin_src emacs-lisp
+
+  (defvar-keymap dw/windmove-keys
+    :repeat t
+    "h" #'windmove-left
+    "j" #'windmove-down
+    "k" #'windmove-up
+    "l" #'windmove-right)
+
+  (keymap-global-set "C-c w" dw/windmove-keys)
+
+#+end_src

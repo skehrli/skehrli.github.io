@@ -1,0 +1,30 @@
+#+title: Crafting Reproducible OpenBSD Server Configs
+#+subtitle: System Crafters Live - July 25, 2025
+#+date: [2025-07-25 Fri]
+#+video: dScf-zwq4GM
+
+* News
+
+
+
+* Crafting Reproducible OpenBSD Server Configurations
+
+Building on our previous OpenBSD exploration from May 30th, today we'll dive deeper into using OpenBSD as a server operating system with a focus on creating reproducible, version-controlled configurations.
+
+We'll create a small demo app with an httpd reverse-proxy to it with all configuration files managed as code within the app's repository.
+
+** Setting up a basic server configuration
+
+- =httpd= (OpenBSD's built-in web server) with reverse proxy configuration
+- =pf= (packet filter firewall) with appropriate rules for our services
+- Creating a custom daemon for an application we're building
+- Configuring =rc.conf.local= for daemon startup
+
+** Making the configuration reproducible
+
+- Using GNU Stow to manage symlinked configuration files
+- Version controlling our configurations with Git
+- Organizing configs within the application repository
+- Creating deployment scripts to apply configurations
+
+If we have time, we'll look into using answerfiles to automate the actual system installation.

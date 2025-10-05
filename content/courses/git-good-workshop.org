@@ -1,0 +1,77 @@
+#+title: Git Good: From Basics to Beyond in 4 Hours
+#+page-type: course
+#+video: K7-wrGpnqUM
+
+[The video above is an example of the kind of material we will cover!]
+
+- Experience Level: Beginner and above!
+
+#+begin_export html
+
+<div class="subnav">
+  <a href="#whatrsquos-included">What's Included</a> ·
+  <a href="#how-it-works">How It Works</a> ·
+  <a href="#how-to-join">How to Join</a>
+</div>
+
+#+end_export
+
+* Get Good at Git!
+
+Have you used Git for a while but still feel like you don't really understand what you're doing?  Do you wish you understood how Git /really/ works under the hood?  Want to know all the cool techniques that the expert hackers use?
+
+"Git Good" is a one-day live workshop that intends to teach you many of the secrets of expert Git users within 4 hours while giving you hands-on exercises to try it all for yourself!
+
+This workshop is meant for those who have used Git at a basic or intermediate level but it should also be quite informative for more experienced users who feel they have some gaps in their Git knowledge.
+
+Here is a sample of the topics we will cover:
+
+- Unlocking the Git conceptual model: commits, hashes, and refs
+- Discovering what Git stores locally
+- Understanding remotes and how to use them effectively
+- Understanding merge vs rebase, when to use them, and how to resolve conflicts
+- Cleaning up commits with amends and interactive rebase
+- Fixing commit mistakes with =git reset= and =git cherry-pick=
+- ... and other best practices for working with Git repositories in professional and open source projects!
+
+* What's Included
+
+- 4 hours of focused instruction on Git fundamentals, concepts, and practical use cases
+- Hands-on exercises during the course of the workshop so that you get to try everything yourself
+- A take-home workshop guide that covers all of the important material you will learn
+- A Git cheat sheet which gathers together all of the important commands into a concise document
+
+* How It Works
+
+There are currently two dates for the workshop:
+
+- Sunday, December 8, 2024 at [[https://time.is/0900_8_Dec_2024_in_UTC][09:00 UTC]]
+- Sunday, December 15, 2024 at [[https://time.is/1600_15_Dec_2024_in_UTC][16:00 UTC]]
+
+I've chosen these times to hopefully be convenient for people all across the world!
+
+Once you register, you will be added to a private forum group on the [[https://forum.systemcrafters.net][System Crafters Forum]] where you'll be able to choose the slot that works best for you!  More slots may be added if there is enough interest.
+
+On the day of the workshop, we will meet at the scheduled time for a 4 hour block of interactive teaching and exercises.  My goal is to deliver the maximum amount of value in the time we have available!
+
+More details on the exact minute-to-minute schedule will be provided here soon.
+
+* How To Join
+
+If you want to learn Git with us, head over to the [[https://systemcrafters.store/products/git-good-workshop][System Crafters Store]] to register or click the blue button below:
+
+#+BEGIN_EXPORT html
+
+<p>
+
+<a href="https://systemcrafters.store/products/git-good-workshop">
+  <img src="/img/courses/GitGoodWorkshop.png" class="center" style="width: 50%; margin-bottom: 10px; border: 1px solid #c3e88d;"/>
+</a>
+
+<b><a href="https://systemcrafters.store/products/git-good-workshop" class="register-button center">Click Here to Register for the Git Good Workshop!</a></b>
+
+</p>
+
+#+END_EXPORT
+
+Once you complete registration, you will be sent an e-mail invite to a private area on the System Crafters Forum.  This is the place where we will discuss the scheduling of the workshop dates so that you can pick your desired slot.

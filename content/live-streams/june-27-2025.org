@@ -1,0 +1,39 @@
+#+title: Let's Talk About Keyboards
+#+subtitle: System Crafters Live - June 27, 2025
+#+date: [2025-06-27 Fri]
+#+video: kB-t9PSkch8
+
+* News
+
+- Hilton Chain has put together some new, minimal Guix installation ISO images that you might want to check out if you're an experienced Guix user (or maybe not so experienced?):
+
+  https://social.boiledscript.com/notes/a9hbpbqd8l
+  https://files.boiledscript.com/livecd/
+  https://codeberg.org/hako/Testament/
+
+* Let's Talk About Keyboards
+
+Problem #1: I DO NOT like the Greek  (EU ISO) layout MacBook keyboards
+Problem #2: I have to use 2 keyboards for 2 computers at the same time AND I do *not* want a mouse on my desk
+
+The ideal goal: one keyboard shared between two computers with no mouse.  Doesn't have be a trackpoint, but no external mouse!
+
+** Options
+
+https://hhkeyboard.us/hhkb-studio
+https://ultimatehackingkeyboard.com/product/uhk60v2
+
+https://www.zsa.io/voyager
+https://www.zsa.io/moonlander
+
+https://www.moergo.com/pages/glove80-split-ergonomic-keyboard-wrist-hand-pain-free
+
+https://kinesis-ergo.com/keyboards/advantage360/
+
+https://holykeebs.com/products/corne-choc
+https://svalboard.com/products/lightly
+If you're insane: https://mechboards.co.uk/products/hyper-7-v4?variant=54984892416380
+
+The weirdest thing I've ever seen:
+
+https://www.alibaba.com/product-detail/washable-IP65-industrial-keyboard-with-optical_60753339784.html?spm=a2700.details.you_may_like.1.2ff64e39hjcJit

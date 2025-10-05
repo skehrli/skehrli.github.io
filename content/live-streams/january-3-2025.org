@@ -1,0 +1,71 @@
+#+title: Setting the Course for Crafting in 2025
+#+subtitle: System Crafters Live - January 3, 2025
+#+date: [2025-01-03 Fri]
+#+video: lya80SkpkKk
+
+* News
+
+- Happy New Year!
+
+- discourse.el has made a lot of progress!
+
+  https://forum.systemcrafters.net/t/progress-update-emacs-discourse-integration/1253
+
+  Jump in and help out!
+
+- The Spritely Institute is having a fundraiser!
+
+  https://spritely.institute/donate/
+
+  The Spritely Institute is working hard on new tools and technologies that are very important to the future of the Internet and also the future of Scheme!
+
+  Consider donating on a monthly basis to help them continue working toward these goals so that we can have a more friendly, fun Internet that isn't dominated by corporate interests.
+
+* Setting the Course for 2025
+
+** Videos
+
+- Strategies for using Howm
+- Why choose Guile/Scheme over Common Lisp, Clojure, etc
+- Something about Common Lisp
+- Make a video about GNU Artanis
+- Try out Lem
+- Denote, strategies using denote
+- Crafted Emacs
+- Dotfiles strategies
+- Dape for debugging
+- Other languages?  C, Zig, Go, Rust?
+- HTML/CSS, personal site design
+- Blog from Denote notes
+
+** Streams
+
+- Live coding of Guile Scheme apps
+- Another game jam with a Lisp
+- Replicate Howm core list functionality with Denote/Consult
+- Interview more people about their workflows and the tools they use
+- Integrating C with Guile
+- Optimizing Guile programs, measuring performance
+- Look at C3
+- Generate CSS using Guile
+- Lua investigation
+- What is Gash?  Try it it out
+
+** Deep Dives
+
+- emacs packages, guile libs, guix stuff, etc
+- Contributing to Emacs and Guix on stream
+
+** Community
+
+- Just encouraging more activity in the forum would be great
+- Hackathons on certain topics
+- Crafter Conf ??
+
+
+** Projects
+
+- Crafted Emacs
+- discourse-emacs
+- Crafted Guix ??
+- System Crafters Guild site

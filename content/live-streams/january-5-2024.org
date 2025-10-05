@@ -1,0 +1,35 @@
+#+title: Lisp-Flavored Lua with Fennel
+#+subtitle: System Crafters Live - January 5, 2024
+#+date: [2024-01-05 Fri]
+#+video: kU7IgC7-Ics
+
+* Updates
+
+- LibrePlanet 2024 will be May 4 and 5 in Boston, MA!
+
+  https://libreplanet.org/2024/
+
+* Let's take a look at Fennel
+
+First of all, what is Lua?
+
+It's a lightweight, embeddable scripting language for applications, games, and more.  It's meant to be really easy to integrate into any existing application to make configuration and scripting possible!
+
+- Official Site: https://www.lua.org/
+- What is Lua: https://www.lua.org/about.html
+- Getting Started: https://www.lua.org/start.html
+
+Fennel is a Clojure-inspired Lisp language that compiles down to Lua.
+
+- Official Site: https://fennel-lang.org/
+- Why Fennel?: https://fennel-lang.org/rationale
+- Setting Up Fennel: https://fennel-lang.org/setup
+- Getting Started: https://fennel-lang.org/tutorial
+- For Clojure Users: https://fennel-lang.org/from-clojure
+- Codebases Using Fennel: https://wiki.fennel-lang.org/Codebases
+- Writing Macros: https://fennel-lang.org/macros
+
+Configuring AwesomeWM with Fennel:
+
+- Example config: https://gist.github.com/christoph-frick/d3949076ffc8d23e9350d3ea3b6e00cb
+- friar: eval Fennel into the AwesomeWM session: https://github.com/shtwzrd/friar

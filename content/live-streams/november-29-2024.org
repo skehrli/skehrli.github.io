@@ -1,0 +1,120 @@
+#+title: Crafting Color Overrides for Emacs' Modus Themes
+#+subtitle: System Crafters Live - November 29, 2024
+#+date: [2024-11-29 Fri]
+#+video: 4iyCkEA_KaY
+
+* News
+
+- New SC Video: Rescue Your Commits with Git Reflog
+
+  In this video, I'll show you three techniques using the 'git reflog' command that can save you from lost work and despair!  If you've ever deleted a branch by accident, lost commits against a detached head, or make a mistake during a 'git rebase' operation, you'll want to check these out!
+
+  https://www.youtube.com/watch?v=K7-wrGpnqUM
+
+- Next SC Video: My Review of the Framework 13 with AMD Ryzen
+
+  I got a Framework 13 last week!  It's awesome, I'll post a video soon with a review, especially with my experience installing Guix on it.
+
+- Black Friday Deal: $50 off Hands-On Guile Scheme for Beginners!
+
+  This will go on through Cyber Week!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+- New Workshop: "Git Good: From Basics to Beyond in 4 Hours"
+
+  I'll be giving a one-day, 4 hour workshop on December 8 and December 15 that will take you from the basics of Git all the way to advanced techniques like =git rebase=.
+
+  (The first session is next Sunday!)
+
+  This will be an interactive workshop where I teach you the core concepts of Git and practical techniques for everyday use.  Participants will be given short, hands-on exercises to try while the event goes on so that you can learn quickly and ask questions.
+
+  If you want to learn how to use Git like an experienced hacker, join us here:
+
+  https://systemcrafters.net/courses/git-good-workshop/
+
+  More dates may be added if there is enough interest!
+
+- Complete the Guix Survey!
+
+  This is the last few days!
+
+  https://guix.gnu.org/en/blog/2024/guix-user-contributor-survey-2024/
+
+* Let's Customize the Modus Themes!
+
+Palette override documentation: https://protesilaos.com/emacs/modus-themes#h:34c7a691-19bb-4037-8d2f-67a07edab150
+
+Here's the work we did during the stream:
+
+#+begin_src emacs-lisp
+  (defun dw/clear-background-color (&optional frame)
+    (interactive)
+    (or frame (setq frame (selected-frame)))
+    "unsets the background color in terminal mode"
+    (unless (display-graphic-p frame)
+      ;; Set the terminal to a transparent version of the background color
+      (send-string-to-terminal
+       (format "\033]11;[90]%s\033\\"
+           (face-attribute 'default :background)))
+      (set-face-background 'default "unspecified-bg" frame)))
+
+  ;; Clear the background color for transparent terminals
+  (unless (display-graphic-p)
+    (add-hook 'after-make-frame-functions 'dw/clear-background-color)
+    (add-hook 'window-setup-hook 'dw/clear-background-color)
+    (add-hook 'ef-themes-post-load-hook 'dw/clear-background-color))
+
+  (use-package modus-themes
+    :ensure nil
+    :demand t
+    :custom
+    (modus-themes-italic-constructs t)
+    (modus-themes-bold-constructs t)
+    (modus-themes-common-palette-overrides
+     `((bg-main "#292D3E")
+       (bg-active bg-main)
+       (fg-main "#EEFFFF")
+       (fg-active fg-main)
+       (fg-mode-line-active "#A6Accd")
+       (bg-mode-line-active "#232635")
+       (fg-mode-line-inactive "#676E95")
+       (bg-mode-line-inactive "#282c3d")
+       (bg-tab-bar      "#242837")
+       (bg-tab-current  bg-main)
+       (bg-tab-other    bg-active)
+       (fg-prompt "#c792ea")
+       (bg-prompt unspecified)
+       (bg-hover-secondary "#676E95")
+       (bg-completion "#2f447f")
+       (fg-completion white)
+       (bg-region "#3C435E")
+       (fg-region white)
+
+       (fg-heading-0 "#82aaff")
+       (fg-heading-1 "#82aaff")
+       (fg-heading-2 "#c792ea")
+       (fg-heading-3 "#bb80b3")
+       (fg-heading-4 "#a1bfff")
+
+       (fg-prose-verbatim "#c3e88d")
+       (bg-prose-block-contents "#232635")
+       (fg-prose-block-delimiter "#676E95")
+       (bg-prose-block-delimiter bg-prose-block-contents)
+
+       (accent-1 "#79a8ff")
+
+       (keyword "#89DDFF")
+       (builtin "#82aaff")
+       (comment "#676E95")
+       (string "#c3e88d")
+       (fnname "#82aaff")
+       (type "#c792ea")
+       (variable "#ffcb6b")
+       (docstring "#8d92af")
+       (constant "#f78c6c")))
+    :init
+    (load-theme 'modus-vivendi-tinted t)
+    (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color))
+
+#+end_src

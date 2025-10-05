@@ -1,0 +1,66 @@
+#+title: Exploring the Guile Scheme Ecosystem
+#+subtitle: System Crafters Live - January 19, 2024
+#+date: [2024-01-19 Fri]
+#+video: L4Aa3oWaaTE
+
+* News
+
+- Emacs 29.2 has been released!
+
+  https://lists.gnu.org/archive/html/emacs-devel/2024-01/msg00666.html
+  https://github.com/emacs-mirror/emacs/blob/master/etc%2FNEWS.29#L28
+
+- The "Hands-On Guile Scheme for Beginners" course registration has closed!
+
+  https://systemcrafters.net/courses/hands-on-guile-scheme-beginners/
+
+  The next iteration should happen in March or April, sign up for the newsletter to be notified!
+
+  https://systemcrafters.net/newsletter/
+
+- Reminder: I'll be giving a keynote at LibrePlanet 2024!
+
+  May 4 and 5, 2024 at the Wentworth Institute of Technology in Boston, MA
+  https://www.fsf.org/blogs/community/libreplanet-2024-may-4-and-5-wentworth-institute-of-technology-boston-ma
+
+  You can register to attend online or in-person!
+
+  https://libreplanet.org/2024/
+
+
+* An experiment...
+
+I've been playing around with https://vdo.ninja to set up a custom conferencing solution for the upcoming Guile course.
+
+Let's see how many people we can load in at once!
+
+Join it here: https://vdo.ninja/?room=SCCourseTest&password=crafter&hash=d1d7&l&sl&hand&tips&broadcast&m
+
+* Let's Check Out Guile Libraries!
+
+Since we're going to be talking about Guile more on the channel this year, I thought it might be useful to scan through the list of Guile libraries and programs that use it to see what we can do with the language.
+
+If we have time, we might try to build a simple test app to put a few of them together!
+
+M-x eww https://www.gnu.org/software/guile/libraries/
+
+Useful built-in libraries:
+
+- Web Client/Server: https://www.gnu.org/software/guile/manual/html_node/Web.html
+- SXML: https://www.gnu.org/software/guile/manual/html_node/SXML.html
+
+Check out [[https://codeberg.org/SystemCrafters/live-crafter/][live-crafter]]'s chat bot:
+
+https://codeberg.org/SystemCrafters/live-crafter/raw/commit/c5a3738b475fd807b60e33a6f914d33e8ea4c3fb/chat.scm
+
+** Links worth checking out
+
+- https://guix.gnu.org/en/blog/2023/from-development-environments-to-continuous-integrationthe-ultimate-guide-to-software-development-with-guix/
+
+- https://spritely.institute/static/papers/spritely-core.html
+
+- https://community.spritely.institute/ (password OCAPN2023)
+
+- https://guix-forge.systemreboot.net/
+
+- https://awesome.haunt.page/
