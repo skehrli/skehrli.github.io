@@ -19,5 +19,5 @@ You can reach me at skehrli[at]mpi-sws[.]org. [[https://github.com/skehrli][This
   [[https://bford.info/thesis/2025-kehrli/][Formalizing Grounded Arithmetic atop Isabelle/Pure]]
 
 * Teaching
-+ Teaching Assistant in /Parallel Programming/ at ETH. For this one, I wrote a [[https://online.fliphtml5.com/kxggl/swny/][course script]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. Theory recaps and exercise solving for two classes of ~30 students each per week.
++ Teaching Assistant in /Parallel Programming/ at ETH. For this one, I authored [[https://online.fliphtml5.com/kxggl/swny/][lecture notes]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. Theory recaps and exercise solving for two classes of ~30 students each per week.
 + Teaching Assistant in /Algorithms & Datastructures/ at ETH. Theory recaps and exercise solving for a class of ~30 students each per week.

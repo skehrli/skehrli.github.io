@@ -101,18 +101,12 @@
                       (div (@ (class "site-title"))
                            (img (@ (class "logo")
                                    (src ,(concat dw/site-url "/img/sc_logo.png"))
-                                   (alt "System Crafters")))))
+                                   (alt "Sascha Kehrli | PhD Student, MPI-SWS")))))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
                                 (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
-                                ; (a (@ (class "nav-link") (href "/guides/")) "Guides") " "
-                                ; (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
-                                ; (a (@ (class "nav-link") (href "/news/")) "News") " "
-                                ; (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                ; (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
-                                ; (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
                                ))))))
 
 (defun dw/site-footer ()
