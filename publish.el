@@ -116,31 +116,18 @@
      (dw/embed-video path))))
 
 (defun dw/site-header ()
-  (list `(header (@ (class "site-header"))
-                 (div (@ (class "container"))
-                      (div (@ (class "site-title"))
-                           (img (@ (class "logo")
-                                   (src ,(concat dw/site-url "/img/sc_logo.png"))
-                                   (alt "Sascha Kehrli | PhD Student, MPI-SWS")))))
+  (list
+   `(header (@ (class "site-header"))
+            (div (@ (class "container"))
+                 (div (@ (class "site-title")
+                         (style "text-align:center;"))
+                      "Sascha Kehrli"))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
                                 (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
-                               ))))))
-; (defun dw/site-header ()
-;   (list
-;    `(header (@ (class "site-header"))
-;             (div (@ (class "container"))
-;                  (div (@ (class "site-title")
-;                          (style "text-align:center;"))
-;                       "Sascha Kehrli"))
-;                  (div (@ (class "site-masthead"))
-;                       (div (@ (class "container"))
-;                            (nav (@ (class "nav"))
-;                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-;                                 (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
-;       ))))))
+      ))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
