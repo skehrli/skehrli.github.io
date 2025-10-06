@@ -1,4 +1,5 @@
 #+title: An Overview of Locking Algorithms
+#+author: Sascha Kehrli
 
 Some time ago I TAed /Parallel Programming/, which covers a multitude of software locking algorithms. They solve the mutual exclusion problem for two or more threads. This is an overview of how they compare in key properties, such as starvation-freedom and fairness and includes some proof sketches of those properties (the ones I found interesting). However, we're not discussing how the locks themselves work. Rather is this a writeup of the more surprising and non-obvious properties/proofs I've found when covering this in my classes.
 
