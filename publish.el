@@ -102,25 +102,6 @@
 
 (defun dw/embed-list-form ()
   `(div (@ (class "list-form center"))))
-        ; (div (@ (class "list-form-title")) "Subscribe to the System Crafters Newsletter!")
-        ; (form (@ (method "POST")
-        ;          (action "https://www.simplelists.com/subscribe.php"))
-        ;       (input (@ (type "hidden") (name "format") (value "text")))
-        ;       (input (@ (type "hidden") (name "action") (value "subscribe")))
-        ;       (input (@ (type "hidden") (name "list") (value "news@lists.systemcrafters.net")))
-        ;       (div (@ (class "list-form-message"))
-        ;            "Stay up to date with the latest System Crafters news and updates!  Read the "
-        ;            (a (@ (href "/newsletter/")) "Newsletter")
-        ;            " page for more information.")
-        ;       (div (@ (class "row"))
-        ;            (div (@ (class "column"))
-        ;                 (div (@ (class "row center list-form-label")) "Name (optional)")
-        ;                 (div (@ (class "row")) (input (@ (type "text") (name "name")))))
-        ;            (div (@ (class "column"))
-        ;                 (div (@ (class "row center list-form-label")) "Email Address")
-        ;                 (div (@ (class "row")) (input (@ (type "text") (name "email"))))))
-        ;       (div nil
-        ;            (input (@ (type "submit") (value "Subscribe!")))))))
 
 (org-link-set-parameters
  "yt"
@@ -135,44 +116,37 @@
      (dw/embed-video path))))
 
 (defun dw/site-header ()
-  (list
-   `(header (@ (class "site-header"))
-            (div (@ (class "container"))
-                 (div (@ (class "site-title")
-                         (style "text-align:center;"))
-                      "Sascha Kehrli"))
+  (list `(header (@ (class "site-header"))
+                 (div (@ (class "container"))
+                      (div (@ (class "site-title"))
+                           (img (@ (class "logo")
+                                   (src ,(concat dw/site-url "/img/sc_logo.png"))
+                                   (alt "Sascha Kehrli | PhD Student, MPI-SWS")))))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
                                 (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
-                                ; (a (@ (class "nav-link") (href "/courses/")) "Courses") " "
-                                ; (a (@ (class "nav-link") (href "/news/")) "News") " "
-                                ; (a (@ (class "nav-link") (href "/community/")) "Community") " "
-                                ; (a (@ (class "nav-link") (href "https://systemcrafters.store?utm_source=sc-site-nav")) "Store") " "
-                                ; (a (@ (class "nav-link") (href "/how-to-help/")) "How to Help")))))))
-      ))))))
+                               ))))))
+; (defun dw/site-header ()
+;   (list
+;    `(header (@ (class "site-header"))
+;             (div (@ (class "container"))
+;                  (div (@ (class "site-title")
+;                          (style "text-align:center;"))
+;                       "Sascha Kehrli"))
+;                  (div (@ (class "site-masthead"))
+;                       (div (@ (class "container"))
+;                            (nav (@ (class "nav"))
+;                                 (a (@ (class "nav-link") (href "/")) "Home") " "
+;                                 (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
+;       ))))))
 
 (defun dw/site-footer ()
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
                            (div (@ (class "column"))))))))
-                           ;      (div (@ (class "site-footer-line"))
-                           ;           (a (@ (href ,(concat dw/site-url "/privacy-policy/"))) "Privacy Policy")
-                           ;           " · "
-                           ;           (a (@ (href ,(concat dw/site-url "/credits/"))) "Credits")
-                           ;           " · "
-                           ;           (a (@ (href ,(concat dw/site-url "/rss/"))) "RSS Feeds")
-                           ;           " · "
-                           ;           (a (@ (rel "me") (href "https://fosstodon.org/@daviwil")) "Fediverse"))
-                           ;      (div (@ (class "site-footer-line"))
-                           ;           "© 2021-2024 · System Crafters LLC"))
-                           ; (div (@ (class "column align-right"))
-                           ;      (p (a (@ (href "https://codeberg.org/SystemCrafters/systemcrafters.net"))
-                           ;            (img (@ (src ,(concat dw/site-url "/img/codeberg.png"))
-                           ;                    (style "width: 120px")
-                           ;                    (alt "Contribute on Codeberg")))))))))))
 
 (defun get-article-output-path (org-file pub-dir)
   (let ((article-dir (concat pub-dir
