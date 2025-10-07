@@ -175,7 +175,6 @@
             (meta (@ (author "System Crafters - David Wilson")))
             (meta (@ (name "viewport")
                      (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
-            (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
             (link (@ (rel "alternative")
                      (type "application/rss+xml")
                      (title "System Crafters News")
