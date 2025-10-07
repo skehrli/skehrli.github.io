@@ -188,7 +188,7 @@
                     ;; Empty string to cause a closing </script> tag
                     "")
             ,(when head-extra head-extra)
-            (title ,("Sascha Kehrli | Phd Student, MPI-SWS")))
+            (title "Sascha Kehrli | Phd Student, MPI-SWS"))
            (body ,@(unless exclude-header
                      (dw/site-header))
                  (div (@ (class "container"))
