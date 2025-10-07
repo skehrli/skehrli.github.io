@@ -375,12 +375,12 @@ holding contextual information."
 (defun dw/format-news-entry (entry style project)
   "Format posts with author and published data in the index page."
   (cond ((not (directory-name-p entry))
-         (format "[[file:%s][%s]] · %s"
+         (format "[[file:%s][%s]]"
                  entry
                  (org-publish-find-title entry project)
                  ; (car (org-publish-find-property entry :author project))
-                 (format-time-string "%B %d, %Y"
-                                     (org-publish-find-date entry project))
+                 ; (format-time-string "%B %d, %Y"
+                 ;                     (org-publish-find-date entry project))
                                     ))
         ((eq style 'tree) (file-name-nondirectory (directory-file-name entry)))
         (t entry)))
