@@ -1,36 +1,34 @@
 #+title: An Overview of Locking Algorithms
 
-Some time ago I TAed /Parallel Programming/, which covers a multitude of software locking algorithms. They solve the mutual exclusion problem for two or more threads. This is an overview of how they compare in key properties, such as starvation-freedom and fairness and includes some proof sketches of those properties (the ones I found interesting). However, we're not discussing how the locks themselves work. Rather is this a writeup of the more surprising and non-obvious properties/proofs I've found when covering this in my classes.
+Some time ago I TAed /Parallel Programming/, which covers a few locking algorithms that solve the mutual exclusion problem for two or more threads. This is an overview of how they compare in key properties, such as starvation-freedom and fairness, and includes some proof sketches of those properties (the ones I found interesting). The locking algorithms themselves are not explained, but rather is this a writeup of the more surprising and non-obvious properties/proofs I've found when covering this in my classes.
 
 #+CAPTION: Comparing Different Mutual-Exclusion Algorithms
-| Algorithm        | Mutually Exclusive | Starvation-Free | Deadlock-Free | Fair (FIFO) |
+| Algorithm        | Mutually Exclusive | Deadlock-Free | Starvation-Free | Fair (FIFO) |
 |------------------+--------------------+-----------------+---------------+-------------|
 | Peterson Lock    | Yes                | Yes             | Yes           | Yes         |
 | Dekker Lock      | Yes                | Yes             | Yes           | No          |
 | Filter Lock      | Yes                | Yes             | Yes           | No          |
 | Bakery Lock      | Yes                | Yes             | Yes           | Yes         |
-| Atomic-RMW-Locks | Yes                | No              | Yes           | No          |
+| Atomic-RMW-Locks | Yes                | Yes             | No            | No          |
 
 * Before we Start: Assumptions
 In order for the definitions and proofs in this post to make sense and be meaningful, we need to make a few assumptions.
 
-** The Anatomy of a Lock Algorithm
-When analyzing a lock algorithm, we divide the code into a few parts:
-
+** The Anatomy of a Locking Algorithm
 + Non-critical section:
-   This is the code part before the thread starts acquiring the lock. It does not have anything to do with the lock algorithm itself, but it is important to have it there: A thread is not simply acquiring and releasing a lock (with a critical section in between), but it also executes some non-critical code (that is, code that does not require mutual exclusion) before trying to acquire the lock. This is modelled with this non-critical section.
+   The code before the thread starts acquiring the lock. This is important to model, since a thread can get stuck in this section.
 + *lock()* method:
-   We are going to refer to the algorithm that is executed to actually acquire the lock as *lock()* method. We split the *lock()* method into two parts, the doorway and the waiting section as listed below.
-+ Doorway:
-   A /finite/ part of the *lock()* method. Usually, flags are set and variables written that are used to coordinate and communicate with competing threads. Note that the doorway must contain a finite number of instructions, so it cannot contain for example spin-loops.
-+ Waiting section:
-   A part of the *lock()* method that may contain an unbounded number of instructions. Usually, this section comes after the doorway and is simply a spin-wait to wait for some condition to be fulfilled (such that the thread can actually enter the critical section, i.e. acquire the lock).
+   The logic that is executed to atually acquire the lock. It is split into the following two subsections:
+    + Doorway:
+       A /finite/ part of the *lock()* method. Usually, flags are set, and variables written that are used to coordinate and communicate with competing threads. The doorway must contain a finite number of instructions, so it cannot contain for example spin-loops.
+    + Waiting section:
+       A part of the *lock()* method that may contain an unbounded number of instructions. Usually, this section comes after the doorway and is simply a spin-wait to wait for some condition to be fulfilled (such that the thread can actually enter the critical section, i.e. acquire the lock).
 + Critical section:
-   This is the code that is executed while a thread actually holds the lock. Like with the non-critical section, the actual code here is irrelevant.
+   The code that is executed while a thread holds the lock.
 + *unlock()* method:
-   The code that is executed after the critical section to make the lock available again for other threads.
+   The code that is executed after the critical section to make the lock available for other threads again.
 
-Let us see on the example of Peterson's algorithm how we would divide it up into these different sections:
+Consider Peterson's algorithm and how we would divide it up into these different sections:
 
 #+begin_src java
 /* non-critical section:
@@ -44,26 +42,26 @@ flag[id] = false; // unlock() method
 #+end_src
 
 ** The Progress Assumption
-For many proofs, we make an assumption that is vital. Without it, many proofs do not make sense (because they would be wrong) and thus we need to clarify it. We call it the /progress assumption/.
-We assume that threads in the *lock()* method, the critical section and the *unlock()* method have finite time in between instruction executions. That is, we assume every thread keeps executing its code (although note that it could be stuck in a loop). It must execute its next instruction in /some/ finite time. Intuitively, this means that a thread cannot ``die'' in these parts of the code and we can assume it will eventually carry on with its algorithm, albeit after an arbitrarily long time. This assumption allows us to prove progress guarantees about algorithms using locks, even though this progress depends on other threads (if another thread holds the lock we depend on this thread releasing the lock at some point). However, we do not make this assumption for the non-critical section, which precedes the call to *lock()*. There, it is possible that a thread "dies" in the sense that it might enter an infinite loop for example.
+For many proofs, there is a vital assumption usually left implicit, which we call the /progress assumption/.
+It assumes that threads in the *lock()* method, the critical section, and the *unlock()* method have finite time in between instruction executions. That is, it assumes every thread keeps executing its code (although it could be stuck in a loop), with /some/ finite time in between instruction execution. Intuitively, this means that a thread cannot ``die'' in these parts of the code, and we can assume it will eventually carry on with its algorithm, albeit after an arbitrarily long time. This assumption allows us to prove progress guarantees about algorithms using locks, even though this progress depends on other threads (if another thread holds the lock we depend on this thread releasing the lock at some point). However, we do not make this assumption for the non-critical section, which precedes the call to *lock()*.
 
 * Mutual Exclusion and Deadlock-Freedom
-Notice that all the discussed algorithms provide mutual exclusion (that is their primary point, so that is expected). A usable lock must at minimum provide deadlock-freedom in addition to mutual exclusion, so it is no surprise that they all provide that as well. Remember that deadlock-freedom here means that when at least one thread is contesting for the lock (called *lock()*, i.e. the thread is trying to acquire it), (at least) one of them is guaranteed to acquire it in finite time.
+Note that all the discussed algorithms provide mutual exclusion and deadlock-freedom, which are the two properties required to even be considered a locking algorithm. Deadlock-freedom means that when at least one thread is contesting for the lock (called *lock()*, i.e. the thread is trying to acquire it), (at least) one of them is guaranteed to acquire it in finite time.
 
 * Fairness
 ** Fairness in a Lock
 First of all, there is no universal definition of fairness in the literature. Some sources consider fairness as something we refer to as starvation-freedom. We consider a lock algorithm to be fair, if it fulfills FIFO order. Note that FIFO (first-in-first-out) and first-come-first-served mean exactly the same thing.
 
-The nice thing about this notion of fairness is the simple definition of a FIFO lock: A lock algorithm fulfills FIFO (or first-come-first-served) ordering, if and only if a thread that is "first-in" (compared to some other thread) is also guaranteed to acquire the lock first.
-The hard part is then to define what "first-in" means. Let us first motivate why this is a very difficult definition: Assume we say "first-in" means that the thread first called *lock()*. However, this does not really give the "first-in" thread an advantage. It could be that the second thread starts executing the *lock()* method first, even though the other thread made the function call first. We see that this definition of "first-in" cannot be meaningful.
+The nice thing about this notion of fairness is the simple definition of a FIFO lock: A locking algorithm fulfills FIFO (or first-come-first-served) ordering, if and only if a thread that is "first-in" (compared to some other thread) is also guaranteed to acquire the lock first.
+The hard part is then to define what "first-in" means. Consider the following naive definition: Assume we say "first-in" means that the thread first called *lock()*. However, this does not really give the "first-in" thread an advantage. It's still possible that the second thread starts executing the *lock()* method first, even though the other thread made the method call first. This definition is not meaningful.
 
-Another idea might be to define "first-in" such that some thread is "first-in" if it executed the first instruction of the *lock()* method before some other thread. However, what an instruction is, is quite arbitrary. Consider the Peterson lock. We can divide the first instruction into a load, modify and store and thus basically nullifying the advantage of the "first-in" thread. However, even when taking the actual Peterson algorithm, saying a thread is "first-in" if it raised its flag first, this would not guarantee that the thread acquires the lock first. So, with this "first-in" definition, Petersons algorithm would not be considered FIFO. However, Peterson's algorithm is quite universally considered FIFO. We need to find something else:
+Another idea might be to define "first-in" such that some thread is "first-in" if it executed the first instruction of the *lock()* method before some other thread. However, the granularity of instructions is quite arbitrary. Consider the Peterson lock. We can divide the first instruction into a load, modify, and store and thus basically nullify the advantage of the "first-in" thread. However, even when taking the actual Peterson's algorithm, considering a thread to be "first-in" if it raised its flag first would not guarantee that the thread acquires the lock first either. With this "first-in" definition, Peterson's algorithm would not be considered FIFO, which it however quite universally is considered as. We need to find something else.
 
 Remember our definition of the *lock()* method and its doorway and waiting section. We consider a thread P to be "first-in" compared to a competing thread Q, when P finishes its doorway section before Q starts its doorway section. And now, a lock algorithm fulfills FIFO ordering, if and only if one can divide its *lock()* method into a finite doorway and (possibly unbounded) waiting section, such that a thread being "first-in" compared to some other thread, is guaranteed to acquire the lock first.
 
-This is not a terribly simple definition, but it is very precise.
+This is not a terribly simple definition, but a precise and useful one.
 
-** Fairness of Peterson
+** Fairness of Peterson's Algorithm
 First, consider the following pseudo-code of the simple Peterson lock that provides mutual exclusion for two threads:
 #+begin_src java
 // shared fields
@@ -87,7 +85,7 @@ void unlock(int id) {
 }
 #+end_src
 
-Petersons lock is easily shown to be fair when we consider the doorway and waiting section as described in the lock anatomy section: Assume thread P is first-in, which means according to above definition that it finished its doorway (i.e. set its flag and set the victim to its ID) before a competing thread Q started its doorway. Now either of the follwing happens:
+Peterson's lock is easily shown to be fair when we consider the doorway and waiting section as described in the lock anatomy section: Assume thread P is first-in, which means according to above definition that it finished its doorway (i.e. set its flag and set the victim to its ID) before a competing thread Q started its doorway. Now either of the follwing happens:
 
     + The competing thread Q has still not started its doorway when P evaluates the condition of the waiting section for the first time. In that case, Q has not set its flag. Hence, P can advance to the critical section and will also do so before Q. This is because Q cannot advance unless either P sets the victim to its own id again or sets its flag to false. Both of which can only happen after P exited the critical section. So, Q is blocked and due to the progress assumption, P will enter the critical section in finite time, in particular before Q.
     + The competing thread Q has already entered the doorway section when P evaluates the condition of the waiting section for the first time. The progress assumption guarantees us that Q will finish the doorway in finite time and in particular will write victim=Q. Now, P can advance to the critical section and will do so before Q because of the same reasoning as in the first case (Q is blocked due to victim==Q and progress assumption guarantees P will continue eventually).
@@ -124,7 +122,7 @@ void unlock() {
 }
 #+end_src
 
-Say now thread Q was "first-in" before thread P. Here, we can only define the doorway to be  instruction 2, the raising of the flag. This is because the doorway must contain a finite amount of instructions, and thus we cannot include any part of the while loop (lines 3-11). Thus, Q being "first-in" simply means it raised its flag first. Now, first-in does not guarantee us that Q evaluates the while-condition before P enters its doorway and raises its flag. If that happens, both Q and P have to execute their while-loops to decide who can enter first and there, the turn variable decides. If the turn is initialized to favor P, P will enter first here and thus, "first-in-first-out" is violated.
+Assume thread Q was "first-in" before thread P. Here, we can only define the doorway to be  instruction 2, the raising of the flag, as any part of the while loop (lines 3-11) is possibly unbounded. Thus, Q being "first-in" simply means it raised its flag first. Now, first-in does not guarantee us that Q evaluates the while-condition before P enters its doorway and raises its flag. If that happens, both Q and P have to execute their while-loops to decide who can enter first and there, the turn variable decides. If the turn is initialized to favor P, P will enter first here and thus, "first-in-first-out" is violated.
 
 ** Why is the Filter Lock not Fair?
 #+begin_src java
@@ -157,7 +155,7 @@ Critical readers might now point out that our fairness definition only specified
 
 * Starvation
 ** Proving Starvation Freedom in General
-Starvation is a surprisingly simple property and formally means that any thread that calls *lock()* will acquire the lock in finite time (that is, the *lock()* method will terminate/return). So, to prove starvation freedom, we assume an arbitrary thread (that called *lock()*) and show that it will finish its *lock()* method in finite time.
+Starvation is a surprisingly simple property and formally means that any thread that calls *lock()* will acquire the lock in finite time (that is, the *lock()* method terminates). To prove starvation freedom, we assume an arbitrary thread (that called *lock()*) and show that it will finish its *lock()* method in finite time.
 
 ** Starvation Freedom of Filter Lock
 #+begin_src java
@@ -182,18 +180,18 @@ void unlock(int id) {
     level[id] = 0;
 }
 #+end_src
-Assume an arbitrary thread. It is sufficient to show that the thread can advance from some arbitrary level i to level i+1 in the filter lock in finite time. In a fully formal proof, the following reasoning would roughly correspond to the induction step (a formal proof would perform induction over the number of levels in the lock).
+Assume an arbitrary thread. It is sufficient to show that the thread can advance from some arbitrary level i to level i+1 in the filter lock in finite time. In a fully formal proof, the following reasoning would roughly correspond to the induction step (in an induction over the number of levels in the lock).
 We proceed by case distinction:
 + Either, a new thread reaches level i and sets the victim to itself. Thus, our thread can advance (consider the while-condition of the filter lock) and will do so eventually due to the progress assumption.
 + Or, no other thread ever reaches level i after our thread. Say now that k threads are ahead (or on the same level) of our thread in the lock. Deadlock-freedom of the filter lock guarantees us that in finite time, one of them will acquire the lock and due to our progress assumption will finish the critical section and unlock in finite time as well. Now, k-1 threads remain ahead of our thread or on the same level. Remember that no additional threads can come, because we are in the case where no other thread ever reaches level i. We can simply use deadlock freedom (plus our progress assumption) again to reach a scenario with k-2 threads ahead of, or at the same level as our thread. We use deadlock freedom k times in total until no thread remains ahead of or on the same level as us.
   Now, the while-loop evaluates to false and our thread can advance (and will do so eventually due to the progress assumption).
 
-Since these two cases cover all possible scenarios, the statement follows (the thread can indeed reach level i+1 in finite time). Since the thread was arbitrary and we can extend this (imagine induction with this as the induction step) to all n levels in the lock, starvation freedom holds.
+Since these two cases cover all possible scenarios, the statement follows (the thread can indeed reach level i+1 in finite time). Since the thread was arbitrary and we can extend this to all n levels in the lock, starvation freedom holds.
 
-This case distinction should provide enough intuition as to why a thread must make progress (and thus cannot starve) in the filter lock: Again, either a new thread reaches the level and thus our thread can advance (because it is no longer the victim). Or, no thread comes, but then all the ones ahead must drain at some point and then the thread can advance also. If you simply remember this simple two-sentence reasoning, you will be able to reconstruct why the filter lock is starvation-free.
+This case distinction should provide enough intuition as to why a thread must make progress (and thus cannot starve) in the filter lock: Again, either a new thread reaches the level and thus our thread can advance (because it is no longer the victim). Or, no thread comes, but then all the ones ahead must drain at some point and then the thread can advance as well.
 
 ** Why are Locks using Atomic-RMW Operations not Starvation-Free (and not Fair)?
-Let us consider a spinlock using the atomic TAS (test-and-set) operation:
+Consider a spin-lock using the atomic TAS (test-and-set) operation:
 
 #+begin_src java
 void lock(boolean lk) {
@@ -207,17 +205,15 @@ void unlock(boolean lk) {
 }
 #+end_src
 
-This is pseudo-code. Remember the semantics of test-and-set: The operation /atomically/ checks whether *lk* is false and writes it to true if it is. In that case, the operation succeeded, and test-and-set returns true. If *lk* is already set to true, the operation fails and test-and-set returns false.
+Remember the semantics of test-and-set: The operation /atomically/ checks whether *lk* is false and sets it to true if it is. In that case, the operation succeeded, and test-and-set returns true. If *lk* is already set to true, the operation fails and test-and-set returns false.
 
 Now, a thread tries to acquire the lock by calling *lock()* and spins in the while loop until test-and-set returns true. It could return false because another thread currently holds the lock. Our progress assumption guarantees us however that this thread will finish its critical section and release the lock in a finite amount of time. But even then, test-and-set can fail again when a competing thread succeeds and our thread fails. There is nothing about these atomic read-modify-write operations that guarantees us something about the ordering that competing threads succeed. Our thread could simply never succeed, because every time the lock is released again, another thread that also executes the TAS operation could succeed and thus our thread fails.
 
-With the same reasoning, one can also show trivially that these locks are not fair. The *lock()* method consists /only/ of a waiting section, there is no possibility of defining a doorway (because a doorway must contain a bounded number of instructions, so no spin-loops allowed). Hence, being "first-in" means essentially nothing for such locks, since it does not even guarantee that the "first-in" thread starts executing the atomic operation first.
+With the same reasoning, one can also show trivially that these locks are not fair. The *lock()* method consists /only/ of a waiting section, there is no possibility of defining a doorway. Hence, being "first-in" means essentially nothing for such locks, since it does not even guarantee that the "first-in" thread starts executing the atomic operation first.
 
 ** How can it be that Atomic-RMW based Locks are Used then?
-It may seem strange, as the class itself defined that a correct lock needs to fulfill starvation freedom. However, locks based on atomic-RMW operations are the only lock implementation actually used in modern systems and they are /not/ starvation-free. How can this be? Starvation-freedom is just not a super important property. Think about it, a lock that can deadlock is unusable. Even when the probability of it deadlocking is low, such an algorithm deployed in, say, a banking system could prove fatal. This is because there is by definition no escape from a deadlock. The system is just in a state where it cannot get out of. But what the lack of starvation-freedom in atomic spinlocks means, is that /technically/, the atomic operation could always fail (due to contention). In the sense that there is nothing that guarantees us that it will eventually succeed. But, the probability of this happening is 0. Because to actually starve, a thread would need to try the atomic operations an infinite amount of times and fail every single time.
+It may seem strange, as the /Parallel Programming/ class itself defined that a correct lock needs to fulfill starvation freedom. However, locks based on atomic-RMW operations are the only lock implementation actually used in modern systems and they are /not/ starvation-free. How can this be? Starvation-freedom is just not a super important property. The lack of starvation-freedom in atomic spin-locks means, is that /technically/, the atomic operation could always fail (due to contention). In the sense that there is nothing that guarantees its eventual success. However, the probability of that happening is 0. To actually starve, a thread would need to try the atomic operations an infinite amount of times and fail every single time. In an actual implementation and with using backoff, the probability of failing multiple times in a row is already extremely low.
 
-In an actual implementation, using backoff, the probability of failing multiple times in a row is already extremely low. But, it /could/ technically happen that the atomic operation just keeps failing. That is why we are not guaranteed starvation freedom. But, this barely has any implications on a real-world implementation.
+To further emphasize how starvation-freedom and deadlock-freedom relate, consider a deadlock-free locking algorithm. Assume we have a finite number /n/ of threads that try to acquire the lock. Each of those n threads can also acquire the lock at most k times in total (cannot reenter *lock()* more than k times). There's at most n*k lock acquisitions in total, a finite number.
 
-To further emphasize how starvation-freedom and deadlock-freedom relate, consider a deadlock-free lock algorithm. Let us assume we have a finite number /n/ of threads that try to acquire the lock. Each of those n threads can also acquire the lock at most k times in total (cannot reenter *lock()* more than k times). These are strong assumptions, but in a real-world scenario, threads are probably not going to access a lock an infinite amount of times anyways and we also do not have an infinite number of threads. So, they are strong assumptions, but not entirely unrealistic. The key point is, we have at most n*k lock acquisitions in total, which is a finite number.
-
-Now, deadlock-freedom guarantees us that at least one of the competing threads will succeed in acquiring the lock. Due to our progress assumption, we also have that this successful thread completes the critical section and releases the lock again in finite time. Thus, we land in a scenario where there are at most n*k-1 competing lock acquisitions in a finite time. We can again apply deadlock-freedom here to get to a scenario with at most n*k-2 competing acquisitions and so on. At the end, all of the n*k competing acquisition attempts must succeed (by applying deadlock-freedom n*k-1 times). Thus, we have starvation-freedom. We see that in such a scenario (where the total number of acquisition attempts is bounded), starvation-freedom and deadlock-freedom are equivalent. Starvation-freedom can only be a stronger criterion than deadlock-freedom when we have an infinite number of lock acquisitions.
+Deadlock-freedom now guarantees that at least one of the competing threads succeeds in acquiring the lock. Due to the progress assumption, this successful thread completes the critical section and releases the lock again in finite time. Thus, in finite time, a state with at most n*k-1 competing lock acquisitions is reached. Applying deadlock-freedom again leads to a state with at most n*k-2 competing acquisitions and so on. Finally, all of the n*k competing acquisition attempts must succeed (by applying deadlock-freedom n*k-1 times). This yields starvation-freedom. Thus, in a scenario with a bounded number of acquisition attempts, starvation-freedom and deadlock-freedom are equivalent. Starvation-freedom is only a stronger criterion than deadlock-freedom when there's an infinite number of lock acquisitions.
