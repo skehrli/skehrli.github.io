@@ -1,4 +1,4 @@
-<!-- Generated from 822e566 on 2025-10-07 @ 09:01 with Emacs 27.2 (Org mode 9.4.4) -->
+<!-- Generated from 70ff7da on 2025-10-20 @ 19:42 with Emacs 27.2 (Org mode 9.4.4) -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="System Crafters - David Wilson"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="alternative" type="application/rss+xml" title="System Crafters News" href="/rss/news.xml"/><link rel="stylesheet" href="/css/code.css"/><link rel="stylesheet" href="/css/site.css"/><script defer="defer" data-domain="systemcrafters.net" src="https://plausible.io/js/plausible.js"></script><title>Sascha Kehrli | PhD Student, MPI-SWS</title></head><body><header class="site-header"><div class="container"><div class="site-title" style="text-align:center;">Sascha Kehrli</div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> <a class="nav-link" href="/posts/">Posts</a> </nav></div></div></header><div class="container"><div class="site-post"><h1 class="site-post-title center">An Overview of Locking Algorithms</h1><p class="site-post-meta center"></p><div id="content"><p>
 Some time ago I TAed <i>Parallel Programming</i>, which covers a few locking algorithms that solve the mutual exclusion problem for two or more threads. This is an overview of how they compare in key properties, such as starvation-freedom and fairness, and includes some proof sketches of those properties (the ones I found interesting). The locking algorithms themselves are not explained, but rather is this a writeup of the more surprising and non-obvious properties/proofs I&rsquo;ve found when covering this in my classes.
 </p>
@@ -69,13 +69,13 @@ Some time ago I TAed <i>Parallel Programming</i>, which covers a few locking alg
 </tbody>
 </table>
 
-<h2><a id="before-we-start-assumptions" class="anchor" href="#before-we-start-assumptions">¶</a>Before we Start: Assumptions</h2><div class="outline-text-2" id="text-org5539492">
+<h2><a id="before-we-start-assumptions" class="anchor" href="#before-we-start-assumptions">¶</a>Before we Start: Assumptions</h2><div class="outline-text-2" id="text-orga92bb78">
 <p>
 In order for the definitions and proofs in this post to make sense and be meaningful, we need to make a few assumptions.
 </p>
 </div>
 
-<h3><a id="the-anatomy-of-a-locking-algorithm" class="anchor" href="#the-anatomy-of-a-locking-algorithm">¶</a>The Anatomy of a Locking Algorithm</h3><div class="outline-text-3" id="text-org7fe024f">
+<h3><a id="the-anatomy-of-a-locking-algorithm" class="anchor" href="#the-anatomy-of-a-locking-algorithm">¶</a>The Anatomy of a Locking Algorithm</h3><div class="outline-text-3" id="text-orgb2b6641">
 <ul class="org-ul">
 <li>Non-critical section:
 The code before the thread starts acquiring the lock. This is important to model, since a thread can get stuck in this section.</li>
@@ -107,20 +107,20 @@ flag[id] = <span class="org-constant">true</span>; <span class="org-comment-deli
 </span>flag[id] = <span class="org-constant">false</span>; <span class="org-comment-delimiter">// </span><span class="org-comment">unlock() method</span></pre>
 </div>
 
-<h3><a id="the-progress-assumption" class="anchor" href="#the-progress-assumption">¶</a>The Progress Assumption</h3><div class="outline-text-3" id="text-orgdb6a804">
+<h3><a id="the-progress-assumption" class="anchor" href="#the-progress-assumption">¶</a>The Progress Assumption</h3><div class="outline-text-3" id="text-org58a57a0">
 <p>
 For many proofs, there is a vital assumption usually left implicit, which we call the <i>progress assumption</i>.
 It assumes that threads in the <b>lock()</b> method, the critical section, and the <b>unlock()</b> method have finite time in between instruction executions. That is, it assumes every thread keeps executing its code (although it could be stuck in a loop), with <i>some</i> finite time in between instruction execution. Intuitively, this means that a thread cannot ``die&rsquo;&rsquo; in these parts of the code, and we can assume it will eventually carry on with its algorithm, albeit after an arbitrarily long time. This assumption allows us to prove progress guarantees about algorithms using locks, even though this progress depends on other threads (if another thread holds the lock we depend on this thread releasing the lock at some point). However, we do not make this assumption for the non-critical section, which precedes the call to <b>lock()</b>.
 </p>
 </div>
 
-<h2><a id="mutual-exclusion-and-deadlock-freedom" class="anchor" href="#mutual-exclusion-and-deadlock-freedom">¶</a>Mutual Exclusion and Deadlock-Freedom</h2><div class="outline-text-2" id="text-orgd29ae17">
+<h2><a id="mutual-exclusion-and-deadlock-freedom" class="anchor" href="#mutual-exclusion-and-deadlock-freedom">¶</a>Mutual Exclusion and Deadlock-Freedom</h2><div class="outline-text-2" id="text-org9e75cf1">
 <p>
 Note that all the discussed algorithms provide mutual exclusion and deadlock-freedom, which are the two properties required to even be considered a locking algorithm. Deadlock-freedom means that when at least one thread is contesting for the lock (called <b>lock()</b>, i.e. the thread is trying to acquire it), (at least) one of them is guaranteed to acquire it in finite time.
 </p>
 </div>
 
-<h2><a id="fairness" class="anchor" href="#fairness">¶</a>Fairness</h2><h3><a id="fairness-in-a-lock" class="anchor" href="#fairness-in-a-lock">¶</a>Fairness in a Lock</h3><div class="outline-text-3" id="text-org403774f">
+<h2><a id="fairness" class="anchor" href="#fairness">¶</a>Fairness</h2><h3><a id="fairness-in-a-lock" class="anchor" href="#fairness-in-a-lock">¶</a>Fairness in a Lock</h3><div class="outline-text-3" id="text-org122443b">
 <p>
 First of all, there is no universal definition of fairness in the literature. Some sources consider fairness as something we refer to as starvation-freedom. We consider a lock algorithm to be fair, if it fulfills FIFO order. Note that FIFO (first-in-first-out) and first-come-first-served mean exactly the same thing.
 </p>
@@ -143,7 +143,7 @@ This is not a terribly simple definition, but a precise and useful one.
 </p>
 </div>
 
-<h3><a id="fairness-of-petersonrsquos-algorithm" class="anchor" href="#fairness-of-petersonrsquos-algorithm">¶</a>Fairness of Peterson&rsquo;s Algorithm</h3><div class="outline-text-3" id="text-org18529b4">
+<h3><a id="fairness-of-petersonrsquos-algorithm" class="anchor" href="#fairness-of-petersonrsquos-algorithm">¶</a>Fairness of Peterson&rsquo;s Algorithm</h3><div class="outline-text-3" id="text-org64f6a9c">
 <p>
 First, consider the following pseudo-code of the simple Peterson lock that provides mutual exclusion for two threads:
 </p>
@@ -181,7 +181,7 @@ In all cases, P enters the critical section before Q, and thus the algorithm is 
 </p>
 </div>
 
-<h3><a id="why-is-dekkerrsquos-algorithm-not-fair" class="anchor" href="#why-is-dekkerrsquos-algorithm-not-fair">¶</a>Why is Dekker&rsquo;s Algorithm not Fair?</h3><div class="outline-text-3" id="text-org902b038">
+<h3><a id="why-is-dekkerrsquos-algorithm-not-fair" class="anchor" href="#why-is-dekkerrsquos-algorithm-not-fair">¶</a>Why is Dekker&rsquo;s Algorithm not Fair?</h3><div class="outline-text-3" id="text-org53047d3">
 <p>
 Consider Dekkers Algorithm:
 </p>
@@ -216,7 +216,7 @@ Assume thread Q was &ldquo;first-in&rdquo; before thread P. Here, we can only de
 </p>
 </div>
 
-<h3><a id="why-is-the-filter-lock-not-fair" class="anchor" href="#why-is-the-filter-lock-not-fair">¶</a>Why is the Filter Lock not Fair?</h3><div class="outline-text-3" id="text-orgf53de8c">
+<h3><a id="why-is-the-filter-lock-not-fair" class="anchor" href="#why-is-the-filter-lock-not-fair">¶</a>Why is the Filter Lock not Fair?</h3><div class="outline-text-3" id="text-org2c0b876">
 <pre><span class="org-comment-delimiter">// </span><span class="org-comment">shared fields
 </span><span class="org-type">int</span> <span class="org-variable-name">level</span> [n] = { 0,0,...,0 };
 <span class="org-type">int</span> <span class="org-variable-name">victim</span> [n];
@@ -250,13 +250,13 @@ Critical readers might now point out that our fairness definition only specified
 </p>
 </div>
 
-<h2><a id="starvation" class="anchor" href="#starvation">¶</a>Starvation</h2><h3><a id="proving-starvation-freedom-in-general" class="anchor" href="#proving-starvation-freedom-in-general">¶</a>Proving Starvation Freedom in General</h3><div class="outline-text-3" id="text-org4de596f">
+<h2><a id="starvation" class="anchor" href="#starvation">¶</a>Starvation</h2><h3><a id="proving-starvation-freedom-in-general" class="anchor" href="#proving-starvation-freedom-in-general">¶</a>Proving Starvation Freedom in General</h3><div class="outline-text-3" id="text-org52ae3af">
 <p>
 Starvation is a surprisingly simple property and formally means that any thread that calls <b>lock()</b> will acquire the lock in finite time (that is, the <b>lock()</b> method terminates). To prove starvation freedom, we assume an arbitrary thread (that called <b>lock()</b>) and show that it will finish its <b>lock()</b> method in finite time.
 </p>
 </div>
 
-<h3><a id="starvation-freedom-of-filter-lock" class="anchor" href="#starvation-freedom-of-filter-lock">¶</a>Starvation Freedom of Filter Lock</h3><div class="outline-text-3" id="text-org0b49564">
+<h3><a id="starvation-freedom-of-filter-lock" class="anchor" href="#starvation-freedom-of-filter-lock">¶</a>Starvation Freedom of Filter Lock</h3><div class="outline-text-3" id="text-org2b90427">
 <pre><span class="org-comment-delimiter">// </span><span class="org-comment">shared fields
 </span><span class="org-type">int</span> <span class="org-variable-name">level</span> [n] = { 0,0,...,0 };
 <span class="org-type">int</span> <span class="org-variable-name">victim</span> [n];
@@ -296,7 +296,7 @@ This case distinction should provide enough intuition as to why a thread must ma
 </p>
 </div>
 
-<h3><a id="why-are-locks-using-atomic-rmw-operations-not-starvation-free-and-not-fair" class="anchor" href="#why-are-locks-using-atomic-rmw-operations-not-starvation-free-and-not-fair">¶</a>Why are Locks using Atomic-RMW Operations not Starvation-Free (and not Fair)?</h3><div class="outline-text-3" id="text-orgc887635">
+<h3><a id="why-are-locks-using-atomic-rmw-operations-not-starvation-free-and-not-fair" class="anchor" href="#why-are-locks-using-atomic-rmw-operations-not-starvation-free-and-not-fair">¶</a>Why are Locks using Atomic-RMW Operations not Starvation-Free (and not Fair)?</h3><div class="outline-text-3" id="text-orgdae6f60">
 <p>
 Consider a spin-lock using the atomic TAS (test-and-set) operation:
 </p>
@@ -324,7 +324,7 @@ With the same reasoning, one can also show trivially that these locks are not fa
 </p>
 </div>
 
-<h3><a id="how-can-it-be-that-atomic-rmw-based-locks-are-used-then" class="anchor" href="#how-can-it-be-that-atomic-rmw-based-locks-are-used-then">¶</a>How can it be that Atomic-RMW based Locks are Used then?</h3><div class="outline-text-3" id="text-org84bc5e6">
+<h3><a id="how-can-it-be-that-atomic-rmw-based-locks-are-used-then" class="anchor" href="#how-can-it-be-that-atomic-rmw-based-locks-are-used-then">¶</a>How can it be that Atomic-RMW based Locks are Used then?</h3><div class="outline-text-3" id="text-org86591e2">
 <p>
 It may seem strange, as the <i>Parallel Programming</i> class itself defined that a correct lock needs to fulfill starvation freedom. However, locks based on atomic-RMW operations are the only lock implementation actually used in modern systems and they are <i>not</i> starvation-free. How can this be? Starvation-freedom is just not a super important property. The lack of starvation-freedom in atomic spin-locks means, is that <i>technically</i>, the atomic operation could always fail (due to contention). In the sense that there is nothing that guarantees its eventual success. However, the probability of that happening is 0. To actually starve, a thread would need to try the atomic operations an infinite amount of times and fail every single time. In an actual implementation and with using backoff, the probability of failing multiple times in a row is already extremely low.
 </p>
