@@ -1,6 +1,6 @@
 #+title: Welcome!
 
-I'm a PhD student in computer science at [[https://www.mpi-sws.org/][MPI-SWS]] broadly interested in the theory and implementation of programming languages (from logical foundations all the way to gate-level hardware).
+I'm a PhD student in computer science at [[https://www.mpi-sws.org/][MPI-SWS]] broadly interested in the theory and implementation of programming languages (from logical foundations all the way to the microarchitecture of the targeted hardware).
 
 You can reach me at skehrli[at]mpi-sws[.]org. [[https://github.com/skehrli][This]] is my Github.
 
