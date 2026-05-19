@@ -126,7 +126,7 @@
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
+                                ; (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
       ))))))
 
 (defun dw/site-footer ()
