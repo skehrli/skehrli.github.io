@@ -1,6 +1,4 @@
-#+title: Welcome!
-
-I'm a PhD student at [[https://www.mpi-sws.org/][MPI-SWS]] in Saarbrücken, Germany. I'm interested broadly in PL, logic, and verification.
+I'm a PhD student at [[https://www.mpi-sws.org/][MPI-SWS]] in Saarbrücken, Germany. I'm interested in PL, logic, and verification.
 
 You can reach me at skehrli[at]mpi-sws[.]org. [[https://github.com/skehrli][This]] is my Github.
 
