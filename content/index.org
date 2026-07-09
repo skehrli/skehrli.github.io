@@ -1,6 +1,6 @@
-I'm a PhD student at [[https://www.mpi-sws.org/][MPI-SWS]] in Saarbrücken, Germany. I'm interested in PL, logic, and verification.
+I'm a PhD student at [[https://www.mpi-sws.org/][MPI-SWS]] in Saarbrücken, Germany, advised by Derek Dreyer. I'm interested in PL, logic, and verification.
 
-You can reach me at skehrli[at]mpi-sws[.]org. [[https://github.com/skehrli][This]] is my Github.
+You can reach me at skehrli[at]mpi-sws[.]org.
 
 * Education
 + PhD in Computer Science, *MPI-SWS* (ongoing).
@@ -12,10 +12,10 @@ You can reach me at skehrli[at]mpi-sws[.]org. [[https://github.com/skehrli][This
 
   [[https://github.com/skehrli/checker-framework][Resource Leak Checker For Collections]]
 
-+ As a thesis intern at EPFL, I formalized a first-order arithmetic termed _Grounded Arithmetic_ (based on the [[https://bford.info/pub/lang/gd/][_Grounded Deduction_ logic]]) in the Isabelle/Pure proof assistant. _Grounded Arithmetic_ is interesting, because it permits arbitrary recursion in definitions, allowing even non-terminating or circular definitions as terms in the logic, which means it can express arbitrary computation despite being only a first-order arithmetic. To remain consistent, _Grounded Arithmetic_ weakens many inference rules compared to classical arithmetic. Besides the axiomatization of the logic and arithmetic theory itself, I formalized a fair bit of basic arithmetic from the axioms, including Cantor tuples and associated machinery, in order to be able to embed inductive datatypes into the natural number theory. A case study then provided a fully verified encoded List datatype, with all required theorems proven in _Grounded Arithmetic_ itself. Advised by [[https://bford.info/][Bryan Ford]]:
++ As a thesis intern at EPFL, I formalized a first-order arithmetic termed _Grounded Arithmetic_ (based on the [[https://bford.info/pub/lang/gd/][_Grounded Deduction_ logic]]) in the Isabelle/Pure proof assistant. _Grounded Arithmetic_ permits arbitrary recursion in definitions, allowing even non-terminating or circular definitions as terms in the logic. It can thus express arbitrary computation. To remain consistent in the presence of non-terminating terms, _Grounded Arithmetic_ weakens many inference rules compared to classical arithmetic (its consistency was proven independently for a deep embedding in Isabelle/HOL). I axiomatized the logic atop the minimal Pure calculus and formalized a fair bit of basic arithmetic, including Cantor tuples and associated machinery. I also encoded inductive datatypes into the axiomatized natural number theory, providing a fully verified encoding of a List datatype, with all required theorems proven in _Grounded Arithmetic_ itself. Advised by [[https://bford.info/][Bryan Ford]]:
 
   [[https://bford.info/thesis/2025-kehrli/][Formalizing Grounded Arithmetic atop Isabelle/Pure]]
 
 * Teaching
-+ Teaching Assistant in /Parallel Programming/ at ETH. For this one, I authored [[https://online.fliphtml5.com/kxggl/swny/][lecture notes]] and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. Theory recaps and exercise solving for two classes of ~30 students each per week.
-+ Teaching Assistant in /Algorithms & Datastructures/ at ETH. Theory recaps and exercise solving for a class of ~30 students each per week.
++ Teaching Assistant in /Parallel Programming/ at ETH. Weekly lecture recaps for two classes of ~30 students each. I additionally authored [[https://online.fliphtml5.com/kxggl/swny/][lecture notes]] for this class and received the [[https://inf.ethz.ch/news-and-events/spotlights/infk-news-channel/2023/05/2023-vis-teaching-awards.html][VIS Teaching Award]] for extraordinary commitment as a TA. 
++ Teaching Assistant in /Algorithms & Datastructures/ at ETH. Weekly lecture recaps and exercise solving for a class of ~30 students.
